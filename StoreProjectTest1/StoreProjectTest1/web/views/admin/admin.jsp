@@ -1,761 +1,819 @@
-<%-- 
-    Document   : admin
-    Created on : Jun 26, 2021, 6:04:46 PM
-    Author     : Admin
---%>
+<!--
+=========================================================
+Material Dashboard - v2.1.2
+=========================================================
 
+Product Page: https://www.creative-tim.com/product/material-dashboard
+Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Coded by Creative Tim
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>  
-<!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- Meta, title, CSS, favicons, etc. -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8" />
+        <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+        <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>
+            Admin DashBoard
+        </title>
+        <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+        <!--     Fonts and icons     -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+        <!-- CSS Files -->
+        <link href="${path}/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+        <link rel="shortcut icon" type="image/x-icon" href="${path}/assets/images/logo2.png" />
 
-        <title>Gentelella Alela! | </title>
-
-        <link rel="stylesheet" href="${path}/assets/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="${path}/assets/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="${path}/assets/css/Pe-icon-7-stroke.css" />
-        <link rel="stylesheet" href="${path}/assets/css/animate.min.css">
-        <link rel="stylesheet" href="${path}/assets/css/swiper-bundle.min.css">
-        <link rel="stylesheet" href="${path}/assets/css/nice-select.css">
-        <link rel="stylesheet" href="${path}/assets/css/magnific-popup.min.css" />
-        <link rel="stylesheet" href="${path}/assets/css/ion.rangeSlider.min.css" />
-        <!-- NProgress -->
-        <link href="${path}/assets/css/nprogress/nprogress.css" rel="stylesheet">
-        <!-- bootstrap-daterangepicker -->
-        <link href="${path}/assets/css/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
-        <!-- Custom Theme Style -->
-        <link href="${path}/assets/css/custom.min.css" rel="stylesheet">
     </head>
 
-    <body class="nav-md">
-        <div class="container body">
-            <div class="main_container">
-                <div class="col-md-3 left_col">
-                    <div class="left_col scroll-view">
-                        <div class="navbar nav_title" style="border: 0;">
-                            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
-                        </div>
-
-                        <div class="clearfix"></div>
-
-                        <!-- menu profile quick info -->
-                        <div class="profile clearfix">
-                            <div class="profile_pic">
-                                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
-                            </div>
-                            <div class="profile_info">
-                                <span>Welcome,</span>
-                                <h2>John Doe</h2>
-                            </div>
-                        </div>
-                        <!-- /menu profile quick info -->
-
-                        <br />
-
-                        <!-- sidebar menu -->
-                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                            <div class="menu_section">
-                                <h3>General</h3>
-                                <ul class="nav side-menu">
-                                    <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="dropdown-menu nav child_menu">
-                                            <li><a class="dropdown-item" href="index.html">Dashboard</a></li>
-                                            <li><a class="dropdown-item" href="index2.html">Dashboard2</a></li>
-                                            <li><a class="dropdown-item" href="index3.html">Dashboard3</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="form.html">General Form</a></li>
-                                            <li><a href="form_advanced.html">Advanced Components</a></li>
-                                            <li><a href="form_validation.html">Form Validation</a></li>
-                                            <li><a href="form_wizards.html">Form Wizard</a></li>
-                                            <li><a href="form_upload.html">Form Upload</a></li>
-                                            <li><a href="form_buttons.html">Form Buttons</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="general_elements.html">General Elements</a></li>
-                                            <li><a href="media_gallery.html">Media Gallery</a></li>
-                                            <li><a href="typography.html">Typography</a></li>
-                                            <li><a href="icons.html">Icons</a></li>
-                                            <li><a href="glyphicons.html">Glyphicons</a></li>
-                                            <li><a href="widgets.html">Widgets</a></li>
-                                            <li><a href="invoice.html">Invoice</a></li>
-                                            <li><a href="inbox.html">Inbox</a></li>
-                                            <li><a href="calendar.html">Calendar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="tables.html">Tables</a></li>
-                                            <li><a href="tables_dynamic.html">Table Dynamic</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="chartjs.html">Chart JS</a></li>
-                                            <li><a href="chartjs2.html">Chart JS2</a></li>
-                                            <li><a href="morisjs.html">Moris JS</a></li>
-                                            <li><a href="echarts.html">ECharts</a></li>
-                                            <li><a href="other_charts.html">Other Charts</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                                            <li><a href="fixed_footer.html">Fixed Footer</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="menu_section">
-                                <h3>Live On</h3>
-                                <ul class="nav side-menu">
-                                    <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="e_commerce.html">E-commerce</a></li>
-                                            <li><a href="projects.html">Projects</a></li>
-                                            <li><a href="project_detail.html">Project Detail</a></li>
-                                            <li><a href="contacts.html">Contacts</a></li>
-                                            <li><a href="profile.html">Profile</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="page_403.html">403 Error</a></li>
-                                            <li><a href="page_404.html">404 Error</a></li>
-                                            <li><a href="page_500.html">500 Error</a></li>
-                                            <li><a href="plain_page.html">Plain Page</a></li>
-                                            <li><a href="login.html">Login Page</a></li>
-                                            <li><a href="pricing_tables.html">Pricing Tables</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="#level1_1">Level One</a>
-                                            <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                                                <ul class="nav child_menu">
-                                                    <li class="sub_menu"><a href="level2.html">Level Two</a>
-                                                    </li>
-                                                    <li><a href="#level2_1">Level Two</a>
-                                                    </li>
-                                                    <li><a href="#level2_2">Level Two</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#level1_2">Level One</a>
-                                            </li>
-                                        </ul>
-                                    </li>                  
-                                    <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
-                                </ul>
-                            </div>
-
-                        </div>
-                        <!-- /sidebar menu -->
-
-                        <!-- /menu footer buttons -->
-                        <div class="sidebar-footer hidden-small">
-                            <a data-toggle="tooltip" data-placement="top" title="Settings">
-                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+    <body class="">
+        <div class="wrapper ">
+            <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+                <!--
+                  Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+          
+                  Tip 2: you can also add an image using data-image tag
+                -->
+                <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                        Hanger coporation
+                    </a></div>
+                <div class="sidebar-wrapper">
+                    <ul class="nav">
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="./dashboard.html">
+                                <i class="material-icons">dashboard</i>
+                                <p>Dashboard</p>
                             </a>
-                            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./user.html">
+                                <i class="material-icons">person</i>
+                                <p>User Profile</p>
                             </a>
-                            <a data-toggle="tooltip" data-placement="top" title="Lock">
-                                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./tables.html">
+                                <i class="material-icons">content_paste</i>
+                                <p>Table List</p>
                             </a>
-                            <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./typography.html">
+                                <i class="material-icons">library_books</i>
+                                <p>Typography</p>
                             </a>
-                        </div>
-                        <!-- /menu footer buttons -->
-                    </div>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./icons.html">
+                                <i class="material-icons">bubble_chart</i>
+                                <p>Icons</p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./notifications.html">
+                                <i class="material-icons">notifications</i>
+                                <p>Notifications</p>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-
-                <!-- top navigation -->
-                <div class="top_nav">
-                    <div class="nav_menu">
-                        <div class="nav toggle">
-                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+            <div class="main-panel">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                    <div class="container-fluid">
+                        <div class="navbar-wrapper">
+                            <a class="navbar-brand" href="javascript:;">Dashboard</a>
                         </div>
-                        <nav class="nav navbar-nav">
-                            <ul class=" navbar-right">
-                                <li class="nav-item dropdown open" style="padding-left: 15px;">
-                                    <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="images/img.jpg" alt="">John Doe
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end">
+                            <form class="navbar-form">
+                                <div class="input-group no-border">
+                                    <input type="text" value="" class="form-control" placeholder="Search...">
+                                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                        <i class="material-icons">search</i>
+                                        <div class="ripple-container"></div>
+                                    </button>
+                                </div>
+                            </form>
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="javascript:;">
+                                        <i class="material-icons">dashboard</i>
+                                        <p class="d-lg-none d-md-block">
+                                            Stats
+                                        </p>
                                     </a>
-                                    <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item"  href="javascript:;"> Profile</a>
-                                        <a class="dropdown-item"  href="javascript:;">
-                                            <span class="badge bg-red pull-right">50%</span>
-                                            <span>Settings</span>
-                                        </a>
-                                        <a class="dropdown-item"  href="javascript:;">Help</a>
-                                        <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">notifications</i>
+                                        <span class="notification">5</span>
+                                        <p class="d-lg-none d-md-block">
+                                            Some Actions
+                                        </p>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                                        <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                                        <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                                        <a class="dropdown-item" href="#">Another Notification</a>
+                                        <a class="dropdown-item" href="#">Another One</a>
                                     </div>
                                 </li>
-
-                                <li role="presentation" class="nav-item dropdown open">
-                                    <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-envelope-o"></i>
-                                        <span class="badge bg-green">6</span>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">person</i>
+                                        <p class="d-lg-none d-md-block">
+                                            Account
+                                        </p>
                                     </a>
-                                    <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                                        <li class="nav-item">
-                                            <a class="dropdown-item">
-                                                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
-                                                </span>
-                                                <span class="message">
-                                                    Film festivals used to be do-or-die moments for movie makers. They were where...
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="dropdown-item">
-                                                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
-                                                </span>
-                                                <span class="message">
-                                                    Film festivals used to be do-or-die moments for movie makers. They were where...
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="dropdown-item">
-                                                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
-                                                </span>
-                                                <span class="message">
-                                                    Film festivals used to be do-or-die moments for movie makers. They were where...
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="dropdown-item">
-                                                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
-                                                </span>
-                                                <span class="message">
-                                                    Film festivals used to be do-or-die moments for movie makers. They were where...
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <div class="text-center">
-                                                <a class="dropdown-item">
-                                                    <strong>See All Alerts</strong>
-                                                    <i class="fa fa-angle-right"></i>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                                        <a class="dropdown-item" href="#">Profile</a>
+                                        <a class="dropdown-item" href="#">Settings</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Log out</a>
+                                    </div>
                                 </li>
                             </ul>
-                        </nav>
+                        </div>
                     </div>
-                </div>
-                <!-- /top navigation -->
-
-                <!-- page content -->
-                <div class="right_col" role="main">
-                    <div class="">
-                        <div class="row" style="display: inline-block;">
-                            <div class="top_tiles">
-                                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
-                                    <div class="tile-stats">
-                                        <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
-                                        <div class="count">179</div>
-                                        <h3>New Sign ups</h3>
-                                        <p>Lorem ipsum psdea itgum rixt.</p>
+                </nav>
+                <!-- End Navbar -->
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-warning card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">content_copy</i>
+                                        </div>
+                                        <p class="card-category">Used Space</p>
+                                        <h3 class="card-title">49/50
+                                            <small>GB</small>
+                                        </h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons text-danger">warning</i>
+                                            <a href="javascript:;">Get More Space...</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
-                                    <div class="tile-stats">
-                                        <div class="icon"><i class="fa fa-comments-o"></i></div>
-                                        <div class="count">179</div>
-                                        <h3>New Sign ups</h3>
-                                        <p>Lorem ipsum psdea itgum rixt.</p>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-success card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">store</i>
+                                        </div>
+                                        <p class="card-category">Revenue</p>
+                                        <h3 class="card-title">$34,245</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">date_range</i> Last 24 Hours
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
-                                    <div class="tile-stats">
-                                        <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
-                                        <div class="count">179</div>
-                                        <h3>New Sign ups</h3>
-                                        <p>Lorem ipsum psdea itgum rixt.</p>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-danger card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">info_outline</i>
+                                        </div>
+                                        <p class="card-category">Fixed Issues</p>
+                                        <h3 class="card-title">75</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">local_offer</i> Tracked from Github
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
-                                    <div class="tile-stats">
-                                        <div class="icon"><i class="fa fa-check-square-o"></i></div>
-                                        <div class="count">179</div>
-                                        <h3>New Sign ups</h3>
-                                        <p>Lorem ipsum psdea itgum rixt.</p>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-info card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="fa fa-twitter"></i>
+                                        </div>
+                                        <p class="card-category">Followers</p>
+                                        <h3 class="card-title">+245</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">update</i> Just Updated
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Transaction Summary <small>Weekly progress</small></h2>
-                                        <div class="filter">
-                                            <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                                                <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
+                            <div class="col-md-4">
+                                <div class="card card-chart">
+                                    <div class="card-header card-header-success">
+                                        <div class="ct-chart" id="dailySalesChart"></div>
                                     </div>
-                                    <div class="x_content">
-                                        <div class="col-md-9 col-sm-12 ">
-                                            <div class="demo-container" style="height:280px">
-                                                <div id="chart_plot_02" class="demo-placeholder"></div>
-                                            </div>
-                                            <div class="tiles">
-                                                <div class="col-md-4 tile">
-                                                    <span>Total Sessions</span>
-                                                    <h2>231,809</h2>
-                                                    <span class="sparkline11 graph" style="height: 160px;">
-                                                        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                                    </span>
-                                                </div>
-                                                <div class="col-md-4 tile">
-                                                    <span>Total Revenue</span>
-                                                    <h2>$231,809</h2>
-                                                    <span class="sparkline22 graph" style="height: 160px;">
-                                                        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                                    </span>
-                                                </div>
-                                                <div class="col-md-4 tile">
-                                                    <span>Total Sessions</span>
-                                                    <h2>231,809</h2>
-                                                    <span class="sparkline11 graph" style="height: 160px;">
-                                                        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                                    </span>
-                                                </div>
-                                            </div>
-
+                                    <div class="card-body">
+                                        <h4 class="card-title">Daily Sales</h4>
+                                        <p class="card-category">
+                                            <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">access_time</i> updated 4 minutes ago
                                         </div>
-
-                                        <div class="col-md-3 col-sm-12 ">
-                                            <div>
-                                                <div class="x_title">
-                                                    <h2>Top Profiles</h2>
-                                                    <ul class="nav navbar-right panel_toolbox">
-                                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                        </li>
-                                                        <li class="dropdown">
-                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item" href="#">Settings 1</a>
-                                                                <a class="dropdown-item" href="#">Settings 2</a>
-                                                            </div>
-                                                        </li>
-                                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <ul class="list-unstyled top_profiles scroll-view">
-                                                    <li class="media event">
-                                                        <a class="pull-left border-aero profile_thumb">
-                                                            <i class="fa fa-user aero"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-chart">
+                                    <div class="card-header card-header-warning">
+                                        <div class="ct-chart" id="websiteViewsChart"></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Email Subscriptions</h4>
+                                        <p class="card-category">Last Campaign Performance</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">access_time</i> campaign sent 2 days ago
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-chart">
+                                    <div class="card-header card-header-danger">
+                                        <div class="ct-chart" id="completedTasksChart"></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Completed Tasks</h4>
+                                        <p class="card-category">Last Campaign Performance</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">access_time</i> campaign sent 2 days ago
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="card">
+                                    <div class="card-header card-header-tabs card-header-primary">
+                                        <div class="nav-tabs-navigation">
+                                            <div class="nav-tabs-wrapper">
+                                                <span class="nav-tabs-title">Tasks:</span>
+                                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" href="#profile" data-toggle="tab">
+                                                            <i class="material-icons">bug_report</i> Bugs
+                                                            <div class="ripple-container"></div>
                                                         </a>
-                                                        <div class="media-body">
-                                                            <a class="title" href="#">Ms. Mary Jane</a>
-                                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                                                            <p> <small>12 Sales Today</small>
-                                                            </p>
-                                                        </div>
                                                     </li>
-                                                    <li class="media event">
-                                                        <a class="pull-left border-green profile_thumb">
-                                                            <i class="fa fa-user green"></i>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#messages" data-toggle="tab">
+                                                            <i class="material-icons">code</i> Website
+                                                            <div class="ripple-container"></div>
                                                         </a>
-                                                        <div class="media-body">
-                                                            <a class="title" href="#">Ms. Mary Jane</a>
-                                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                                                            <p> <small>12 Sales Today</small>
-                                                            </p>
-                                                        </div>
                                                     </li>
-                                                    <li class="media event">
-                                                        <a class="pull-left border-blue profile_thumb">
-                                                            <i class="fa fa-user blue"></i>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#settings" data-toggle="tab">
+                                                            <i class="material-icons">cloud</i> Server
+                                                            <div class="ripple-container"></div>
                                                         </a>
-                                                        <div class="media-body">
-                                                            <a class="title" href="#">Ms. Mary Jane</a>
-                                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                                                            <p> <small>12 Sales Today</small>
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                    <li class="media event">
-                                                        <a class="pull-left border-aero profile_thumb">
-                                                            <i class="fa fa-user aero"></i>
-                                                        </a>
-                                                        <div class="media-body">
-                                                            <a class="title" href="#">Ms. Mary Jane</a>
-                                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                                                            <p> <small>12 Sales Today</small>
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                    <li class="media event">
-                                                        <a class="pull-left border-green profile_thumb">
-                                                            <i class="fa fa-user green"></i>
-                                                        </a>
-                                                        <div class="media-body">
-                                                            <a class="title" href="#">Ms. Mary Jane</a>
-                                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                                                            <p> <small>12 Sales Today</small>
-                                                            </p>
-                                                        </div>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
-
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Weekly Summary <small>Activity shares</small></h2>
-                                        <ul class="nav navbar-right panel_toolbox">
-                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">Settings 1</a>
-                                                    <a class="dropdown-item" href="#">Settings 2</a>
-                                                </div>
-                                            </li>
-                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                            </li>
-                                        </ul>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-
-                                        <div class="row" style="border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; margin-bottom: 5px;">
-                                            <div class="col-md-7" style="overflow:hidden;">
-                                                <span class="sparkline_one" style="height: 160px; padding: 10px 25px;">
-                                                    <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                                </span>
-                                                <h4 style="margin:18px">Weekly sales progress</h4>
+                                    <div class="card-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="profile">
+                                                <table class="table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                                                        <span class="form-check-sign">
+                                                                            <span class="check"></span>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                                            <td class="td-actions text-right">
+                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                                                    <i class="material-icons">edit</i>
+                                                                </button>
+                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                                                    <i class="material-icons">close</i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="checkbox" value="">
+                                                                        <span class="form-check-sign">
+                                                                            <span class="check"></span>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                                            <td class="td-actions text-right">
+                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                                                    <i class="material-icons">edit</i>
+                                                                </button>
+                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                                                    <i class="material-icons">close</i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="checkbox" value="">
+                                                                        <span class="form-check-sign">
+                                                                            <span class="check"></span>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                                                            </td>
+                                                            <td class="td-actions text-right">
+                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                                                    <i class="material-icons">edit</i>
+                                                                </button>
+                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                                                    <i class="material-icons">close</i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                                                        <span class="form-check-sign">
+                                                                            <span class="check"></span>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>Create 4 Invisible User Experiences you Never Knew About</td>
+                                                            <td class="td-actions text-right">
+                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                                                    <i class="material-icons">edit</i>
+                                                                </button>
+                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                                                    <i class="material-icons">close</i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
-
-                                            <div class="col-md-5">
-                                                <div class="row" style="text-align: center;">
-                                                    <div class="col-md-4">
-                                                        <canvas class="canvasDoughnut" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
-                                                        <h4 style="margin:0">Bounce Rates</h4>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <canvas class="canvasDoughnut" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
-                                                        <h4 style="margin:0">New Traffic</h4>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <canvas class="canvasDoughnut" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
-                                                        <h4 style="margin:0">Device Share</h4>
-                                                    </div>
-                                                </div>
+                                            <div class="tab-pane" id="messages">
+                                                <table class="table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                                                        <span class="form-check-sign">
+                                                                            <span class="check"></span>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                                                            </td>
+                                                            <td class="td-actions text-right">
+                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                                                    <i class="material-icons">edit</i>
+                                                                </button>
+                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                                                    <i class="material-icons">close</i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="checkbox" value="">
+                                                                        <span class="form-check-sign">
+                                                                            <span class="check"></span>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                                            <td class="td-actions text-right">
+                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                                                    <i class="material-icons">edit</i>
+                                                                </button>
+                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                                                    <i class="material-icons">close</i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="tab-pane" id="settings">
+                                                <table class="table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="checkbox" value="">
+                                                                        <span class="form-check-sign">
+                                                                            <span class="check"></span>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                                            <td class="td-actions text-right">
+                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                                                    <i class="material-icons">edit</i>
+                                                                </button>
+                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                                                    <i class="material-icons">close</i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                                                        <span class="form-check-sign">
+                                                                            <span class="check"></span>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                                                            </td>
+                                                            <td class="td-actions text-right">
+                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                                                    <i class="material-icons">edit</i>
+                                                                </button>
+                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                                                    <i class="material-icons">close</i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                                                        <span class="form-check-sign">
+                                                                            <span class="check"></span>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                                            <td class="td-actions text-right">
+                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                                                    <i class="material-icons">edit</i>
+                                                                </button>
+                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                                                    <i class="material-icons">close</i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Top Profiles <small>Sessions</small></h2>
-                                        <ul class="nav navbar-right panel_toolbox">
-                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">Settings 1</a>
-                                                    <a class="dropdown-item" href="#">Settings 2</a>
-                                                </div>
-                                            </li>
-                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                            </li>
-                                        </ul>
-                                        <div class="clearfix"></div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="card">
+                                    <div class="card-header card-header-warning">
+                                        <h4 class="card-title">Employees Stats</h4>
+                                        <p class="card-category">New employees on 15th September, 2016</p>
                                     </div>
-                                    <div class="x_content">
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item One Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item Two Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item Two Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item Two Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item Three Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Top Profiles <small>Sessions</small></h2>
-                                        <ul class="nav navbar-right panel_toolbox">
-                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">Settings 1</a>
-                                                    <a class="dropdown-item" href="#">Settings 2</a>
-                                                </div>
-                                            </li>
-                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                            </li>
-                                        </ul>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item One Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item Two Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item Two Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item Two Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item Three Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Top Profiles <small>Sessions</small></h2>
-                                        <ul class="nav navbar-right panel_toolbox">
-                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">Settings 1</a>
-                                                    <a class="dropdown-item" href="#">Settings 2</a>
-                                                </div>
-                                            </li>
-                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                            </li>
-                                        </ul>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item One Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item Two Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item Two Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item Two Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
-                                        <article class="media event">
-                                            <a class="pull-left date">
-                                                <p class="month">April</p>
-                                                <p class="day">23</p>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">Item Three Title</a>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </div>
-                                        </article>
+                                    <div class="card-body table-responsive">
+                                        <table class="table table-hover">
+                                            <thead class="text-warning">
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Salary</th>
+                                            <th>Country</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Dakota Rice</td>
+                                                    <td>$36,738</td>
+                                                    <td>Niger</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Minerva Hooper</td>
+                                                    <td>$23,789</td>
+                                                    <td>Curaçao</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Sage Rodriguez</td>
+                                                    <td>$56,142</td>
+                                                    <td>Netherlands</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Philip Chaney</td>
+                                                    <td>$38,735</td>
+                                                    <td>Korea, South</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- /page content -->
-
-                <!-- footer content -->
-                <footer>
-                    <div class="pull-right">
-                        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-                    </div>
-                    <div class="clearfix"></div>
-                </footer>
-                <!-- /footer content -->
             </div>
         </div>
-        
-        <script src="${path}/assets/js/vendor/bootstrap.bundle.min.js"></script>
-        <script src="${path}/assets/js/vendor/jquery-3.6.0.min.js"></script>
-        <script src="${path}/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-        <script src="${path}/assets/js/vendor/jquery.waypoints.js"></script>
-        <script src="${path}/assets/js/vendor/modernizr-3.11.2.min.js"></script>
-        <script src="${path}/assets/js/plugins/wow.min.js"></script>
-        <script src="${path}/assets/js/plugins/swiper-bundle.min.js"></script>
-        <script src="${path}/assets/js/plugins/jquery.nice-select.js"></script>
-        <script src="${path}/assets/js/plugins/parallax.min.js"></script>
-        <script src="${path}/assets/js/plugins/jquery.magnific-popup.min.js"></script>
-        <script src="${path}/assets/js/plugins/tippy.min.js"></script>
-        <script src="${path}/assets/js/plugins/ion.rangeSlider.min.js"></script>
-        <script src="${path}/assets/js/plugins/mailchimp-ajax.js"></script>
-        <script src="${path}/assets/js/plugins/jquery.counterup.js"></script>
+        <div class="fixed-plugin">
+            <div class="dropdown show-dropdown">
+                <a href="#" data-toggle="dropdown">
+                    <i class="fa fa-cog fa-2x"> </i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="header-title"> Sidebar Filters</li>
+                    <li class="adjustments-line">
+                        <a href="javascript:void(0)" class="switch-trigger active-color">
+                            <div class="badge-colors ml-auto mr-auto">
+                                <span class="badge filter badge-purple" data-color="purple"></span>
+                                <span class="badge filter badge-azure" data-color="azure"></span>
+                                <span class="badge filter badge-green" data-color="green"></span>
+                                <span class="badge filter badge-warning" data-color="orange"></span>
+                                <span class="badge filter badge-danger" data-color="danger"></span>
+                                <span class="badge filter badge-rose active" data-color="rose"></span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </li>
+                    <!-- <li class="header-title">Want more components?</li>
+                        <li class="button-container">
+                            <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
+                              Get the pro version
+                            </a>
+                        </li> -->
+                </ul>
+            </div>
+        </div>
+        <!--   Core JS Files   -->
+        <script src="${path}/assets/js/core/jquery.min.js"></script>
+        <script src="${path}/assets/js/core/popper.min.js"></script>
+        <script src="${path}/assets/js/core/bootstrap-material-design.min.js"></script>
+        <script src="${path}/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <!-- Plugin for the momentJs  -->
+        <script src="${path}/assets/js/plugins/moment.min.js"></script>
+        <!--  Plugin for Sweet Alert -->
+        <script src="${path}/assets/js/plugins/sweetalert2.js"></script>
+        <!-- Forms Validations Plugin -->
+        <script src="${path}/assets/js/plugins/jquery.validate.min.js"></script>
+        <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+        <script src="${path}/assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+        <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+        <script src="${path}/assets/js/plugins/bootstrap-selectpicker.js"></script>
+        <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+        <script src="${path}/assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+        <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+        <script src="${path}/assets/js/plugins/jquery.dataTables.min.js"></script>
+        <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+        <script src="${path}/assets/js/plugins/bootstrap-tagsinput.js"></script>
+        <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+        <script src="${path}/assets/js/plugins/jasny-bootstrap.min.js"></script>
+        <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+        <script src="${path}/assets/js/plugins/fullcalendar.min.js"></script>
+        <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+        <script src="../assets/js/plugins/jquery-jvectormap.js"></script>
+        <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+        <script src="${path}/assets/js/plugins/nouislider.min.js"></script>
+        <!-- Library for adding dinamically elements -->
+        <script src="${path}/assets/js/plugins/arrive.min.js"></script>
+        <!--  Google Maps Plugin    -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+        <!-- Chartist JS -->
+        <script src="../assets/js/plugins/chartist.min.js"></script>
+        <!--  Notifications Plugin    -->
+        <script src="${path}/assets/js/plugins/bootstrap-notify.js"></script>
+        <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+        <script src="${path}/assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+        <script>
+                                $(document).ready(function () {
+                                    $().ready(function () {
+                                        $sidebar = $('.sidebar');
+
+                                        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+                                        $full_page = $('.full-page');
+
+                                        $sidebar_responsive = $('body > .navbar-collapse');
+
+                                        window_width = $(window).width();
+
+                                        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+                                        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+                                            if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+                                                $('.fixed-plugin .dropdown').addClass('open');
+                                            }
+
+                                        }
+
+                                        $('.fixed-plugin a').click(function (event) {
+                                            // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+                                            if ($(this).hasClass('switch-trigger')) {
+                                                if (event.stopPropagation) {
+                                                    event.stopPropagation();
+                                                } else if (window.event) {
+                                                    window.event.cancelBubble = true;
+                                                }
+                                            }
+                                        });
+
+                                        $('.fixed-plugin .active-color span').click(function () {
+                                            $full_page_background = $('.full-page-background');
+
+                                            $(this).siblings().removeClass('active');
+                                            $(this).addClass('active');
+
+                                            var new_color = $(this).data('color');
+
+                                            if ($sidebar.length != 0) {
+                                                $sidebar.attr('data-color', new_color);
+                                            }
+
+                                            if ($full_page.length != 0) {
+                                                $full_page.attr('filter-color', new_color);
+                                            }
+
+                                            if ($sidebar_responsive.length != 0) {
+                                                $sidebar_responsive.attr('data-color', new_color);
+                                            }
+                                        });
+
+                                        $('.fixed-plugin .background-color .badge').click(function () {
+                                            $(this).siblings().removeClass('active');
+                                            $(this).addClass('active');
+
+                                            var new_color = $(this).data('background-color');
+
+                                            if ($sidebar.length != 0) {
+                                                $sidebar.attr('data-background-color', new_color);
+                                            }
+                                        });
+
+                                        $('.fixed-plugin .img-holder').click(function () {
+                                            $full_page_background = $('.full-page-background');
+
+                                            $(this).parent('li').siblings().removeClass('active');
+                                            $(this).parent('li').addClass('active');
 
 
-        <!-- Custom Theme Scripts -->
-        <script src="${path}/js/custom.min.js"></script>
+                                            var new_image = $(this).find("img").attr('src');
+
+                                            if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                                                $sidebar_img_container.fadeOut('fast', function () {
+                                                    $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                                                    $sidebar_img_container.fadeIn('fast');
+                                                });
+                                            }
+
+                                            if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                                                var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                                                $full_page_background.fadeOut('fast', function () {
+                                                    $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                                                    $full_page_background.fadeIn('fast');
+                                                });
+                                            }
+
+                                            if ($('.switch-sidebar-image input:checked').length == 0) {
+                                                var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+                                                var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                                                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                                                $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                                            }
+
+                                            if ($sidebar_responsive.length != 0) {
+                                                $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+                                            }
+                                        });
+
+                                        $('.switch-sidebar-image input').change(function () {
+                                            $full_page_background = $('.full-page-background');
+
+                                            $input = $(this);
+
+                                            if ($input.is(':checked')) {
+                                                if ($sidebar_img_container.length != 0) {
+                                                    $sidebar_img_container.fadeIn('fast');
+                                                    $sidebar.attr('data-image', '#');
+                                                }
+
+                                                if ($full_page_background.length != 0) {
+                                                    $full_page_background.fadeIn('fast');
+                                                    $full_page.attr('data-image', '#');
+                                                }
+
+                                                background_image = true;
+                                            } else {
+                                                if ($sidebar_img_container.length != 0) {
+                                                    $sidebar.removeAttr('data-image');
+                                                    $sidebar_img_container.fadeOut('fast');
+                                                }
+
+                                                if ($full_page_background.length != 0) {
+                                                    $full_page.removeAttr('data-image', '#');
+                                                    $full_page_background.fadeOut('fast');
+                                                }
+
+                                                background_image = false;
+                                            }
+                                        });
+
+                                        $('.switch-sidebar-mini input').change(function () {
+                                            $body = $('body');
+
+                                            $input = $(this);
+
+                                            if (md.misc.sidebar_mini_active == true) {
+                                                $('body').removeClass('sidebar-mini');
+                                                md.misc.sidebar_mini_active = false;
+
+                                                $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+                                            } else {
+
+                                                $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+                                                setTimeout(function () {
+                                                    $('body').addClass('sidebar-mini');
+
+                                                    md.misc.sidebar_mini_active = true;
+                                                }, 300);
+                                            }
+
+                                            // we simulate the window Resize so the charts will get updated in realtime.
+                                            var simulateWindowResize = setInterval(function () {
+                                                window.dispatchEvent(new Event('resize'));
+                                            }, 180);
+
+                                            // we stop the simulation of Window Resize after the animations are completed
+                                            setTimeout(function () {
+                                                clearInterval(simulateWindowResize);
+                                            }, 1000);
+
+                                        });
+                                    });
+                                });
+        </script>
+        <script>
+            $(document).ready(function () {
+                // Javascript method's body can be found in assets/js/demos.js
+                md.initDashboardPageCharts();
+
+            });
+        </script>
     </body>
+
 </html>

@@ -7,6 +7,7 @@ package Project.DAO;
 
 
 import Project.DBConnection.DBConnection;
+import Project.Sample.Product;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Product;
+
+
+
 
 /**
  *
@@ -34,7 +37,7 @@ public class ProductDAO {
         List<Product> products = new ArrayList<>();
         try {
             con = DBConnection.open();
-            ps = con.prepareCall("SELECT * FROM Product");
+            ps = con.prepareCall("SELECT * FROM [Shopping].[dbo].[Product]");
             rs = ps.executeQuery();
             while (rs.next()) {
                 Product p = new Product();
@@ -44,9 +47,12 @@ public class ProductDAO {
                 p.setProImage(rs.getString("ProImage"));
                 p.setProCategorieID(rs.getString("ProCategorieID"));
                 p.setProSubCategorieID(rs.getString("ProSubCategorieID"));
-                p.setProSuppliers(rs.getString("ProSuppliers"));
+                p.setProSuppliers(rs.getString("ProSupplier"));
+                p.setDes(rs.getString("ProDescription"));
                 p.setProPrice(rs.getDouble("ProPrice"));
                 p.setStock(rs.getInt("Stock"));
+                
+                products.add(p);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);

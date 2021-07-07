@@ -89,8 +89,14 @@
                                                 <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button" id="settingButton" data-bs-toggle="dropdown" aria-label="setting" aria-expanded="false">
                                                     <i class="pe-7s-users"></i>
                                                 </button>
+                                                <c:if test="${logined}">
+                                                    <ul class="dropdown-menu" aria-labelledby="settingButton">
+                                                        <li><a class="dropdown-item" href="MyAccoutController">${UI.fullname}</a></li>         
+                                                        <li><a class="dropdown-item" href="LogoutController">Logout</a>
+                                                        </li>
+                                                    </ul>
+                                                </c:if>        
                                                 <ul class="dropdown-menu" aria-labelledby="settingButton">
-                                                    <li><a class="dropdown-item" href="my-account.jsp">My account</a></li>
                                                     <li><a class="dropdown-item" href="login.jsp">Login</a>
                                                     <li><a class="dropdown-item" href="register.jsp">Register</a>
                                                     </li>
@@ -204,9 +210,15 @@
                                                 <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button" id="stickysettingButton" data-bs-toggle="dropdown" aria-label="setting" aria-expanded="false">
                                                     <i class="pe-7s-users"></i>
                                                 </button>
-                                                <ul class="dropdown-menu" aria-labelledby="stickysettingButton">
-                                                    <li><a class="dropdown-item" href="my-account.jsp">My account</a></li>
-                                                    <li><a class="dropdown-item" href="login">Login</a>
+                                                <c:if test="${logined}">
+                                                    <ul class="dropdown-menu" aria-labelledby="settingButton">
+                                                        <li><a class="dropdown-item" href="MyAccoutController">${UI.fullname}</a></li>         
+                                                        <li><a class="dropdown-item" href="LogoutController">Logout</a>
+                                                        </li>
+                                                    </ul>
+                                                </c:if>        
+                                                <ul class="dropdown-menu" aria-labelledby="settingButton">
+                                                    <li><a class="dropdown-item" href="login.jsp">Login</a>
                                                     <li><a class="dropdown-item" href="register.jsp">Register</a>
                                                     </li>
                                                 </ul>
@@ -250,10 +262,17 @@
                                         <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button" id="settingButtonTwo" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="pe-7s-users"></i>
                                         </button>
-                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingButtonTwo">
-                                            <li><a class="dropdown-item" href="my-account.jsp">My account</a></li>
-                                            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
-                                            <li><a class="dropdown-item" href="register.jsp">Register</a></li>
+                                        <c:if test="${logined}">
+                                            <ul class="dropdown-menu" aria-labelledby="settingButton">
+                                                <li><a class="dropdown-item" href="MyAccoutController">${UI.fullname}</a></li>         
+                                                <li><a class="dropdown-item" href="LogoutController">Logout</a>
+                                                </li>
+                                            </ul>
+                                        </c:if>        
+                                        <ul class="dropdown-menu" aria-labelledby="settingButton">
+                                            <li><a class="dropdown-item" href="login.jsp">Login</a>
+                                            <li><a class="dropdown-item" href="register.jsp">Register</a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li>
@@ -406,23 +425,7 @@
 
             <!-- Begin Main Content Area  -->
             <main class="main-content">
-                <div class="breadcrumb-area breadcrumb-height" data-bg-image="${path}/assets/images/breadcrumb/bg/2.jfif">
-                    <div class="container h-100">
-                        <div class="row h-100">
-                            <div class="col-lg-12">
-                                <div class="breadcrumb-item">
-                                    <h2 class="breadcrumb-heading">Single Product</h2>
-                                    <ul>
-                                        <li>
-                                            <a href="index.jsp">Home</a>
-                                        </li>
-                                        <li>Single Product</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
                 <div class="single-product-area section-space-top-100">
                     <div class="container">
                         <div class="row">
@@ -431,23 +434,23 @@
                                     <div class="swiper-container single-product-slider">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
-                                                <a href="${path}/assets/images/product/large-size/1-1-570x633.jpg" class="single-img gallery-popup">
-                                                    <img class="img-full" src="${path}/assets/images/product/large-size/1.jfif" alt="Product Image">
+                                                <a href="${path}/assets/images/ok.jpg" class="single-img gallery-popup">
+                                                    <img class="img-full" src="${path}/assets/images/ok.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
-                                                <a href="${path}/assets/images/product/large-size/1-2-570x633.jpg" class="single-img gallery-popup">
+                                                <a href="${path}/assets/images/ok.jpg" class="single-img gallery-popup">
                                                     <img class="img-full" src="${path}/assets/images/product/large-size/2.jfif" alt="Product Image">
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
                                                 <a href="${path}/assets/images/product/large-size/1-3-570x633.jpg" class="single-img gallery-popup">
-                                                    <img class="img-full" src="${path}/assets/images/product/large-size/3.jfif" alt="Product Image">
+                                                    <img class="img-full" src="${path}/assets/images/ok.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
                                                 <a href="${path}/assets/images/product/large-size/1-4-570x633.jpg" class="single-img gallery-popup">
-                                                    <img class="img-full" src="${path}/assets/images/product/large-size/4.jfif" alt="Product Image">
+                                                    <img class="img-full" src="${path}/assets/images/ok.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                         </div>
@@ -456,7 +459,7 @@
                                         <div class="swiper-container single-product-thumbs">
                                             <div class="swiper-wrapper">
                                                 <a href="#" class="swiper-slide">
-                                                    <img class="img-full" src="${path}/assets/images/product/large-size/1.jfif" alt="Product Thumnail">
+                                                    <img class="img-full" src="${path}/assets/images/ok.jpg" alt="Product Thumnail">
                                                 </a>
                                                 <a href="#" class="swiper-slide">
                                                     <img class="img-full" src="${path}/assets/images/product/large-size/2.jfif" alt="Product Thumnail">

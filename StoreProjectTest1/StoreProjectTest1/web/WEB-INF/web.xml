@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <welcome-file-list>
+        <welcome-file>
+            index.jsp
+        </welcome-file>
+    </welcome-file-list>
     <filter>
         <filter-name>LoginFilter</filter-name>
         <filter-class>Project.Controller.Login.LoginFilter</filter-class>
@@ -8,8 +13,6 @@
         <filter-name>LoginFilter</filter-name>
         <servlet-name>MyAccoutController</servlet-name>
         <servlet-name>UpdateInformationController</servlet-name>
-        
-        
         <url-pattern>/my-account.jsp</url-pattern>
     </filter-mapping>
     <servlet>
@@ -55,6 +58,10 @@
     <servlet>
         <servlet-name>MyAccoutController</servlet-name>
         <servlet-class>Project.Controller.Login.MyAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SingleProduct</servlet-name>
+        <servlet-class>Project.Controller.Product.SingleProduct</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -104,6 +111,10 @@
         <servlet-name>MyAccoutController</servlet-name>
         <url-pattern>/MyAccoutController</url-pattern>
         <url-pattern>/MyAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SingleProduct</servlet-name>
+        <url-pattern>/infor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

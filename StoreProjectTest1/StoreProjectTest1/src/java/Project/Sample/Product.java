@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package Project.Sample;
 
 /**
  *
@@ -19,11 +19,13 @@ public class Product {
     private String ProSuppliers;
     private double ProPrice;
     private int Stock;
-
+    //des = description
+    private String des;
+    
     public Product() {
     }
 
-    public Product(String ProID, String ProName, String ProBranch, String ProImage, String ProCategorieID, String ProSubCategorieID, String ProSuppliers, double ProPrice, int Stock) {
+    public Product(String ProID, String ProName, String ProBranch, String ProImage, String ProCategorieID, String ProSubCategorieID, String ProSuppliers, double ProPrice, int Stock, String des) {
         this.ProID = ProID;
         this.ProName = ProName;
         this.ProBranch = ProBranch;
@@ -33,7 +35,18 @@ public class Product {
         this.ProSuppliers = ProSuppliers;
         this.ProPrice = ProPrice;
         this.Stock = Stock;
+        this.des = des;
     }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
+    }
+
+ 
 
     public String getProID() {
         return ProID;

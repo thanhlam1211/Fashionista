@@ -65,8 +65,8 @@ public class LoginController extends HttpServlet {
                     pass_cooky = new Cookie("password", en.Enc(pass));
                     if (rem) {
                         //set age for cookies
-                        user_cooky.setMaxAge(24 * 60 * 60);
-                        pass_cooky.setMaxAge(24 * 60 * 60);
+                        user_cooky.setMaxAge(60);
+                        pass_cooky.setMaxAge(60);
                     } else {
                         //delete cookies
                         user_cooky.setMaxAge(0);

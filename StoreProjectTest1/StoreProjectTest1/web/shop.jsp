@@ -579,15 +579,23 @@
                                                 </li>
                                             </ul>
                                         </li>
+                                       
                                         <li class="short">
-                                            <select class="nice-select">
-                                                <option value="1">Sort by Default</option>
-                                                <option value="2">Sort by Popularity</option>
-                                                <option value="3">Sort by Rated</option>
-                                                <option value="4">Sort by Latest</option>
-                                                <option value="5">Sort by High Price</option>
-                                                <option value="6">Sort by Low Price</option>
-                                            </select>
+
+                                            <div class="dropdown" class="nice-select" >
+                                                <a style="background-color: pink;margin-bottom: 3.5%;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Sort By Order
+                                                </a>
+                                                <ul style="text-align: center;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <li><a class="dropdown-item" href="Home">Sort By Default</a></li>
+                                                    <li><a class="dropdown-item" href="Home">Sort by Popularity</a></li>
+                                                    <li><a class="dropdown-item" href="Home">Sort By Rated</a></li>
+                                                    <li><a class="dropdown-item" href="Home">Sort by Latest</a></li>
+                                                    <li><a class="dropdown-item" href="Home">Sort by High Price</a></li>
+                                                    <li><a class="dropdown-item" href="Home">Sort by Low Price</a></li>
+                                                </ul>
+                                            </div>
+
                                         </li>
                                     </ul>
                                 </div>

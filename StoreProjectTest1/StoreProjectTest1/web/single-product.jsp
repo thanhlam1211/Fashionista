@@ -440,7 +440,7 @@
                                             </div>
                                             <div class="swiper-slide">
                                                 <a href="${path}/assets/images/ok.jpg" class="single-img gallery-popup">
-                                                    <img class="img-full" src="${path}/assets/images/product/large-size/2.jfif" alt="Product Image">
+                                                    <img class="img-full" src="${path}/assets/images/ok.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
@@ -462,7 +462,7 @@
                                                     <img class="img-full" src="${path}/assets/images/ok.jpg" alt="Product Thumnail">
                                                 </a>
                                                 <a href="#" class="swiper-slide">
-                                                    <img class="img-full" src="${path}/assets/images/product/large-size/2.jfif" alt="Product Thumnail">
+                                                    <img class="img-full" src="${path}/assets/images/ok.jpg" alt="Product Thumnail">
                                                 </a>
                                                 <a href="#" class="swiper-slide">
                                                     <img class="img-full" src="${path}/assets/images/product/large-size/3.jfif" alt="Product Thumnail">
@@ -486,7 +486,7 @@
                             </div>
                             <div class="col-lg-6 pt-5 pt-lg-0">
                                 <div class="single-product-content">
-                                    <h2 class="title">Đào ngon</h2>
+                                    <h2 class="title">ngon múp rụp phục vụ nhiều anh trai</h2>
                                     <div class="price-box">
                                         <span class="new-price">500K</span>
                                     </div>

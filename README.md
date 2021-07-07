@@ -5,9 +5,6 @@ Project PRJ301 in Summer 2021 Semester
 Install [apache tomcat](http://tomcat.apache.org/) to run the project
 Run the script file to create the Database (use MS)
 
-## Usage
-https://img.shields.io/badge/-Java-green
-
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 

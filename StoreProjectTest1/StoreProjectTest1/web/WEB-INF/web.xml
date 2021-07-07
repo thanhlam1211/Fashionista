@@ -8,6 +8,8 @@
         <filter-name>LoginFilter</filter-name>
         <servlet-name>MyAccoutController</servlet-name>
         <servlet-name>UpdateInformationController</servlet-name>
+        
+        
         <url-pattern>/my-account.jsp</url-pattern>
     </filter-mapping>
     <servlet>
@@ -41,6 +43,10 @@
     <servlet>
         <servlet-name>ResetPasswordServler</servlet-name>
         <servlet-class>Project.Controller.User.ResetPasswordController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderController</servlet-name>
+        <servlet-class>Project.Controller.Admin.OrderList</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LogoutController</servlet-name>
@@ -85,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>ResetPasswordServler</servlet-name>
         <url-pattern>/ResetPassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderController</servlet-name>
+        <url-pattern>/OrderController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>

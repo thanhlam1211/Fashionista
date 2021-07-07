@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@page import="Project.DAO.Encode"%>
 <%-- 
     Document   : login-register
     Created on : Jun 8, 2021, 12:22:40 AM
@@ -82,6 +83,7 @@
                                             <div class="col-lg-12">
                                                 <%
                                                     Cookie[] cookies = request.getCookies();
+                                                    Encode en = new Encode();
                                                     String acc = "",pass = "";
                                                     if (cookies != null) {
                                                         for (Cookie cooky : cookies) {
@@ -90,7 +92,7 @@
                                                                 acc = cooky.getValue();
                                                             }
                                                             if (cooky.getName().equals("password")) {
-                                                                pass = cooky.getValue();
+                                                                pass = en.Dec(cooky.getValue());
                                                             }
                                                         }
                                                     }

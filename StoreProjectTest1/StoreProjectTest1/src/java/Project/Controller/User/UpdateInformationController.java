@@ -10,6 +10,7 @@ import Project.Sample.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -50,8 +51,24 @@ public class UpdateInformationController extends HttpServlet {
                 int phone = Integer.parseInt(request.getParameter("phone"));
 
                 if (cui.getID() == id && cp.equals(cui.getPassword())) {
-                    nui = new User(cui.getUserAccount(), cp, name, email, cui.getRole(), phone, id);
+                    if (!np.isEmpty() && np.equals(np2)) {
+                        nui = new User(cui.getUserAccount(), np, name, email, cui.getRole(), phone, id);
+                    } else {
+                        nui = new User(cui.getUserAccount(), cp, name, email, cui.getRole(), phone, id);
+                    }
                     dao.Update(nui);
+                    //after updation then remove old cookie to empty
+                    Cookie[] cookies = request.getCookies();
+                    if (cookies != null) {
+                        for (Cookie cooky : cookies) {
+                            //set cookies into disaparate cookie
+                            if (cooky.getName().equals("password")) {
+                               cooky.setMaxAge(0);
+                               response.addCookie(cooky);
+                               return;
+                            }
+                        }
+                    }
                     response.sendRedirect("LoginController");
 
                 } else {

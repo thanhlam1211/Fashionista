@@ -6,6 +6,7 @@
 package Project.Controller.Login;
 
 import Project.DAO.AdminDAO;
+import Project.DAO.Encode;
 import Project.DAO.UserDAO;
 import Project.Sample.Admin;
 import Project.Sample.User;
@@ -39,53 +40,40 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             boolean rem = "on".equals(request.getParameter("remember"));
 
             //getting information from login.jsp
             String user = request.getParameter("account");
             String pass = request.getParameter("password");
-            
+
             if (user != null && pass != null) {
                 HttpSession session = request.getSession();
                 boolean check = false;
                 UserDAO Dao = new UserDAO();
-
-                //Create cookie for account and password
-                Cookie[] cookies = request.getCookies();
-                Cookie user_cooky, pass_cooky;
-                //if cookies existed and setting cooky 
-                if (cookies != null) {
-                    for (Cookie cooky : cookies) {
-                        //set cookies into disaparate cookie
-                        if (cooky.getName().equals("account")) {
-                            user_cooky = cooky;
-                        }
-                        if (cooky.getName().equals("password")) {
-                            pass_cooky = cooky;
-                        }
-                    }
-                }
-
-                //if user click "remeber me"
-                user_cooky = new Cookie("account", user);
-                pass_cooky = new Cookie("password", pass);
-                if (rem) {
-                    //set age for cookies
-                    user_cooky.setMaxAge(24 * 60 * 60);
-                    pass_cooky.setMaxAge(24 * 60 * 60);
-                } else {
-                    //delete cookies
-                    user_cooky.setMaxAge(0);
-                    pass_cooky.setMaxAge(0);
-                }
-                response.addCookie(user_cooky);
-                response.addCookie(pass_cooky);
+                Encode en = new Encode();
 
                 //checking if userccount and password are existed in the DB
                 User infor = Dao.getUser(user, pass);
                 if (infor != null) {
                     check = true;
+                    //Create cookie for account and password
+                    Cookie user_cooky, pass_cooky;
+
+                    //if user click "remeber me"
+                    user_cooky = new Cookie("account", user);
+                    pass_cooky = new Cookie("password", en.Enc(pass));
+                    if (rem) {
+                        //set age for cookies
+                        user_cooky.setMaxAge(24 * 60 * 60);
+                        pass_cooky.setMaxAge(24 * 60 * 60);
+                    } else {
+                        //delete cookies
+                        user_cooky.setMaxAge(0);
+                        pass_cooky.setMaxAge(0);
+                    }
+                    response.addCookie(user_cooky);
+                    response.addCookie(pass_cooky);
                     infor.setStatus(check);
                     session.setAttribute("logined", check);
                     session.setAttribute("UI", infor);
@@ -101,7 +89,7 @@ public class LoginController extends HttpServlet {
                 infor.setStatus(check);
                 session.setAttribute("logined", check);
             }
-            
+
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }

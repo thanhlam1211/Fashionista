@@ -1,16 +1,16 @@
-
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>  
 <html lang="en">
+
     <head>
         <meta charset="utf-8" />
         <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
         <link rel="icon" type="image/png" href="../assets/img/favicon.png">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>
-            Admin DashBoard
+            Table List
         </title>
         <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
         <!--     Fonts and icons     -->
@@ -19,7 +19,6 @@
         <!-- CSS Files -->
         <link href="${path}/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
         <link rel="shortcut icon" type="image/x-icon" href="${path}/assets/images/logo2.png" />
-
     </head>
 
     <body class="">
@@ -35,38 +34,38 @@
                     </a></div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">
-                        <li class="nav-item active  ">
-                            <a class="nav-link" href="admin.jsp">
+                        <li class="nav-item  ">
+                            <a class="nav-link" href="./admin.jsp">
                                 <i class="material-icons">dashboard</i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="user.jsp">
+                            <a class="nav-link" href="./user.jsp">
                                 <i class="material-icons">person</i>
                                 <p>User Profile</p>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="tables.jsp">
+                        <li class="nav-item active ">
+                            <a class="nav-link" href="./tables.jsp">
                                 <i class="material-icons">content_paste</i>
                                 <p>Table List</p>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="typography.jsp">
+                            <a class="nav-link" href="./typography.jsp">
                                 <i class="material-icons">library_books</i>
                                 <p>Typography</p>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="icons.jsp">
+                            <a class="nav-link" href="./icons.jsp">
                                 <i class="material-icons">bubble_chart</i>
                                 <p>Icons</p>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="notifications.jsp">
+                            <a class="nav-link" href="./notifications.jsp">
                                 <i class="material-icons">notifications</i>
                                 <p>Notifications</p>
                             </a>
@@ -79,7 +78,7 @@
                 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                     <div class="container-fluid">
                         <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="javascript:;">Dashboard</a>
+                            <a class="navbar-brand" href="javascript:;">Table List</a>
                         </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="sr-only">Toggle navigation</span>
@@ -98,6 +97,14 @@
                                 </div>
                             </form>
                             <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="javascript:;">
+                                        <i class="material-icons">dashboard</i>
+                                        <p class="d-lg-none d-md-block">
+                                            Stats
+                                        </p>
+                                    </a>
+                                </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">notifications</i>
@@ -123,6 +130,7 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                                         <a class="dropdown-item" href="#">Profile</a>
+                                        <a class="dropdown-item" href="#">Settings</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#">Log out</a>
                                     </div>
@@ -135,84 +143,28 @@
                 <div class="content">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="card card-stats">
-                                    <div class="card-header card-header-warning card-header-icon">
-                                        <div class="card-icon">
-                                            <i class="material-icons">content_copy</i>
-                                        </div>
-                                        <p class="card-category">Total User</p>
-                                        <h3 class="card-title">4
-                                            <small>user</small>
-                                        </h3>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="stats">
-                                            <a>In total</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="card card-stats">
-                                    <div class="card-header card-header-success card-header-icon">
-                                        <div class="card-icon">
-                                            <i class="material-icons">store</i>
-                                        </div>
-                                        <p class="card-category">Revenue</p>
-                                        <h3 class="card-title">34,245,000</h3>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="stats">
-                                            <i class="material-icons">date_range</i> In total
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="card card-stats">
-                                    <div class="card-header card-header-danger card-header-icon">
-                                        <div class="card-icon">
-                                            <i class="material-icons">info_outline</i>
-                                        </div>
-                                        <p class="card-category">Product checkout</p>                                        <h3 class="card-title">20</h3>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="stats">
-                                            <i class="material-icons">local_offer</i> Tracked from database
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="card card-stats">
-                                    <div class="card-header card-header-info card-header-icon">
-                                        <div class="card-icon">
-                                            <i class="fa fa-twitter"></i>
-                                        </div>
-                                        <p class="card-category">Feedback</p>
-                                        <h3 class="card-title">+245</h3>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="stats">
-                                            <i class="material-icons">update</i> Just Updated
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
+                            <div class="col-lg-12 col-md-12">
                                 <div class="card">
                                     <div class="card-header card-header-tabs card-header-primary">
                                         <div class="nav-tabs-navigation">
                                             <div class="nav-tabs-wrapper">
-                                                <span class="nav-tabs-title">Tasks:</span>
+                                                <span class="nav-tabs-title">List of table:</span>
                                                 <ul class="nav nav-tabs" data-tabs="tabs">
-                                                    <li class="nav-item active">
-                                                        <a class="nav-link" href="#messages" data-toggle="tab">
-                                                            <i class="material-icons">comment_bank</i> Comment
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" href="#pending" data-toggle="tab">
+                                                            <i class="material-icons">production_quantity_limits</i>Pending Order
+                                                            <div class="ripple-container"></div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#quantityPro" data-toggle="tab">
+                                                            <i class="material-icons">comment_bank</i> Quantity of product
+                                                            <div class="ripple-container"></div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#userList" data-toggle="tab">
+                                                            <i class="material-icons">manage_accounts</i> List of user register Hanger
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
@@ -222,32 +174,195 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="tab-content">
-                                            <div class="tab-pane active" id="messages">
+                                            <div class="tab-pane active" id="pending">
                                                 <table class="table">
+                                                    <thead class=" text-primary">
+                                                    <th>
+                                                        User ID
+                                                    </th>
+                                                    <th>
+                                                        User Name
+                                                    </th>
+                                                    <th>
+                                                        Order ID
+                                                    </th>
+                                                    <th>
+                                                        Status
+                                                    </th>
+                                                    <th>
+                                                        Total
+                                                    </th>
+                                                    <th>
+                                                        Options
+                                                    </th>
+                                                    </thead>
                                                     <tbody>
                                                         <tr>
                                                             <td>
+                                                                1
                                                             </td>
-                                                            <td class="td-actions text-right">
-
+                                                            <td>
+                                                                Thanh Lâm
+                                                            </td>
+                                                            <td>
+                                                                01
+                                                            </td>
+                                                            <td>
+                                                                <div style="width: 100px" class="form-group">
+                                                                    <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal">
+                                                                        <!-- options -->
+                                                                        <option>Pending</option>
+                                                                        <option>Approve</option>
+                                                                        <option>Shipping</option>
+                                                                        <option>Done</option> 
+                                                                    </select>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-primary">
+                                                                $500
+                                                            </td>
+                                                            <td>
                                                                 <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                                                                    <i class="material-icons">new_label</i>
+                                                                    <i class="material-icons">delete</i>
                                                                 </button>
                                                             </td>
-                                                            <td>Latest Comment
-                                                            </td>
-
                                                         </tr>
                                                         <tr>
                                                             <td>
+                                                                2
                                                             </td>
-                                                            <td class="td-actions text-right">
+                                                            <td>
+                                                                Trung Huy
+                                                            </td>
+                                                            <td>
+                                                                02
+                                                            </td>
+                                                            <td>
+                                                                <div style="width: 100px" class="form-group">
+                                                                    <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal">
+                                                                        <!-- options -->
+                                                                        <option>Pending</option>
+                                                                        <option>Approve</option>
+                                                                        <option>Shipping</option>
+                                                                        <option>Done</option> 
+                                                                    </select>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-primary">
+                                                                $550
+                                                            </td>
+                                                            <td>
                                                                 <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                                                                    <i class="material-icons">new_label</i>
+                                                                    <i class="material-icons">delete</i>
                                                                 </button>
                                                             </td>
-                                                            <td>Comment</td>
-
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="tab-pane" id="quantityPro">
+                                                <table class="table table-hover">
+                                                    <thead class="">
+                                                    <th>
+                                                        Product ID
+                                                    </th>
+                                                    <th>
+                                                        Product Name
+                                                    </th>
+                                                    <th>
+                                                        Brand
+                                                    </th>
+                                                    <th>
+                                                        Price
+                                                    </th>
+                                                    <th>
+                                                        Quantity
+                                                    </th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                Quần lót
+                                                            </td>
+                                                            <td>
+                                                                Nike
+                                                            </td>
+                                                            <td>
+                                                                $600
+                                                            </td>
+                                                            <td>
+                                                                20
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                Quần đùi
+                                                            </td>
+                                                            <td>
+                                                                Adidas
+                                                            </td>
+                                                            <td>
+                                                                $300
+                                                            </td>
+                                                            <td>
+                                                                10
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="tab-pane" id="userList">
+                                                <table class="table table-hover">
+                                                    <thead class="">
+                                                    <th>
+                                                        User ID
+                                                    </th>
+                                                    <th>
+                                                        User Name
+                                                    </th>
+                                                    <th>
+                                                        Email
+                                                    </th>
+                                                    <th>
+                                                        Phone
+                                                    </th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                Lamcuto
+                                                            </td>
+                                                            <td>
+                                                                lamjkun@gmail.com
+                                                            </td>
+                                                            <td>
+                                                                012345677
+                                                            </td>
+                                                
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                Huycube
+                                                            </td>
+                                                            <td>
+                                                                dihoii@gmail.com
+                                                            </td>
+                                                            <td>
+                                                                01234456
+                                                            </td>
+                                                       
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -256,43 +371,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="card">
-                                    <div class="card-header card-header-warning">
-                                        <h4 class="card-title">Admin Stat</h4>
-                                        <p class="card-category">New Admin just today!</p>
-                                    </div>
-                                    <div class="card-body table-responsive">
-                                        <table class="table table-hover">
-                                            <thead class="text-warning">
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Country</th>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>LamCuTo</td>
-                                                    <td>lalal@gmail.com</td>
-                                                    <td>Viet Nam</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>HuyCuBe</td>
-                                                    <td>đít hôi @gmail.com</td>
-                                                    <td>Viet Nam</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
                 <a href="#" data-toggle="dropdown">
@@ -312,13 +396,6 @@
                             </div>
                             <div class="clearfix"></div>
                         </a>
-                    </li>
-                    <!-- <li class="header-title">Want more components?</li>
-                        <li class="button-container">
-                            <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
-                              Get the pro version
-                            </a>
-                        </li> -->
                 </ul>
             </div>
         </div>
@@ -374,7 +451,7 @@
 
                     window_width = $(window).width();
 
-                    fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+                    fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').jsp();
 
                     if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
                         if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
@@ -530,13 +607,6 @@
 
                     });
                 });
-            });
-        </script>
-        <script>
-            $(document).ready(function () {
-                // Javascript method's body can be found in assets/js/demos.js
-                md.initDashboardPageCharts();
-
             });
         </script>
     </body>

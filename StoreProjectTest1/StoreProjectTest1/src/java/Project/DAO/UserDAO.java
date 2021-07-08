@@ -78,7 +78,7 @@ public class UserDAO {
     public void insert(User user) {
         try {
             con = DBConnection.open();
-            cs = con.prepareCall("insert into [Shopping].[dbo].[User] values (?,?,?,?,?,?)");//....
+            cs = con.prepareCall("insert into [Shopping].[dbo].[User] values (?,?,?,?,?,?,GETDATE())");//....
             
             cs.setString(1, user.getUserAccount());
             cs.setString(2, user.getPassword());

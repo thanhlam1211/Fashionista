@@ -429,7 +429,7 @@
                                 <div class="sidebar-area">
                                     <div class="widgets-searchbox">
                                         <form action="Shop?${sort}" id="widgets-searchbox">
-                                            <input class="input-field" type="text" placeholder="Search" name="search">
+                                            <input class="input-field" type="text" placeholder="Search" name="search" value="${keyword}">
                                             <button class="widgets-searchbox-btn" type="submit">
                                                 <i class="fa fa-search"></i>
                                             </button>
@@ -445,42 +445,7 @@
                                                         All <span>(65)</span>
                                                     </a>
                                                 </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-chevron-right"></i>
-                                                        Sport <span>(12)</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-chevron-right"></i>
-                                                        Summer <span>(22)</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-chevron-right"></i>
-                                                        Polo T-Shirt <span>(19)</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-chevron-right"></i>
-                                                        UnderWear <span>(17)</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-chevron-right"></i>
-                                                        Short Pant <span>(01)</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-chevron-right"></i>
-                                                        Short Hand <span>(12)</span>
-                                                    </a>
-                                                </li>
+                                               
                                             </ul>
                                         </div>
                                         <div class="widgets-item">
@@ -563,7 +528,7 @@
                                 <div class="product-topbar">
                                     <ul>
                                         <li class="page-count">
-                                            <span>${ products.size() }</span> Product Found of <span>${ products.size() }</span>
+                                            <span>${ products.size() }</span> Product Found of <span>${total}</span>
                                         </li>
                                         <li class="product-view-wrap">
                                             <ul class="nav" role="tablist">

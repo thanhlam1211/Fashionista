@@ -7,6 +7,7 @@ package Project.Controller.Product;
 
 
 import Project.DAO.ProductDAO;
+import Project.Sample.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.JDBCType;
@@ -15,7 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Product;
+
 
 /**
  *

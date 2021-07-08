@@ -38,7 +38,7 @@ public class ListProduct extends HttpServlet {
                     return "";
                 }
                 case "4": {
-                    return "order by [Date] desc";
+                    return "order by [ProDate] desc";
                 }
                 case "5": {
                     return "order by ProPrice desc";
@@ -57,7 +57,7 @@ public class ListProduct extends HttpServlet {
     String getKeyword(String keyword) {
         // return condition for sql with keyword
         if (keyword != null) {
-            return "where ProName like '%" + keyword + "%'";
+            return "where ProName like N'%" + keyword + "%'";
         }
         return "";
     }
@@ -66,21 +66,22 @@ public class ListProduct extends HttpServlet {
             throws ServletException, IOException {
         try {
             ProductDAO dao = new ProductDAO();
-            HttpSession session = request.getSession();
 
             String search = request.getParameter("search");
             String sort = request.getParameter("sort");
             //cc = current condition
             String cc = new String();
             if (search != null) {
+                request.setAttribute("keyword", search);
                 request.setAttribute("search", "&search=" + search);
             }
             if (sort != null) {
                 request.setAttribute("sort", "&sort=" + sort);
             }
-            
+
             cc = getKeyword(search) + getSortType(sort);
             request.setAttribute("products", dao.getProducts(cc));
+            request.setAttribute("total", dao.getProducts("").size());
             int page, begin = 0, end = 8;
             int size = dao.getProducts(cc).size();
 

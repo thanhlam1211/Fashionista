@@ -12,12 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author GHC
  */
-@WebServlet(name = "ListProduct", urlPatterns = {"/Home"})
+@WebServlet(name = "ListProduct", urlPatterns = {"/Shop"})
 public class ListProduct extends HttpServlet {
 
     /**
@@ -29,13 +30,59 @@ public class ListProduct extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    String getSortType(String type) {
+        if (type != null) {
+            switch (type) {
+                //return type order by in sql
+                case "3": {
+                    return "";
+                }
+                case "4": {
+                    return "order by [Date] desc";
+                }
+                case "5": {
+                    return "order by ProPrice desc";
+                }
+                case "6": {
+                    return "order by ProPrice asc";
+                }
+                default: {
+                    return "";
+                }
+            }
+        }
+        return "";
+    }
+
+    String getKeyword(String keyword) {
+        // return condition for sql with keyword
+        if (keyword != null) {
+            return "where ProName like '%" + keyword + "%'";
+        }
+        return "";
+    }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             ProductDAO dao = new ProductDAO();
-            request.setAttribute("products", dao.getProducts());
+            HttpSession session = request.getSession();
+
+            String search = request.getParameter("search");
+            String sort = request.getParameter("sort");
+            //cc = current condition
+            String cc = new String();
+            if (search != null) {
+                request.setAttribute("search", "&search=" + search);
+            }
+            if (sort != null) {
+                request.setAttribute("sort", "&sort=" + sort);
+            }
+            
+            cc = getKeyword(search) + getSortType(sort);
+            request.setAttribute("products", dao.getProducts(cc));
             int page, begin = 0, end = 8;
-            int size = dao.getProducts().size();
+            int size = dao.getProducts(cc).size();
 
             if (size % 9 != 0) {
                 page = size / 9 + 1;

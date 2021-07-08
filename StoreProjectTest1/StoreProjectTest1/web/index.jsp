@@ -129,7 +129,7 @@
                                                 <a href="index.jsp">Home</a>                             
                                             </li>
                                             <li class="megamenu-holder">
-                                                <a href="shop.jsp">Shop</a>
+                                                <a href="Shop">Shop</a>
                                             </li>
                                             <li>
                                                 <a href="about.jsp">About Us</a>
@@ -171,7 +171,7 @@
                                                     <a href="index.jsp">Home</a>  
                                                 </li>
                                                 <li class="megamenu-holder">
-                                                    <a href="shop.jsp">Shop</a>
+                                                    <a href="Shop">Shop</a>
                                                 </li>
                                                 <li>
                                                     <a href="about.jsp">About Us</a>
@@ -272,7 +272,7 @@
                                             </a>                                    
                                         </li>
                                         <li class="menu-item-has-children">
-                                            <a href="shop.jsp">
+                                            <a href="Shop">
                                                 <span class="mm-text">Shop
                                                 </span>
                                             </a>

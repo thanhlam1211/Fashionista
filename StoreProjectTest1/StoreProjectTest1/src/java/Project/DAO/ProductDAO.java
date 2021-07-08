@@ -5,7 +5,6 @@
  */
 package Project.DAO;
 
-
 import Project.DBConnection.DBConnection;
 import Project.Sample.Product;
 import java.sql.Connection;
@@ -16,9 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
-
 
 /**
  *
@@ -33,11 +29,16 @@ public class ProductDAO {
     public ProductDAO() {
     }
 
-    public List<Product> getProducts() {
+    public List<Product> getProducts(String condition) {
         List<Product> products = new ArrayList<>();
         try {
             con = DBConnection.open();
-            ps = con.prepareCall("SELECT * FROM [Shopping].[dbo].[Product]");
+            if (condition.isEmpty()) {
+                ps = con.prepareCall("SELECT * FROM [Shopping].[dbo].[Product]");
+            } else {
+                ps = con.prepareCall("SELECT * FROM [Shopping].[dbo].[Product]" + condition);
+
+            }
             rs = ps.executeQuery();
             while (rs.next()) {
                 Product p = new Product();
@@ -51,7 +52,7 @@ public class ProductDAO {
                 p.setDes(rs.getString("ProDescription"));
                 p.setProPrice(rs.getDouble("ProPrice"));
                 p.setStock(rs.getInt("Stock"));
-                
+
                 products.add(p);
             }
         } catch (SQLException ex) {
@@ -63,7 +64,7 @@ public class ProductDAO {
     }
 
     public Product getProduct(String ProID) {
-        List<Product> products = getProducts();
+        List<Product> products = getProducts("");
         for (Product product : products) {
             if (product.getProID().equals(ProID)) {
                 return product;

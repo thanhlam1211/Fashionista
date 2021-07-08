@@ -133,7 +133,7 @@
                                                 <a href="index.jsp">Home</a>                             
                                             </li>
                                             <li class="megamenu-holder">
-                                                <a href="shop.jsp">Shop</a>
+                                                <a href="Shop">Shop</a>
                                             </li>
                                             <li>
                                                 <a href="about.jsp">About Us</a>
@@ -175,7 +175,7 @@
                                                     <a href="index.jsp">Home</a>  
                                                 </li>
                                                 <li class="megamenu-holder">
-                                                    <a href="shop.jsp">Shop</a>
+                                                    <a href="Shop">Shop</a>
                                                 </li>
                                                 <li>
                                                     <a href="about.jsp">About Us</a>
@@ -289,7 +289,7 @@
                                             </a>                                    
                                         </li>
                                         <li class="menu-item-has-children">
-                                            <a href="shop.jsp">
+                                            <a href="Shop">
                                                 <span class="mm-text">Shop
                                                 </span>
                                             </a>
@@ -428,8 +428,8 @@
                             <div class="col-xl-3 col-lg-4 order-2 order-lg-1 pt-5 pt-lg-0">
                                 <div class="sidebar-area">
                                     <div class="widgets-searchbox">
-                                        <form id="widgets-searchbox">
-                                            <input class="input-field" type="text" placeholder="Search">
+                                        <form action="Shop?${sort}" id="widgets-searchbox">
+                                            <input class="input-field" type="text" placeholder="Search" name="search">
                                             <button class="widgets-searchbox-btn" type="submit">
                                                 <i class="fa fa-search"></i>
                                             </button>
@@ -587,12 +587,10 @@
                                                     Sort By Order
                                                 </a>
                                                 <ul style="text-align: center;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item" href="Home">Sort By Default</a></li>
-                                                    <li><a class="dropdown-item" href="Home">Sort by Popularity</a></li>
-                                                    <li><a class="dropdown-item" href="Home">Sort By Rated</a></li>
-                                                    <li><a class="dropdown-item" href="Home">Sort by Latest</a></li>
-                                                    <li><a class="dropdown-item" href="Home">Sort by High Price</a></li>
-                                                    <li><a class="dropdown-item" href="Home">Sort by Low Price</a></li>
+                                                    <li><a class="dropdown-item" href="Shop?sort=3">Sort By Popularity</a></li>
+                                                    <li><a class="dropdown-item" href="Shop?${search}&sort=4">Sort by Latest</a></li>
+                                                    <li><a class="dropdown-item" href="Shop?${search}&sort=5">Sort by High Price</a></li>
+                                                    <li><a class="dropdown-item" href="Shop?${search}&sort=6">Sort by Low Price</a></li>
                                                 </ul>
                                             </div>
 
@@ -836,10 +834,10 @@
                                     <nav aria-label="Page navigation example">
                                         <ul class="pagination justify-content-center">
                                             <c:forEach var="page" begin="1" end="${pages}" step="1">
-                                                <li class="page-item active"><a class="page-link" href="Home?page=${page}">${page}</a></li>
+                                                <li class="page-item active"><a class="page-link" href="Shop?${search}${sort}&page=${page}">${page}</a></li>
                                                 </c:forEach> 
                                             <li class="page-item">
-                                                <a class="page-link" href="Home?page=${cp + 1}" aria-label="Next">&raquo;</a>
+                                                <a class="page-link" href="Shop?${search}${sort}page=${cp + 1}" aria-label="Next">&raquo;</a>
                                             </li>
                                         </ul>
                                     </nav>

@@ -345,7 +345,7 @@
                                                                         </a>
                                                                     </li>
                                                                     <li>
-                                                                        <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                        <a href="Cart?num=1&id=${p.getProID()}" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                                                             <i class="pe-7s-cart"></i>
                                                                         </a>
                                                                     </li>

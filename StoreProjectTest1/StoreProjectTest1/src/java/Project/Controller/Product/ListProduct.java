@@ -66,17 +66,26 @@ public class ListProduct extends HttpServlet {
             throws ServletException, IOException {
         try {
             ProductDAO dao = new ProductDAO();
-
+            HttpSession session = request.getSession();
             String search = request.getParameter("search");
             String sort = request.getParameter("sort");
             //cc = current condition
             String cc = new String();
+            //check if search parameter is null (then set empty)or not inorder to reuse this condition 
+            // for other pages
             if (search != null) {
-                request.setAttribute("keyword", search);
-                request.setAttribute("search", "&search=" + search);
+                session.setAttribute("keyword", search);
+                session.setAttribute("search", "&search=" + search);
+            }else{
+                //reusing for other page if
+                session.setAttribute("search", "");
             }
+            //check if sort parameter is null (then set empty)or not inorder to reuse this condition 
+            // for other pages
             if (sort != null) {
-                request.setAttribute("sort", "&sort=" + sort);
+                session.setAttribute("sort", "&sort=" + sort);
+            }else{
+                session.setAttribute("sort", "");
             }
 
             cc = getKeyword(search) + getSortType(sort);
@@ -105,7 +114,7 @@ public class ListProduct extends HttpServlet {
             } else {
                 request.setAttribute("cp", 1);
             }
-
+            
             request.setAttribute("begin", begin);
             request.setAttribute("end", end);
             request.setAttribute("pages", page);

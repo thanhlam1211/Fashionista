@@ -88,7 +88,7 @@
                                     <a href="index.jsp">Home</a>                             
                                 </li>
                                 <li class="megamenu-holder">
-                                    <a href="shop.jsp">Shop</a>
+                                    <a href="Shop">Shop</a>
                                 </li>
                                 <li>
                                     <a href="about.jsp">About Us</a>
@@ -130,7 +130,7 @@
                                         <a href="index.jsp">Home</a>  
                                     </li>
                                     <li class="megamenu-holder">
-                                        <a href="shop.jsp">Shop</a>
+                                        <a href="Shop">Shop</a>
                                     </li>
                                     <li>
                                         <a href="about.jsp">About Us</a>
@@ -244,7 +244,7 @@
                                 </a>                                    
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="shop.jsp">
+                                <a href="Shop">
                                     <span class="mm-text">Shop
                                     </span>
                                 </a>
@@ -296,52 +296,30 @@
                                                         data-tippy-theme="sharpborder"></i></a>
                 </div>
                 <ul class="minicart-list">
-                    <li class="minicart-product">
-                        <a class="product-item_remove" href="#"><i class="pe-7s-close" data-tippy="Remove"
-                                                                   data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50"
-                                                                   data-tippy-arrow="true" data-tippy-theme="sharpborder"></i></a>
-                        <a href="single-product-variable.jsp" class="product-item_img">
-                            <img class="img-full" src="${path}/assets/images/product/small-size/2-1-70x78.png" alt="Product Image">
-                        </a>
-                        <div class="product-item_content">
-                            <a class="product-item_title" href="single-product-variable.jsp">American Marigold</a>
-                            <span class="product-item_quantity">1 x $23.45</span>
-                        </div>
-                    </li>
-                    <li class="minicart-product">
-                        <a class="product-item_remove" href="#"><i class="pe-7s-close" data-tippy="Remove"
-                                                                   data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50"
-                                                                   data-tippy-arrow="true" data-tippy-theme="sharpborder"></i></a>
-                        <a href="single-product-variable.jsp" class="product-item_img">
-                            <img class="img-full" src="${path}/assets/images/product/small-size/2-2-70x78.png" alt="Product Image">
-                        </a>
-                        <div class="product-item_content">
-                            <a class="product-item_title" href="single-product-variable.jsp">Black Eyed Susan</a>
-                            <span class="product-item_quantity">1 x $25.45</span>
-                        </div>
-                    </li>
-                    <li class="minicart-product">
-                        <a class="product-item_remove" href="#">
-                            <i class="pe-7s-close" data-tippy="Remove" data-tippy-inertia="true"
-                               data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true"
-                               data-tippy-theme="sharpborder"></i>
-                        </a>
-                        <a href="single-product-variable.jsp" class="product-item_img">
-                            <img class="img-full" src="${path}/assets/images/product/small-size/2-3-70x78.png" alt="Product Image">
-                        </a>
-                        <div class="product-item_content">
-                            <a class="product-item_title" href="single-product-variable.jsp">Bleeding Heart</a>
-                            <span class="product-item_quantity">1 x $30.45</span>
-                        </div>
-                    </li>
+                    <c:forEach items="${cart}" var="c" begin="0" end="${cart.size()}" step="1">
+                        <li class="minicart-product">
+                            <a class="product-item_remove" href="#"><i class="pe-7s-close" data-tippy="Remove"
+                                                                       data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50"
+                                                                       data-tippy-arrow="true" data-tippy-theme="sharpborder"></i></a>
+                            <a href="single-product-variable.jsp" class="product-item_img">
+                                <img class="img-full" src="${path}/assets/images/product/small-size/2-1-70x78.png" alt="Product Image">
+                            </a>
+                            <div class="product-item_content">                                  
+                                <a class="product-item_title" href="single-product-variable.jsp">${c.getKey().getProName()}</a>
+                                <span class="product-item_quantity"> ${c.getValue()}x $${c.getKey().getProPrice()}</span>
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
+
             <div class="minicart-item_total">
+
                 <span>Subtotal</span>
-                <span class="ammount">$79.35</span>
+                <span class="ammount">${totalcart}</span>
             </div>
             <div class="group-btn_wrap d-grid gap-2">
-                <a href="cart.jsp" class="btn btn-dark">View Cart</a>
+                <a href="ViewCart" class="btn btn-dark">View Cart</a>
             </div>
         </div>
     </div>

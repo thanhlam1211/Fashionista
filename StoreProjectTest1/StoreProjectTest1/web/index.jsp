@@ -64,7 +64,7 @@
                                     <h2 class="title">Street<br>Cloths</h2>
                                     <p class="short-desc">Hanger, With 100% Passion, Quality and Services.</p>
                                     <div class="btn-wrap">
-                                        <a class="btn btn-custom-size xl-size btn-pronia-primary" href="shop.jsp">Discover Now</a>
+                                        <a class="btn btn-custom-size xl-size btn-pronia-primary" href="Shop">Discover Now</a>
                                     </div>
                                 </div>
                                 <div class="slide-img">
@@ -84,7 +84,7 @@
                                     <h2 class="title">Polo <br> T-Shirt</h2>
                                     <p class="short-desc">Hanger, With 100% Passion, Quality and Services.</p>
                                     <div class="btn-wrap">
-                                        <a class="btn btn-custom-size xl-size btn-pronia-primary" href="shop.jsp">Discover Now</a>
+                                        <a class="btn btn-custom-size xl-size btn-pronia-primary" href="Shop">Discover Now</a>
                                     </div>
                                 </div>
                                 <div class="slide-img">
@@ -104,7 +104,7 @@
                                     <h2 class="title">Combo <br> Cloth set</h2>
                                     <p class="short-desc">Hanger, With 100% Passion, Quality and Services.</p>
                                     <div class="btn-wrap">
-                                        <a class="btn btn-custom-size xl-size btn-pronia-primary" href="shop.jsp">Discover Now</a>
+                                        <a class="btn btn-custom-size xl-size btn-pronia-primary" href="Shop">Discover Now</a>
                                     </div>
                                 </div>
                                 <div class="slide-img">
@@ -147,7 +147,7 @@
                                     <span class="collection">New Collection</span>
                                     <h3 class="title">Summer Set</h3>
                                     <div class="button-wrap">
-                                        <a class="btn btn-custom-size btn-pronia-primary" href="shop.jsp">Shop
+                                        <a class="btn btn-custom-size btn-pronia-primary" href="Shop">Shop
                                             Now</a>
                                     </div>
                                 </div>
@@ -164,7 +164,7 @@
                                             <span class="collection">Collection Of Polo</span>
                                             <h3 class="title">Polo T-Shirt</h3>
                                             <div class="button-wrap">
-                                                <a class="btn btn-custom-size sm-size btn-pronia-primary" href="shop.jsp">Shop
+                                                <a class="btn btn-custom-size sm-size btn-pronia-primary" href="Shop">Shop
                                                     Now</a>
                                             </div>
                                         </div>
@@ -179,7 +179,7 @@
                                             <span class="collection">Collection Of Sport</span>
                                             <h3 class="title">Sporty Set</h3>
                                             <div class="button-wrap">
-                                                <a class="btn btn-custom-size sm-size btn-pronia-primary" href="shop.jsp">Shop
+                                                <a class="btn btn-custom-size sm-size btn-pronia-primary" href="Shop">Shop
                                                     Now</a>
                                             </div>
                                         </div>
@@ -225,7 +225,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/2.jpg" alt="Product Images">
                                                     </a>
@@ -251,7 +251,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Bucu</a>
+                                                    <a class="product-name" href="Shop">Bucu</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$23.45</span>
                                                     </div>
@@ -271,7 +271,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/2.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/3.jpg" alt="Product Images">
                                                     </a>
@@ -296,7 +296,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Black Eyed Susan</a>
+                                                    <a class="product-name" href="Shop">Black Eyed Susan</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$25.45</span>
                                                     </div>
@@ -315,7 +315,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/3.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/4.jpg" alt="Product Images">
                                                     </a>
@@ -340,7 +340,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Bleeding Heart</a>
+                                                    <a class="product-name" href="Shop">Bleeding Heart</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$30.45</span>
                                                     </div>
@@ -359,7 +359,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/4.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/5.jpg" alt="Product Images">
                                                     </a>
@@ -384,7 +384,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Bloody Cranesbill</a>
+                                                    <a class="product-name" href="Shop">Bloody Cranesbill</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$45.00</span>
                                                     </div>
@@ -403,7 +403,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/5.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/6.jpg" alt="Product Images">
                                                     </a>
@@ -428,7 +428,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Butterfly Weed</a>
+                                                    <a class="product-name" href="Shop">Butterfly Weed</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$50.45</span>
                                                     </div>
@@ -447,7 +447,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/6.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/7.jpg" alt="Product Images">
                                                     </a>
@@ -472,7 +472,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Common Yarrow</a>
+                                                    <a class="product-name" href="Shop">Common Yarrow</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$65.00</span>
                                                     </div>
@@ -491,7 +491,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/7.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/8.jpg" alt="Product Images">
                                                     </a>
@@ -516,7 +516,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Doublefile Viburnum</a>
+                                                    <a class="product-name" href="Shop">Doublefile Viburnum</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$67.45</span>
                                                     </div>
@@ -535,7 +535,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/8.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/9.jpg" alt="Product Images">
                                                     </a>
@@ -560,7 +560,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Feather Reed Grass</a>
+                                                    <a class="product-name" href="Shop">Feather Reed Grass</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$20.00</span>
                                                     </div>
@@ -583,7 +583,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-5-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-6-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -608,7 +608,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Butterfly Weed</a>
+                                                    <a class="product-name" href="Shop">Butterfly Weed</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$50.45</span>
                                                     </div>
@@ -627,7 +627,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-6-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-7-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -652,7 +652,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Common Yarrow</a>
+                                                    <a class="product-name" href="Shop">Common Yarrow</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$65.00</span>
                                                     </div>
@@ -671,7 +671,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-7-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-8-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -696,7 +696,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Doublefile Viburnum</a>
+                                                    <a class="product-name" href="Shop">Doublefile Viburnum</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$67.45</span>
                                                     </div>
@@ -715,7 +715,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-8-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-1-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -740,7 +740,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Feather Reed Grass</a>
+                                                    <a class="product-name" href="Shop">Feather Reed Grass</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$20.00</span>
                                                     </div>
@@ -759,7 +759,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-1-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-2-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -784,7 +784,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">American Marigold</a>
+                                                    <a class="product-name" href="Shop">American Marigold</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$23.45</span>
                                                     </div>
@@ -803,7 +803,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-2-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-3-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -828,7 +828,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Black Eyed Susan</a>
+                                                    <a class="product-name" href="Shop">Black Eyed Susan</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$25.45</span>
                                                     </div>
@@ -847,7 +847,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-3-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-4-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -872,7 +872,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Bleeding Heart</a>
+                                                    <a class="product-name" href="Shop">Bleeding Heart</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$30.45</span>
                                                     </div>
@@ -891,7 +891,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-4-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-5-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -916,7 +916,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Bloody Cranesbill</a>
+                                                    <a class="product-name" href="Shop">Bloody Cranesbill</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$45.00</span>
                                                     </div>
@@ -939,7 +939,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-7-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-8-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -964,7 +964,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Doublefile Viburnum</a>
+                                                    <a class="product-name" href="Shop">Doublefile Viburnum</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$67.45</span>
                                                     </div>
@@ -983,7 +983,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-8-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-1-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -1008,7 +1008,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Feather Reed Grass</a>
+                                                    <a class="product-name" href="Shop">Feather Reed Grass</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$20.00</span>
                                                     </div>
@@ -1027,7 +1027,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-1-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-2-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -1052,7 +1052,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">American Marigold</a>
+                                                    <a class="product-name" href="Shop">American Marigold</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$23.45</span>
                                                     </div>
@@ -1071,7 +1071,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-2-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-3-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -1096,7 +1096,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Black Eyed Susan</a>
+                                                    <a class="product-name" href="Shop">Black Eyed Susan</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$25.45</span>
                                                     </div>
@@ -1115,7 +1115,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-5-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-6-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -1140,7 +1140,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Butterfly Weed</a>
+                                                    <a class="product-name" href="Shop">Butterfly Weed</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$50.45</span>
                                                     </div>
@@ -1159,7 +1159,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-6-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-7-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -1184,7 +1184,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Common Yarrow</a>
+                                                    <a class="product-name" href="Shop">Common Yarrow</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$65.00</span>
                                                     </div>
@@ -1203,7 +1203,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-3-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-4-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -1228,7 +1228,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Bleeding Heart</a>
+                                                    <a class="product-name" href="Shop">Bleeding Heart</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$30.45</span>
                                                     </div>
@@ -1247,7 +1247,7 @@
                                         <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="shop.jsp">
+                                                    <a href="Shop">
                                                         <img class="primary-img" src="${path}/assets/images/product/medium-size/1-4-270x300.jpg" alt="Product Images">
                                                         <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-5-270x300.jpg" alt="Product Images">
                                                     </a>
@@ -1272,7 +1272,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="shop.jsp">Bloody Cranesbill</a>
+                                                    <a class="product-name" href="Shop">Bloody Cranesbill</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$45.00</span>
                                                     </div>
@@ -1384,7 +1384,7 @@
                                     <!--product 1, dùng jstl để hiển thị, đây chỉ demo 4 sp-->
                                     <div class="swiper-slide product-item">
                                         <div class="product-img">
-                                            <a href="shop.jsp">
+                                            <a href="Shop">
                                                 <img class="primary-img" src="${path}/assets/images/product/medium-size/1.jpg" alt="Product Images">
                                                 <img class="secondary-img" src="${path}/assets/images/product/medium-size/2.jpg" alt="Product Images">
                                             </a>
@@ -1409,7 +1409,7 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <a class="product-name" href="shop.jsp">Bucu</a>
+                                            <a class="product-name" href="Shop">Bucu</a>
                                             <div class="price-box pb-1">
                                                 <span class="new-price">$23.45</span>
                                             </div>
@@ -1426,7 +1426,7 @@
                                     </div>
                                     <div class="swiper-slide product-item">
                                         <div class="product-img">
-                                            <a href="shop.jsp">
+                                            <a href="Shop">
                                                 <img class="primary-img" src="${path}/assets/images/product/medium-size/2.jpg" alt="Product Images">
                                                 <img class="secondary-img" src="${path}/assets/images/product/medium-size/3.jpg" alt="Product Images">
                                             </a>
@@ -1451,7 +1451,7 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <a class="product-name" href="shop.jsp">Black Eyed Susan</a>
+                                            <a class="product-name" href="Shop">Black Eyed Susan</a>
                                             <div class="price-box pb-1">
                                                 <span class="new-price">$25.45</span>
                                             </div>
@@ -1468,7 +1468,7 @@
                                     </div>
                                     <div class="swiper-slide product-item">
                                         <div class="product-img">
-                                            <a href="shop.jsp">
+                                            <a href="Shop">
                                                 <img class="primary-img" src="${path}/assets/images/product/medium-size/3.jpg" alt="Product Images">
                                                 <img class="secondary-img" src="${path}/assets/images/product/medium-size/4.jpg" alt="Product Images">
                                             </a>
@@ -1493,7 +1493,7 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <a class="product-name" href="shop.jsp">Bleeding Heart</a>
+                                            <a class="product-name" href="Shop">Bleeding Heart</a>
                                             <div class="price-box pb-1">
                                                 <span class="new-price">$30.45</span>
                                             </div>
@@ -1510,7 +1510,7 @@
                                     </div>
                                     <div class="swiper-slide product-item">
                                         <div class="product-img">
-                                            <a href="shop.jsp">
+                                            <a href="Shop">
                                                 <img class="primary-img" src="${path}/assets/images/product/medium-size/4.jpg" alt="Product Images">
                                                 <img class="secondary-img" src="${path}/assets/images/product/medium-size/5.jpg" alt="Product Images">
                                             </a>
@@ -1535,7 +1535,7 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <a class="product-name" href="shop.jsp">Bloody Cranesbill</a>
+                                            <a class="product-name" href="Shop">Bloody Cranesbill</a>
                                             <div class="price-box pb-1">
                                                 <span class="new-price">$45.00</span>
                                             </div>
@@ -1569,7 +1569,7 @@
                                     <h2 class="title">Summer Set</h2>
                                     <h3 class="discount">Up To <span>-50%</span> Off</h3>
                                     <div class="button-wrap">
-                                        <a class="btn btn-custom-size btn-pronia-primary" href="shop.jsp">Shop Now</a>
+                                        <a class="btn btn-custom-size btn-pronia-primary" href="Shop">Shop Now</a>
                                     </div>
                                 </div>
                             </div>

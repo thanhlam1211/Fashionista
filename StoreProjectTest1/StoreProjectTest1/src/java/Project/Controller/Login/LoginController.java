@@ -78,7 +78,7 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("logined", check);
                     session.setAttribute("UI", infor);
                     if (infor.getRole().equals("customer")) {
-                        request.getRequestDispatcher("shop.jsp").include(request, response);
+                        request.getRequestDispatcher("Shop").include(request, response);
                     } else {
                         request.getRequestDispatcher("admin.jsp").forward(request, response);
                     }

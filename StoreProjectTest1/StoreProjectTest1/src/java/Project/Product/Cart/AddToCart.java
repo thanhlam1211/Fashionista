@@ -5,20 +5,24 @@
  */
 package Project.Product.Cart;
 
+import Project.DAO.ProductDAO;
+import Project.Sample.Product;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Cart;
-import model.Product;
 
 /**
  *
- * @author GHC
+ * @author TrungHuy
  */
+@WebServlet(name = "AddToCart", urlPatterns = {"/Cart"})
 public class AddToCart extends HttpServlet {
 
     /**
@@ -30,33 +34,69 @@ public class AddToCart extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Object obj = session.getAttribute("cart");
-        Cart cart = null;
-        if(obj == null){
-            cart = new Cart();
-            session.setAttribute("cart", obj);
-        }else{
-            cart = (Cart)obj;
-        }
-        
-        String ProID = request.getParameter("ProID");
-        //so luong san pham
-        String quantity = request.getParameter("stock");
-        List<Product> products = (List<Product>)session.getAttribute("products");
-        for (Product product : products) {
-            if(product.getProID().equals(ProID)){
-                cart.addToCart(product, Integer.parseInt(quantity));
+    private HashMap<Product, Integer> products;
+
+    void addToCart(Product p, int num) {
+        boolean exist = false;
+        for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {
+
+            Product key = entry.getKey();
+            Integer value = entry.getValue();
+            if (key.getProID().equals(p.getProID())) {
+                value += num;
+                this.products.put(key, value);
+                exist = true;
                 break;
             }
+
         }
-        session.setAttribute("cart", cart);
-        
-        //redirect ve .jsp
-        request.getRequestDispatcher(".jsp").forward(request, response);
-        
+        if (!exist) {
+            this.products.put(p, num);
+        }
+    }
+
+    int getTotal() {
+        int total = 0;
+        for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {
+            Product key = entry.getKey();
+            Integer value = entry.getValue();
+            total += key.getProPrice()*value;
+        }
+        return total;
+    }
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            
+            HttpSession session = request.getSession();
+
+            ProductDAO dao = new ProductDAO();
+
+            this.products = (HashMap<Product, Integer>) session.getAttribute("cart");
+
+            if (this.products == null) {
+                this.products = new HashMap<Product, Integer>();
+            }
+
+            String code = request.getParameter("id");
+
+            String quantity = request.getParameter("num");
+            int total;
+            for (Product product : dao.getProducts("")) {
+                if (product.getProID().equals(code)) {
+                    addToCart(product, Integer.parseInt(quantity));
+                    break;
+                }
+            }
+
+            session.setAttribute("cart", this.products);          
+            session.setAttribute("totalcart", getTotal());
+            //redirect ve .jsp
+            request.getRequestDispatcher("Shop?"+session.getAttribute("search")+session.getAttribute("sort")).forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

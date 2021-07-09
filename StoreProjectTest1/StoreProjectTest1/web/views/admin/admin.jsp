@@ -30,7 +30,7 @@
           
                   Tip 2: you can also add an image using data-image tag
                 -->
-                <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                <div class="logo"><a href="#" class="simple-text logo-normal">
                         HANGER CORPORATION
                     </a></div>
                 <div class="sidebar-wrapper">
@@ -285,6 +285,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <a href="addAdmin.jsp" class="btn btn-primary pull-right">Add Admin</a>
                                     </div>
                                 </div>
                             </div>

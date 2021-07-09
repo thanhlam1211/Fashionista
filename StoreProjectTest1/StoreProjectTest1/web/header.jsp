@@ -153,11 +153,6 @@
                     <div class="col-lg-3 col-6">
                         <div class="header-right">
                             <ul>
-                                <li>
-                                    <a href="#exampleModal" class="search-btn bt" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="pe-7s-search"></i>
-                                    </a>
-                                </li>
                                 <li class="dropdown d-none d-lg-block">
                                     <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button" id="stickysettingButton" data-bs-toggle="dropdown" aria-label="setting" aria-expanded="false">
                                         <i class="pe-7s-users"></i>

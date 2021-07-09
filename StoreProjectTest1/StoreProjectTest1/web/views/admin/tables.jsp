@@ -29,43 +29,43 @@
           
                   Tip 2: you can also add an image using data-image tag
                 -->
-                <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                <div class="logo"><a href="#" class="simple-text logo-normal">
                         HANGER CORPORATION
                     </a></div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">
                         <li class="nav-item  ">
-                            <a class="nav-link" href="./admin.jsp">
+                            <a class="nav-link" href="admin.jsp">
                                 <i class="material-icons">dashboard</i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="./user.jsp">
+                            <a class="nav-link" href="user.jsp">
                                 <i class="material-icons">person</i>
                                 <p>User Profile</p>
                             </a>
                         </li>
                         <li class="nav-item active ">
-                            <a class="nav-link" href="./tables.jsp">
+                            <a class="nav-link" href="tables.jsp">
                                 <i class="material-icons">content_paste</i>
                                 <p>Table List</p>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="./typography.jsp">
+                            <a class="nav-link" href="typography.jsp">
                                 <i class="material-icons">library_books</i>
                                 <p>Typography</p>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="./icons.jsp">
+                            <a class="nav-link" href="icons.jsp">
                                 <i class="material-icons">bubble_chart</i>
                                 <p>Icons</p>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="./notifications.jsp">
+                            <a class="nav-link" href="notifications.jsp">
                                 <i class="material-icons">notifications</i>
                                 <p>Notifications</p>
                             </a>
@@ -96,15 +96,7 @@
                                     </button>
                                 </div>
                             </form>
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="javascript:;">
-                                        <i class="material-icons">dashboard</i>
-                                        <p class="d-lg-none d-md-block">
-                                            Stats
-                                        </p>
-                                    </a>
-                                </li>
+                            <ul class="navbar-nav">                              
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">notifications</i>
@@ -130,7 +122,6 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                                         <a class="dropdown-item" href="#">Profile</a>
-                                        <a class="dropdown-item" href="#">Settings</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#">Log out</a>
                                     </div>

@@ -3,7 +3,7 @@
     Created on : Jun 26, 2021, 3:14:47 PM
     Author     : Admin
 --%>
-
+ 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>  
@@ -17,7 +17,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Hanger - Wish List</title>
         <meta name="robots" content="index, follow" />
-        <meta name="description" content="Pronia plant store bootstrap 5 template is an awesome website template for any home plant shop.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="${path}/assets/images/logo2.png" />

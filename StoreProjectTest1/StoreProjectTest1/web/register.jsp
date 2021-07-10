@@ -16,7 +16,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Hanger - Login | Register</title>
         <meta name="robots" content="index, follow" />
-        <meta name="description" content="Pronia plant store bootstrap 5 template is an awesome website template for any home plant shop.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="${path}/assets/images/logo2.png" />

@@ -18,9 +18,9 @@
                                         <img src="${path}/assets/images/logo/logo.png" alt="Logo">
                                     </a>
                                 </div>
-                                <p class="footer-widget-desc">Bucu
+                                <p class="footer-widget-desc">Hanger, with 100% Passion,
                                     <br>
-                                    x2
+                                     Quality And Services
                                 </p>
                                 <div class="social-link with-border">
                                     <ul>
@@ -85,7 +85,7 @@
                                         <a href="#">Payment Methods</a>
                                     </li>
                                     <li>
-                                        <a href="#">Money Guarantee!</a>
+                                        <a href="#">Discount event</a>
                                     </li>
                                     <li>
                                         <a href="#">Returns</a>

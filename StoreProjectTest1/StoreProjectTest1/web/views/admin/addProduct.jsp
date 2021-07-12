@@ -10,7 +10,7 @@
         <link rel="icon" type="image/png" href="../assets/img/favicon.png">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>
-            Add Admin
+            Add Product
         </title>
         <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
         <!--     Fonts and icons     -->
@@ -34,7 +34,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title">Add Admin</h4>
+                                    <h4 class="card-title">Add Product</h4>
                                     <p class="card-category">Fill the blank to complete</p>
                                 </div>
                                 <div class="card-body">
@@ -42,19 +42,19 @@
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Company Name </label>
+                                                    <label class="bmd-label-floating">Product Name </label>
                                                     <input type="text" class="form-control" >
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">User Name</label>
+                                                    <label class="bmd-label-floating">Brand</label>
                                                     <input type="text" class="form-control " >
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Email Address</label>
+                                                    <label class="bmd-label-floating">Unit Price</label>
                                                     <input type="text" class="form-control " >
                                                 </div>
                                             </div>
@@ -62,13 +62,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">First Name</label>
+                                                    <label class="bmd-label-floating">Unit in Stock</label>
                                                     <input type="text" class="form-control " >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Last Name</label>
+                                                    <label class="bmd-label-floating">Suppiler</label>
                                                     <input type="text" class="form-control " >
                                                 </div>
                                             </div>
@@ -76,8 +76,11 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Address</label>
-                                                    <input type="text" class="form-control " >
+                                                    <label class="bmd-label-floating">Images</label>
+                                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                                </div>
+                                                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                                                    <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -87,7 +90,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label>Description</label>
@@ -96,18 +98,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Role</label>
-                                                <select class="form-control" data-role="select-dropdown" data-profile="minimal">
-                                                    <!-- options -->
-                                                    <option>Super Admin (Most Powerfull)</option>
-                                                    <option>Admin (Regular)</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary pull-right">Add Admin</button>
-                                        <a href="admin.jsp" class="btn btn-primary pull-right">Back to Dashboard</a>
+                                        <button type="submit" class="btn btn-primary pull-right">Add Product</button>
+                                        <a href="tables.jsp" class="btn btn-primary pull-right">Back to Table List</a>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

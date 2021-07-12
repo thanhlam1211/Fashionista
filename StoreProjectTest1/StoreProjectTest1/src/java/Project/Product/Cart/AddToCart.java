@@ -35,11 +35,11 @@ public class AddToCart extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     private HashMap<Product, Integer> products;
-
+    
     void addToCart(Product p, int num) {
         boolean exist = false;
         for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {
-
+            
             Product key = entry.getKey();
             Integer value = entry.getValue();
             if (key.getProID().equals(p.getProID())) {
@@ -48,10 +48,23 @@ public class AddToCart extends HttpServlet {
                 exist = true;
                 break;
             }
-
+            
         }
         if (!exist) {
             this.products.put(p, num);
+        }
+    }
+
+    void removeFromCart(Product p) {
+        for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {
+            
+            Product key = entry.getKey();
+            Integer value = entry.getValue();
+            if (key.getProID().equals(p.getProID())) {
+                this.products.remove(key);
+                break;
+            }
+            
         }
     }
 
@@ -60,42 +73,56 @@ public class AddToCart extends HttpServlet {
         for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {
             Product key = entry.getKey();
             Integer value = entry.getValue();
-            total += key.getProPrice()*value;
+            total += key.getProPrice() * value;
         }
         return total;
     }
-
+    
+    int getNumberOfPro() {
+        int total = 0;
+        for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {
+            Integer value = entry.getValue();
+            total += value;
+        }
+        return total;
+    }
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+           
             HttpSession session = request.getSession();
-
+            
             ProductDAO dao = new ProductDAO();
-
+            
             this.products = (HashMap<Product, Integer>) session.getAttribute("cart");
-
+            
             if (this.products == null) {
                 this.products = new HashMap<Product, Integer>();
             }
-
+            
             String code = request.getParameter("id");
-
-            String quantity = request.getParameter("num");
-            int total;
-            for (Product product : dao.getProducts("")) {
-                if (product.getProID().equals(code)) {
+            if (code != null) {
+                
+                String status = request.getParameter("add");
+                Product product = dao.getProduct(code);
+                if (status != null) {
+                    String quantity = request.getParameter("num");
                     addToCart(product, Integer.parseInt(quantity));
-                    break;
+                } else {
+                    removeFromCart(product);
                 }
             }
-
-            session.setAttribute("cart", this.products);          
+            
+            session.setAttribute("cart", this.products);
             session.setAttribute("totalcart", getTotal());
-            //redirect ve .jsp
-            request.getRequestDispatcher("Shop?"+session.getAttribute("search")+session.getAttribute("sort")).forward(request, response);
+            session.setAttribute("numberofpro", getNumberOfPro());
+      
+            response.sendRedirect("shop.jsp");
+           
+            
         }
     }
 

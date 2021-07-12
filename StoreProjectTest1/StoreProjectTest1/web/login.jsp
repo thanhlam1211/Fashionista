@@ -66,7 +66,7 @@
                         <div class="col-lg-12 text-center">
                             <img src="${path}/assets/images/logo/logo.png" alt="Header Logo">
                             <h2 style="margin-top: 2%">Login to Hanger</h2>
-                            <a href="shop.jsp">Back To Shop</a>
+                            <a href="Shop">Back To Shop</a>
                         </div>
                     </div>
                 </div>
@@ -74,38 +74,31 @@
                     <div class="container">
                         <div class="row">
                             <div style="margin-left:25%" class="col-lg-6 col-sm-12">
-                                <form action="login" >
+                                <form action="login" method="post">
                                     <div class="login-form">
                                         <h4 class="login-title">Login</h4>
                                         <div class="row">
                                             <h3 style="text-align: center">${message}</h3>
+                                            <c:forEach var="cookieVal" items="${pageContext.request.cookies}" >  
+                                                <c:if test="${cookieVal.name == 'account'}">
+                                                    <c:set scope="request" var="caccount" value = "${cookieVal.value}" />
+                                                </c:if>
+                                                <c:if test="${cookieVal.name == 'password'}">
+                                                    <c:set scope="request" var="cpassword" value = "${cookieVal.value}" />
+                                                </c:if>
+                                            </c:forEach>
                                             <div class="col-lg-12">
-                                                <%
-                                                    Cookie[] cookies = request.getCookies();
-                                                    Encode en = new Encode();
-                                                    String acc = "",pass = "";
-                                                    if (cookies != null) {
-                                                        for (Cookie cooky : cookies) {
-                                                            //set cookies into disaparate cookie
-                                                            if (cooky.getName().equals("account")) {
-                                                                acc = cooky.getValue();
-                                                            }
-                                                            if (cooky.getName().equals("password")) {
-                                                                pass = en.Dec(cooky.getValue());
-                                                            }
-                                                        }
-                                                    }
-                                                %>
                                                 <label>User Name</label>
-                                                <input required type="text" name="account" value=<%= acc %>>
+                                                <input required type="text" name="account" value=${caccount}>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label>Password</label>
-                                                <input required type="password" name="password" value=<%= pass %> >
+                                                <input required type="password" name="password" value=${cpassword} >
                                             </div>
+
                                             <div class="col-md-8">
                                                 <div class="check-box">
-                                                    <input type="checkbox" id="remember_me" name="remember" <%= acc.isEmpty()? "":"checked" %> >
+                                                    <input type="checkbox" id="remember_me" name="remember" ${caccount.isEmpty()?"":"checked"} >
                                                     <label for="remember_me">Remember me</label>
                                                 </div>
                                             </div>

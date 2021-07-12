@@ -76,7 +76,7 @@ public class ListProduct extends HttpServlet {
             if (search != null) {
                 session.setAttribute("keyword", search);
                 session.setAttribute("search", "&search=" + search);
-            }else{
+            } else {
                 //reusing for other page if
                 session.setAttribute("search", "");
             }
@@ -84,13 +84,13 @@ public class ListProduct extends HttpServlet {
             // for other pages
             if (sort != null) {
                 session.setAttribute("sort", "&sort=" + sort);
-            }else{
+            } else {
                 session.setAttribute("sort", "");
             }
 
             cc = getKeyword(search) + getSortType(sort);
-            request.setAttribute("products", dao.getProducts(cc));
-            request.setAttribute("total", dao.getProducts("").size());
+            session.setAttribute("products", dao.getProducts(cc));
+            session.setAttribute("total", dao.getProducts("").size());
             int page, begin = 0, end = 8;
             int size = dao.getProducts(cc).size();
 
@@ -99,26 +99,27 @@ public class ListProduct extends HttpServlet {
             } else {
                 page = size / 9;
             }
-
-            if (request.getParameter("page") != null) {
+            //cpage = current page
+            String cpage = request.getParameter("page");
+            if (cpage != null) {
                 // cp = current page
-                int cp = Integer.parseInt(request.getParameter("page"));
+                int cp = Integer.parseInt(cpage);
                 for (int i = 1; i <= page; i++) {
                     if (cp == i) {
                         begin = begin + (i - 1) * 9;
                         end = end + (i - 1) * 9;
-                        request.setAttribute("cp", cp);
+                        session.setAttribute("cp", cp);
                         break;
                     }
                 }
             } else {
-                request.setAttribute("cp", 1);
+                session.setAttribute("cp", 1);
             }
-            
-            request.setAttribute("begin", begin);
-            request.setAttribute("end", end);
-            request.setAttribute("pages", page);
-            request.getRequestDispatcher("shop.jsp").forward(request, response);
+
+            session.setAttribute("begin", begin);
+            session.setAttribute("end", end);
+            session.setAttribute("pages", page);
+            request.getRequestDispatcher("Cart").forward(request, response);
         } catch (NumberFormatException e) {
             response.sendRedirect("index.jsp");
         }

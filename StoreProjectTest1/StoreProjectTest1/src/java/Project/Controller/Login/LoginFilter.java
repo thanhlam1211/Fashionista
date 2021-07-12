@@ -38,6 +38,7 @@ public class LoginFilter implements Filter {
         if (debug) {
             log("LoginFilter:DoBeforeProcessing");
         }
+        String password = request.getParameter("password");
         if(!User.isStatus()){
             
             request.getRequestDispatcher("index.jsp").forward(request, response);

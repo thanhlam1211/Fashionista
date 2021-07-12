@@ -36,15 +36,9 @@
     </head>
 
     <body>
-        <div class="preloader-activate preloader-active open_tm_preloader">
-            <div class="preloader-area-wrap">
-                <div class="spinner d-flex justify-content-center align-items-center h-100 ">
-                    <div  class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div>
-                </div>
-            </div>
-        </div>
+        
+        
+        
         <div class="main-wrapper">
             <!-- Begin Main Header Area -->
             <jsp:include page="header.jsp"></jsp:include>
@@ -183,7 +177,7 @@
                                                     Sort By Order
                                                 </a>
                                                 <ul style="text-align: center;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item" href="Shop?sort=3">Sort By Popularity</a></li>
+                                                    <li><a class="dropdown-item" href="Shop?${search}&sort=3">Sort By Popularity</a></li>
                                                     <li><a class="dropdown-item" href="Shop?${search}&sort=4">Sort by Latest</a></li>
                                                     <li><a class="dropdown-item" href="Shop?${search}&sort=5">Sort by High Price</a></li>
                                                     <li><a class="dropdown-item" href="Shop?${search}&sort=6">Sort by Low Price</a></li>
@@ -202,7 +196,7 @@
                                                 <div class="col-md-4 col-sm-6">
                                                     <div class="product-item">
                                                         <div class="product-img">
-                                                            <a href="single-product.jsp">
+                                                            <a href="infor?id=${p.getProID()}">
                                                                 <img class="primary-img" src="${path}/assets/images/product/medium-size/1.jpg" alt="Product Images">
                                                                 <img class="secondary-img" src="${path}/assets/images/product/medium-size/2.jpg" alt="Product Images">
                                                             </a>
@@ -297,8 +291,9 @@
                                                                                                             </div>
                                                                                                         </li>
                                                                                                         <li class="add-to-cart">
-                                                                                                            <a class="btn btn-custom-size lg-size btn-pronia-primary" href="cart.jsp">Add to
+                                                                                                            <a class="btn btn-custom-size lg-size btn-pronia-primary" href="Cart?&add=on&num=1&id=${product.getProID()}">Add to
                                                                                                                 cart</a>
+                                                                                                            
                                                                                                         </li>
                                                                                                         <li class="wishlist-btn-wrap">
                                                                                                             <a class="custom-circle-btn" href="wishlist.jsp">
@@ -343,8 +338,8 @@
                                                                             <i class="pe-7s-look"></i>
                                                                         </a>
                                                                     </li>
-                                                                    <li>
-                                                                        <a href="Cart?num=1&id=${p.getProID()}" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <li class="add-to-cart">
+                                                                        <a href="infor?id=${p.getProID()}" onclick="showSwal('success-message')" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                                                             <i class="pe-7s-cart"></i>
                                                                         </a>
                                                                     </li>
@@ -379,13 +374,13 @@
                                                 <div class="col-12">
                                                     <div class="product-item">
                                                         <div class="product-img">
-                                                            <a href="single-product.jsp">
+                                                            <a href="infor?id=${p.getProID()}">
                                                                 <img class="primary-img" src="${path}/assets/images/product/medium-size/1.jpg" alt="Product Images">
                                                                 <img class="secondary-img" src="${path}/assets/images/product/medium-size/2.jpg" alt="Product Images">
                                                             </a>
                                                         </div>
                                                         <div class="product-content">
-                                                            <a class="product-name" href="single-product.jsp">${p.getProName()}</a>
+                                                            <a class="product-name" href="infor?id=${p.getProID()}">${p.getProName()}</a>
                                                             <div class="price-box pb-1">
                                                                 <span class="new-price">$${p.getProPrice()}</span>
                                                             </div>
@@ -413,7 +408,7 @@
                                                                         </a>
                                                                     </li>
                                                                     <li>
-                                                                        <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                        <a href="infor?id=${p.getProID()}" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                                                             <i class="pe-7s-cart"></i>
                                                                         </a>
                                                                     </li>
@@ -481,7 +476,34 @@
         <script src="${path}/assets/js/plugins/ion.rangeSlider.min.js"></script>
         <script src="${path}/assets/js/plugins/mailchimp-ajax.js"></script>
         <script src="${path}/assets/js/plugins/jquery.counterup.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+         <script>
+                                                (function ($) {
+                                                    showSwal = function (type) {
+                                                        'use strict';
+                                                        if (type === 'success-message') {
+                                                            swal({
+                                                                title: 'Success!',
+                                                                text: 'You have add your product into cart',
+                                                                type: 'success',
+                                                                button: {
+                                                                    text: "Continue",
+                                                                    value: true,
+                                                                    visible: true,
+                                                                    className: "btn btn-primary"
+                                                                }
+                                                            })
 
+                                                        } else {
+                                                            swal("Error occured !");
+                                                        }
+                                                    }
+
+                                                })(jQuery);
+        </script>
+        
         <!--Main JS (Common Activation Codes)-->
         <script src="${path}/assets/js/main.js"></script>
 

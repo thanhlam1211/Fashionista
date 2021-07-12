@@ -62,7 +62,8 @@
                                 <li class="minicart-wrap me-3 me-lg-0">
                                     <a href="#miniCart" class="minicart-btn toolbar-btn">
                                         <i class="pe-7s-shopbag"></i>
-                                        <span class="quantity">3</span>
+
+                                        <span class="quantity">${numberofpro}</span>
                                     </a>
                                 </li>
                                 <li class="mobile-menu_wrap d-block d-lg-none">
@@ -293,9 +294,12 @@
                 <ul class="minicart-list">
                     <c:forEach items="${cart}" var="c" begin="0" end="${cart.size()}" step="1">
                         <li class="minicart-product">
-                            <a class="product-item_remove" href="#"><i class="pe-7s-close" data-tippy="Remove"
-                                                                       data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50"
-                                                                       data-tippy-arrow="true" data-tippy-theme="sharpborder"></i></a>
+                            <a href="Cart?id=${c.getKey().getProID()}" class="product-item_remove" >
+                                <i class="pe-7s-close" data-tippy="Remove"
+                                   data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50"
+                                   data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                </i>
+                            </a>
                             <a href="single-product-variable.jsp" class="product-item_img">
                                 <img class="img-full" src="${path}/assets/images/product/small-size/2-1-70x78.png" alt="Product Image">
                             </a>

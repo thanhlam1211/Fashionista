@@ -117,9 +117,9 @@
                             </div>
                             <div class="col-lg-6 pt-5 pt-lg-0">
                                 <div class="single-product-content">
-                                    <h2 class="title">ngon múp rụp phục vụ nhiều anh trai</h2>
+                                    <h2 class="title">${product.getProName()}</h2>
                                     <div class="price-box">
-                                        <span class="new-price">500K</span>
+                                        <span class="new-price">$${product.getProPrice()}</span>
                                     </div>
                                     <div class="rating-box-wrap pb-4">
                                         <div class="rating-box">
@@ -136,22 +136,29 @@
                                         </div>
                                     </div>
                                     <p class="short-desc">Em rau 2k5, best trong tầm giá</p>
-                                    <ul class="quantity-with-btn">
-                                        <li class="quantity">
-                                            <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" value="1" type="text">
-                                            </div>
-                                        </li>
-                                        <li class="add-to-cart">
-                                            <a class="btn btn-custom-size lg-size btn-pronia-primary" onclick="showSwal('success-message')">Add to
-                                                cart</a>
-                                        </li>
-                                        <li class="wishlist-btn-wrap">
-                                            <a class="custom-circle-btn" href="wishlist.JSP">
-                                                <i class="pe-7s-like"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <form action="Cart" method="get">
+                                        <ul class="quantity-with-btn">
+                                            <li class="quantity">
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" value="1" type="text" name="num" >
+                                                    <input type="hidden" name="id" value="${product.getProID()}">
+                                                    <input type="hidden" name="add" value="on">
+                                                </div>
+                                            </li>
+                                            <li class="add-to-cart">
+                                                <div style="text-align: center">                                               
+                                                    <button class="btn btn-custom-size lg-size btn-pronia-primary">Add To Cart</button>
+                                                </div>
+                                            </li>
+
+                                            <li class="wishlist-btn-wrap">
+                                                <a class="custom-circle-btn" href="wishlist.JSP">
+                                                    <i class="pe-7s-like"></i>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </form>
                                     <ul class="service-item-wrap">
                                         <li class="service-item">
                                             <div class="service-img">
@@ -682,28 +689,30 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script>
-                                                (function ($) {
-                                                    showSwal = function (type) {
-                                                        'use strict';
-                                                        if (type === 'success-message') {
-                                                            swal({
-                                                                title: 'Success!',
-                                                                text: 'You have add your product into cart',
-                                                                type: 'success',
-                                                                button: {
-                                                                    text: "Continue",
-                                                                    value: true,
-                                                                    visible: true,
-                                                                    className: "btn btn-primary"
-                                                                }
-                                                            })
+            (function ($) {
+                showSwal = function (type) {
+                    'use strict';
+                    if (type === 'success-message') {
+                        swal({
+                            title: 'Success!',
+                            text: 'You have add your product into cart',
+                            type: 'success',
+                            button: {
+                                text: "Continue",
+                                value: true,
+                                visible: true,
+                                className: "btn btn-primary"
+                            }
+                        }, function () {
+                            window.location.href = "Cart?add=on&id=${product.getProID()}";
+                        });
 
-                                                        } else {
-                                                            swal("Error occured !");
-                                                        }
-                                                    }
+                    } else {
+                        swal("Error occured !");
+                    }
+                }
 
-                                                })(jQuery);
+            })(jQuery);
         </script>
 
         <!--Main JS (Common Activation Codes)-->

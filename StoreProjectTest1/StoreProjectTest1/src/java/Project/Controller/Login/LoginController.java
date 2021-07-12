@@ -46,7 +46,21 @@ public class LoginController extends HttpServlet {
             //getting information from login.jsp
             String user = request.getParameter("account");
             String pass = request.getParameter("password");
+            Cookie[] cookies = request.getCookies();
+            Encode decode = new Encode();
+            if (cookies != null) {
+                for (Cookie cooky : cookies) {
+                    if (cooky.getName().equals("password")) {
+                        //if password input equal to decode "password cookie" then beak
+                        if (decode.Dec(cooky.getValue()).equals(pass)) {
+                            break;
+                        }
+                        pass = decode.Dec(pass);
+                        break;
+                    }
 
+                }
+            }
             if (user != null && pass != null) {
                 HttpSession session = request.getSession();
                 boolean check = false;
@@ -65,8 +79,8 @@ public class LoginController extends HttpServlet {
                     pass_cooky = new Cookie("password", en.Enc(pass));
                     if (rem) {
                         //set age for cookies
-                        user_cooky.setMaxAge(60);
-                        pass_cooky.setMaxAge(60);
+                        user_cooky.setMaxAge(120);
+                        pass_cooky.setMaxAge(120);
                     } else {
                         //delete cookies
                         user_cooky.setMaxAge(0);
@@ -74,11 +88,13 @@ public class LoginController extends HttpServlet {
                     }
                     response.addCookie(user_cooky);
                     response.addCookie(pass_cooky);
+
                     infor.setStatus(check);
                     session.setAttribute("logined", check);
                     session.setAttribute("UI", infor);
+
                     if (infor.getRole().equals("customer")) {
-                        request.getRequestDispatcher("Shop").include(request, response);
+                        request.getRequestDispatcher("Shop").forward(request, response);
                     } else {
                         request.getRequestDispatcher("admin.jsp").forward(request, response);
                     }
@@ -88,9 +104,10 @@ public class LoginController extends HttpServlet {
                 request.setAttribute("message", "Wrong user or password");
                 infor.setStatus(check);
                 session.setAttribute("logined", check);
-            }
+            } else {
 
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
         }
     }
 
@@ -120,6 +137,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         processRequest(request, response);
     }
 

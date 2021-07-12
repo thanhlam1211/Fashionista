@@ -64,8 +64,7 @@ public class ProductDAO {
     }
 
     public Product getProduct(String ProID) {
-        List<Product> products = getProducts("");
-        for (Product product : products) {
+        for (Product product : getProducts("")) {
             if (product.getProID().equals(ProID)) {
                 return product;
             }

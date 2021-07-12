@@ -16,7 +16,7 @@
         <div class="card-body">
             <div class="wrapper text-center">
                 <h4 class="card-title">Alerts Popups</h4>
-                <button class="btn btn-outline-success" onclick="showSwal('success-message')">Click here!</button>
+                <button class="btn btn-outline-success"  onclick="showSwal('success-message')">Click here!</button>
             </div>
         </div>
     </body>

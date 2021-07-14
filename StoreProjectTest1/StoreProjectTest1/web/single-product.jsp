@@ -134,7 +134,7 @@
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
                                         </div>
-                                        <div class="review-status">
+                                        <div class="review-status"> 
                                             <a href="#">( 1 Review )</a>
                                         </div>
                                     </div>
@@ -152,7 +152,7 @@
                                             </li>
                                             <li class="add-to-cart">
                                                 <div style="text-align: center">                                               
-                                                    <button class="btn btn-custom-size lg-size btn-pronia-primary">Add To Cart</button>
+                                                    <button onClick="showSwal('success-message')" class="btn btn-custom-size lg-size btn-pronia-primary">Add To Cart</button>
                                                 </div>
                                             </li>
 

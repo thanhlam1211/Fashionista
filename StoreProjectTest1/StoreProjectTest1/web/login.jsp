@@ -81,24 +81,24 @@
                                             <h3 style="text-align: center">${message}</h3>
                                             <c:forEach var="cookieVal" items="${pageContext.request.cookies}" >  
                                                 <c:if test="${cookieVal.name == 'account'}">
-                                                    <c:set scope="request" var="caccount" value = "${cookieVal.value}" />
+                                                    <c:set scope="request" var="account" value = "${cookieVal.value}" />
                                                 </c:if>
                                                 <c:if test="${cookieVal.name == 'password'}">
-                                                    <c:set scope="request" var="cpassword" value = "${cookieVal.value}" />
+                                                    <c:set scope="request" var="password" value = "${cookieVal.value}" />
                                                 </c:if>
                                             </c:forEach>
                                             <div class="col-lg-12">
                                                 <label>User Name</label>
-                                                <input required type="text" name="account" value=${caccount}>
+                                                <input required type="text" name="account" value=${account}>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label>Password</label>
-                                                <input required type="password" name="password" value=${cpassword} >
+                                                <input required type="password" name="password" value=${password} >
                                             </div>
 
                                             <div class="col-md-8">
                                                 <div class="check-box">
-                                                    <input type="checkbox" id="remember_me" name="remember" ${caccount.isEmpty()?"":"checked"} >
+                                                    <input type="checkbox" id="remember_me" name="remember" ${account.isEmpty()?"":"checked"} >
                                                     <label for="remember_me">Remember me</label>
                                                 </div>
                                             </div>

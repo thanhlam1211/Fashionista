@@ -17,7 +17,7 @@ public class Product {
     private String ProCategorieID;
     private String ProSubCategorieID;
     private String ProSuppliers;
-    private double ProPrice;
+    private float ProPrice;
     private int Stock;
     //des = description
     private String des;
@@ -33,7 +33,7 @@ public class Product {
         this.ProCategorieID = ProCategorieID;
         this.ProSubCategorieID = ProSubCategorieID;
         this.ProSuppliers = ProSuppliers;
-        this.ProPrice = ProPrice;
+        this.ProPrice = (float) ProPrice;
         this.Stock = Stock;
         this.des = des;
     }
@@ -109,7 +109,7 @@ public class Product {
     }
 
     public void setProPrice(double ProPrice) {
-        this.ProPrice = ProPrice;
+        this.ProPrice = (float) ProPrice;
     }
 
     public int getStock() {

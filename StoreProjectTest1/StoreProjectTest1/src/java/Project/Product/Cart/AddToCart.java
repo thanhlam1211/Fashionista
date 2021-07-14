@@ -68,8 +68,8 @@ public class AddToCart extends HttpServlet {
         }
     }
 
-    int getTotal() {
-        int total = 0;
+    float getTotal() {
+        float total = 0;
         for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {
             Product key = entry.getKey();
             Integer value = entry.getValue();
@@ -105,7 +105,6 @@ public class AddToCart extends HttpServlet {
             
             String code = request.getParameter("id");
             if (code != null) {
-                
                 String status = request.getParameter("add");
                 Product product = dao.getProduct(code);
                 if (status != null) {
@@ -115,12 +114,23 @@ public class AddToCart extends HttpServlet {
                     removeFromCart(product);
                 }
             }
-            
+            float totalmoney = getTotal();
+            String coupon = request.getParameter("coupon_code");
+            float coupon_value = dao.getCoupon(coupon);
+            if(coupon != null){
+                
+                session.setAttribute("finaltotal",totalmoney - coupon_value/100 * totalmoney + 2);
+                
+            }else{
+                request.setAttribute("message", "NOT VALID!");
+                session.setAttribute("finaltotal", totalmoney + 2);
+            }
+            session.setAttribute("coupon", coupon_value +"%");
             session.setAttribute("cart", this.products);
-            session.setAttribute("totalcart", getTotal());
+            session.setAttribute("subtotalcart", totalmoney);
             session.setAttribute("numberofpro", getNumberOfPro());
       
-            response.sendRedirect("shop.jsp");
+            response.sendRedirect(request.getParameter("from"));
            
             
         }

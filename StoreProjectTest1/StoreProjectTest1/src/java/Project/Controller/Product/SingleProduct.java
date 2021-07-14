@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -35,12 +36,15 @@ public class SingleProduct extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             try {
+                HttpSession session = request.getSession();
                 String id = request.getParameter("id");
                 ProductDAO dao = new ProductDAO();
                 Product p = dao.getProduct(id);
                 if (p != null) {
-                    request.setAttribute("product", p);
-                    request.getRequestDispatcher("single-product.jsp").forward(request, response);
+                    session.setAttribute("product", p);
+                    //p_url = previous url
+                    request.setAttribute("p_url", "Shop");
+                     response.sendRedirect("single-product.jsp");
                 } else {
                     response.sendRedirect("index.jsp");
                 }

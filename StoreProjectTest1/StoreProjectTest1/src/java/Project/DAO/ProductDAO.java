@@ -29,6 +29,28 @@ public class ProductDAO {
     public ProductDAO() {
     }
 
+    public float getCoupon(String code) {
+        float value = 0;
+        try {
+            con = DBConnection.open();
+            ps = con.prepareCall("SELECT * FROM [Shopping].[dbo].[DiscountCode]");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString("discountCode"));
+                if (rs.getString("discountCode").equalsIgnoreCase(code)) {
+                    value = rs.getFloat("discountPercentage");
+                    break;
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            DBConnection.close(con, ps, rs);
+        }
+        return value;
+    }
+
     public List<Product> getProducts(String condition) {
         List<Product> products = new ArrayList<>();
         try {
@@ -50,7 +72,7 @@ public class ProductDAO {
                 p.setProSubCategorieID(rs.getString("ProSubCategorieID"));
                 p.setProSuppliers(rs.getString("ProSupplier"));
                 p.setDes(rs.getString("ProDescription"));
-                p.setProPrice(rs.getDouble("ProPrice"));
+                p.setProPrice(rs.getFloat("ProPrice"));
                 p.setStock(rs.getInt("Stock"));
 
                 products.add(p);

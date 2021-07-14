@@ -11,9 +11,8 @@
     </filter>
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
-        <servlet-name>MyAccoutController</servlet-name>
-        <servlet-name>UpdateInformationController</servlet-name>
         <url-pattern>/my-account.jsp</url-pattern>
+        <url-pattern>/wishlist.jsp</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>LoginController</servlet-name>

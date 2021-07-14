@@ -179,7 +179,7 @@
                                 <li class="minicart-wrap me-3 me-lg-0">
                                     <a href="#miniCart" class="minicart-btn toolbar-btn">
                                         <i class="pe-7s-shopbag"></i>
-                                        <span class="quantity">3</span>
+                                        <span class="quantity">${numberofpro}</span>
                                     </a>
                                 </li>
                                 <li class="mobile-menu_wrap d-block d-lg-none">
@@ -294,7 +294,7 @@
                 <ul class="minicart-list">
                     <c:forEach items="${cart}" var="c" begin="0" end="${cart.size()}" step="1">
                         <li class="minicart-product">
-                            <a href="Cart?id=${c.getKey().getProID()}" class="product-item_remove" >
+                            <a href="Cart?id=${c.getKey().getProID()}&from=${pageContext.request.requestURI}" class="product-item_remove" >
                                 <i class="pe-7s-close" data-tippy="Remove"
                                    data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50"
                                    data-tippy-arrow="true" data-tippy-theme="sharpborder">
@@ -315,10 +315,10 @@
             <div class="minicart-item_total">
 
                 <span>Subtotal</span>
-                <span class="ammount">${totalcart}</span>
+                <span class="ammount">${subtotalcart}</span>
             </div>
             <div class="group-btn_wrap d-grid gap-2">
-                <a href="ViewCart" class="btn btn-dark">View Cart</a>
+                <a href="cart.jsp" class="btn btn-dark">View Cart</a>
             </div>
         </div>
     </div>

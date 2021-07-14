@@ -65,6 +65,7 @@ public class ListProduct extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+             response.setIntHeader("Refresh", 30);
             ProductDAO dao = new ProductDAO();
             HttpSession session = request.getSession();
             String search = request.getParameter("search");
@@ -119,7 +120,8 @@ public class ListProduct extends HttpServlet {
             session.setAttribute("begin", begin);
             session.setAttribute("end", end);
             session.setAttribute("pages", page);
-            request.getRequestDispatcher("Cart").forward(request, response);
+            
+            request.getRequestDispatcher("shop.jsp").forward(request, response);
         } catch (NumberFormatException e) {
             response.sendRedirect("index.jsp");
         }

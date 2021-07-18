@@ -138,7 +138,7 @@
                                                         <div class="frequently-item">
                                                             <ul>
                                                                 <li class="has-sub active">
-                                                                    <a href="javascript:void(0)">Chăm sóc khánh hàng bên Hanger hoạt động vào thời gian nào?
+                                                                    <a href="javascript:void(0)">Chăm sóc khánh hàng Hanger hoạt động vào thời gian nào?
                                                                         <i class="pe-7s-angle-down"></i>
                                                                     </a>
                                                                     <ul class="frequently-body">

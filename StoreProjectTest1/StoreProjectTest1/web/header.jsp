@@ -262,11 +262,6 @@
                                             <span class="mm-text">Frequently Questions</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="404.jsp">
-                                            <span class="mm-text">Error 404</span>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
                             <li>

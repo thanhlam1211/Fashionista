@@ -5,8 +5,10 @@
  */
 package Project.Product.WishList;
 
-
+import Project.DAO.ProductDAO;
 import Project.DAO.WishListDAO;
+import Project.Sample.Product;
+import Project.Sample.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,12 +16,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.lang.NumberFormatException;
+import java.util.ArrayList;
+import java.util.List;
+import model.WishList;
 
 /**
  *
- * @author GHC
+ * @author TrungHuy
  */
-public class DeleteFromWishList extends HttpServlet {
+public class MyWishList extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,13 +38,35 @@ public class DeleteFromWishList extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Object obj = session.getAttribute("cart");
-        WishListDAO dao = new WishListDAO();
-        String ProID = request.getParameter("ProID");
-        //get userid de check wishlist
-        int UserID = (int)session.getAttribute("User");
-        dao.Delete(ProID, UserID);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            HttpSession session = request.getSession();
+            try {
+                int uid = Integer.parseInt(request.getParameter("uid"));
+                User u = (User) session.getAttribute("UI");
+                if (uid == u.getID()) {
+                    WishListDAO wdao = new WishListDAO();
+                    ProductDAO pdao = new ProductDAO();
+                    List<WishList> uwl = wdao.getUserWishList(u.getID());
+                    if (!uwl.isEmpty()) {
+                        List<Product> products = new ArrayList<>();
+                        for (WishList wishList : uwl) {
+                            products.add(pdao.getProduct(wishList.getProID()));
+                        }
+                        request.setAttribute("products", products);
+                    } else {
+                        session.setAttribute("message", "Your WishList Is Empty!");
+                    }
+                    request.getRequestDispatcher("wishlist.jsp").forward(request, response);
+                }
+
+            } catch (NumberFormatException | NullPointerException e) {
+                request.setAttribute("message", "You can not access the page with this URL");
+                request.getRequestDispatcher("404.jsp").forward(request, response);
+            }
+
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

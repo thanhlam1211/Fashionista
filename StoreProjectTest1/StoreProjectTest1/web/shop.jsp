@@ -16,6 +16,7 @@
         <title>Hanger - Shop</title>
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="${path}/assets/images/logo2.png" />
         <!-- CSS
@@ -35,12 +36,12 @@
 
     </head>
 
-    <body>
-        
-        
-        
-        <div class="main-wrapper">
-            <!-- Begin Main Header Area -->
+    <body >
+
+        <c:set var="from" value="Shop"></c:set>
+
+            <div class="main-wrapper">
+                <!-- Begin Main Header Area -->
             <jsp:include page="header.jsp"></jsp:include>
                 <!-- Main Header Area End Here -->
 
@@ -58,8 +59,12 @@
                                             <button class="widgets-searchbox-btn" type="submit">
                                                 <i class="fa fa-search"></i>
                                             </button>
+
                                         </form>
                                     </div>
+
+                                    <h2 style="text-align: center;">${empty message?"Some Thing Will Be Shown Here?":message}</h2>
+                                    
                                     <div class="widgets-area">
                                         <div class="widgets-item pt-0">
                                             <h2 class="widgets-title mb-4">Categories</h2>
@@ -193,17 +198,19 @@
                                         <div class="product-grid-view row g-y-20">
                                             <!--12 product example, dufng jstl để hiện thị-->
                                             <c:forEach items="${products}" var="p" begin="${begin}" end="${end}" step="1">
+
                                                 <div class="col-md-4 col-sm-6">
                                                     <div class="product-item">
                                                         <div class="product-img">
                                                             <a href="infor?id=${p.getProID()}">
-                                                                <img class="primary-img" src="${path}/assets/images/product/medium-size/1.jpg" alt="Product Images">
-                                                                <img class="secondary-img" src="${path}/assets/images/product/medium-size/2.jpg" alt="Product Images">
+
+                                                                <img class="primary-img" src="assets/images/product/medium-size/" alt="Product Images">
+                                                                <img class="secondary-img" src="assets/images/product/medium-size/" alt="Product Images">
                                                             </a>
                                                             <div class="product-add-action">
                                                                 <ul>
                                                                     <li>
-                                                                        <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                        <a href="wishlist?id=${p.getProID()}&from=${from}&status=add" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                                                             <i class="pe-7s-like"></i>
                                                                         </a>
                                                                     </li>
@@ -224,22 +231,22 @@
                                                                                                         <div class="swiper-wrapper">
                                                                                                             <div class="swiper-slide">
                                                                                                                 <a href="#" class="single-img">
-                                                                                                                    <img class="img-full" src="${path}/assets/images/product/large-size/1.jfif" alt="Product Image">
+                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                                 </a>
                                                                                                             </div>
                                                                                                             <div class="swiper-slide">
                                                                                                                 <a href="#" class="single-img">
-                                                                                                                    <img class="img-full" src="${path}/assets/images/product/large-size/2.jfif" alt="Product Image">
+                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                                 </a>
                                                                                                             </div>
                                                                                                             <div class="swiper-slide">
                                                                                                                 <a href="#" class="single-img">
-                                                                                                                    <img class="img-full" src="${path}/assets/images/product/large-size/3.jfif" alt="Product Image">
+                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                                 </a>
                                                                                                             </div>
                                                                                                             <div class="swiper-slide">
                                                                                                                 <a href="#" class="single-img">
-                                                                                                                    <img class="img-full" src="${path}/assets/images/product/large-size/4.jfif" alt="Product Image">
+                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                                 </a>
                                                                                                             </div>
                                                                                                         </div>
@@ -293,7 +300,7 @@
                                                                                                         <li class="add-to-cart">
                                                                                                             <a class="btn btn-custom-size lg-size btn-pronia-primary" href="Cart?&add=on&num=1&id=${product.getProID()}">Add to
                                                                                                                 cart</a>
-                                                                                                            
+
                                                                                                         </li>
                                                                                                         <li class="wishlist-btn-wrap">
                                                                                                             <a class="custom-circle-btn" href="wishlist.jsp">
@@ -339,7 +346,7 @@
                                                                         </a>
                                                                     </li>
                                                                     <li class="add-to-cart">
-                                                                        <a href="infor?id=${p.getProID()}" onclick="showSwal('success-message')" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                        <a href="Cart?num=1&add=on&id=${p.getProID()}&from=Shop" onclick="showSwal('success-message')" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                                                             <i class="pe-7s-cart"></i>
                                                                         </a>
                                                                     </li>
@@ -375,8 +382,8 @@
                                                     <div class="product-item">
                                                         <div class="product-img">
                                                             <a href="infor?id=${p.getProID()}">
-                                                                <img class="primary-img" src="${path}/assets/images/product/medium-size/1.jpg" alt="Product Images">
-                                                                <img class="secondary-img" src="${path}/assets/images/product/medium-size/2.jpg" alt="Product Images">
+                                                                <img class="primary-img" src="assets/images/product/medium-size/" alt="Product Images">
+                                                                <img class="secondary-img" src="assets/images/product/medium-size/" alt="Product Images">
                                                             </a>
                                                         </div>
                                                         <div class="product-content">
@@ -398,7 +405,7 @@
                                                             <div class="product-add-action">
                                                                 <ul>
                                                                     <li>
-                                                                        <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                        <a href="wishlist?id=${p.getProID()}&from=${from}&status=add" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                                                             <i class="pe-7s-like"></i>
                                                                         </a>
                                                                     </li>
@@ -424,11 +431,11 @@
                                 <div class="pagination-area">
                                     <nav aria-label="Page navigation example">
                                         <ul class="pagination justify-content-center">
-                                            <c:forEach var="page" begin="1" end="${pages}" step="1">
-                                                <li class="page-item active"><a class="page-link" href="Shop?${search}${sort}&page=${page}">${page}</a></li>
+                                            <c:forEach var="p" begin="1" end="${pages}" step="1">
+                                                <li class="page-item active"><a class="page-link" href="Shop?${search}${sort}&page=${p}">${p}</a></li>
                                                 </c:forEach> 
                                             <li class="page-item">
-                                                <a class="page-link" href="Shop?${search}${sort}page=${cp + 1}" aria-label="Next">&raquo;</a>
+                                                <a class="page-link" href="Shop?${search}${sort}&page=${cp + 1}" aria-label="Next">&raquo;</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -476,34 +483,19 @@
         <script src="${path}/assets/js/plugins/ion.rangeSlider.min.js"></script>
         <script src="${path}/assets/js/plugins/mailchimp-ajax.js"></script>
         <script src="${path}/assets/js/plugins/jquery.counterup.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-         <script>
-                                                (function ($) {
-                                                    showSwal = function (type) {
-                                                        'use strict';
-                                                        if (type === 'success-message') {
-                                                            swal({
-                                                                title: 'Success!',
-                                                                text: 'You have add your product into cart',
-                                                                type: 'success',
-                                                                button: {
-                                                                    text: "Continue",
-                                                                    value: true,
-                                                                    visible: true,
-                                                                    className: "btn btn-primary"
-                                                                }
-                                                            })
+        <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+        <script>
+                                                                            $(window).scroll(function () {
+                                                                                sessionStorage.scrollTop = $(this).scrollTop();
+                                                                            });
+                                                                            $(document).ready(function () {
+                                                                                if (sessionStorage.scrollTop != "undefined") {
+                                                                                    $(window).scrollTop(sessionStorage.scrollTop);
 
-                                                        } else {
-                                                            swal("Error occured !");
-                                                        }
-                                                    }
-
-                                                })(jQuery);
+                                                                                }
+                                                                            });
         </script>
-        
+
         <!--Main JS (Common Activation Codes)-->
         <script src="${path}/assets/js/main.js"></script>
 

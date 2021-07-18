@@ -6,7 +6,9 @@
 package Project.Controller.Product;
 
 import Project.DAO.ProductDAO;
+import Project.Sample.Product;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,6 +67,7 @@ public class ListProduct extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+             response.setIntHeader("Refresh", 60*60);
             ProductDAO dao = new ProductDAO();
             HttpSession session = request.getSession();
             String search = request.getParameter("search");
@@ -89,10 +92,14 @@ public class ListProduct extends HttpServlet {
             }
 
             cc = getKeyword(search) + getSortType(sort);
-            session.setAttribute("products", dao.getProducts(cc));
-            session.setAttribute("total", dao.getProducts("").size());
+            List<Product> ls = dao.getProducts(cc);
+            for (Product l : ls) {
+                l.setImage(dao.getImageById(l.getProID()));
+            }
+            request.setAttribute("products", ls);
+            request.setAttribute("total", dao.getProducts("").size());
             int page, begin = 0, end = 8;
-            int size = dao.getProducts(cc).size();
+            int size = ls.size();
 
             if (size % 9 != 0) {
                 page = size / 9 + 1;
@@ -119,7 +126,8 @@ public class ListProduct extends HttpServlet {
             session.setAttribute("begin", begin);
             session.setAttribute("end", end);
             session.setAttribute("pages", page);
-            request.getRequestDispatcher("Cart").forward(request, response);
+            request.setAttribute("system", "Something Will be Shown Here?");
+            request.getRequestDispatcher("shop.jsp").forward(request, response);
         } catch (NumberFormatException e) {
             response.sendRedirect("index.jsp");
         }

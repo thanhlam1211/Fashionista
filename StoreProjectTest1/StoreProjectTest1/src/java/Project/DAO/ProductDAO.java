@@ -6,6 +6,7 @@
 package Project.DAO;
 
 import Project.DBConnection.DBConnection;
+import Project.Sample.Image;
 import Project.Sample.Product;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,6 +30,28 @@ public class ProductDAO {
     public ProductDAO() {
     }
 
+    public float getCoupon(String code) {
+        float value = 0;
+        try {
+            con = DBConnection.open();
+            ps = con.prepareCall("SELECT * FROM [Shopping].[dbo].[DiscountCode]");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString("discountCode"));
+                if (rs.getString("discountCode").equalsIgnoreCase(code)) {
+                    value = rs.getFloat("discountPercentage");
+                    break;
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            DBConnection.close(con, ps, rs);
+        }
+        return value;
+    }
+
     public List<Product> getProducts(String condition) {
         List<Product> products = new ArrayList<>();
         try {
@@ -37,21 +60,22 @@ public class ProductDAO {
                 ps = con.prepareCall("SELECT * FROM [Shopping].[dbo].[Product]");
             } else {
                 ps = con.prepareCall("SELECT * FROM [Shopping].[dbo].[Product]" + condition);
-
             }
             rs = ps.executeQuery();
             while (rs.next()) {
+
+                String id = rs.getString("ProID");
                 Product p = new Product();
-                p.setProID(rs.getString("ProID"));
+                p.setProID(id);
                 p.setProName(rs.getString("ProName"));
                 p.setProBranch(rs.getString("ProBranch"));
-                p.setProImage(rs.getString("ProImage"));
                 p.setProCategorieID(rs.getString("ProCategorieID"));
                 p.setProSubCategorieID(rs.getString("ProSubCategorieID"));
                 p.setProSuppliers(rs.getString("ProSupplier"));
                 p.setDes(rs.getString("ProDescription"));
-                p.setProPrice(rs.getDouble("ProPrice"));
+                p.setProPrice(rs.getFloat("ProPrice"));
                 p.setStock(rs.getInt("Stock"));
+                //p.setImage(getImageById(id));
 
                 products.add(p);
             }
@@ -61,6 +85,28 @@ public class ProductDAO {
             DBConnection.close(con, ps, rs);
         }
         return products;
+    }
+
+    public List<Image> getImageById(String condition) {
+        List<Image> images = new ArrayList<>();
+        try {
+            con = DBConnection.open();
+            ps = con.prepareCall("SELECT * FROM [Shopping].[dbo].[Image] where ProID = '" + condition + "'");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Image i = new Image();
+                i.setProID(rs.getString("ProID"));
+                i.setId(rs.getString("ImageID"));
+                i.setUrl(rs.getString("Image"));
+                i.setSize(rs.getString("Size"));
+                images.add(i);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            DBConnection.close(con, ps, rs);
+        }
+        return images;
     }
 
     public Product getProduct(String ProID) {
@@ -80,12 +126,11 @@ public class ProductDAO {
             ps.setString(1, p.getProID());
             ps.setString(2, p.getProName());
             ps.setString(3, p.getProBranch());
-            ps.setString(4, p.getProImage());
-            ps.setString(5, p.getProCategorieID());
-            ps.setString(6, p.getProSubCategorieID());
-            ps.setString(7, p.getProSuppliers());
-            ps.setDouble(8, p.getProPrice());
-            ps.setInt(9, p.getStock());
+            ps.setString(4, p.getProCategorieID());
+            ps.setString(5, p.getProSubCategorieID());
+            ps.setString(6, p.getProSuppliers());
+            ps.setDouble(7, p.getProPrice());
+            ps.setInt(8, p.getStock());
 
             ps.execute();
         } catch (SQLException ex) {
@@ -116,7 +161,7 @@ public class ProductDAO {
             ps.setString(9, p.getProID());
             ps.setString(1, p.getProName());
             ps.setString(2, p.getProBranch());
-            ps.setString(3, p.getProImage());
+
             ps.setString(4, p.getProCategorieID());
             ps.setString(5, p.getProSubCategorieID());
             ps.setString(6, p.getProSuppliers());

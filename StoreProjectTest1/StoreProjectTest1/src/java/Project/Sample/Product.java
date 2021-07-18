@@ -5,31 +5,31 @@
  */
 package Project.Sample;
 
+import java.util.List;
+
 /**
  *
  * @author GHC
  */
 public class Product {
+
     private String ProID;
     private String ProName;
     private String ProBranch;
-    private String ProImage;
+    private List<Image> image;
     private String ProCategorieID;
     private String ProSubCategorieID;
     private String ProSuppliers;
-    private double ProPrice;
+    private float ProPrice;
     private int Stock;
     //des = description
     private String des;
-    
-    public Product() {
-    }
 
-    public Product(String ProID, String ProName, String ProBranch, String ProImage, String ProCategorieID, String ProSubCategorieID, String ProSuppliers, double ProPrice, int Stock, String des) {
+    public Product(String ProID, String ProName, String ProBranch, List<Image> image, String ProCategorieID, String ProSubCategorieID, String ProSuppliers, float ProPrice, int Stock, String des) {
         this.ProID = ProID;
         this.ProName = ProName;
         this.ProBranch = ProBranch;
-        this.ProImage = ProImage;
+        this.image = image;
         this.ProCategorieID = ProCategorieID;
         this.ProSubCategorieID = ProSubCategorieID;
         this.ProSuppliers = ProSuppliers;
@@ -38,15 +38,8 @@ public class Product {
         this.des = des;
     }
 
-    public String getDes() {
-        return des;
+    public Product() {
     }
-
-    public void setDes(String des) {
-        this.des = des;
-    }
-
- 
 
     public String getProID() {
         return ProID;
@@ -72,12 +65,12 @@ public class Product {
         this.ProBranch = ProBranch;
     }
 
-    public String getProImage() {
-        return ProImage;
+    public List<Image> getImage() {
+        return image;
     }
 
-    public void setProImage(String ProImage) {
-        this.ProImage = ProImage;
+    public void setImage(List<Image> image) {
+        this.image = image;
     }
 
     public String getProCategorieID() {
@@ -104,11 +97,11 @@ public class Product {
         this.ProSuppliers = ProSuppliers;
     }
 
-    public double getProPrice() {
+    public float getProPrice() {
         return ProPrice;
     }
 
-    public void setProPrice(double ProPrice) {
+    public void setProPrice(float ProPrice) {
         this.ProPrice = ProPrice;
     }
 
@@ -118,6 +111,14 @@ public class Product {
 
     public void setStock(int Stock) {
         this.Stock = Stock;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
     }
     
     

@@ -5,10 +5,9 @@
  */
 package Project.Controller.Login;
 
-import Project.DAO.AdminDAO;
+
 import Project.DAO.Encode;
 import Project.DAO.UserDAO;
-import Project.Sample.Admin;
 import Project.Sample.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -61,7 +60,7 @@ public class LoginController extends HttpServlet {
 
                 }
             }
-            if (user != null && pass != null) {
+            if (user != null || pass != null) {
                 HttpSession session = request.getSession();
                 boolean check = false;
                 UserDAO Dao = new UserDAO();
@@ -94,19 +93,22 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("UI", infor);
 
                     if (infor.getRole().equals("customer")) {
-                        request.getRequestDispatcher("Shop").forward(request, response);
+                        response.sendRedirect("Shop");
                     } else {
                         request.getRequestDispatcher("admin.jsp").forward(request, response);
                     }
-                }
+                }else{
 
                 //if the login false then redirect to login page
                 request.setAttribute("message", "Wrong user or password");
                 infor.setStatus(check);
                 session.setAttribute("logined", check);
+                response.sendRedirect("login.jsp");
+                }
+
             } else {
 
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                response.sendRedirect("login.jsp");
             }
         }
     }

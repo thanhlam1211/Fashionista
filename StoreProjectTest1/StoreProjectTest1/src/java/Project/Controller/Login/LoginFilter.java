@@ -38,10 +38,10 @@ public class LoginFilter implements Filter {
         if (debug) {
             log("LoginFilter:DoBeforeProcessing");
         }
-        String password = request.getParameter("password");
+        
         if(!User.isStatus()){
-            
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.setAttribute("message", "Must Login First!");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
         // Write code here to process the request and/or response before
         // the rest of the filter chain is invoked.

@@ -42,10 +42,14 @@ public class AddToCart extends HttpServlet {
             
             Product key = entry.getKey();
             Integer value = entry.getValue();
+           
             if (key.getProID().equals(p.getProID())) {
                 value += num;
                 this.products.put(key, value);
                 exist = true;
+                if(value == 0){
+                    removeFromCart(p);
+                }
                 break;
             }
             
@@ -110,6 +114,7 @@ public class AddToCart extends HttpServlet {
                 if (status != null) {
                     String quantity = request.getParameter("num");
                     addToCart(product, Integer.parseInt(quantity));
+                    
                 } else {
                     removeFromCart(product);
                 }
@@ -123,13 +128,15 @@ public class AddToCart extends HttpServlet {
                 
             }else{
                 request.setAttribute("message", "NOT VALID!");
+                if(this.products != null){
                 session.setAttribute("finaltotal", totalmoney + 2);
-            }
+                }
+            }   
             session.setAttribute("coupon", coupon_value +"%");
             session.setAttribute("cart", this.products);
             session.setAttribute("subtotalcart", totalmoney);
             session.setAttribute("numberofpro", getNumberOfPro());
-      
+            
             response.sendRedirect(request.getParameter("from"));
            
             

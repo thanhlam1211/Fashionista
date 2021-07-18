@@ -3,7 +3,7 @@
     Created on : Jun 26, 2021, 3:14:47 PM
     Author     : Admin
 --%>
- 
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>  
@@ -52,6 +52,7 @@
 
             <!-- Begin Main Header Area -->
             <jsp:include page="header.jsp"></jsp:include>
+            <c:set var="from" value="mywishlist?uid=${UI.getID()}"></c:set>
 
                 <!-- Main Header Area End Here -->
 
@@ -61,7 +62,7 @@
                         <div class="container">
                             <div class="row">
                                 <h1 style="text-align: center">Wish List</h1>
-
+                                 <h2 style="text-align: center;">${message}</h2>
                                 <div class="col-12">
                                     <form action="javascript:void(0)">
                                         <div class="table-content table-responsive">
@@ -77,61 +78,35 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                <c:forEach items="${products}" var="p">
                                                     <tr>
                                                         <td class="product_remove">
-                                                            <a href="#">
+                                                            <a href="wishlist?id=${p.getProID()}&from=${from}&status=del">
                                                                 <i class="pe-7s-close" data-tippy="Remove" data-tippy-inertia="true"
                                                                    data-tippy-animation="shift-away" data-tippy-delay="50"
                                                                    data-tippy-arrow="true" data-tippy-theme="sharpborder"></i>
                                                             </a>
                                                         </td>
                                                         <td class="product-thumbnail">
-                                                            <a href="#">
+                                                            <a href="infor?id=${p.getProID()}">
                                                                 <img src="${path}/assets/images/product/small-size/1-1-112x124.png" alt="Wishlist Thumbnail">
-                                                        </a>
-                                                    </td>
-                                                    <td class="product-name"><a href="#">American Marigold</a></td>
-                                                    <td class="product-price"><span class="amount">$23.45</span></td>
-                                                    <td class="product-stock-status"><span class="in-stock">in stock</span></td>
-                                                    <td class="cart_btn"><a href="#">add to cart</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="product_remove">
-                                                        <a href="#">
-                                                            <i class="pe-7s-close" data-tippy="Remove" data-tippy-inertia="true"
-                                                               data-tippy-animation="shift-away" data-tippy-delay="50"
-                                                               data-tippy-arrow="true" data-tippy-theme="sharpborder"></i>
-                                                        </a>
-                                                    </td>
-                                                    <td class="product-thumbnail">
-                                                        <a href="#">
-                                                            <img src="${path}/assets/images/product/small-size/1-2-112x124.png" alt="Wishlist Thumbnail">
-                                                        </a>
-                                                    </td>
-                                                    <td class="product-name"><a href="#">Black Eyed Susan</a></td>
-                                                    <td class="product-price"><span class="amount">$25.45</span></td>
-                                                    <td class="product-stock-status"><span class="in-stock text-danger">out
-                                                            stock</span></td>
-                                                    <td class="cart_btn"><a href="#">add to cart</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="product_remove">
-                                                        <a href="#">
-                                                            <i class="pe-7s-close" data-tippy="Remove" data-tippy-inertia="true"
-                                                               data-tippy-animation="shift-away" data-tippy-delay="50"
-                                                               data-tippy-arrow="true" data-tippy-theme="sharpborder"></i>
-                                                        </a>
-                                                    </td>
-                                                    <td class="product-thumbnail">
-                                                        <a href="#">
-                                                            <img src="${path}/assets/images/product/small-size/1-3-112x124.png" alt="Wishlist Thumbnail">
-                                                        </a>
-                                                    </td>
-                                                    <td class="product-name"><a href="#">Bleeding Heart</a></td>
-                                                    <td class="product-price"><span class="amount">$30.45</span></td>
-                                                    <td class="product-stock-status"><span class="in-stock">in stock</span></td>
-                                                    <td class="cart_btn"><a href="#">add to cart</a></td>
-                                                </tr>
+                                                            </a>
+                                                        </td>
+                                                        <td class="product-name"><a href="infor?id=${p.getProID()}">${p.getProName()}</a></td>
+                                                        <td class="product-price"><span class="amount">$${p.getProPrice()}</span></td>
+                                                        <c:choose>
+                                                            <c:when test="${p.getStock() > 0}">
+                                                                <td class="product-stock-status"><span class="in-stock">in stock</span></td>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <td class="product-stock-status"><span class="out-stock">out of stock</span></td>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                        <td class="cart_btn"><a href="Cart?num=1&add=on&id=${p.getProID()}&from=${from}">add to cart</a></td>
+                                                    </tr>
+                                                </c:forEach>
+
+
                                             </tbody>
                                         </table>
                                     </div>

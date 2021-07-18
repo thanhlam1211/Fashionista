@@ -16,7 +16,7 @@
         <title>Hanger - Shop</title>
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="${path}/assets/images/logo2.png" />
         <!-- CSS
@@ -38,10 +38,10 @@
 
     <body >
 
+        <c:set var="from" value="Shop"></c:set>
 
-
-        <div class="main-wrapper">
-            <!-- Begin Main Header Area -->
+            <div class="main-wrapper">
+                <!-- Begin Main Header Area -->
             <jsp:include page="header.jsp"></jsp:include>
                 <!-- Main Header Area End Here -->
 
@@ -59,8 +59,12 @@
                                             <button class="widgets-searchbox-btn" type="submit">
                                                 <i class="fa fa-search"></i>
                                             </button>
+
                                         </form>
                                     </div>
+
+                                    <h2 style="text-align: center;">${empty message?"Some Thing Will Be Shown Here?":message}</h2>
+                                    
                                     <div class="widgets-area">
                                         <div class="widgets-item pt-0">
                                             <h2 class="widgets-title mb-4">Categories</h2>
@@ -194,19 +198,19 @@
                                         <div class="product-grid-view row g-y-20">
                                             <!--12 product example, dufng jstl để hiện thị-->
                                             <c:forEach items="${products}" var="p" begin="${begin}" end="${end}" step="1">
-                                                
+
                                                 <div class="col-md-4 col-sm-6">
                                                     <div class="product-item">
                                                         <div class="product-img">
                                                             <a href="infor?id=${p.getProID()}">
 
-                                                                <img class="primary-img" src="assets/images/product/medium-size/${p.getProImage()}" alt="Product Images">
-                                                                <img class="secondary-img" src="assets/images/product/medium-size/${p.getProImage()}" alt="Product Images">
+                                                                <img class="primary-img" src="assets/images/product/medium-size/" alt="Product Images">
+                                                                <img class="secondary-img" src="assets/images/product/medium-size/" alt="Product Images">
                                                             </a>
                                                             <div class="product-add-action">
                                                                 <ul>
                                                                     <li>
-                                                                        <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                        <a href="wishlist?id=${p.getProID()}&from=${from}&status=add" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                                                             <i class="pe-7s-like"></i>
                                                                         </a>
                                                                     </li>
@@ -227,22 +231,22 @@
                                                                                                         <div class="swiper-wrapper">
                                                                                                             <div class="swiper-slide">
                                                                                                                 <a href="#" class="single-img">
-                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/${p.getProImage()}" alt="Product Image">
+                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                                 </a>
                                                                                                             </div>
                                                                                                             <div class="swiper-slide">
                                                                                                                 <a href="#" class="single-img">
-                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/${p.getProImage()}" alt="Product Image">
+                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                                 </a>
                                                                                                             </div>
                                                                                                             <div class="swiper-slide">
                                                                                                                 <a href="#" class="single-img">
-                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/${p.getProImage()}" alt="Product Image">
+                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                                 </a>
                                                                                                             </div>
                                                                                                             <div class="swiper-slide">
                                                                                                                 <a href="#" class="single-img">
-                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/${p.getProImage()}" alt="Product Image">
+                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                                 </a>
                                                                                                             </div>
                                                                                                         </div>
@@ -342,7 +346,7 @@
                                                                         </a>
                                                                     </li>
                                                                     <li class="add-to-cart">
-                                                                        <a href="Cart?num=1&add=on&id=${p.getProID()}&from=${pageContext.request.requestURI}" onclick="showSwal('success-message')" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                        <a href="Cart?num=1&add=on&id=${p.getProID()}&from=Shop" onclick="showSwal('success-message')" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                                                             <i class="pe-7s-cart"></i>
                                                                         </a>
                                                                     </li>
@@ -378,8 +382,8 @@
                                                     <div class="product-item">
                                                         <div class="product-img">
                                                             <a href="infor?id=${p.getProID()}">
-                                                                <img class="primary-img" src="assets/images/product/medium-size/${p.getProImage()}" alt="Product Images">
-                                                                <img class="secondary-img" src="assets/images/product/medium-size/${p.getProImage()}" alt="Product Images">
+                                                                <img class="primary-img" src="assets/images/product/medium-size/" alt="Product Images">
+                                                                <img class="secondary-img" src="assets/images/product/medium-size/" alt="Product Images">
                                                             </a>
                                                         </div>
                                                         <div class="product-content">
@@ -401,7 +405,7 @@
                                                             <div class="product-add-action">
                                                                 <ul>
                                                                     <li>
-                                                                        <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                        <a href="wishlist?id=${p.getProID()}&from=${from}&status=add" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                                                             <i class="pe-7s-like"></i>
                                                                         </a>
                                                                     </li>
@@ -480,17 +484,17 @@
         <script src="${path}/assets/js/plugins/mailchimp-ajax.js"></script>
         <script src="${path}/assets/js/plugins/jquery.counterup.js"></script>
         <script src="~/Scripts/jquery-3.5.1.min.js"></script>
-<script>
-        $(window).scroll(function () {
-            sessionStorage.scrollTop = $(this).scrollTop();
-        });
-        $(document).ready(function () {
-            if (sessionStorage.scrollTop != "undefined") {
-                $(window).scrollTop(sessionStorage.scrollTop);
-                
-            }
-        });
-</script>
+        <script>
+                                                                            $(window).scroll(function () {
+                                                                                sessionStorage.scrollTop = $(this).scrollTop();
+                                                                            });
+                                                                            $(document).ready(function () {
+                                                                                if (sessionStorage.scrollTop != "undefined") {
+                                                                                    $(window).scrollTop(sessionStorage.scrollTop);
+
+                                                                                }
+                                                                            });
+        </script>
 
         <!--Main JS (Common Activation Codes)-->
         <script src="${path}/assets/js/main.js"></script>

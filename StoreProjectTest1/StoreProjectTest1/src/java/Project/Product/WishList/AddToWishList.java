@@ -5,22 +5,25 @@
  */
 package Project.Product.WishList;
 
-
+import Project.DAO.ProductDAO;
 import Project.DAO.WishListDAO;
+import Project.Sample.Product;
+import Project.Sample.User;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Product;
 import model.WishList;
 
 /**
  *
- * @author GHC
+ * @author TrungHuy
  */
 public class AddToWishList extends HttpServlet {
 
@@ -35,33 +38,55 @@ public class AddToWishList extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        //lay ra 1 arralist wishLists
-        Object obj = session.getAttribute("wishLists");
-        WishListDAO dao = new WishListDAO();
-        WishList wishLists = new WishList();
-        if(obj == null){
-            session.setAttribute("wishLists", obj);
-        }else{
-            wishLists = (WishList)obj;
-        }
-        
-        String ProID = request.getParameter("ProID");
-        //get userid de check wishlist
-        int UserID = (int)session.getAttribute("User");
-        
-        String stock = request.getParameter("stock");
-        List<Product> products = (List<Product>)session.getAttribute("products");
-        for (Product product : products) {
-            if(product.getProID().equals(ProID)){
-                dao.Insert(wishLists);
-                break;
-            }
-        }
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
 
-        //redirect ve .jsp
-        request.getRequestDispatcher(".jsp").forward(request, response);
-        
+            HttpSession session = request.getSession();
+            String status = request.getParameter("status");
+            String proid = request.getParameter("id");
+            try {
+                User u = (User) session.getAttribute("UI");
+                WishListDAO dao = new WishListDAO();
+                //uwl = user wishlist
+                List<WishList> uwl = dao.getUserWishList(u.getID());
+                boolean check = false;
+                ProductDAO pdao = new ProductDAO();
+                Product p = pdao.getProduct(proid);
+                if ("add".equals(status)) {
+
+                    if (!uwl.isEmpty()) {
+                        for (WishList w : uwl) {
+                            if (w.getProID().equals(proid)) {
+                                check = true;
+                                session.setAttribute("message", p.getProName() + " Has Been Added To Your WishList!");
+                            }
+                        }
+
+                        if (!check) {
+                            dao.Insert(new WishList(proid, u.getID()));
+                            session.setAttribute("message", p.getProName() + " Already In Your WishList!");
+                        }
+                    } else {
+                        dao.Insert(new WishList(request.getParameter("id"), u.getID()));
+                        session.setAttribute("message", p.getProName() + " Has Been Added To Your WishList!");
+                    }
+
+                }
+
+                if ("del".equals(status)) {
+                    dao.Delete(proid, u.getID());
+                    session.setAttribute("message", p.getProName() + " Has Been Removed From Your WishList!");
+                }
+
+                response.sendRedirect(request.getParameter("from"));
+
+            } catch (NumberFormatException | NullPointerException e) {
+
+                response.sendRedirect("404.jsp");
+            }
+
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

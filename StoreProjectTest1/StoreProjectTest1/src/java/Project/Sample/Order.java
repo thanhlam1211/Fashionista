@@ -12,29 +12,65 @@ import java.sql.Date;
  * @author ditho
  */
 public class Order {
-  private String proId,address,status,discount;
-  private int Id,cityId,disId,subdisId,phone;
+  private String ProID,DATE,address,status,city,district,subdistrict,coupon,typeOfpayment;
+  private int UserID,OrderID,quantity,phone;
+  
+  private float price,coupon_value,totalcash;
 
     public Order() {
     }
 
-    public Order(String proId, String address, String status, String discount, int cityId, int disId, int subdisId, int phone) {
-        this.proId = proId;
+    public Order(String ProID, String DATE, String address, String status, String city, String district, String subdistrict, String coupon, String typeOfpayment, int UserID, int OrderID, int quantity, int phone, float price, float coupon_value, float totalcash) {
+        this.ProID = ProID;
+        this.DATE = DATE;
         this.address = address;
         this.status = status;
-        this.discount = discount;
-        this.cityId = cityId;
-        this.disId = disId;
-        this.subdisId = subdisId;
+        this.city = city;
+        this.district = district;
+        this.subdistrict = subdistrict;
+        this.coupon = coupon;
+        this.typeOfpayment = typeOfpayment;
+        this.UserID = UserID;
+        this.OrderID = OrderID;
+        this.quantity = quantity;
         this.phone = phone;
+        this.price = price;
+        this.coupon_value = coupon_value;
+        this.totalcash = totalcash;
     }
 
-    public String getProId() {
-        return proId;
+    public Order(String ProID, String DATE, String address, String status, String city, String district, String subdistrict, String coupon, String typeOfpayment, int UserID, int quantity, int phone, float price, float coupon_value, float totalcash) {
+        this.ProID = ProID;
+        this.DATE = DATE;
+        this.address = address;
+        this.status = status;
+        this.city = city;
+        this.district = district;
+        this.subdistrict = subdistrict;
+        this.coupon = coupon;
+        this.typeOfpayment = typeOfpayment;
+        this.UserID = UserID;
+        this.quantity = quantity;
+        this.phone = phone;
+        this.price = price;
+        this.coupon_value = coupon_value;
+        this.totalcash = totalcash;
     }
 
-    public void setProId(String proId) {
-        this.proId = proId;
+    public String getProID() {
+        return ProID;
+    }
+
+    public void setProID(String ProID) {
+        this.ProID = ProID;
+    }
+
+    public String getDATE() {
+        return DATE;
+    }
+
+    public void setDATE(String DATE) {
+        this.DATE = DATE;
     }
 
     public String getAddress() {
@@ -53,44 +89,68 @@ public class Order {
         this.status = status;
     }
 
-    public String getDiscount() {
-        return discount;
+    public String getCity() {
+        return city;
     }
 
-    public void setDiscount(String discount) {
-        this.discount = discount;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public int getId() {
-        return Id;
+    public String getDistrict() {
+        return district;
     }
 
-    public void setId(int Id) {
-        this.Id = Id;
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
-    public int getCityId() {
-        return cityId;
+    public String getSubdistrict() {
+        return subdistrict;
     }
 
-    public void setCityId(int cityId) {
-        this.cityId = cityId;
+    public void setSubdistrict(String subdistrict) {
+        this.subdistrict = subdistrict;
     }
 
-    public int getDisId() {
-        return disId;
+    public String getCoupon() {
+        return coupon;
     }
 
-    public void setDisId(int disId) {
-        this.disId = disId;
+    public void setCoupon(String coupon) {
+        this.coupon = coupon;
     }
 
-    public int getSubdisId() {
-        return subdisId;
+    public String getTypeOfpayment() {
+        return typeOfpayment;
     }
 
-    public void setSubdisId(int subdisId) {
-        this.subdisId = subdisId;
+    public void setTypeOfpayment(String typeOfpayment) {
+        this.typeOfpayment = typeOfpayment;
+    }
+
+    public int getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(int UserID) {
+        this.UserID = UserID;
+    }
+
+    public int getOrderID() {
+        return OrderID;
+    }
+
+    public void setOrderID(int OrderID) {
+        this.OrderID = OrderID;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public int getPhone() {
@@ -100,7 +160,32 @@ public class Order {
     public void setPhone(int phone) {
         this.phone = phone;
     }
-    
-    
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public float getCoupon_value() {
+        return coupon_value;
+    }
+
+    public void setCoupon_value(float coupon_value) {
+        this.coupon_value = coupon_value;
+    }
+
+    public float getTotalcash() {
+        return totalcash;
+    }
+
+    public void setTotalcash(float totalcash) {
+        this.totalcash = totalcash;
+    }
+
+   
+
     
 }

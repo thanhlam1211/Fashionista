@@ -13,7 +13,7 @@ public class WishList {
     private String ProID;
     private int UserID;
     private int Stock;
-
+    
     public WishList() {
     }
 
@@ -21,6 +21,11 @@ public class WishList {
         this.ProID = ProID;
         this.UserID = UserID;
         this.Stock = Stock;
+    }
+
+    public WishList(String ProID, int UserID) {
+        this.ProID = ProID;
+        this.UserID = UserID;
     }
 
     public String getProID() {

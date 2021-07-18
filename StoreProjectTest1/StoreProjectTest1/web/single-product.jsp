@@ -69,22 +69,22 @@
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide">
                                                     <a href="${path}/assets/images/ok.jpg" class="single-img gallery-popup">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Image">
+                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Image">
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
                                                 <a href="${path}/assets/images/ok.jpg" class="single-img gallery-popup">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Image">
+                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Image">
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
                                                 <a href="${path}/assets/images/product/large-size/1-3-570x633.jpg" class="single-img gallery-popup">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Image">
+                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Image">
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
                                                 <a href="${path}/assets/images/product/large-size/1-4-570x633.jpg" class="single-img gallery-popup">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Image">
+                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Image">
                                                 </a>
                                             </div>
                                         </div>
@@ -93,16 +93,16 @@
                                         <div class="swiper-container single-product-thumbs">
                                             <div class="swiper-wrapper">
                                                 <a href="#" class="swiper-slide">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Thumnail">
+                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Thumnail">
                                                 </a>
                                                 <a href="#" class="swiper-slide">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Thumnail">
+                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Thumnail">
                                                 </a>
                                                 <a href="#" class="swiper-slide">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Thumnail">
+                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Thumnail">
                                                 </a>
                                                 <a href="#" class="swiper-slide">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Thumnail">
+                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Thumnail">
                                                 </a>
                                             </div>
                                             <!-- Add Arrows -->
@@ -355,8 +355,8 @@
                                         <div class="swiper-slide product-item">
                                             <div class="product-img">
                                                 <a href="single-product.jsp">
-                                                    <img class="primary-img" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Images">
-                                                    <img class="secondary-img" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Images">
+                                                    <img class="primary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
+                                                    <img class="secondary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
                                                 </a>
                                                 <div class="product-add-action">
                                                     <ul>
@@ -397,8 +397,8 @@
                                         <div class="swiper-slide product-item">
                                             <div class="product-img">
                                                 <a href="single-product.jsp">
-                                                    <img class="primary-img" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Images">
-                                                    <img class="secondary-img" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Images">
+                                                    <img class="primary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
+                                                    <img class="secondary-img" src="${path}/assets/images/product/medium-size/ " alt="Product Images">
                                                 </a>
                                                 <div class="product-add-action">
                                                     <ul>
@@ -439,8 +439,8 @@
                                         <div class="swiper-slide product-item">
                                             <div class="product-img">
                                                 <a href="single-product.jsp">
-                                                    <img class="primary-img" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Images">
-                                                    <img class="secondary-img" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Images">
+                                                    <img class="primary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
+                                                    <img class="secondary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
                                                 </a>
                                                 <div class="product-add-action">
                                                     <ul>
@@ -481,8 +481,8 @@
                                         <div class="swiper-slide product-item">
                                             <div class="product-img">
                                                 <a href="single-product.jsp">
-                                                    <img class="primary-img" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Images">
-                                                    <img class="secondary-img" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Images">
+                                                    <img class="primary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
+                                                    <img class="secondary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
                                                 </a>
                                                 <div class="product-add-action">
                                                     <ul>
@@ -556,22 +556,22 @@
                                                 <div class="swiper-wrapper">
                                                     <div class="swiper-slide">
                                                         <a href="#" class="single-img">
-                                                            <img class="img-full" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Image">
+                                                            <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Image">
                                                     </a>
                                                 </div>
                                                 <div class="swiper-slide">
                                                     <a href="#" class="single-img">
-                                                        <img class="img-full" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Image">
+                                                        <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Image">
                                                     </a>
                                                 </div>
                                                 <div class="swiper-slide">
                                                     <a href="#" class="single-img">
-                                                        <img class="img-full" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Image">
+                                                        <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Image">
                                                     </a>
                                                 </div>
                                                 <div class="swiper-slide">
                                                     <a href="#" class="single-img">
-                                                        <img class="img-full" src="${path}/assets/images/product/medium-size/${product.getProImage()}" alt="Product Image">
+                                                        <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Image">
                                                     </a>
                                                 </div>
                                             </div>

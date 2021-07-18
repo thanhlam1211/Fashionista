@@ -44,6 +44,7 @@
                                     <c:if test="${logined}">
                                         <ul class="dropdown-menu" aria-labelledby="settingButton">
                                             <li><a class="dropdown-item" href="MyAccoutController">${UI.fullname}</a></li>         
+                                            <li><a class="dropdown-item" href="mywishlist?uid=${UI.getID()}">MyWishList</a></li>         
                                             <li><a class="dropdown-item" href="LogoutController">Logout</a>
                                             </li>
                                         </ul>
@@ -160,7 +161,8 @@
                                     </button>
                                     <c:if test="${logined}">
                                         <ul class="dropdown-menu" aria-labelledby="settingButton">
-                                            <li><a class="dropdown-item" href="MyAccoutController">${UI.fullname}</a></li>         
+                                            <li><a class="dropdown-item" href="MyAccoutController">${UI.fullname}</a></li>
+                                            <li><a class="dropdown-item" href="mywishlist?uid=${UI.getID()}">MyWishList</a></li>   
                                             <li><a class="dropdown-item" href="LogoutController">Logout</a>
                                             </li>
                                         </ul>
@@ -212,7 +214,8 @@
                             </button>
                             <c:if test="${logined}">
                                 <ul class="dropdown-menu" aria-labelledby="settingButton">
-                                    <li><a class="dropdown-item" href="MyAccoutController">${UI.fullname}</a></li>         
+                                    <li><a class="dropdown-item" href="MyAccoutController">${UI.fullname}</a></li>
+                                    <li><a class="dropdown-item" href="mywishlist?uid=${UI.getID()}">MyWishList</a></li>   
                                     <li><a class="dropdown-item" href="LogoutController">Logout</a>
                                     </li>
                                 </ul>

@@ -140,7 +140,7 @@
                                     </div>
                                     <div class="banner-item widgets-banner img-hover-effect">
                                         <div class="banner-img">
-                                            <img src="${path}/assets/images/sidebar/banner/1-270x300.jpg" alt="Banner Image">
+                                            <img src="${path}/assets/images/sidebar/banner/1.jfif" alt="Banner Image">
                                         </div>
                                         <div class="banner-content text-position-center">
                                             <span class="collection">New Collection</span>

@@ -140,7 +140,7 @@
                         <div class="col-md-6">
                             <div class="banner-item img-hover-effect">
                                 <div class="banner-img">
-                                    <img src="${path}/assets/images/banner/1.jpg" alt="Banner Image">
+                                    <img style="height: 500px;width: 570px;" src="${path}/assets/images/banner/1.jpg" alt="Banner Image">
                                 </div>
                                 <div class="banner-content text-position-center">
                                     <span class="collection">New Collection</span>
@@ -157,7 +157,7 @@
                                 <div class="col-12">
                                     <div class="banner-item img-hover-effect">
                                         <div class="banner-img">
-                                            <img src="${path}/assets/images/banner/2-2-570x235.jpg" alt="Banner Image">
+                                            <img style="height: 235px;width: 570px;" src="${path}/assets/images/banner/1.3.jfif" alt="Banner Image">
                                         </div>
                                         <div class="banner-content text-position-left">
                                             <span class="collection">Collection Of Polo</span>
@@ -172,7 +172,7 @@
                                 <div class="col-12">
                                     <div class="banner-item img-hover-effect">
                                         <div class="banner-img">
-                                            <img src="${path}/assets/images/banner/2-3-570x235.jpg" alt="Banner Image">
+                                            <img style="height: 235px;width: 570px;" src="${path}/assets/images/banner/1.2.jfif" alt="Banner Image">
                                         </div>
                                         <div class="banner-content text-position-left">
                                             <span class="collection">Collection Of Sport</span>
@@ -1322,8 +1322,8 @@
                 </div>
                 <div class="counter-area">
                     <div class="container">
-                        <h2 class="counter-title">BuCu
-                            <span>HuyPuKun</span>:v
+                        <h2 class="counter-title">Feel 
+                            <span>Hanger</span> Energy
                         </h2>:V
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-6">
@@ -1374,7 +1374,7 @@
                     <div class="row">
                         <div class="section-title-wrap without-tab">
                             <h2 class="section-title">New Products</h2>
-                            <p class="section-desc">Em rau 2k5
+                            <p class="section-desc">Our latest product release
                             </p>
                         </div>
                         <div class="col-lg-12"> 
@@ -1583,7 +1583,7 @@
                 <div class="container-fluid px-10">
                     <div class="section-title-wrap">
                         <h2 class="section-title mb-7">What Say Client</h2>
-                        <p class="section-desc mb-10">Khach hang nói gì :v
+                        <p class="section-desc mb-10">Reviews from premium customers 
                         </p>
                     </div>
                 </div>
@@ -1595,7 +1595,7 @@
                                 <div class="user-info mb-3">
                                     <div class="user-shape-wrap">
                                         <div class="user-img">
-                                            <img src="${path}/assets/images/testimonial/user/1.png" alt="User Image">
+                                            <img style="height:77px; width: 77px" src="${path}/assets/images/testimonial/user/1.jpg" alt="User Image">
                                         </div>
                                     </div>
                                     <div class="user-content text-charcoal">
@@ -1610,7 +1610,7 @@
                                 <div class="user-info mb-3">
                                     <div class="user-shape-wrap">
                                         <div class="user-img">
-                                            <img src="${path}/assets/images/testimonial/user/2.png" alt="User Image">
+                                            <img style="height:77px; width: 77px" src="${path}/assets/images/testimonial/user/2.jpg" alt="User Image">
                                         </div>
                                     </div>
                                     <div class="user-content text-charcoal">
@@ -1625,7 +1625,7 @@
                                 <div class="user-info mb-3">
                                     <div class="user-shape-wrap">
                                         <div class="user-img">
-                                            <img src="${path}/assets/images/testimonial/user/3.png" alt="User Image">
+                                            <img style="height:77px; width: 77px" src="${path}/assets/images/testimonial/user/3.jpg" alt="User Image">
                                         </div>
                                     </div>
                                     <div class="user-content text-charcoal">

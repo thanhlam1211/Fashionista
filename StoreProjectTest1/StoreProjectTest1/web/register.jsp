@@ -64,15 +64,15 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label>Your Full Name</label>
-                                                <input required type="text" placeholder="Example: Bùi Thanh Lâm" name="fullname">
+                                                <input required type="text" placeholder="Example: Sát Thủ Đa Tình" name="fullname">
                                             </div>
                                             <div class="col-md-12">
                                                 <label>User Name</label>
-                                                <input required type="text" placeholder="Example: Lâm_Vjp_Pr0" name="useraccount">
+                                                <input required type="text" placeholder="Example: SatThuDaTinh" name="useraccount">
                                             </div>
                                             <div class="col-md-12">
                                                 <label>Email Address*</label>
-                                                <input required type="email" placeholder="Example: bexuanmailto@gmail.com" name="email">
+                                                <input required type="email" placeholder="Example: satthudatinh@gmail.com" name="email">
                                             </div>
                                             <div class="col-md-12">
                                                 <label>Phone Number*</label>

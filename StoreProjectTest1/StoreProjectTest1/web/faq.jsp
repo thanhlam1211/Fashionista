@@ -70,7 +70,7 @@
                                                         <div class="frequently-item">
                                                             <ul>
                                                                 <li class="has-sub active">
-                                                                    <a href="javascript:void(0)">Before you get started
+                                                                    <a href="javascript:void(0)">Trước khi bắt đầu
                                                                         <i class="pe-7s-angle-down"></i>
                                                                     </a>
                                                                     <ul class="frequently-body">
@@ -85,7 +85,7 @@
                                                                     </a>
                                                                     <ul class="frequently-body">
                                                                         <li>
-                                                                            Tổng đài Hanger với số Hotline 1900272737 rất dễ tìm kiếm và xuất hiện khắp mọi nơi từ Website, Email, Fanpage, trong nhãn mác, bao bì đóng gói... Hơn thế nữa, đội ngũ chăm sóc khách hàng Hanger cam kết 100% cuộc gọi sẽ được trả lời, nếu như bị gọi nhỡ (do quá tải) sẽ được gọi lại ngay lập tức.
+                                                                            Tổng đài Hanger với số Hotline 190088888 rất dễ tìm kiếm và xuất hiện khắp mọi nơi từ Website, Email, Fanpage, trong nhãn mác, bao bì đóng gói... Hơn thế nữa, đội ngũ chăm sóc khách hàng Hanger cam kết 100% cuộc gọi sẽ được trả lời, nếu như bị gọi nhỡ (do quá tải) sẽ được gọi lại ngay lập tức.
 
                                                                             Tổng đài CSKH Hanger sẽ thực sự là nơi luôn luôn nghe khi khách hàng gọi, theo đúng ý nghĩa của 1 tổng đài chăm sóc khách hàng thực sự. 
 

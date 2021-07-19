@@ -102,8 +102,7 @@
                                             <textarea name="con_message" id="con_message" placeholder="Message" class="textarea-field"></textarea>
                                         </div>
                                         <div class="contact-button-wrap">
-                                            <button type="submit" value="submit" class="btn btn btn-custom-size xl-size btn-pronia-primary" name="submit">Post
-                                                Comment</button>
+                                            <button type="submit" value="submit" class="btn btn btn-custom-size xl-size btn-pronia-primary" name="submit">Send to us</button>
                                             <p class="form-messege mb-0"></p>
                                         </div>
                                     </form>

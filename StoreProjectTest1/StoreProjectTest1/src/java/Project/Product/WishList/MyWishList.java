@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 import java.lang.NumberFormatException;
 import java.util.ArrayList;
 import java.util.List;
-import model.WishList;
+import Project.Sample.WishList;
 
 /**
  *

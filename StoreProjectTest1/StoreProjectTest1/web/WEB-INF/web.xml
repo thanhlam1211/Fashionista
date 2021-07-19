@@ -13,6 +13,7 @@
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/my-account.jsp</url-pattern>
         <url-pattern>/wishlist</url-pattern>
+        <url-pattern>/mywishlist</url-pattern>
         <url-pattern>/CheckOut</url-pattern>
     </filter-mapping>
     <servlet>
@@ -74,6 +75,10 @@
     <servlet>
         <servlet-name>MyWishList</servlet-name>
         <servlet-class>Project.Product.WishList.MyWishList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckOut</servlet-name>
+        <servlet-class>Project.Controller.Admin.CheckOut</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -139,6 +144,10 @@
     <servlet-mapping>
         <servlet-name>MyWishList</servlet-name>
         <url-pattern>/mywishlist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckOut</servlet-name>
+        <url-pattern>/checkout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

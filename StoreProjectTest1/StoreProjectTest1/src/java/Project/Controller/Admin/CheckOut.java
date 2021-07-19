@@ -3,29 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Project.Product.WishList;
+package Project.Controller.Admin;
 
-import Project.DAO.ProductDAO;
-import Project.DAO.WishListDAO;
+import Project.Sample.Order;
+import Project.Sample.Order_Detail;
 import Project.Sample.Product;
 import Project.Sample.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.WishList;
 
 /**
  *
  * @author TrungHuy
  */
-public class AddToWishList extends HttpServlet {
+public class CheckOut extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,56 +37,59 @@ public class AddToWishList extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-
             HttpSession session = request.getSession();
-            String status = request.getParameter("status");
-            String proid = request.getParameter("id");
+            /* TODO output your page here. You may use following sample code. */
+            String name = request.getParameter("fullname");
+            String email = request.getParameter("email");
+            int phone = Integer.parseInt(request.getParameter("phone"));
+            String address = request.getParameter("address");
+            String type = request.getParameter("typeOfpayment");
+            String city = request.getParameter("city");
+            String district = request.getParameter("district");
+            String subdis = request.getParameter("subdistrict");
             try {
                 User u = (User) session.getAttribute("UI");
-                WishListDAO dao = new WishListDAO();
-                //uwl = user wishlist
-                List<WishList> uwl = dao.getUserWishList(u.getID());
-                boolean check = false;
-                ProductDAO pdao = new ProductDAO();
-                Product p = pdao.getProduct(proid);
-                if ("add".equals(status)) {
-
-                    if (!uwl.isEmpty()) {
-                        for (WishList w : uwl) {
-                            if (w.getProID().equals(proid)) {
-                                check = true;
-                                session.setAttribute("message", p.getProName() + " Already In WishList!");
-                            }
-                        }
-
-                        if (!check) {
-                            dao.Insert(new WishList(proid, u.getID()));
-                            session.setAttribute("message", p.getProName() + " Already In Your WishList!");
-                        }
-                    } else {
-                        dao.Insert(new WishList(request.getParameter("id"), u.getID()));
-                        session.setAttribute("message", p.getProName() + " Has Been Added To Your WishList!");
-                    }
-
+                Random r = new Random();
+                Order o = new Order();
+                List<Order_Detail> odls = new ArrayList<>();
+                //cant be duplicated from sql
+                String oid = "#"+r.nextInt();
+                o.setId(oid);
+                o.setUserId(u.getID());
+                o.setCity(city);
+                o.setDis(district);
+                o.setSubDis(subdis);
+                o.setReciver(name);
+                o.setReciverEmail(email);
+                o.setAddress(address);
+                o.setPhone(phone);
+                o.setStatus("Pending");
+                o.setCode((String) session.getAttribute("coupon"));
+                HashMap<Product, Integer> products = (HashMap<Product, Integer>) session.getAttribute("cart");
+                for (Map.Entry<Product, Integer> entry : products.entrySet()) {
+                    Product key = entry.getKey();
+                    Integer value = entry.getValue();
+                    Order_Detail od = new Order_Detail();
+                    od.setId(oid);
+                    od.setProID(key.getProID());
+                    od.setUserId(u.getID());
+                    od.setPrice(key.getProPrice());
+                    od.setQuantity(value);
+                    od.setDiscount((float) session.getAttribute("coupon"));
+                    od.setType(type);
+                    odls.add(od);
                 }
-
-                if ("del".equals(status)) {
-                    dao.Delete(proid, u.getID());
-                    session.setAttribute("message", p.getProName() + " Has Been Removed From Your WishList!");
-                }
-
-                response.sendRedirect(request.getParameter("from"));
-
-            } catch (NumberFormatException | NullPointerException e) {
-
-                response.sendRedirect("404.jsp");
+                
+                o.setDetails(odls);
+                o.setTotalcash((float) session.getAttribute("finaltotal"));
+                
+            } catch (Exception e) {
             }
-
         }
     }
 

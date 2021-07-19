@@ -63,8 +63,8 @@
                                         </form>
                                     </div>
 
-                                    <h2 style="text-align: center;">${empty message?"Some Thing Will Be Shown Here?":message}</h2>
-                                    
+                                    <h2 style="text-align: center;">${empty message?system:message}</h2>
+
                                     <div class="widgets-area">
                                         <div class="widgets-item pt-0">
                                             <h2 class="widgets-title mb-4">Categories</h2>
@@ -203,9 +203,14 @@
                                                     <div class="product-item">
                                                         <div class="product-img">
                                                             <a href="infor?id=${p.getProID()}">
-
-                                                                <img class="primary-img" src="assets/images/product/medium-size/" alt="Product Images">
-                                                                <img class="secondary-img" src="assets/images/product/medium-size/" alt="Product Images">
+                                                                <c:forEach items="${p.getImage()}" var="i">
+                                                                    <c:if test="${i.getSize() == 'M' }">
+                                                                        <img class="primary-img" src="assets/images/product/${i.getUrl()}" alt="Product Images">
+                                                                    </c:if>
+                                                                    <c:if test="${i.getSize() == 'L'}">
+                                                                        <img class="secondary-img" src="assets/images/ok.jpg" alt="Product Images">
+                                                                    </c:if>
+                                                                </c:forEach>
                                                             </a>
                                                             <div class="product-add-action">
                                                                 <ul>

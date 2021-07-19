@@ -59,7 +59,7 @@
                                     <div class="shopper-informations">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <form action="" class="myaccount-form">
+                                                <form action="checkout" class="myaccount-form">
                                                     <div class="myaccount-form-inner">
                                                         <div class="single-input ">
                                                             <input required type="text" name="fullname" placeholder="Your FullName" value="${UI.getFullname()}">
@@ -74,8 +74,9 @@
                                                         <input required type="text" name="address" placeholder="Your Address">
                                                     </div>
                                                     <select style="padding: 2%" class="single-input" name="typeOfpayment">    
-                                                        <option>Hà Nội</option>
-                                                        <option>HCM</option>
+                                                        <option>Choose Your PayMent</option>
+                                                        <option>Cash</option>
+                                                        <option>Card</option>
                                                     </select>
                                                     <select style="padding: 2%" class="single-input" name="city">
                                                         <option>Chọn Tỉnh/Thành </option>
@@ -93,8 +94,8 @@
                                                         <option>Yên Sở</option>
                                                     </select>
                                                 </div>
-                                                <div  class="cart-page-total">   
-                                                    <a style="    width: 100%; text-align: center;" href="#">CHECK OUT</a>
+                                                <div style="text-align: center" class="col-md-12 mt-3 ">                                               
+                                                    <button class="btn btn-custom-size lg-size btn-pronia-primary">Check Out</button>
                                                 </div>
                                             </form>  
 
@@ -171,7 +172,7 @@
                                                 <h2>Cart totals</h2>
                                                 <ul>
                                                     <li>Subtotal <span>$${subtotalcart}</span></li>
-                                                    <li>Coupon <span>${coupon} </span></li>
+                                                    <li>Coupon <span>${coupon}% </span></li>
                                                     <li>Shipping Cost <span>$2</span></li>
                                                     <li>Total <span>$${finaltotal}</span></li>
                                                 </ul>

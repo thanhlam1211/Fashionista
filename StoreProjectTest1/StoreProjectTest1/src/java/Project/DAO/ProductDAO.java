@@ -52,6 +52,8 @@ public class ProductDAO {
         return value;
     }
 
+   
+
     public List<Product> getProducts(String condition) {
         List<Product> products = new ArrayList<>();
         try {
@@ -83,6 +85,9 @@ public class ProductDAO {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             DBConnection.close(con, ps, rs);
+        }
+        for (Product product : products) {
+            product.setImage(getImageById(product.getProID()));
         }
         return products;
     }

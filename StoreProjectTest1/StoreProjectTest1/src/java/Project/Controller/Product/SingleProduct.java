@@ -9,6 +9,9 @@ import Project.DAO.ProductDAO;
 import Project.Sample.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -44,7 +47,15 @@ public class SingleProduct extends HttpServlet {
                     session.setAttribute("product", p);
                     //p_url = previous url
                     request.setAttribute("p_url", "Shop");
-                     response.sendRedirect("single-product.jsp");
+                    //rp = related product
+                    List<Product> rp = dao.getProducts("where ProCategorieID = '" + p.getProCategorieID() + "' or ProSubCategorieID = '" + p.getProSubCategorieID() + "' ");
+                    List<Product> rp1 = new ArrayList<>();
+                    for (int i = 0; i < 5; i++) {
+                        Random r = new Random();
+                        rp1.add(rp.get(r.nextInt(rp.size())));
+                    }
+                    request.setAttribute("rp", rp1);
+                    request.getRequestDispatcher("single-product.jsp").forward(request, response);
                 } else {
                     response.sendRedirect("index.jsp");
                 }

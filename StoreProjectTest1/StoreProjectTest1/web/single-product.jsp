@@ -50,13 +50,13 @@
                 </div>
             </div>
         </c:if>
-        
+
         <div class="main-wrapper">
 
             <!-- Begin Main Header Area -->
             <jsp:include page="header.jsp"></jsp:include>
                 <!-- Main Header Area End Here -->
-
+            <c:set var="from" value="infor?id=${product.getProID()}"></c:set>
                 <!-- Begin Main Content Area  -->
                 <main class="main-content">
 
@@ -67,43 +67,29 @@
                                     <div class="single-product-img">
                                         <div class="swiper-container single-product-slider">
                                             <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <a href="${path}/assets/images/ok.jpg" class="single-img gallery-popup">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Image">
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="${path}/assets/images/ok.jpg" class="single-img gallery-popup">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Image">
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="${path}/assets/images/product/large-size/1-3-570x633.jpg" class="single-img gallery-popup">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Image">
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="${path}/assets/images/product/large-size/1-4-570x633.jpg" class="single-img gallery-popup">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Image">
-                                                </a>
-                                            </div>
+                                            <c:forEach items="#{product.getImage()}" var="i"> 
+                                                <c:if test="${i.getSize() == 'M'}"> 
+                                                    <div class="swiper-slide">
+                                                        <a href="assets/images/product/${i.getUrl()}" class="single-img gallery-popup">
+                                                            <img class="img-full" src="assets/images/product/${i.getUrl()}" alt="Product Image">
+                                                        </a>
+                                                    </div>
+                                                </c:if>
+                                            </c:forEach>
+
                                         </div>
                                     </div>
                                     <div class="thumbs-arrow-holder">
                                         <div class="swiper-container single-product-thumbs">
                                             <div class="swiper-wrapper">
-                                                <a href="#" class="swiper-slide">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Thumnail">
-                                                </a>
-                                                <a href="#" class="swiper-slide">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Thumnail">
-                                                </a>
-                                                <a href="#" class="swiper-slide">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Thumnail">
-                                                </a>
-                                                <a href="#" class="swiper-slide">
-                                                    <img class="img-full" src="${path}/assets/images/product/medium-size/" alt="Product Thumnail">
-                                                </a>
+                                                <c:forEach items="${product.getImage()}" var="i"> 
+                                                    <c:if test="${i.getSize() == 'L'}"> 
+                                                        <a href="#" class="swiper-slide">
+                                                            <img class="img-full" src="assets/images/product/${i.getUrl()}" alt="Product Thumnail">
+                                                        </a>
+                                                    </c:if>
+                                                </c:forEach>
+
                                             </div>
                                             <!-- Add Arrows -->
                                             <div class=" thumbs-button-wrap d-none d-md-block">
@@ -123,16 +109,11 @@
                                     <h2 class="title">${product.getProName()}</h2>
                                     <div class="price-box">
                                         <span class="new-price">$${product.getProPrice()}</span>
+                                        <h5 style="text-align: center;">${message}</h5>
                                     </div>
                                     <div class="rating-box-wrap pb-4">
                                         <div class="rating-box">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
+                                            InStock: ${product.getStock()}
                                         </div>
                                         <div class="review-status"> 
                                             <a href="#">( 1 Review )</a>
@@ -140,14 +121,13 @@
                                     </div>
                                     <p class="short-desc">${product.getDes()}</p>
                                     <form action="Cart" method="get">
-                                        
+                                        <input type="hidden" name="id" value="${product.getProID()}">
+                                        <input type="hidden" name="add" value="on">
+                                        <input type="hidden" name="from" value="${from}">
                                         <ul class="quantity-with-btn">
                                             <li class="quantity">
                                                 <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box" value="1" type="text" name="num" >
-                                                    <input type="hidden" name="id" value="${product.getProID()}">
-                                                    <input type="hidden" name="add" value="on">
-                                                    <input type="hidden" name="from" value="${pageContext.request.requestURI}">
+                                                    <input class="cart-plus-minus-box" value="1" name="num"/> 
                                                 </div>
                                             </li>
                                             <li class="add-to-cart">
@@ -157,7 +137,7 @@
                                             </li>
 
                                             <li class="wishlist-btn-wrap">
-                                                <a class="custom-circle-btn" href="wishlist.JSP">
+                                                <a class="custom-circle-btn" href="wishlist?id=${product.getProID()}&from=${from}&status=add">
                                                     <i class="pe-7s-like"></i>
                                                 </a>
                                             </li>
@@ -202,10 +182,10 @@
                                         <span class="title">Categories :</span>
                                         <ul>
                                             <li>
-                                                <a href="#">2k5,</a>
+                                                <a href="#">${product.getProCategorieID()},</a>
                                             </li>
                                             <li>
-                                                <a href="#">Rau tươi</a>
+                                                <a href="#">${product.getProSubCategorieID()}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -213,7 +193,10 @@
                                         <span class="title">Tags :</span>
                                         <ul>
                                             <li>
-                                                <a href="#">Hàng limited</a>
+                                                <a href="#">${product.getProCategorieID()},</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">${product.getProSubCategorieID()}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -258,8 +241,8 @@
                                     </div>
                                     <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
                                         <div class="product-description-body">
-                                            <p class="short-desc mb-0">Hàng nóng không chơi thì phí, chơi thì tính phí.
-                                            </p>
+                                            <h5 style="text-align: center" >${product.getDes()}
+                                            </h5>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
@@ -343,192 +326,67 @@
                 <!-- Begin Product Area -->
                 <div class="product-area section-space-y-axis-90">
                     <div class="container">
+
                         <div class="row">
                             <div class="section-title-wrap without-tab">
                                 <h2 class="section-title">Related Products</h2>
-                                <p class="section-desc">Provide a lot of em rau ngon nghẻ khác
-                                </p>
+                                <p class="section-desc">Offer high quality products </p>
                             </div>
                             <div class="col-lg-12">
                                 <div class="swiper-container product-slider">
                                     <div class="swiper-wrapper">
-                                        <div class="swiper-slide product-item">
-                                            <div class="product-img">
-                                                <a href="single-product.jsp">
-                                                    <img class="primary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
-                                                    <img class="secondary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
-                                                </a>
-                                                <div class="product-add-action">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-like"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                            <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-look"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
+                                        <c:forEach items="${rp}" var="p">
+                                            <div class="swiper-slide product-item">
+                                                <div class="product-img">
+                                                    <a href="infor?id=${p.getProID()}">
+                                                        <c:forEach items="${p.getImage()}" var="i">
+                                                            <c:if test="${i.getSize() == 'M' }">
+                                                                <img class="primary-img" src="assets/images/ok.jpg" alt="Product Images">
+                                                            </c:if>
+                                                            <c:if test="${i.getSize() == 'L'}">
+                                                                <img class="secondary-img" src="assets/images/ok.jpg" alt="Product Images">
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </a>
+                                                    <div class="product-add-action">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="wishlist?id=${p.getProID()}&from=${from}&status=add" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <i class="pe-7s-like"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
+                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <i class="pe-7s-look"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="Cart?num=1&add=on&id=${p.getProID()}&from=${from}" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <i class="pe-7s-cart"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                                    <a class="product-name" href="${path}/infor?id=${p.getProID()}">${p.getProName()}</a>
+                                                    <div class="price-box pb-1">
+                                                        <span class="new-price">$${p.getProPrice()}</span>
+                                                    </div>
+                                                    <div class="rating-box">
+                                                        InStock: ${p.getStock()}
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="product-content">
-                                                <a class="product-name" href="${path}/single-product-variable.jsp">Em rau 2k2</a>
-                                                <div class="price-box pb-1">
-                                                    <span class="new-price">500k</span>
-                                                </div>
-                                                <div class="rating-box">
-                                                    <ul>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide product-item">
-                                            <div class="product-img">
-                                                <a href="single-product.jsp">
-                                                    <img class="primary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
-                                                    <img class="secondary-img" src="${path}/assets/images/product/medium-size/ " alt="Product Images">
-                                                </a>
-                                                <div class="product-add-action">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-like"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                            <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-look"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <a class="product-name" href="single-product.jsp">Em rau 2k4</a>
-                                                <div class="price-box pb-1">
-                                                    <span class="new-price">700k</span>
-                                                </div>
-                                                <div class="rating-box">
-                                                    <ul>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide product-item">
-                                            <div class="product-img">
-                                                <a href="single-product.jsp">
-                                                    <img class="primary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
-                                                    <img class="secondary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
-                                                </a>
-                                                <div class="product-add-action">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-like"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                            <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-look"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <a class="product-name" href="single-product.jsp">Em rau 2k1</a>
-                                                <div class="price-box pb-1">
-                                                    <span class="new-price">300k</span>
-                                                </div>
-                                                <div class="rating-box">
-                                                    <ul>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide product-item">
-                                            <div class="product-img">
-                                                <a href="single-product.jsp">
-                                                    <img class="primary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
-                                                    <img class="secondary-img" src="${path}/assets/images/product/medium-size/" alt="Product Images">
-                                                </a>
-                                                <div class="product-add-action">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-like"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                            <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-look"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <a class="product-name" href="single-product.jsp">Em rau 89 (MILF)</a>
-                                                <div class="price-box pb-1">
-                                                    <span class="new-price">50k</span>
-                                                </div>
-                                                <div class="rating-box">
-                                                    <ul>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                                
+                                        </c:forEach>
                                     </div>
                                 </div>
                             </div>
-                                                
+
                         </div>
-                                                
+
                     </div>
-                                                
+
                 </div>
                 <!-- Product Area End Here -->
 
@@ -627,7 +485,7 @@
                                                     cart</a>
                                             </li>
                                             <li class="wishlist-btn-wrap">
-                                                <a class="custom-circle-btn" href="wishlist.jsp">
+                                                <a class="custom-circle-btn" href="mywishlist?uid=${UI.getID()}">
                                                     <i class="pe-7s-like"></i>
                                                 </a>
                                             </li>
@@ -694,35 +552,6 @@
         <script src="${path}/assets/js/plugins/ion.rangeSlider.min.js"></script>
         <script src="${path}/assets/js/plugins/mailchimp-ajax.js"></script>
         <script src="${path}/assets/js/plugins/jquery.counterup.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script>
-            (function ($) {
-                showSwal = function (type) {
-                    'use strict';
-                    if (type === 'success-message') {
-                        swal({
-                            title: 'Success!',
-                            text: 'You have add your product into cart',
-                            type: 'success',
-                            button: {
-                                text: "Continue",
-                                value: true,
-                                visible: true,
-                                className: "btn btn-primary"
-                            }
-                        }, function () {
-                            window.location.href = "Cart?add=on&id=${product.getProID()}";
-                        });
-
-                    } else {
-                        swal("Error occured !");
-                    }
-                }
-
-            })(jQuery);
-        </script>
 
         <!--Main JS (Common Activation Codes)-->
         <script src="${path}/assets/js/main.js"></script>

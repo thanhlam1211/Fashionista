@@ -72,7 +72,7 @@
                                         <a href="cart.jsp">View Cart</a>
                                     </li>
                                     <li>
-                                        <a href="wishlist.jsp">My Wishlist</a>
+                                        <a href="mywishlist?uid=${UI.getID()}">My Wishlist</a>
                                     </li>
                                 </ul>
                             </div>

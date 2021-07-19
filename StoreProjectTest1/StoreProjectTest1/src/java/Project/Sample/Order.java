@@ -6,71 +6,114 @@
 package Project.Sample;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author ditho
  */
 public class Order {
-  private String ProID,DATE,address,status,city,district,subdistrict,coupon,typeOfpayment;
-  private int UserID,OrderID,quantity,phone;
-  
-  private float price,coupon_value,totalcash;
 
+    private String id ,date,City,Dis,SubDis,Reciver,ReciverEmail,address,Status,code;
+    private int phone,UserId;
+    private float totalcash;
+    private List<Order_Detail> details = new ArrayList<>();
     public Order() {
     }
 
-    public Order(String ProID, String DATE, String address, String status, String city, String district, String subdistrict, String coupon, String typeOfpayment, int UserID, int OrderID, int quantity, int phone, float price, float coupon_value, float totalcash) {
-        this.ProID = ProID;
-        this.DATE = DATE;
+    public Order(String id, String date, String City, String Dis, String SubDis, String Reciver, String ReciverEmail, String address, String Status, String code, int phone, int UserId, float totalcash) {
+        this.id = id;
+        this.date = date;
+        this.City = City;
+        this.Dis = Dis;
+        this.SubDis = SubDis;
+        this.Reciver = Reciver;
+        this.ReciverEmail = ReciverEmail;
         this.address = address;
-        this.status = status;
-        this.city = city;
-        this.district = district;
-        this.subdistrict = subdistrict;
-        this.coupon = coupon;
-        this.typeOfpayment = typeOfpayment;
-        this.UserID = UserID;
-        this.OrderID = OrderID;
-        this.quantity = quantity;
+        this.Status = Status;
+        this.code = code;
         this.phone = phone;
-        this.price = price;
-        this.coupon_value = coupon_value;
+        this.UserId = UserId;
         this.totalcash = totalcash;
     }
 
-    public Order(String ProID, String DATE, String address, String status, String city, String district, String subdistrict, String coupon, String typeOfpayment, int UserID, int quantity, int phone, float price, float coupon_value, float totalcash) {
-        this.ProID = ProID;
-        this.DATE = DATE;
-        this.address = address;
-        this.status = status;
-        this.city = city;
-        this.district = district;
-        this.subdistrict = subdistrict;
-        this.coupon = coupon;
-        this.typeOfpayment = typeOfpayment;
-        this.UserID = UserID;
-        this.quantity = quantity;
-        this.phone = phone;
-        this.price = price;
-        this.coupon_value = coupon_value;
-        this.totalcash = totalcash;
+   
+
+    public List<Order_Detail> getDetails() {
+        return details;
     }
 
-    public String getProID() {
-        return ProID;
+    public void setDetails(List<Order_Detail> details) {
+        this.details = details;
     }
 
-    public void setProID(String ProID) {
-        this.ProID = ProID;
+    
+
+    public String getId() {
+        return id;
     }
 
-    public String getDATE() {
-        return DATE;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setDATE(String DATE) {
-        this.DATE = DATE;
+    public int getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(int UserId) {
+        this.UserId = UserId;
+    }
+
+    
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String City) {
+        this.City = City;
+    }
+
+    public String getDis() {
+        return Dis;
+    }
+
+    public void setDis(String Dis) {
+        this.Dis = Dis;
+    }
+
+    public String getSubDis() {
+        return SubDis;
+    }
+
+    public void setSubDis(String SubDis) {
+        this.SubDis = SubDis;
+    }
+
+    public String getReciver() {
+        return Reciver;
+    }
+
+    public void setReciver(String Reciver) {
+        this.Reciver = Reciver;
+    }
+
+    public String getReciverEmail() {
+        return ReciverEmail;
+    }
+
+    public void setReciverEmail(String ReciverEmail) {
+        this.ReciverEmail = ReciverEmail;
     }
 
     public String getAddress() {
@@ -82,75 +125,19 @@ public class Order {
     }
 
     public String getStatus() {
-        return status;
+        return Status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
 
-    public String getCity() {
-        return city;
+    public String getCode() {
+        return code;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    public String getSubdistrict() {
-        return subdistrict;
-    }
-
-    public void setSubdistrict(String subdistrict) {
-        this.subdistrict = subdistrict;
-    }
-
-    public String getCoupon() {
-        return coupon;
-    }
-
-    public void setCoupon(String coupon) {
-        this.coupon = coupon;
-    }
-
-    public String getTypeOfpayment() {
-        return typeOfpayment;
-    }
-
-    public void setTypeOfpayment(String typeOfpayment) {
-        this.typeOfpayment = typeOfpayment;
-    }
-
-    public int getUserID() {
-        return UserID;
-    }
-
-    public void setUserID(int UserID) {
-        this.UserID = UserID;
-    }
-
-    public int getOrderID() {
-        return OrderID;
-    }
-
-    public void setOrderID(int OrderID) {
-        this.OrderID = OrderID;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public int getPhone() {
@@ -161,22 +148,6 @@ public class Order {
         this.phone = phone;
     }
 
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public float getCoupon_value() {
-        return coupon_value;
-    }
-
-    public void setCoupon_value(float coupon_value) {
-        this.coupon_value = coupon_value;
-    }
-
     public float getTotalcash() {
         return totalcash;
     }
@@ -184,8 +155,5 @@ public class Order {
     public void setTotalcash(float totalcash) {
         this.totalcash = totalcash;
     }
-
-   
-
     
 }

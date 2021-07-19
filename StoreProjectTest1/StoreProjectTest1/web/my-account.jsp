@@ -160,7 +160,7 @@
                                                     </div>
                                                     <div class="single-input">
                                                         <label>Phone*</label>
-                                                        <input required type="text" name="phone" value="${UI.phone}" placeholder="Number only!">
+                                                        <input required type="text" name="phone" value="0${UI.phone}" placeholder="Number only!">
                                                     </div>
                                                     <div class="single-input">
                                                         <label>New Password (leave blank to leave

@@ -5,7 +5,6 @@
  */
 package Project.Controller.Login;
 
-
 import Project.DAO.Encode;
 import Project.DAO.UserDAO;
 import Project.Sample.User;
@@ -97,18 +96,18 @@ public class LoginController extends HttpServlet {
                     } else {
                         request.getRequestDispatcher("admin.jsp").forward(request, response);
                     }
-                }else{
+                } else {
 
-                //if the login false then redirect to login page
-                request.setAttribute("message", "Wrong user or password");
-                infor.setStatus(check);
-                session.setAttribute("logined", check);
-                response.sendRedirect("login.jsp");
+                    //if the login false then redirect to login page
+                    request.setAttribute("message", "Wrong user or password");
+                    infor.setStatus(check);
+                    session.setAttribute("logined", check);
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
                 }
 
             } else {
 
-                response.sendRedirect("login.jsp");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         }
     }

@@ -60,15 +60,13 @@ public class AddToCart extends HttpServlet {
     }
 
     void removeFromCart(Product p) {
-        for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {
-            
+        for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {        
             Product key = entry.getKey();
             Integer value = entry.getValue();
             if (key.getProID().equals(p.getProID())) {
                 this.products.remove(key);
                 break;
-            }
-            
+            }            
         }
     }
 
@@ -132,7 +130,8 @@ public class AddToCart extends HttpServlet {
                 session.setAttribute("finaltotal", totalmoney + 2);
                 }
             }   
-            session.setAttribute("coupon", coupon_value +"%");
+            
+            session.setAttribute("coupon", coupon_value);
             session.setAttribute("cart", this.products);
             session.setAttribute("subtotalcart", totalmoney);
             session.setAttribute("numberofpro", getNumberOfPro());

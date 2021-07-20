@@ -65,14 +65,14 @@
                                             <div class="col-md-12">
 
                                                 <label>First Name</label>
-                                                <input required type="text" placeholder="Example: Bùi Thanh Lâm" name="firstname">
+                                                <input required type="text" placeholder="Example: Bùi" name="firstname">
                                             </div>
                                             <div class="col-md-12">
                                                 <label>Last Name</label>
-                                                <input required type="text" placeholder="Example: Bùi Thanh Lâm" name="lastname">
+                                                <input required type="text" placeholder="Example: Lâm" name="lastname">
 
                                                 <label>Your Full Name</label>
-                                                <input required type="text" placeholder="Example: Sát Thủ Đa Tình" name="fullname">
+                                                <input required type="text" placeholder="Example: Bùi Thanh Lâm" name="fullname">
 
                                             </div>
                                             <div class="col-md-12">

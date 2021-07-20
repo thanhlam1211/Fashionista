@@ -75,13 +75,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Password</label>
-                                                    <input type="text" name="password" class="form-control " required >
+                                                    <input type="password" name="password" class="form-control " required >
                                                 </div>
                                             </div>
                                              <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Confirm Your Password</label>
-                                                    <input type="text" name="cpassword" class="form-control " required >
+                                                    <input type="password" name="cpassword" class="form-control " required >
                                                 </div>
                                             </div>
                                         </div>

@@ -189,7 +189,7 @@
                                                         </c:forEach>
                                                     </tbody>
                                                 </table>
-                                                <a href="addProduct.jsp" class="btn btn-primary pull-right">Add Product</a>
+                                                <a href="views/admin/addProduct.jsp" class="btn btn-primary pull-right">Add Product</a>
                                             </div>
                                             <div class="tab-pane" id="userList">
                                                 <table class="table table-hover">

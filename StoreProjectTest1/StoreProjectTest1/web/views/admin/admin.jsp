@@ -233,7 +233,7 @@
                                                 </c:forEach>
                                             </tbody>
                                         </table>
-                                        <a href="addAdmin.jsp" class="btn btn-primary pull-right">Add Admin</a>
+                                        <a href="views/admin/addAdmin.jsp" class="btn btn-primary pull-right">Add Admin</a>
                                     </div>
                                 </div>
                             </div>

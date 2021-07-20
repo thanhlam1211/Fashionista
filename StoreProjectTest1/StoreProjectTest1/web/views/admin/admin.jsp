@@ -66,10 +66,6 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-end">
                             <ul class="navbar-nav">
-<<<<<<< HEAD
-
-=======
->>>>>>> 52f7bf4bd66b5a0bc41d2a61f68b0f80fd7122a8
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">person</i>
@@ -244,7 +240,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
         <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
@@ -266,12 +262,6 @@
                             <div class="clearfix"></div>
                         </a>
                     </li>
-                    <!-- <li class="header-title">Want more components?</li>
-                        <li class="button-container">
-                            <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
-                              Get the pro version
-                            </a>
-                        </li> -->
                 </ul>
             </div>
         </div>

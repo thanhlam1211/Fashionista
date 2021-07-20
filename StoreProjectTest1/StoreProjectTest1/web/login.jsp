@@ -89,11 +89,11 @@
                                             </c:forEach>
                                             <div class="col-lg-12">
                                                 <label>User Name</label>
-                                                <input required type="text" name="account" value=${account}>
+                                                <input required type="text" name="account" value=${account}/>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label>Password</label>
-                                                <input required type="password" name="password" value=${password} >
+                                                <input required type="password" name="password" value=${password} />
                                             </div>
 
                                             <div class="col-md-8">
@@ -121,15 +121,7 @@
                         </div>
                     </div>
                 </div>
-            </main>
-            <!-- Main Content Area End Here -->
-
-            <!-- Begin Footer Area -->
-
-            <!-- Footer Area End Here -->
-            <!-- Begin Scroll To Top -->
-            <!-- Scroll To Top End Here -->
-
+   
         </div>
 
         <!-- Global Vendor, plugins JS -->

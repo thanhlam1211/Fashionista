@@ -27,9 +27,6 @@
             <!-- End Navbar -->
             <div class="content">
                 <div class="container-fluid">
-                    <form>
-
-                    </form>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
@@ -88,14 +85,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                             
-                                             
-
-                                        </div>
-
-
-                                        <input type="hidden" value="Admin" name="role"/>
+                                       <input type="hidden" value="Admin" name="role"/>
                                         <button type="submit" class="btn btn-primary pull-right">Add Admin</button>
                                         <a href="admin.jsp" class="btn btn-primary pull-right">Back to Dashboard</a>
                                         <div class="clearfix"></div>

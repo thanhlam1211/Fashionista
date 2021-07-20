@@ -1324,7 +1324,7 @@
                     <div class="container">
                         <h2 class="counter-title">Feel 
                             <span>Hanger</span> Energy
-                        </h2>:V
+                        </h2>
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-6">
                                 <div class="counter-item">

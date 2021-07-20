@@ -46,21 +46,19 @@ public class LoginController extends HttpServlet {
             String pass = request.getParameter("password");
             Cookie[] cookies = request.getCookies();
             Encode decode = new Encode();
-             
-            if (user != null && pass != null) {
-                if (cookies != null) {
+            if (cookies != null) {
                 for (Cookie cooky : cookies) {
                     if (cooky.getName().equals("password")) {
                         //if password input equal to decode "password cookie" then beak
                         if (decode.Dec(cooky.getValue()).equals(pass)) {
                             break;
                         }
-                        pass = decode.Dec(pass);
-                        break;
                     }
 
                 }
             }
+            if (user != null && pass != null) {
+
                 HttpSession session = request.getSession();
                 boolean check = false;
                 UserDAO Dao = new UserDAO();

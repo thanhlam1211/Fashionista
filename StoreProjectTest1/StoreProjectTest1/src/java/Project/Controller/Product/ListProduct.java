@@ -6,6 +6,7 @@
 package Project.Controller.Product;
 
 import Project.DAO.ProductDAO;
+import Project.Sample.Cate;
 import Project.Sample.Product;
 import java.io.IOException;
 import java.util.List;
@@ -103,6 +104,7 @@ public class ListProduct extends HttpServlet {
             } else {
                 page = size / 9;
             }
+            
             //cpage = current page
             String cpage = request.getParameter("page");
             if (cpage != null) {
@@ -119,7 +121,7 @@ public class ListProduct extends HttpServlet {
             } else {
                 session.setAttribute("cp", 1);
             }
-
+            session.setAttribute("cate", dao.getCate());
             session.setAttribute("begin", begin);
             session.setAttribute("end", end);
             session.setAttribute("pages", page);

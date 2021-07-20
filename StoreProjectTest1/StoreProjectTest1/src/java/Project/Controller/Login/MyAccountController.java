@@ -7,9 +7,13 @@ package Project.Controller.Login;
 
 import Project.DAO.OrderDAO;
 import Project.DAO.UserDAO;
+import Project.Sample.Order;
+import Project.Sample.Order_Detail;
 import Project.Sample.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,9 +45,20 @@ public class MyAccountController extends HttpServlet {
 
                 HttpSession session = request.getSession();
                 OrderDAO dao = new OrderDAO();
-                request.setAttribute("order", dao.getFullOrders());
+                String oid = request.getParameter("oid");
+                String status = request.getParameter("status");
+                List<Order> ls = dao.getFullOrders();
+              
                 
-
+                if (status != null) {
+                    request.setAttribute("oid", oid);
+                    request.setAttribute("total", dao.getOrder(oid).getTotalcash());
+                    request.setAttribute("orderdetail", dao.getOrderDetail(oid));
+                    request.setAttribute("status", true);   
+                } else {
+                    request.setAttribute("order", ls);
+                }
+                
                 request.getRequestDispatcher("my-account.jsp").include(request, response);
 
             } catch (NumberFormatException | NullPointerException e) {

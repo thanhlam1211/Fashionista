@@ -44,7 +44,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="views/admin/user.jsp">
+                            <a class="nav-link" href="user.jsp">
                                 <i class="material-icons">person</i>
                                 <p>User Profile</p>
                             </a>
@@ -77,23 +77,7 @@
                             <span class="navbar-toggler-icon icon-bar"></span>
                             <span class="navbar-toggler-icon icon-bar"></span>
                         </button>
-                        <div class="collapse navbar-collapse justify-content-end">
-                            <ul class="navbar-nav">
-
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">person</i>
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                        <c:if test="${not empty UI}"> 
-                                            <a class="dropdown-item" href="${path}/">${UI.getFullname()}</a>
-                                        </c:if>
-                                        <a class="dropdown-item" href="${path}/LogoutController">Log out</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                         
                     </div>
                 </nav>
                 <!-- End Navbar -->

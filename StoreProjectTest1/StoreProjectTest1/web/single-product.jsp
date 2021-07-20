@@ -132,18 +132,18 @@
                                             </li>
                                             <li class="add-to-cart">
                                                 <div style="text-align: center">                                               
-                                                    <button onClick="showSwal('success-message')" class="btn btn-custom-size lg-size btn-pronia-primary">Add To Cart</button>
+                                                    <button class="btn btn-custom-size lg-size btn-pronia-primary">Add To Cart</button>
                                                 </div>
                                             </li>
-
-                                            <li class="wishlist-btn-wrap">
-                                                <a class="custom-circle-btn" href="wishlist?id=${product.getProID()}&from=${from}&status=add">
-                                                    <i class="pe-7s-like"></i>
-                                                </a>
-                                            </li>
-
-                                        </ul>
                                     </form>
+                                    <li class="wishlist-btn-wrap">
+                                        <a class="custom-circle-btn" href="wishlist?id=${product.getProID()}&from=${from}&status=add">
+                                            <i class="pe-7s-like"></i>
+                                        </a>
+                                    </li>
+
+                                    </ul>
+
                                     <ul class="service-item-wrap">
                                         <li class="service-item">
                                             <div class="service-img">

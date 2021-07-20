@@ -82,7 +82,7 @@
                                                             </td>
                                                             <td class="product-thumbnail">
                                                                 <a href="infor?id=${p.getProID()}">
-                                                                    <img src="${p.getImage().get(i).getUrl()}" alt="Wishlist Thumbnail">
+                                                                    <img style="width:70px; height: 78px;" src="${p.getImage().get(i).getUrl()}" alt="Wishlist Thumbnail">
                                                                 </a>
                                                             </td>
                                                             <td class="product-name"><a href="infor?id=${p.getProID()}">${p.getProName()}</a></td>

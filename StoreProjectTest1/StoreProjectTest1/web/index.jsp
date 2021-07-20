@@ -218,12 +218,13 @@
                                                 <div class="product-item">
                                                     <div class="product-img">
                                                         <a href="infor?id=${p.getProID()}">
+
                                                             <c:forEach items="${p.getImage()}" var="i"> 
                                                                 <c:if test="${i.getIndex() == '1'}"> 
-                                                                    <img class="primary-img" src="${i.getUrl()}" alt="Product Images">
+                                                                    <img style="width:270px; height: 300px;" class="primary-img" src="${i.getUrl()}" alt="Product Images">
                                                                 </c:if>
                                                                 <c:if test="${i.getIndex() == '2'}"> 
-                                                                    <img class="secondary-img" src="${i.getUrl()}"  alt="Product Images">
+                                                                    <img style="width:270px; height: 300px;"  class="secondary-img" src="${i.getUrl()}"  alt="Product Images">
                                                                 </c:if>
                                                             </c:forEach> 
                                                         </a>
@@ -251,22 +252,22 @@
                                                                                                     <div class="swiper-wrapper">
                                                                                                         <div class="swiper-slide">
                                                                                                             <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                                <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                                <img style="width:570px; height: 633px;" class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                             </a>
                                                                                                         </div>
                                                                                                         <div class="swiper-slide">
                                                                                                             <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                                <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                                <img style="width:570px; height: 633px;" class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                             </a>
                                                                                                         </div>
                                                                                                         <div class="swiper-slide">
                                                                                                             <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                                <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                                <img style="width:570px; height: 633px;" class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                             </a>
                                                                                                         </div>
                                                                                                         <div class="swiper-slide">
                                                                                                             <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                                <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                                <img style="width:570px; height: 633px;" class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                             </a>
                                                                                                         </div>
                                                                                                     </div>
@@ -477,14 +478,15 @@
                                         <div class="swiper-slide product-item">
                                             <div class="product-img">
                                                 <a href="infor?id=${p.getProID()}">
+
                                                     <c:forEach items="${p.getImage()}" var="i"> 
                                                         <c:if test="${i.getIndex() == '1'}"> 
-                                                            <img class="primary-img" src="${i.getUrl()}" alt="Product Images">
+                                                            <img style="width:270px; height: 300px;"  class="primary-img" src="${i.getUrl()}" alt="Product Images">
                                                         </c:if>
                                                         <c:if test="${i.getIndex() == '2'}"> 
-                                                            <img class="secondary-img" src="${i.getUrl()}"  alt="Product Images">
+                                                            <img style="width:270px; height: 300px;" class="secondary-img" src="${i.getUrl()}"  alt="Product Images">
                                                         </c:if>
-                                                    </c:forEach> 
+                                                    </c:forEach>
                                                 </a>
                                                 <div class="product-add-action">
                                                     <ul>
@@ -510,22 +512,22 @@
                                                                                             <div class="swiper-wrapper">
                                                                                                 <div class="swiper-slide">
                                                                                                     <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                        <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                        <img style="width:570px; height: 633px;" class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                     </a>
                                                                                                 </div>
                                                                                                 <div class="swiper-slide">
                                                                                                     <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                        <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                        <img style="width:570px; height: 633px;" class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                     </a>
                                                                                                 </div>
                                                                                                 <div class="swiper-slide">
                                                                                                     <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                        <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                        <img style="width:570px; height: 633px;" class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                     </a>
                                                                                                 </div>
                                                                                                 <div class="swiper-slide">
                                                                                                     <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                        <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                        <img style="width:570px; height: 633px;" class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                     </a>
                                                                                                 </div>
                                                                                             </div>

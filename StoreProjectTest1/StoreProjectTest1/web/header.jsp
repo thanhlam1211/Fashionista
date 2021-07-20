@@ -296,9 +296,11 @@
                                    data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                 </i>
                             </a>
+
                             <a href="infor?id=${c.getKey().getProID()}" class="product-item_img">                   
-                                <img class="img-full" src="${c.getKey().getImage().get(i).getUrl()}" alt="Product Image">
-                            </a>
+                                <img style="width:70px; height: 78px;" class="img-full" src="${c.getKey().getImage().get(i).getUrl()}" alt="Product Image">
+
+                          
                             <div class="product-item_content">                                  
                                 <a class="product-item_title" href="single-product-variable.jsp">${c.getKey().getProName()}</a>
                                 <span class="product-item_quantity"> ${c.getValue()}x $${c.getKey().getProPrice()}</span>

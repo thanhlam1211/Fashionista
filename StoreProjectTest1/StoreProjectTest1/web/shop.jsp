@@ -200,10 +200,10 @@
                                                             <a href="infor?id=${p.getProID()}">
                                                                 <c:forEach items="${p.getImage()}" var="i"> 
                                                                     <c:if test="${i.getIndex() == '1'}"> 
-                                                                        <img class="primary-img" src="${i.getUrl()}" alt="Product Images">
+                                                                        <img style="width:270px; height: 300px;" class="primary-img" src="${i.getUrl()}" alt="Product Images">
                                                                     </c:if>
                                                                     <c:if test="${i.getIndex() == '2'}"> 
-                                                                        <img class="secondary-img" src="${i.getUrl()}"  alt="Product Images">
+                                                                        <img style="width:270px; height: 300px;"  class="secondary-img" src="${i.getUrl()}"  alt="Product Images">
                                                                     </c:if>
                                                                 </c:forEach>
                                                             </a>
@@ -355,8 +355,8 @@
                                                     <div class="product-item">
                                                         <div class="product-img">
                                                             <a href="infor?id=${p.getProID()}">
-                                                                <img class="primary-img" src="assets/images/product/medium-size/" alt="Product Images">
-                                                                <img class="secondary-img" src="assets/images/product/medium-size/" alt="Product Images">
+                                                                <img style="width:270px; height: 300px;" class="primary-img" src="assets/images/product/medium-size/" alt="Product Images">
+                                                                <img style="width:270px; height: 300px;" class="secondary-img" src="assets/images/product/medium-size/" alt="Product Images">
                                                             </a>
                                                         </div>
                                                         <div class="product-content">

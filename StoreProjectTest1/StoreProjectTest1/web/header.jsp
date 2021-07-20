@@ -297,7 +297,7 @@
                                 </i>
                             </a>
                             <a href="single-product-variable.jsp" class="product-item_img">
-                                <img class="img-full" src="${path}/assets/images/product/small-size/2-1-70x78.png" alt="Product Image">
+                                <img style="width:70px; height: 78px;" class="img-full" src="${path}/assets/images/product/small-size/2-1-70x78.png" alt="Product Image">
                             </a>
                             <div class="product-item_content">                                  
                                 <a class="product-item_title" href="single-product-variable.jsp">${c.getKey().getProName()}</a>

@@ -20,11 +20,11 @@ import java.util.logging.Logger;
 public class DBConnection {
 
     public static Connection open() throws SQLException {
-      //  String host = "LENOVO-LEGION-Y";
-        String host = "TRUNGHUY\\SQLEXPRESS";
+        String host = "LENOVO-LEGION-Y";
+//        String host = "TRUNGHUY\\SQLEXPRESS";
         String user = "sa";
-    //  String password = "1211";
-        String password = "1234567";
+      String password = "1211";
+//        String password = "1234567";
         String database = "Shopping";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

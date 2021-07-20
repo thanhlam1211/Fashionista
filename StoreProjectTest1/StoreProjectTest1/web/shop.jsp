@@ -119,15 +119,12 @@
                                             <h2 class="widgets-title mb-4">Populer Tags</h2>
                                             <ul class="widgets-tag">
                                                 <c:forEach items="${cate}" var="c">
-
                                                     <li>
                                                         <a href="Shop?cate=${c.getId()}">
 
                                                             ${c.getName()}  
                                                         </a>
-
                                                     </li>
-
                                                 </c:forEach>
                                                 <li>
                                                     <a href="#">Fashion</a>
@@ -201,8 +198,14 @@
                                                     <div class="product-item">
                                                         <div class="product-img">
                                                             <a href="infor?id=${p.getProID()}">
-                                                                <img class="primary-img" src="https://drive.google.com/uc?id=1lztoT0HNxJHoY3mZsYY3E_9lMmGqw7px" alt="Product Images">
-                                                                <img class="secondary-img" src="https://drive.google.com/uc?id=17_nb-VEf0-LkA3a4VnXVWnu-l14BdZdh" alt="Product Images">
+                                                                <c:forEach items="${p.getImage()}" var="i"> 
+                                                                    <c:if test="${i.getIndex() == '1'}"> 
+                                                                        <img class="primary-img" src="${i.getUrl()}" alt="Product Images">
+                                                                    </c:if>
+                                                                    <c:if test="${i.getIndex() == '2'}"> 
+                                                                        <img class="secondary-img" src="${i.getUrl()}"  alt="Product Images">
+                                                                    </c:if>
+                                                                </c:forEach>
                                                             </a>
                                                             <div class="product-add-action">
                                                                 <ul>

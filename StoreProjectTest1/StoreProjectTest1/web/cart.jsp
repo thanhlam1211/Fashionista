@@ -59,7 +59,7 @@
                                     <div class="shopper-informations">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <form action="checkout"  class="myaccount-form">
+                                                <form action="checkout" method="post" class="myaccount-form">
                                                     <div class="myaccount-form-inner">
                                                         <div class="single-input ">
                                                             <input required type="text" name="fullname" placeholder="Your FullName" value="${UI.getFullname()}" >

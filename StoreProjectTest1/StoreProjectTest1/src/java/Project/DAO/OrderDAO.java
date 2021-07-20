@@ -51,7 +51,7 @@ public class OrderDAO {
                 o.setReciverEmail(rs.getString("OrderEmail"));
                 o.setStatus(rs.getString("OrderStatus"));
                 o.setCode(rs.getString("discountCode"));
-                o.setTotalcash(rs.getFloat("TotalCash"));
+                o.setTotalcash(rs.getFloat("Total"));
                 ls.add(o);
             }
         } catch (SQLException ex) {
@@ -91,7 +91,7 @@ public class OrderDAO {
                 od.setPrice(rs.getFloat("Price"));
                 od.setDiscount(rs.getFloat("Discount"));
                 od.setQuantity(rs.getInt("Quantity"));
-                od.setTotal(rs.getFloat("TotalCash"));
+                od.setTotal(rs.getFloat("Total"));
                 od.setType(rs.getString("TypeOfPayment"));
                 od.setDate(rs.getString("DetailDate"));
 
@@ -137,7 +137,6 @@ public class OrderDAO {
             ps = con.prepareCall("insert into [Shopping].[dbo].[Order_detail] values(?,?,?,?,?,?,?,GETDATE()) ");
             ps.setString(1, od.getId());
             ps.setString(2, od.getProID());
-
             ps.setFloat(3, od.getPrice());
             ps.setFloat(4, od.getDiscount());
             ps.setInt(5, od.getQuantity());

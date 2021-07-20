@@ -66,7 +66,7 @@ public class WishListDAO {
             ps = con.prepareCall("INSERT INTO wishList VALUES(?,?)");
             ps.setInt(1, w.getUserID());
             ps.setString(2, w.getProID());
-            ps.executeQuery();
+            ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(WishListDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

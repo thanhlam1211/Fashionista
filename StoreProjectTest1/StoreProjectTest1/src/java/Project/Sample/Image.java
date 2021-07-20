@@ -10,7 +10,8 @@ package Project.Sample;
  * @author TrungHuy
  */
 public class Image {
-    private String proID,id,url,size;
+
+    private String proID, id, url, index;
 
     public Image() {
     }
@@ -19,7 +20,7 @@ public class Image {
         this.proID = proID;
         this.id = id;
         this.url = url;
-        this.size = size;
+        this.index = size;
     }
 
     public String getProID() {
@@ -46,12 +47,12 @@ public class Image {
         this.url = url;
     }
 
-    public String getSize() {
-        return size;
+    public String getIndex() {
+        return index;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setIndex(String index) {
+        this.index = index;
     }
-    
+
 }

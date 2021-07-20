@@ -105,7 +105,7 @@ public class ProductDAO {
                 i.setProID(rs.getString("ProID"));
                 i.setId(rs.getString("ImageID"));
                 i.setUrl(rs.getString("Image"));
-                
+                i.setIndex(rs.getString("position"));
                 images.add(i);
             }
         } catch (SQLException ex) {

@@ -66,7 +66,7 @@
                                 <h3>${message}</h3>
                                 <h2 class="title"><span>Oops,</span> page not found!</h2>
                                 <div class="button-wrap">
-                                    <a class="btn btn-error" href="index.jsp">Back to home
+                                    <a class="btn btn-error" href="Home">Back to home
                                         <i class="pe-7s-home"></i>
                                     </a>
                                 </div>

@@ -67,7 +67,7 @@
                                     <div class="single-product-img">
                                         <div class="swiper-container single-product-slider">
                                             <div class="swiper-wrapper">
-                                            <c:forEach items="#{product.getImage()}" var="i"> 
+                                            <c:forEach items="${product.getImage()}" var="i"> 
                                                 <div class="swiper-slide">
                                                     <a href="${i.getUrl()}" class="single-img gallery-popup">
                                                         <img class="img-full" src="${i.getUrl()}" alt="Product Image">
@@ -234,7 +234,7 @@
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <a class="tab-btn" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">
-                                            Reviews(3)
+                                            Reviews(${cmt.size()})
                                         </a>
                                     </li>
                                 </ul>
@@ -260,69 +260,38 @@
                                     <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                                         <div class="product-review-body">
                                             <div class="blog-comment mt-0">
-                                                <h4 class="heading">Comments (03)</h4>
+                                                <h4 class="heading">Comments (${cmt.size()})</h4>
                                                 <div class="blog-comment-item">
-                                                    <div class="blog-comment-img">
-                                                        <img src="${path}/assets/images/blog/avatar/1-1-120x120.png" alt="User Image">
-                                                    </div>
-                                                    <div class="blog-comment-content">
-                                                        <div class="user-meta">
-                                                            <h2 class="user-name">Thanh Lâm</h2>
-                                                            <span class="date">21 July 2021</span>
+                                                    <c:forEach items="${cmt}" var="c"> 
+                                                        <div class="blog-comment-img">
+                                                            <img src="${path}/assets/images/blog/avatar/1-1-120x120.png" alt="User Image">
                                                         </div>
-                                                        <p class="user-comment">Hàng ngon, em rau 2k5 phục vụ nhiệt tình
-                                                        </p>
-                                                        <a class="btn btn-custom-size comment-btn" href="#">Reply</a>
-                                                    </div>
-                                                </div>
-                                                <div class="blog-comment-item relpy-item">
-                                                    <div class="blog-comment-img">
-                                                        <img src="${path}/assets/images/blog/avatar/1-2-120x120.png" alt="User Image">
-                                                    </div>
-                                                    <div class="blog-comment-content">
-                                                        <div class="user-meta">
-                                                            <h2 class="user-name">Huy cube</h2>
-                                                            <span class="date">21 July 2021</span>
+                                                        <div class="blog-comment-content">
+                                                            <div class="user-meta">
+                                                                <c:forEach items="${userlist}" var="u"> 
+                                                                    <c:if test="${u.getID() == c.getUid()}"> 
+                                                                        <h2 class="user-name">${u.getFullname()} (${u.getRole()})</h2>
+                                                                    </c:if>
+                                                                </c:forEach>
+                                                                <span class="date">${c.getDate()}</span>
+                                                            </div>
+                                                            <p class="user-comment">${c.getText()}
+                                                            </p>
                                                         </div>
-                                                        <p class="user-comment">Anh cho em bucu đi
-                                                        </p>
-                                                        <a class="btn btn-custom-size comment-btn style-2" href="#">Reply</a>
-                                                    </div>
+                                                    </c:forEach>
                                                 </div>
-                                                <div class="blog-comment-item">
-                                                    <div class="blog-comment-img">
-                                                        <img src="${path}/assets/images/blog/avatar/1-3-120x120.png" alt="User Image">
-                                                    </div>
-                                                    <div class="blog-comment-content">
-                                                        <div class="user-meta">
-                                                            <h2 class="user-name">Chiến thần bao cao su</h2>
-                                                            <span class="date">21 July 2021</span>
-                                                        </div>
-                                                        <p class="user-comment">Chơi hết 1 hộp durex chưa hết sướng
-                                                        </p>
-                                                        <a class="btn btn-custom-size comment-btn" href="#">Reply</a>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                             <div class="feedback-area">
                                                 <h2 class="heading">Leave a comment</h2>
-                                                <form class="feedback-form" action="#">
-                                                    <div class="group-input">
-                                                        <div class="form-field me-md-30 mb-30 mb-md-0">
-                                                            <input type="text" name="name" placeholder="Your Name*" class="input-field">
-                                                        </div>
-                                                        <div class="form-field">
-                                                            <input type="text" name="email" placeholder="Your Email*" class="input-field">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-field mt-30">
-                                                        <input type="text" name="subject" placeholder="Subject (Optinal)" class="input-field">
-                                                    </div>
+                                                <form class="feedback-form" action="comment">
+                                                    <input type="hidden" name="proid" value="${product.getProID()}">
+                                                    <input type="hidden" name="from" value="${from}"/>
                                                     <div class="form-field mt-30">
                                                         <textarea name="message" placeholder="Message" class="textarea-field"></textarea>
                                                     </div>
                                                     <div class="button-wrap pt-5">
-                                                        <button type="submit" value="submit" class="btn btn-custom-size xl-size btn-pronia-primary" name="submit">Post
+                                                        <button type="submit" class="btn btn-custom-size xl-size btn-pronia-primary" name="submit">Post
                                                             Comment</button>
                                                     </div>
                                                 </form>

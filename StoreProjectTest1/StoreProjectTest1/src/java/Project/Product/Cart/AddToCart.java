@@ -119,7 +119,7 @@ public class AddToCart extends HttpServlet {
                 }
             }
 
-            float totalmoney = getTotal() + 2;
+            float totalmoney = getTotal() ;
             String coupon = request.getParameter("coupon_code");
             float coupon_value = dao.getCoupon(coupon);
             float discount = coupon_value / 100 * totalmoney;
@@ -138,7 +138,7 @@ public class AddToCart extends HttpServlet {
                 u.setCoupon(coupon);
                 u.setCoupon_value(coupon_value);
                 u.setTotal(totalmoney - discount);
-                u.setTotal(totalmoney + 2);
+                u.setTotal(totalmoney);
                 u.setCart(this.products);
             }
             session.setAttribute("coupon", coupon_value);

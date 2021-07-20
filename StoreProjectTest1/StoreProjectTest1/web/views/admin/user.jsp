@@ -73,9 +73,9 @@
                                         </p>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                        <c:if test="${not empty UI}"> 
-                                            <a class="dropdown-item" href="${path}/">${UI.getFullname()}</a>
-                                        </c:if>
+                                        
+                                            <a class="dropdown-item" href="${path}/Home">Home</a>
+                                        
                                         <a class="dropdown-item" href="${path}/LogoutController">Log out</a>
                                     </div>
                                 </li>

@@ -6,8 +6,7 @@
 package Project.Controller.Product;
 
 import Project.DAO.ProductDAO;
-import Project.DAO.UserDAO;
-import Project.Sample.Comment;
+import Project.Sample.Image;
 import Project.Sample.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,13 +17,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author TrungHuy
  */
-public class SingleProduct extends HttpServlet {
+public class InsertProductController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,47 +33,68 @@ public class SingleProduct extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    public String generatePID() {
+        ProductDAO dao = new ProductDAO();
+        while (true) {
+            Random r = new Random();
+            String code = "A" + r.nextInt(1000);
+            for (Product fullOrder : dao.getProducts("")) {
+                if (!fullOrder.getProID().equals(code)) {
+                    return code;
+                }
+            }
+        }
+
+    }
+
+    public String generateIID() {
+        ProductDAO dao = new ProductDAO();
+        while (true) {
+            Random r = new Random();
+            String code = "IMG_" + r.nextInt(1000);
+            for (Image fullOrder : dao.getImageFull()) {
+                if (!fullOrder.getProID().equals(code)) {
+                    return code;
+                }
+            }
+        }
+
+    }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            try {
-                HttpSession session = request.getSession();
-                String id = request.getParameter("id");
-                ProductDAO pdao = new ProductDAO();
-                UserDAO udao = new UserDAO();
-                Product p = pdao.getProduct(id);
-                if (p != null) {
-                    session.setAttribute("product", p);
-                    //p_url = previous url
-                    request.setAttribute("p_url", "Shop");
-                    //rp = related product
-                    List<Product> rp = pdao.getProducts("where ProCategorieID = '" + p.getProCategorieID() + "' or ProSubCategorieID = '" + p.getProSubCategorieID() + "' ");
-                    List<Product> rp1 = new ArrayList<>();
-                    for (int i = 0; i < 5; i++) {
-                        Random r = new Random();
-                        rp1.add(rp.get(r.nextInt(rp.size())));
-                    }
-                    //lsc = list comment
-                    List<Comment> lsc = new ArrayList<>();
-                    for (Comment comment : udao.getComments()) {
-                        if(comment.getProid().equals(id)){
-                            lsc.add(comment);
-                        }
-                    }
-                    request.setAttribute("userlist", udao.getUsers(""));
-                    request.setAttribute("cmt", lsc);
-                    request.setAttribute("cate", pdao.getCate());
-                    request.setAttribute("rp", rp1);
-                    request.getRequestDispatcher("single-product.jsp").forward(request, response);
-                } else {
-                    response.sendRedirect("index.jsp");
-                }
-            } catch (NullPointerException e) {
-                request.getSession().setAttribute("message", "Some Thing Got Null");
-                request.getRequestDispatcher("404.jsp").forward(request, response);
-            }
+            ProductDAO dao = new ProductDAO();
+            //cl = current list
+            List<Product> cl = dao.getProducts("");
+
+            String name = request.getParameter("name");
+            String branđ = request.getParameter("brand");
+            float price = Float.parseFloat(request.getParameter("price"));
+            int stock = Integer.parseInt(request.getParameter("stock"));
+            String supplier = request.getParameter("supplier");
+            String image1 = request.getParameter("image1");
+            String image2 = request.getParameter("image2");
+            String des = request.getParameter("des");
+
+            Product p = new Product();
+            p.setDes(des);
+            p.setProBranch(branđ);
+            p.setProName(name);
+            p.setProPrice(price);
+            p.setProSuppliers(supplier);
+            p.setStock(stock);
+            p.setProID(generatePID());
+            dao.InsertProduct(p);
+            System.out.println("Adđ Product successs");
+            dao.InsertImage(new Image(p.getProID(), generateIID(), image1, "1"));
+            dao.InsertImage(new Image(p.getProID(), generateIID(), image2, "2"));
+            System.out.println("Add Image Sucess");
+            
+            response.sendRedirect("OrderList");
+        
         }
     }
 

@@ -305,7 +305,7 @@ insert into SubDistric values('SHCM50','HCM10','Linh Dong')
 
 select*from [Image]
 Go
-insert into [Image] values('A01','IMG_001','https://drive.google.com/uc?id=1s6X5MIu2AMZMR42gSk3bbXjS7y5MNjp8','1')
+insert into [Image] values('A01','IMG_001','https://drive.google.com/uc?id=1UahejkNg8bCz9pr5W9d_662FJAT2lBWb','1')
 insert into [Image] values('A01','IMG_002','https://drive.google.com/uc?id=1s6X5MIu2AMZMR42gSk3bbXjS7y5MNjp8','2')
 
 insert into [Image] values('A02','IMG_003','https://drive.google.com/uc?id=1eBU5cJkLRiSSn7PkQUThx6IYFPBhMsE9','1')

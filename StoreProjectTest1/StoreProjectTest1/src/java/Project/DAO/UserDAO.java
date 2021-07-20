@@ -6,6 +6,7 @@
 package Project.DAO;
 
 import Project.DBConnection.DBConnection;
+import Project.Sample.Comment;
 import Project.Sample.User;
 
 import java.sql.Connection;
@@ -35,7 +36,7 @@ public class UserDAO {
             if (role.isEmpty()) {
                 cs = con.prepareCall("Select * from [Shopping].[dbo].[User]");
             } else {
-                cs = con.prepareCall("Select * from [Shopping].[dbo].[User] where UserRole = '"+role+"' ");//...
+                cs = con.prepareCall("Select * from [Shopping].[dbo].[User] where UserRole = '" + role + "' ");//...
             }
             rs = cs.executeQuery();
             while (rs.next()) {
@@ -68,6 +69,47 @@ public class UserDAO {
             }
         }
         return null;
+    }
+
+    public void insertCmt(String proid, int uid, String text) {
+        try {
+            con = DBConnection.open();
+            cs = con.prepareCall("insert into [Shopping].[dbo].[Comment] (UserID,ProID,Comment,CommentDate) values (?,?,?,getdate())");//....
+            cs.setInt(1, uid);
+            cs.setString(2, proid);
+            cs.setString(3, text);
+            cs.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            DBConnection.close(con, cs, rs);
+        }
+    }
+
+    public List<Comment> getComments() {
+        List<Comment> ls = new ArrayList<>();
+        try {
+            con = DBConnection.open();
+            cs = con.prepareCall("select * from [Shopping].[dbo].[Comment] order by CommentDate desc");//....
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                Comment c = new Comment();
+                c.setId(rs.getInt("CommentID"));
+                c.setUid(rs.getInt("UserID"));
+                c.setProid(rs.getString("ProID"));
+                c.setText(rs.getString("Comment"));
+                c.setDate(rs.getString("CommentDate"));
+                System.out.println("Get Comment Success");
+
+                ls.add(c);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            DBConnection.close(con, cs, rs);
+        }
+        return ls;
     }
 
     public User getUser(String acc, String pass) {

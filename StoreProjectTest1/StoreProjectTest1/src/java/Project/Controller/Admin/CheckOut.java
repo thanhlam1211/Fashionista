@@ -72,7 +72,7 @@ public class CheckOut extends HttpServlet {
                 o.setAddress(address);
                 o.setPhone(phone);
                 o.setCode(u.getCoupon());
-                o.setTotalcash(u.getTotal());
+                o.setTotalcash(u.getTotal()+2);
                 dao.insertOrder(o);
                 System.out.println("Insert Order Success!");
                 HashMap<Product, Integer> products = u.getCart();

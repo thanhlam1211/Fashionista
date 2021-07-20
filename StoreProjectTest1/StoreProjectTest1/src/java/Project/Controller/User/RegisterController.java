@@ -48,12 +48,12 @@ public class RegisterController extends HttpServlet {
             if (u.getUserAccount().equals(useraccount)) {
                 request.setAttribute("message", "Duplicate Account!");
                 request.getRequestDispatcher("register.jsp").forward(request, response);
-
+                return;
             }
             if (u.getEmail().equals(email)) {
                 request.setAttribute("message", "Duplicate email!");
                 request.getRequestDispatcher("register.jsp").forward(request, response);
-
+                return;
             }
 
         }

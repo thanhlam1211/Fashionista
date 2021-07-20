@@ -250,26 +250,24 @@
                                                                                             <div class="modal-img">
                                                                                                 <div class="swiper-container modal-slider">
                                                                                                     <div class="swiper-wrapper">
-                                                                                                        <div class="swiper-slide">
-                                                                                                            <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                                <img style="width:570px; height: 633px;" class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
-                                                                                                            </a>
-                                                                                                        </div>
-                                                                                                        <div class="swiper-slide">
-                                                                                                            <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                                <img style="width:570px; height: 633px;" class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
-                                                                                                            </a>
-                                                                                                        </div>
-                                                                                                        <div class="swiper-slide">
-                                                                                                            <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                                <img style="width:570px; height: 633px;" class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
-                                                                                                            </a>
-                                                                                                        </div>
-                                                                                                        <div class="swiper-slide">
-                                                                                                            <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                                <img style="width:570px; height: 633px;" class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
-                                                                                                            </a>
-                                                                                                        </div>
+                                                                                                        <c:forEach items="${p.getImage()}" var="i"> 
+                                                                                                            <c:if test="${i.getIndex() == '1'}"> 
+                                                                                                                <div class="swiper-slide">
+                                                                                                                    <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                                        <img style="width:570px; height: 633px;" class="img-full" src="${i.getUrl()}" alt="Product Image">
+                                                                                                                    </a>
+                                                                                                                </div>
+                                                                                                            </c:if>
+                                                                                                            <c:if test="${i.getIndex() == '2'}"> 
+                                                                                                                <div class="swiper-slide">
+                                                                                                                    <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                                        <img style="width:570px; height: 633px;" class="img-full" src="${i.getUrl()}" alt="Product Image">
+                                                                                                                    </a>
+                                                                                                                </div>                                                                                                            </c:if>
+                                                                                                        </c:forEach> 
+
+
+
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -284,9 +282,7 @@
                                                                                                     <div class="rating-box">
                                                                                                         InStock: ${p.getStock()}
                                                                                                     </div>
-                                                                                                    <div class="review-status">
-                                                                                                        <a href="#">( 1 Review )</a>
-                                                                                                    </div>
+
                                                                                                 </div>
                                                                                                 <div class="selector-wrap color-option">
                                                                                                     <span class="selector-title border-bottom-0">Color</span>

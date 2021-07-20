@@ -56,7 +56,7 @@
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="views/admin/information.jsp">
+                            <a class="nav-link" href="#">
                                 <i class="material-icons">content_paste</i>
                                 <p>Detail Information</p>
                             </a>

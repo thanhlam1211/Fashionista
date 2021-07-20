@@ -41,11 +41,11 @@ public class PendingController extends HttpServlet {
             OrderDAO od = new OrderDAO();
             UserDAO ud = new UserDAO();
             ProductDAO pd = new ProductDAO();
-            
+            response.setIntHeader("Refresh", 60 * 60);
             request.setAttribute("productlist", pd.getProducts("order by ProDate desc"));
             request.setAttribute("userlist", ud.getUsers("customer"));
             request.setAttribute("pendinglist", od.getFullOrders());
-            
+
             request.getRequestDispatcher("views/admin/tables.jsp").forward(request, response);
         }
     }

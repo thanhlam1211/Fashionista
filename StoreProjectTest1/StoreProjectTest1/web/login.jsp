@@ -81,11 +81,13 @@
                                             <h3 style="text-align: center">${message}</h3>
                                             <c:forEach var="cookieVal" items="${pageContext.request.cookies}" >  
                                                 <c:if test="${cookieVal.name == 'account'}">
+                                                    <c:set var="check" value="checked"></c:set>
                                                     <c:set scope="request" var="account" value = "${cookieVal.value}" />
                                                 </c:if>
                                                 <c:if test="${cookieVal.name == 'password'}">
                                                     <c:set scope="request" var="password" value = "${cookieVal.value}" />
                                                 </c:if>
+
                                             </c:forEach>
                                             <div class="col-lg-12">
                                                 <label>User Name</label>
@@ -98,7 +100,8 @@
 
                                             <div class="col-md-8">
                                                 <div class="check-box">
-                                                    <input type="checkbox" id="remember_me" name="remember" ${account == ''?"":"checked"} >
+
+                                                    <input type="checkbox" id="remember_me" name="remember" ${check} >
                                                     <label for="remember_me">Remember me</label>
                                                 </div>
                                             </div>
@@ -121,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-   
+
         </div>
 
         <!-- Global Vendor, plugins JS -->

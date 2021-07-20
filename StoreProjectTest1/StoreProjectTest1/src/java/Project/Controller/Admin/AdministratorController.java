@@ -40,6 +40,7 @@ public class AdministratorController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            response.setIntHeader("Refresh", 60 * 60);
             HttpSession session = request.getSession();
             UserDAO udao = new UserDAO();
             request.setAttribute("userlist", udao.getUsers("customer"));

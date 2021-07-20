@@ -91,10 +91,7 @@
                                 </form>
 
                             </div>
-                            <p style="margin-left:39%" class="col-md-12 mt-3">
-                                New to Hanger?
-                                <a href="register.jsp">Create a account</a>
-                            </p>
+                            
                         </div>
                     </div>
                 </div>

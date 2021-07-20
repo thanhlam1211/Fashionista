@@ -74,15 +74,19 @@ public class LoginController extends HttpServlet {
                     //if user click "remeber me"
                     user_cooky = new Cookie("account", user);
                     pass_cooky = new Cookie("password", en.Enc(pass));
+                    Cookie checkCookie = new Cookie("check", "check");
                     if (rem) {
                         //set age for cookies
+                       
                         user_cooky.setMaxAge(120);
                         pass_cooky.setMaxAge(120);
                     } else {
                         //delete cookies
+                        
                         user_cooky.setMaxAge(0);
                         pass_cooky.setMaxAge(0);
                     }
+                    
                     response.addCookie(user_cooky);
                     response.addCookie(pass_cooky);
 

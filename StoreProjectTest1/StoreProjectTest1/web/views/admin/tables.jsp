@@ -210,7 +210,7 @@
                                                                         <label class="bmd-label-floating">
                                                                             Show Password  <input type="checkbox" onclick="myFunction(${c.getID()})">
                                                                         </label>
-                                                                        <input type="password" id="${c.getID()}" class="form-control " disabled="" value="${c.getUserAccount()}">
+                                                                        <input type="password" id="${c.getID()}" class="form-control " disabled="" value="${c.getPassword()}">
                                                                     </div>
                                                                 </td>
                                                                 <td>${c.getEmail()} </td>

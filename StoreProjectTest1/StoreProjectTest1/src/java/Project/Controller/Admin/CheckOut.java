@@ -97,7 +97,7 @@ public class CheckOut extends HttpServlet {
                 session.removeAttribute("coupon");
                 session.removeAttribute("numberofpro");
                 session.removeAttribute("finaltotal");
-                request.setAttribute("message", "Your Order Are Pending Now! Look At You Mail");
+                request.setAttribute("message", "Your Order Are Pending Now! Check Your Order In MyAccount");
                 request.getRequestDispatcher("Shop").forward(request, response);
             } catch (NumberFormatException e) {
                 System.out.println(e);

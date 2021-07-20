@@ -252,9 +252,7 @@
                                                                                                         <div class="rating-box">
                                                                                                             InStock: ${p.getStock()}
                                                                                                         </div>
-                                                                                                        <div class="review-status">
-                                                                                                            <a href="#">( 1 Review )</a>
-                                                                                                        </div>
+
                                                                                                     </div>
                                                                                                     <div class="selector-wrap color-option">
                                                                                                         <span class="selector-title border-bottom-0">Color</span>
@@ -369,7 +367,7 @@
                                                                 <span class="new-price">$${p.getProPrice()}</span>
                                                             </div>
                                                             <div class="rating-box">
-                                                                InStock: ${product.getStock()}
+                                                                InStock: ${p.getStock()}
                                                             </div>
                                                             <p class="short-desc mb-0">${p.getDes()}
                                                             </p>
@@ -455,7 +453,7 @@
         <script src="${path}/assets/js/plugins/mailchimp-ajax.js"></script>
         <script src="${path}/assets/js/plugins/jquery.counterup.js"></script>
         <script src="~/Scripts/jquery-3.5.1.min.js"></script>
-    
+
 
         <!--Main JS (Common Activation Codes)-->
         <script src="${path}/assets/js/main.js"></script>

@@ -332,21 +332,16 @@
                                 <h2 class="section-title">Related Products</h2>
                                 <p class="section-desc">Offer high quality products </p>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-12"> 
                                 <div class="swiper-container product-slider">
                                     <div class="swiper-wrapper">
+                                        <!--product 1, dùng jstl để hiển thị, đây chỉ demo 4 sp-->
                                         <c:forEach items="${rp}" var="p">
                                             <div class="swiper-slide product-item">
                                                 <div class="product-img">
                                                     <a href="infor?id=${p.getProID()}">
-                                                        <c:forEach items="${p.getImage()}" var="i">
-                                                            <c:if test="${i.getSize() == 'M' }">
-                                                                <img class="primary-img" src="assets/images/ok.jpg" alt="Product Images">
-                                                            </c:if>
-                                                            <c:if test="${i.getSize() == 'L'}">
-                                                                <img class="secondary-img" src="assets/images/ok.jpg" alt="Product Images">
-                                                            </c:if>
-                                                        </c:forEach>
+                                                        <img class="primary-img" src="https://drive.google.com/uc?id=1lztoT0HNxJHoY3mZsYY3E_9lMmGqw7px" alt="Product Images">
+                                                        <img class="secondary-img" src="https://drive.google.com/uc?id=17_nb-VEf0-LkA3a4VnXVWnu-l14BdZdh" alt="Product Images">
                                                     </a>
                                                     <div class="product-add-action">
                                                         <ul>
@@ -355,13 +350,129 @@
                                                                     <i class="pe-7s-like"></i>
                                                                 </a>
                                                             </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
+                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#${p.getProID()}">
+
+                                                                <div class="modal quick-view-modal fade" id="${p.getProID()}"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="quickModal" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-tippy="Close" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="modal-wrap row">
+                                                                                    <div class="col-lg-6">
+                                                                                        <div class="modal-img">
+                                                                                            <div class="swiper-container modal-slider">
+                                                                                                <div class="swiper-wrapper">
+                                                                                                    <div class="swiper-slide">
+                                                                                                        <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                            <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                    <div class="swiper-slide">
+                                                                                                        <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                            <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                    <div class="swiper-slide">
+                                                                                                        <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                            <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                    <div class="swiper-slide">
+                                                                                                        <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                            <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-lg-6 pt-5 pt-lg-0">
+                                                                                        <div class="single-product-content">
+                                                                                            <h2 class="title">${p.getProName()}</h2>
+                                                                                            <div class="price-box">
+                                                                                                <span class="new-price">${p.getProPrice()}</span>
+                                                                                            </div>
+                                                                                            <div class="rating-box-wrap">
+                                                                                                <div class="rating-box">
+                                                                                                    InStock: ${p.getStock()}
+                                                                                                </div>
+                                                                                                <div class="review-status">
+                                                                                                    <a href="#">( 1 Review )</a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="selector-wrap color-option">
+                                                                                                <span class="selector-title border-bottom-0">Color</span>
+                                                                                                <select class="nice-select wide border-bottom-0 rounded-0">
+                                                                                                    <option value="default">Black & White</option>
+                                                                                                    <option value="blue">Blue</option>
+                                                                                                    <option value="green">Green</option>
+                                                                                                    <option value="red">Red</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <div class="selector-wrap size-option">
+                                                                                                <span class="selector-title">Size</span>
+                                                                                                <select class="nice-select wide rounded-0">
+                                                                                                    <option value="medium">Medium Size & Poot</option>
+                                                                                                    <option value="large">Large Size With Poot</option>
+                                                                                                    <option value="small">Small Size With Poot</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <p class="short-desc">${p.getDes()}</p>
+                                                                                            <ul class="quantity-with-btn">
+
+                                                                                                <li class="add-to-cart">
+                                                                                                    <a class="btn btn-custom-size lg-size btn-pronia-primary" href="Cart?num=1&add=on&id=${p.getProID()}&from=Shop">Add to
+                                                                                                        cart</a>
+
+                                                                                                </li>
+                                                                                                <li class="wishlist-btn-wrap">
+                                                                                                    <a class="custom-circle-btn" href="mywishlist?uid=${UI.getID()}">
+                                                                                                        <i class="pe-7s-like"></i>
+                                                                                                    </a>
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                            <ul class="service-item-wrap pb-0">
+                                                                                                <li class="service-item">
+                                                                                                    <div class="service-img">
+                                                                                                        <img src="${path}/assets/images/shipping/icon/car.png" alt="Shipping Icon">
+                                                                                                    </div>
+                                                                                                    <div class="service-content">
+                                                                                                        <span class="title">Free <br> Shipping</span>
+                                                                                                    </div>
+                                                                                                </li>
+                                                                                                <li class="service-item">
+                                                                                                    <div class="service-img">
+                                                                                                        <img src="${path}/assets/images/shipping/icon/card.png" alt="Shipping Icon">
+                                                                                                    </div>
+                                                                                                    <div class="service-content">
+                                                                                                        <span class="title">Safe <br> Payment</span>
+                                                                                                    </div>
+                                                                                                </li>
+                                                                                                <li class="service-item">
+                                                                                                    <div class="service-img">
+                                                                                                        <img src="${path}/assets/images/shipping/icon/service.png" alt="Shipping Icon">
+                                                                                                    </div>
+                                                                                                    <div class="service-content">
+                                                                                                        <span class="title">Safe <br> Payment</span>
+                                                                                                    </div>
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                                 <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                                                     <i class="pe-7s-look"></i>
                                                                 </a>
                                                             </li>
-                                                            <li>
-                                                                <a href="Cart?num=1&add=on&id=${p.getProID()}&from=${from}" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                            <li class="add-to-cart">
+                                                                <a href="Cart?num=1&add=on&id=${p.getProID()}&from=Shop" onclick="showSwal('success-message')" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                                                     <i class="pe-7s-cart"></i>
                                                                 </a>
                                                             </li>
@@ -369,7 +480,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <a class="product-name" href="${path}/infor?id=${p.getProID()}">${p.getProName()}</a>
+
+                                                    <a class="product-name" href="infor?id=${p.getProID()}">${p.getProName()}</a>
                                                     <div class="price-box pb-1">
                                                         <span class="new-price">$${p.getProPrice()}</span>
                                                     </div>
@@ -379,6 +491,7 @@
                                                 </div>
                                             </div>
                                         </c:forEach>
+
                                     </div>
                                 </div>
                             </div>

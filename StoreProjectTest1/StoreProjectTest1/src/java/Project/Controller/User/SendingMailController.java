@@ -28,7 +28,7 @@ public class SendingMailController {
 
     // Those are the values that have the email information
      public void Send(String ToMail,int id,String name){
-         String link = "http://localhost:8080/StoreProjectTest1/resetpassword.jsp";
+         String link = "http://localhost:8080/Project/resetpassword.jsp";
          String m_text = "<table style=\"width: 100% !important\" >\n" +
 "            <tbody>\n" +
 "                <tr>\n" +
@@ -40,7 +40,7 @@ public class SendingMailController {
 "                            You recently took steps to reset the password for your Hanger account. Click on the link below to reset your password.\n" +
 "                        </div>\n" +
 "                        <br>\n" +
-"                        <a href=\""+link+"id="+id+"\">Reset Password</a>\n" +
+"                        <a href=\""+link+"?id="+id+"\">Reset Password</a>\n" +
 "                        <br>\n" +
 "\n" +
 "                        <div>\n" +

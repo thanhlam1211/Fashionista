@@ -71,8 +71,7 @@
                                                 <label>Last Name</label>
                                                 <input required type="text" placeholder="Example: Bùi Thanh Lâm" name="lastname">
 
-                                                <label>Your Full Name</label>
-                                                <input required type="text" placeholder="Example: Sát Thủ Đa Tình" name="fullname">
+                                                
 
                                             </div>
                                             <div class="col-md-12">

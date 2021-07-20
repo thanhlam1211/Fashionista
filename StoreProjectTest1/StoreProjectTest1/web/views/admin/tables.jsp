@@ -39,7 +39,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="user.jsp">
+                            <a class="nav-link" href="views/admin/user.jsp">
                                 <i class="material-icons">person</i>
                                 <p>User Profile</p>
                             </a>

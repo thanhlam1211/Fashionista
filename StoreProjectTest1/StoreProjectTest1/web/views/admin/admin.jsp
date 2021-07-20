@@ -233,14 +233,14 @@
                                                 </c:forEach>
                                             </tbody>
                                         </table>
-                                        <a href="views/admin/addAdmin.jsp" class="btn btn-primary pull-right">Add Admin</a>
+                                        <a href="addAdmin.jsp" class="btn btn-primary pull-right">Add Admin</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
         <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
@@ -262,12 +262,6 @@
                             <div class="clearfix"></div>
                         </a>
                     </li>
-                    <!-- <li class="header-title">Want more components?</li>
-                        <li class="button-container">
-                            <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
-                              Get the pro version
-                            </a>
-                        </li> -->
                 </ul>
             </div>
         </div>

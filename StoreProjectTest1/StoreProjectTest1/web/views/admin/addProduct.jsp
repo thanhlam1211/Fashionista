@@ -73,17 +73,14 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Images</label>
-                                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                                </div>
-                                                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                                                    <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
+                                                    <label class="bmd-label-floating">Images 1 (URL link)</label>
+                                                    <input type="text" class="form-control-file" id="exampleFormControlFile1">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">Country</label>
-                                                    <input type="text" class="form-control ">
+                                                 <div class="form-group">
+                                                    <label class="bmd-label-floating">Images 2 (URL link)</label>
+                                                    <input type="text" class="form-control-file" id="exampleFormControlFile1">
                                                 </div>
                                             </div>
                                         </div>
@@ -108,7 +105,7 @@
         </div>
 
         <!--   Core JS Files   -->
-           <script src="${path}/assets/js/core/jquery.min.js"></script>
+        <script src="${path}/assets/js/core/jquery.min.js"></script>
         <script src="${path}/assets/js/core/popper.min.js"></script>
         <script src="${path}/assets/js/core/bootstrap-material-design.min.js"></script>
         <script src="${path}/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>

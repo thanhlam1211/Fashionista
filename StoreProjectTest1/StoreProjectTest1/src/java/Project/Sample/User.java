@@ -5,26 +5,32 @@
  */
 package Project.Sample;
 
+import java.util.HashMap;
+
 /**
  *
  * @author ditho
  */
 public class User {
-    private String userAccount, password,fullname,email,role;
-    private int phone,ID;
+
+    private String userAccount, password, fullname, email, role;
+    private int phone, ID;
     private static boolean status;
-   
-    
+    private HashMap<Product, Integer> cart;
+    private String coupon;
+    private float coupon_value;
+    private float total;
 
     public User() {
     }
 
-    public User(String userAccount, String password, String fullname, String email, int phone) {
+    public User(String userAccount, String password, String fullname, String email, int phone,String role) {
         this.userAccount = userAccount;
         this.password = password;
         this.fullname = fullname;
         this.email = email;
-        this.phone = phone;       
+        this.phone = phone;
+        this.role = role;
     }
 
     public static boolean isStatus() {
@@ -45,8 +51,40 @@ public class User {
         this.ID = ID;
     }
 
+    public String getCoupon() {
+        return coupon;
+    }
+
+    public void setCoupon(String coupon) {
+        this.coupon = coupon;
+    }
+
+    public float getCoupon_value() {
+        return coupon_value;
+    }
+
+    public void setCoupon_value(float coupon_value) {
+        this.coupon_value = coupon_value;
+    }
+
     public String getRole() {
         return role;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
+
+    public HashMap<Product, Integer> getCart() {
+        return cart;
+    }
+
+    public void setCart(HashMap<Product, Integer> cart) {
+        this.cart = cart;
     }
 
     public void setRole(String role) {
@@ -77,8 +115,6 @@ public class User {
         this.phone = phone;
     }
 
-    
-
     public String getFullname() {
         return fullname;
     }
@@ -86,7 +122,7 @@ public class User {
     public void setFullname(String fullname) {
         this.fullname = fullname;
     }
-    
+
     public String getUserAccount() {
         return userAccount;
     }
@@ -102,5 +138,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
 }

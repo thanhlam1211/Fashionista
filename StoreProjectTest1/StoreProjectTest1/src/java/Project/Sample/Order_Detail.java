@@ -5,6 +5,8 @@
  */
 package Project.Sample;
 
+import Project.DAO.ProductDAO;
+
 /**
  *
  * @author TrungHuy
@@ -13,7 +15,7 @@ public class Order_Detail {
     private String id,ProID ,date,type;
     private float price, total, discount;
     private int quantity,UserId;
-
+    
     public Order_Detail() {
     }
 
@@ -30,12 +32,23 @@ public class Order_Detail {
     }
 
    
+    
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getProName() {
+        ProductDAO pd = new ProductDAO();
+        for (Product object : pd.getProducts("")) {
+            if(object.getProID().equals(this.ProID)){
+                return object.getProName();
+            }
+        }
+        return null;
     }
 
    

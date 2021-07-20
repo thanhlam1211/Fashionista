@@ -43,8 +43,7 @@
                                     </button>
                                     <c:if test="${logined}">
                                         <ul class="dropdown-menu" aria-labelledby="settingButton">
-                                            <li><a class="dropdown-item" href="MyAccoutController">${UI.fullname}</a></li>         
-                                            <li><a class="dropdown-item" href="mywishlist?uid=${UI.getID()}">MyWishList</a></li>         
+                                            <li><a class="dropdown-item" href="myaccount">${UI.fullname}</a></li>         
                                             <li><a class="dropdown-item" href="LogoutController">Logout</a>
                                             </li>
                                         </ul>
@@ -56,7 +55,7 @@
                                     </ul>
                                 </li>
                                 <li class="d-none d-lg-block">
-                                    <a href="wishlist.jsp">
+                                    <a href="mywishlist?uid=${UI.getID()}">
                                         <i class="pe-7s-like"></i>
                                     </a>
                                 </li>
@@ -162,7 +161,6 @@
                                     <c:if test="${logined}">
                                         <ul class="dropdown-menu" aria-labelledby="settingButton">
                                             <li><a class="dropdown-item" href="MyAccoutController">${UI.fullname}</a></li>
-                                            <li><a class="dropdown-item" href="mywishlist?uid=${UI.getID()}">MyWishList</a></li>   
                                             <li><a class="dropdown-item" href="LogoutController">Logout</a>
                                             </li>
                                         </ul>
@@ -174,7 +172,7 @@
                                     </ul>
                                 </li>
                                 <li class="d-none d-lg-block">
-                                    <a href="wishlist.jsp">
+                                    <a href="mywishlist?uid=${UI.getID()}">
                                         <i class="pe-7s-like"></i>
                                     </a>
                                 </li>
@@ -215,7 +213,6 @@
                             <c:if test="${logined}">
                                 <ul class="dropdown-menu" aria-labelledby="settingButton">
                                     <li><a class="dropdown-item" href="MyAccoutController">${UI.fullname}</a></li>
-                                    <li><a class="dropdown-item" href="mywishlist?uid=${UI.getID()}">MyWishList</a></li>   
                                     <li><a class="dropdown-item" href="LogoutController">Logout</a>
                                     </li>
                                 </ul>
@@ -227,7 +224,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="wishlist.jsp">
+                            <a href="mywishlist?uid=${UI.getID()}">
                                 <i class="pe-7s-like"></i>
                             </a>
                         </li>
@@ -285,9 +282,10 @@
             <div class="minicart-content">
                 <div class="minicart-heading">
                     <h4 class="mb-0">Shopping Cart</h4>
-                    <a href="#" class="button-close"><i class="pe-7s-close" data-tippy="Close" data-tippy-inertia="true"
-                                                        data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true"
-                                                        data-tippy-theme="sharpborder"></i></a>
+                    <a href="#" class="button-close">
+                        <i class="pe-7s-close" data-tippy="Close" data-tippy-inertia="true"
+                           data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true"
+                           data-tippy-theme="sharpborder"></i></a>
                 </div>
                 <ul class="minicart-list">
                     <c:forEach items="${cart}" var="c" begin="0" end="${cart.size()}" step="1">
@@ -309,15 +307,21 @@
                     </c:forEach>
                 </ul>
             </div>
+            <c:choose> 
+                <c:when test="${not empty cart}"> 
+                    <div class="minicart-item_total">
 
-            <div class="minicart-item_total">
-
-                <span>Subtotal</span>
-                <span class="ammount">${subtotalcart}</span>
-            </div>
-            <div class="group-btn_wrap d-grid gap-2">
-                <a href="cart.jsp" class="btn btn-dark">View Cart</a>
-            </div>
+                        <span>Subtotal</span>
+                        <span class="ammount">${subtotalcart}</span>
+                    </div>
+                    <div class="group-btn_wrap d-grid gap-2">
+                        <a href="cart.jsp" class="btn btn-dark">View Cart</a>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <h6 style="text-align: center">Your Cart Is Empty!</h6>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
     <div class="global-overlay"></div>

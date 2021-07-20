@@ -93,8 +93,8 @@ public class ListProduct extends HttpServlet {
 
             cc = getKeyword(search) + getSortType(sort);
             List<Product> ls = dao.getProducts(cc);
-            request.setAttribute("products", ls);
-            request.setAttribute("total", dao.getProducts("").size());
+            session.setAttribute("products", ls);
+            session.setAttribute("total", dao.getProducts("").size());
             int page, begin = 0, end = 8;
             int size = ls.size();
 

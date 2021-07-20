@@ -5,6 +5,7 @@
  */
 package Project.Controller.Login;
 
+import Project.DAO.OrderDAO;
 import Project.DAO.UserDAO;
 import Project.Sample.User;
 import java.io.IOException;
@@ -38,21 +39,16 @@ public class MyAccountController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             try {
 
-                HttpSession session = request.getSession(false);
-                UserDAO dao = new UserDAO();
-                if (session != null) {
-                    User u = (User) session.getAttribute("UI");
-                    if (u != null) {
-                        session.setAttribute("UI", u);
-                        request.getRequestDispatcher("my-account.jsp").include(request, response);
-                    }
-                } else {
-                    request.getRequestDispatcher("login.jsp").include(request, response);
-                    out.print(session.getId());
-                }
+                HttpSession session = request.getSession();
+                OrderDAO dao = new OrderDAO();
+                request.setAttribute("order", dao.getFullOrders());
+                
+
+                request.getRequestDispatcher("my-account.jsp").include(request, response);
+
             } catch (NumberFormatException | NullPointerException e) {
-            //..
-           response.sendRedirect("Bruhh.html");
+                //..
+                response.sendRedirect("404.jsp");
             }
         }
     }

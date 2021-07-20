@@ -46,7 +46,9 @@ public class LoginController extends HttpServlet {
             String pass = request.getParameter("password");
             Cookie[] cookies = request.getCookies();
             Encode decode = new Encode();
-            if (cookies != null) {
+             
+            if (user != null && pass != null) {
+                if (cookies != null) {
                 for (Cookie cooky : cookies) {
                     if (cooky.getName().equals("password")) {
                         //if password input equal to decode "password cookie" then beak
@@ -59,7 +61,6 @@ public class LoginController extends HttpServlet {
 
                 }
             }
-            if (user != null || pass != null) {
                 HttpSession session = request.getSession();
                 boolean check = false;
                 UserDAO Dao = new UserDAO();
@@ -94,7 +95,7 @@ public class LoginController extends HttpServlet {
                     if (infor.getRole().equals("customer")) {
                         response.sendRedirect("Shop");
                     } else {
-                        request.getRequestDispatcher("admin.jsp").forward(request, response);
+                        response.sendRedirect("Administrator");
                     }
                 } else {
 

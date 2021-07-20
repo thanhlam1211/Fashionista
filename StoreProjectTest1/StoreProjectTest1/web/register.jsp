@@ -56,15 +56,19 @@
                     <div class="container">
                         <div class="row">
                             <div style="margin-left:26%" class="col-lg-6 pt-5 pt-lg-0">
-                                <form action="Register">
+                                <form action="Register" method="post">
                                    
                                     <div class="login-form">
                                         <h4 class="login-title">Register</h4>
                                         <h3>${message}</h3>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <label>Your Full Name</label>
-                                                <input required type="text" placeholder="Example: Bùi Thanh Lâm" name="fullname">
+                                                <label>First Name</label>
+                                                <input required type="text" placeholder="Example: Bùi Thanh Lâm" name="firstname">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label>Last Name</label>
+                                                <input required type="text" placeholder="Example: Bùi Thanh Lâm" name="lastname">
                                             </div>
                                             <div class="col-md-12">
                                                 <label>User Name</label>
@@ -86,6 +90,7 @@
                                                 <label>Confirm Password</label>
                                                 <input required type="password" name="cpassword">
                                             </div>
+                                            <input type="hidden" name="role" value="Customer"/>
                                             <div style="text-align: center" class="col-md-12 mt-3">
                                                 <button class="btn btn-custom-size lg-size btn-pronia-primary">Register</button>
                                             </div>

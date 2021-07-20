@@ -13,8 +13,12 @@
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/my-account.jsp</url-pattern>
         <url-pattern>/wishlist</url-pattern>
+        <url-pattern>/myaccount</url-pattern>
         <url-pattern>/mywishlist</url-pattern>
-        <url-pattern>/CheckOut</url-pattern>
+        <url-pattern>/checkout</url-pattern>
+        <url-pattern>/Administrator</url-pattern>
+        <url-pattern>/OrderList</url-pattern>
+        <url-pattern>/Detail</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>LoginController</servlet-name>
@@ -49,10 +53,6 @@
         <servlet-class>Project.Controller.User.ResetPasswordController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>OrderController</servlet-name>
-        <servlet-class>Project.Controller.Admin.OrderList</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>Project.Controller.Login.LogoutController</servlet-class>
     </servlet>
@@ -65,10 +65,6 @@
         <servlet-class>Project.Controller.Product.SingleProduct</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddToOrder</servlet-name>
-        <servlet-class>Project.Product.Cart.AddToOrder</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AddToWishList</servlet-name>
         <servlet-class>Project.Product.WishList.AddToWishList</servlet-class>
     </servlet>
@@ -79,6 +75,22 @@
     <servlet>
         <servlet-name>CheckOut</servlet-name>
         <servlet-class>Project.Controller.Admin.CheckOut</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdministratorController</servlet-name>
+        <servlet-class>Project.Controller.Admin.AdministratorController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PendingController</servlet-name>
+        <servlet-class>Project.Controller.Admin.PendingController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateOrder</servlet-name>
+        <servlet-class>Project.Controller.Admin.UpdateOrder</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getDetailController</servlet-name>
+        <servlet-class>Project.Controller.Admin.getDetailController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -117,10 +129,6 @@
         <url-pattern>/ResetPassword</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>OrderController</servlet-name>
-        <url-pattern>/OrderController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/LogoutController</url-pattern>
     </servlet-mapping>
@@ -134,10 +142,6 @@
         <url-pattern>/infor</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AddToOrder</servlet-name>
-        <url-pattern>/CheckOut</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AddToWishList</servlet-name>
         <url-pattern>/wishlist</url-pattern>
     </servlet-mapping>
@@ -148,6 +152,22 @@
     <servlet-mapping>
         <servlet-name>CheckOut</servlet-name>
         <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdministratorController</servlet-name>
+        <url-pattern>/Administrator</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PendingController</servlet-name>
+        <url-pattern> /OrderList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateOrder</servlet-name>
+        <url-pattern>/updateOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getDetailController</servlet-name>
+        <url-pattern>/Detail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

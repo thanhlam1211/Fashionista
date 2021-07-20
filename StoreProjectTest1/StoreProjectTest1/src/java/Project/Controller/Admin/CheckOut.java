@@ -5,15 +5,15 @@
  */
 package Project.Controller.Admin;
 
+import Project.DAO.OrderDAO;
 import Project.Sample.Order;
 import Project.Sample.Order_Detail;
 import Project.Sample.Product;
 import Project.Sample.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+
 import java.util.Map;
 import java.util.Random;
 import javax.servlet.ServletException;
@@ -37,12 +37,11 @@ public class CheckOut extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession();
+
             /* TODO output your page here. You may use following sample code. */
             String name = request.getParameter("fullname");
             String email = request.getParameter("email");
@@ -53,12 +52,16 @@ public class CheckOut extends HttpServlet {
             String district = request.getParameter("district");
             String subdis = request.getParameter("subdistrict");
             try {
+
+                HttpSession session = request.getSession();
+
+                OrderDAO dao = new OrderDAO();
                 User u = (User) session.getAttribute("UI");
                 Random r = new Random();
                 Order o = new Order();
-                List<Order_Detail> odls = new ArrayList<>();
                 //cant be duplicated from sql
-                String oid = "#"+r.nextInt();
+                String oid = dao.generateID();
+
                 o.setId(oid);
                 o.setUserId(u.getID());
                 o.setCity(city);
@@ -68,9 +71,11 @@ public class CheckOut extends HttpServlet {
                 o.setReciverEmail(email);
                 o.setAddress(address);
                 o.setPhone(phone);
-                o.setStatus("Pending");
-                o.setCode((String) session.getAttribute("coupon"));
-                HashMap<Product, Integer> products = (HashMap<Product, Integer>) session.getAttribute("cart");
+                o.setCode(u.getCoupon());
+                o.setTotalcash(u.getTotal());
+                dao.insertOrder(o);
+                System.out.println("Insert Order Success!");
+                HashMap<Product, Integer> products = u.getCart();
                 for (Map.Entry<Product, Integer> entry : products.entrySet()) {
                     Product key = entry.getKey();
                     Integer value = entry.getValue();
@@ -80,15 +85,23 @@ public class CheckOut extends HttpServlet {
                     od.setUserId(u.getID());
                     od.setPrice(key.getProPrice());
                     od.setQuantity(value);
-                    od.setDiscount((float) session.getAttribute("coupon"));
+                    od.setDiscount(u.getCoupon_value());
                     od.setType(type);
-                    odls.add(od);
+                    float total = key.getProPrice() * value;
+                    od.setTotal(total - total * u.getCoupon_value()/100);
+                    dao.insertOrderDetail(od);
                 }
-                
-                o.setDetails(odls);
-                o.setTotalcash((float) session.getAttribute("finaltotal"));
-                
-            } catch (Exception e) {
+                System.out.println("Insert Order_Detail Success!");
+                session.removeAttribute("cart");
+                session.removeAttribute("subtotalcart");
+                session.removeAttribute("coupon");
+                session.removeAttribute("numberofpro");
+                session.removeAttribute("finaltotal");
+                request.setAttribute("message", "Your Order Are Pending Now! Look At You Mail");
+                request.getRequestDispatcher("Shop").forward(request, response);
+            } catch (NumberFormatException e) {
+                System.out.println(e);
+                response.sendRedirect("404.jsp");
             }
         }
     }

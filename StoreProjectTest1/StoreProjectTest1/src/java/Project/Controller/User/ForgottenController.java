@@ -39,7 +39,7 @@ public class ForgottenController extends HttpServlet {
         SendingMailController send = new SendingMailController();
 
         //if the email is existed in the DB then system will send a mail getting into update new password page of sending a CAPCHA
-        for (User user : dao.getUsers()) {
+        for (User user : dao.getUsers("")) {
             if (user.getEmail().equals(email)) {
                 send.Send(email, user.getID());
                 break;

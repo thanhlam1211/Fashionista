@@ -203,14 +203,8 @@
                                                     <div class="product-item">
                                                         <div class="product-img">
                                                             <a href="infor?id=${p.getProID()}">
-                                                                <c:forEach items="${p.getImage()}" var="i">
-                                                                    <c:if test="${i.getSize() == 'M' }">
-                                                                        <img class="primary-img" src="assets/images/product/${i.getUrl()}" alt="Product Images">
-                                                                    </c:if>
-                                                                    <c:if test="${i.getSize() == 'L'}">
-                                                                        <img class="secondary-img" src="assets/images/ok.jpg" alt="Product Images">
-                                                                    </c:if>
-                                                                </c:forEach>
+                                                                <img class="primary-img" src="https://drive.google.com/uc?id=1lztoT0HNxJHoY3mZsYY3E_9lMmGqw7px" alt="Product Images">
+                                                                <img class="secondary-img" src="https://drive.google.com/uc?id=17_nb-VEf0-LkA3a4VnXVWnu-l14BdZdh" alt="Product Images">
                                                             </a>
                                                             <div class="product-add-action">
                                                                 <ul>

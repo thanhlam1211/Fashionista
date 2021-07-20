@@ -102,36 +102,30 @@
                                                                 <th>TOTAL</th>
                                                                 <th></th>
                                                             </tr>
+                                                        <c:forEach items="${order}" var="o"> 
                                                             <tr>
-                                                                <td><a class="account-order-id" href="#">#5364</a></td>
-                                                                <td>Mar 27, 2019</td>
-                                                                <td>On Hold</td>
-                                                                <td>$162.00 for 2 items</td>
+                                                                <td><a class="account-order-id" href="#">${o.getId()}</a></td>
+                                                                <td>${o.getDate()}</td>
+                                                                <td>${o.getStatus()}</td>
+                                                                <td>$${o.getTotalcash()}for 2 items</td>
                                                                 <td><a href="#" class="btn btn-dark"><span>View</span></a>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <td><a class="account-order-id" href="#">#5356</a></td>
-                                                                <td>Mar 27, 2019</td>
-                                                                <td>On Hold</td>
-                                                                <td>$162.00 for 2 items</td>
-                                                                <td><a href="#" class="btn btn-dark"><span>View</span></a>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                                        </c:forEach>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="account-address" role="tabpanel" aria-labelledby="account-address-tab">
-                                            <div class="myaccount-address">
-                                                <p>The following information will be used on the checkout page by default.</p>
-                                                <div class="row">
-                                                    <form action="UpdateInformationController" class="myaccount-form">
-                                                        <div class="myaccount-form-inner">
-                                                            <div class="single-input single-input">
-                                                                <label>User Name</label>
-                                                                <input type="text" readonly="" placeholder="${UI.fullname}">
+                                    </div>
+                                    <div class="tab-pane fade" id="account-address" role="tabpanel" aria-labelledby="account-address-tab">
+                                        <div class="myaccount-address">
+                                            <p>The following information will be used on the checkout page by default.</p>
+                                            <div class="row">
+                                                <form action="UpdateInformationController" class="myaccount-form">
+                                                    <div class="myaccount-form-inner">
+                                                        <div class="single-input single-input">
+                                                            <label>User Name</label>
+                                                            <input type="text" readonly="" placeholder="${UI.fullname}">
                                                         </div>
                                                         <div class="single-input">
                                                             <label>Email</label>

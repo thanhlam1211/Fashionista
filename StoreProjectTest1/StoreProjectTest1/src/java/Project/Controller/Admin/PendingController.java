@@ -3,21 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Project.Controller.User;
+package Project.Controller.Admin;
 
+import Project.DAO.OrderDAO;
+import Project.DAO.ProductDAO;
 import Project.DAO.UserDAO;
+import Project.Sample.Order;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Project.Sample.User;
 
 /**
  *
- * @author ditho
+ * @author TrungHuy
  */
-public class RegisterController extends HttpServlet {
+public class PendingController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,39 +35,19 @@ public class RegisterController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        UserDAO dao = new UserDAO();
-        String fisrtname= request.getParameter("firstname");
-        String lastname = request.getParameter("lastname");
-        String useraccount = request.getParameter("useraccount");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String cpassword = request.getParameter("cpassword");
-        String role = request.getParameter("role");
-        if (!password.equals(cpassword)) {
-            request.setAttribute("message", "Password Are Not The Same!");
-            request.getRequestDispatcher("register.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            OrderDAO od = new OrderDAO();
+            UserDAO ud = new UserDAO();
+            ProductDAO pd = new ProductDAO();
+            
+            request.setAttribute("productlist", pd.getProducts("order by ProDate desc"));
+            request.setAttribute("userlist", ud.getUsers("customer"));
+            request.setAttribute("pendinglist", od.getFullOrders());
+            
+            request.getRequestDispatcher("views/admin/tables.jsp").forward(request, response);
         }
-        //getting information from old users if the new user is valid or not
-        for (User u : dao.getUsers("")) {
-            if (u.getUserAccount().equals(useraccount)) {
-                request.setAttribute("message", "Duplicate Account!");
-                request.getRequestDispatcher("register.jsp").forward(request, response);
-
-            }
-            if (u.getEmail().equals(email)) {
-                request.setAttribute("message", "Duplicate email!");
-                request.getRequestDispatcher("register.jsp").forward(request, response);
-
-            }
-
-        }
-
-        String phone = request.getParameter("phone");
-        String fullname = fisrtname+lastname;
-        dao.insert(new User(useraccount, password, fullname, email, Integer.parseInt(phone),role));
-
-        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

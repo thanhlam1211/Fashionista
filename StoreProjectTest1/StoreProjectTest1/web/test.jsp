@@ -38,55 +38,105 @@
 
     <body>
 
+        <table class="table table-hover">
+            <thead class="">
+            <th>Product ID </th>
+            <th>Product Name </th>
+            <th>Brand</th>
+            <th>Supplier</th>
+            <th>Quantity </th>
+        </thead>
+        <tbody>
+            <c:forEach items="${productlist}" var="p">
+                <tr>
+                    <td> ${p.getProID()}</td>
+                    <td> ${p.getProName()} </td>
+                    <td> ${p.getProBranch()}</td>
+                    <td>${p.getProSuppliers()}</td>
+                    <td> ${p.getStock()}</td>
+                </tr>
 
-        <span id="target">
-            Click here
-        </span>
-        <div id="other">
-            Trigger the handler
-        </div>
-        <div id="cartContent">
+            </c:forEach>
+        </tbody>
+    </table>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <table class="table table-hover">
+                <thead class="">
+                <th>Product ID </th>
+                <th>Product Name </th>
+                <th>Brand</th>
+                <th>Supplier</th>
+                <th>Quantity </th>
+                </thead>
+            </table>
+        </button>
 
-        </div>
-        <!-- Global Vendor, plugins JS -->
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li> <a class="dropdown-item" href="#">
+                    <table class="table table-hover">
+                        <thead class="">
+                        <th>Product ID </th>
+                        <th>Product Name </th>
+                        <th>Brand</th>
+                        <th>Supplier</th>
+                        <th>Quantity </th>
+                        </thead>
+                    </table>
+                </a>
+            </li>
+        </ul>
 
-        <!-- JS Files
-        ============================================ -->
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown button
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+    </div>
+    <!-- Global Vendor, plugins JS -->
 
-        <script src="${path}/assets/js/vendor/bootstrap.bundle.min.js"></script>
-        <script src="${path}/assets/js/vendor/jquery-3.6.0.min.js"></script>
-        <script src="${path}/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-        <script src="${path}/assets/js/vendor/jquery.waypoints.js"></script>
-        <script src="${path}/assets/js/vendor/modernizr-3.11.2.min.js"></script>
-        <script src="${path}/assets/js/plugins/wow.min.js"></script>
-        <script src="${path}/assets/js/plugins/swiper-bundle.min.js"></script>
-        <script src="${path}/assets/js/plugins/jquery.nice-select.js"></script>
-        <script src="${path}/assets/js/plugins/parallax.min.js"></script>
-        <script src="${path}/assets/js/plugins/jquery.magnific-popup.min.js"></script>
-        <script src="${path}/assets/js/plugins/tippy.min.js"></script>
-        <script src="${path}/assets/js/plugins/ion.rangeSlider.min.js"></script>
-        <script src="${path}/assets/js/plugins/mailchimp-ajax.js"></script>
-        <script src="${path}/assets/js/plugins/jquery.counterup.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>
-            $("#target").click(function () {
+    <!-- JS Files
+    ============================================ -->
+
+    <script src="${path}/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="${path}/assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="${path}/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="${path}/assets/js/vendor/jquery.waypoints.js"></script>
+    <script src="${path}/assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="${path}/assets/js/plugins/wow.min.js"></script>
+    <script src="${path}/assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="${path}/assets/js/plugins/jquery.nice-select.js"></script>
+    <script src="${path}/assets/js/plugins/parallax.min.js"></script>
+    <script src="${path}/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="${path}/assets/js/plugins/tippy.min.js"></script>
+    <script src="${path}/assets/js/plugins/ion.rangeSlider.min.js"></script>
+    <script src="${path}/assets/js/plugins/mailchimp-ajax.js"></script>
+    <script src="${path}/assets/js/plugins/jquery.counterup.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $("#target").click(function () {
 
             $.ajax({
-            url:"Cart?id=010&add=on&num=1",
-                   
-            success: function(data){
-            var row = document.getElementById("cartContent");
-            row.innerHTML += data;
-            }
-            });
-            });
-            $("#other").click(function () {
-            $("#target").click();
-            });
-        </script>
-        <!--Main JS (Common Activation Codes)-->
-        <script src="${path}/assets/js/main.js"></script>
+                url: "Cart?id=010&add=on&num=1",
 
-    </body>
+                success: function (data) {
+                    var row = document.getElementById("cartContent");
+                    row.innerHTML += data;
+                }
+            });
+        });
+        $("#other").click(function () {
+            $("#target").click();
+        });
+    </script>
+    <!--Main JS (Common Activation Codes)-->
+    <script src="${path}/assets/js/main.js"></script>
+
+</body>
 
 </html>

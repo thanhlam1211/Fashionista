@@ -59,39 +59,39 @@
                                     <div class="shopper-informations">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <form action="checkout" class="myaccount-form">
+                                                <form action="checkout"  class="myaccount-form">
                                                     <div class="myaccount-form-inner">
                                                         <div class="single-input ">
-                                                            <input required type="text" name="fullname" placeholder="Your FullName" value="${UI.getFullname()}">
+                                                            <input required type="text" name="fullname" placeholder="Your FullName" value="${UI.getFullname()}" >
                                                     </div>
                                                     <div class="single-input">
                                                         <input required type="email" name="email" placeholder="Your Email" value="${UI.getEmail()}">
                                                     </div>
                                                     <div class="single-input">
-                                                        <input required type="text" name="phone" placeholder="Your Phone Number"value="${UI.getPhone()}">
+                                                        <input required type="text" name="phone" placeholder="Your Phone Number"value="${empty UI.getPhone()?"":"0"}${UI.getPhone()}">
                                                     </div>
                                                     <div class="single-input">
                                                         <input required type="text" name="address" placeholder="Your Address">
                                                     </div>
-                                                    <select style="padding: 2%" class="single-input" name="typeOfpayment">    
+                                                    <select  style="padding: 2%" class="single-input" name="typeOfpayment">    
                                                         <option>Choose Your PayMent</option>
-                                                        <option>Cash</option>
-                                                        <option>Card</option>
+                                                        <option value="Cash">Cash</option>
+                                                        <option value="Card">Card</option>
                                                     </select>
                                                     <select style="padding: 2%" class="single-input" name="city">
-                                                        <option>Chọn Tỉnh/Thành </option>
-                                                        <option>Hà Nội</option>
-                                                        <option>HCM</option>
+                                                        <option value="HaNoi">Hà Nội</option>
+
                                                     </select>
                                                     <select style="padding: 2%" class="single-input" name="district">
-                                                        <option>Chọn Quận/Huyện *</option>
-                                                        <option>Hai Bà TRưng</option>
-                                                        <option>Hoàn Kiếm</option>
+                                                        <option value="HoanKiem">Hoàn Kiếm</option>
                                                     </select >
                                                     <select style="padding: 2%" class="single-input" name="subdistrict">
                                                         <option>Chọn Phường/Xã*</option>
-                                                        <option>Hàng Bài</option>
-                                                        <option>Yên Sở</option>
+                                                        <option value="HangBai">Hàng Bài</option>
+                                                        <option value="HangBac">Hàng Bạc</option>
+                                                        <option value="HangMa">Hàng Mã</option>
+                                                        <option value="HangChieu">Hàng Chiếu</option>
+                                                        <option value="HangChao">Hàng Cháo</option>
                                                     </select>
                                                 </div>
                                                 <div style="text-align: center" class="col-md-12 mt-3 ">                                               

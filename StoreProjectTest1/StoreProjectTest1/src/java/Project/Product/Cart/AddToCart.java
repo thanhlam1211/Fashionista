@@ -7,6 +7,7 @@ package Project.Product.Cart;
 
 import Project.DAO.ProductDAO;
 import Project.Sample.Product;
+import Project.Sample.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -35,24 +36,24 @@ public class AddToCart extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     private HashMap<Product, Integer> products;
-    
+
     void addToCart(Product p, int num) {
         boolean exist = false;
         for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {
-            
+
             Product key = entry.getKey();
             Integer value = entry.getValue();
-           
+
             if (key.getProID().equals(p.getProID())) {
                 value += num;
                 this.products.put(key, value);
                 exist = true;
-                if(value == 0){
+                if (value == 0) {
                     removeFromCart(p);
                 }
                 break;
             }
-            
+
         }
         if (!exist) {
             this.products.put(p, num);
@@ -60,13 +61,13 @@ public class AddToCart extends HttpServlet {
     }
 
     void removeFromCart(Product p) {
-        for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {        
+        for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {
             Product key = entry.getKey();
             Integer value = entry.getValue();
             if (key.getProID().equals(p.getProID())) {
                 this.products.remove(key);
                 break;
-            }            
+            }
         }
     }
 
@@ -79,7 +80,7 @@ public class AddToCart extends HttpServlet {
         }
         return total;
     }
-    
+
     int getNumberOfPro() {
         int total = 0;
         for (Map.Entry<Product, Integer> entry : this.products.entrySet()) {
@@ -88,23 +89,23 @@ public class AddToCart extends HttpServlet {
         }
         return total;
     }
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           
+
             HttpSession session = request.getSession();
-            
+
             ProductDAO dao = new ProductDAO();
-            
+
             this.products = (HashMap<Product, Integer>) session.getAttribute("cart");
-            
+
             if (this.products == null) {
                 this.products = new HashMap<Product, Integer>();
             }
-            
+
             String code = request.getParameter("id");
             if (code != null) {
                 String status = request.getParameter("add");
@@ -112,33 +113,41 @@ public class AddToCart extends HttpServlet {
                 if (status != null) {
                     String quantity = request.getParameter("num");
                     addToCart(product, Integer.parseInt(quantity));
-                    
+
                 } else {
                     removeFromCart(product);
                 }
             }
-            float totalmoney = getTotal();
+
+            float totalmoney = getTotal() + 2;
             String coupon = request.getParameter("coupon_code");
             float coupon_value = dao.getCoupon(coupon);
-            if(coupon != null){
-                
-                session.setAttribute("finaltotal",totalmoney - coupon_value/100 * totalmoney + 2);
-                
-            }else{
+            float discount = coupon_value / 100 * totalmoney;
+
+            if (coupon != null) {
+                session.setAttribute("finaltotal", totalmoney - discount);
+            } else {
                 request.setAttribute("message", "NOT VALID!");
-                if(this.products != null){
-                session.setAttribute("finaltotal", totalmoney + 2);
+                if (this.products != null) {
+                    session.setAttribute("finaltotal", totalmoney);
+
                 }
-            }   
-            
+            }
+            User u = (User) session.getAttribute("UI");
+            if (u != null) {
+                u.setCoupon(coupon);
+                u.setCoupon_value(coupon_value);
+                u.setTotal(totalmoney - discount);
+                u.setTotal(totalmoney + 2);
+                u.setCart(this.products);
+            }
             session.setAttribute("coupon", coupon_value);
             session.setAttribute("cart", this.products);
             session.setAttribute("subtotalcart", totalmoney);
             session.setAttribute("numberofpro", getNumberOfPro());
-            
+
             response.sendRedirect(request.getParameter("from"));
-           
-            
+
         }
     }
 

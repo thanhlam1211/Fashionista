@@ -19,6 +19,7 @@ public class Order {
     private int phone,UserId;
     private float totalcash;
     private List<Order_Detail> details = new ArrayList<>();
+    
     public Order() {
     }
 

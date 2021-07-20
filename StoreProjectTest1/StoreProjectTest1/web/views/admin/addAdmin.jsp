@@ -38,74 +38,64 @@
                                     <p class="card-category">Fill the blank to complete</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form action="${path}/Register">
                                         <div class="row">
-                                            <div class="col-md-5">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Company Name </label>
-                                                    <input type="text" class="form-control" >
+                                                    <label class="bmd-label-floating">User Name </label>
+                                                    <input type="text" name="useraccount" class="form-control" required >
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">User Name</label>
-                                                    <input type="text" class="form-control " >
+                                                    <label class="bmd-label-floating">Email Address</label>
+                                                    <input type="text" name="email"class="form-control "required  >
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Email Address</label>
-                                                    <input type="text" class="form-control " >
+                                                    <label class="bmd-label-floating">Phone Number</label>
+                                                    <input type="text" name="phone" class="form-control " required >
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">First Name</label>
-                                                    <input type="text" class="form-control " >
+                                                    <label class="bmd-label-floating">Fisrt Name</label>
+                                                    <input type="text" name="firstname" class="form-control " required >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Last Name</label>
-                                                    <input type="text" class="form-control " >
+                                                    <input type="text" name="lastname" class="form-control " required >
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Address</label>
-                                                    <input type="text" class="form-control " >
+                                                    <label class="bmd-label-floating">Password</label>
+                                                    <input type="text" name="password" class="form-control " required >
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Country</label>
-                                                    <input type="text" class="form-control ">
+                                                    <label class="bmd-label-floating">Confirm Your Password</label>
+                                                    <input type="text" name="cpassword" class="form-control " required >
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                             
+                                             
+
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <label>Description</label>
-                                                <div class="form-group">
-                                                    <textarea class="form-control" rows="5"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Role</label>
-                                                <select class="form-control" data-role="select-dropdown" data-profile="minimal">
-                                                    <!-- options -->
-                                                    <option>Super Admin (Most Powerfull)</option>
-                                                    <option>Admin (Regular)</option>
-                                                </select>
-                                            </div>
-                                        </div>
+
+                                        <input type="hidden" value="Admin" name="role"/>
                                         <button type="submit" class="btn btn-primary pull-right">Add Admin</button>
                                         <a href="admin.jsp" class="btn btn-primary pull-right">Back to Dashboard</a>
                                         <div class="clearfix"></div>

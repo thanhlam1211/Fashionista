@@ -36,19 +36,19 @@
                 <div class="sidebar-wrapper">
                     <ul class="nav">
                         <li class="nav-item active  ">
-                            <a class="nav-link" href="admin.jsp">
+                            <a class="nav-link" href="${path}/Administrator">
                                 <i class="material-icons">dashboard</i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="user.jsp">
+                            <a class="nav-link" href="views/admin/user.jsp">
                                 <i class="material-icons">person</i>
                                 <p>User Profile</p>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="tables.jsp">
+                            <a class="nav-link" href="${path}/OrderList">
                                 <i class="material-icons">content_paste</i>
                                 <p>Table List</p>
                             </a>
@@ -71,31 +71,17 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-end">
                             <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">notifications</i>
-                                        <span class="notification">5</span>
-                                        <p class="d-lg-none d-md-block">
-                                            Some Actions
-                                        </p>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Em rau 2k5 giảm giá còn 100k</a>
-                                        <a class="dropdown-item" href="#">Em rau 2k5 giảm giá còn 200k</a>
-                                        <a class="dropdown-item" href="#">Em rau 2k5 giảm giá còn 300k</a>
-                                        <a class="dropdown-item" href="#">Em rau 2k5 giảm giá còn 400k</a>
-                                        <a class="dropdown-item" href="#">Em rau 2k5 giảm giá còn 500k</a>
-                                    </div>
-                                </li>
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">person</i>
-                                        <p class="d-lg-none d-md-block">
-                                            Account
-                                        </p>
                                     </a>
+
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                        <a class="dropdown-item" href="#">Log out</a>
+                                        <c:if test="${not empty UI}"> 
+                                            <a class="dropdown-item" href="${path}/">${UI.getFullname()}</a>
+                                        </c:if>
+                                        <a class="dropdown-item" href="${path}/LogoutController">Log out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -110,11 +96,11 @@
                                 <div class="card card-stats">
                                     <div class="card-header card-header-warning card-header-icon">
                                         <div class="card-icon">
-                                            <i class="material-icons">content_copy</i>
+                                            <i class="material-icons">account_circle</i>
                                         </div>
                                         <p class="card-category">Total User</p>
-                                        <h3 class="card-title">4
-                                            <small>user</small>
+                                        <h3 class="card-title">${userlist.size()}
+                                            <small>User</small>
                                         </h3>
                                     </div>
                                     <div class="card-footer">
@@ -131,7 +117,7 @@
                                             <i class="material-icons">store</i>
                                         </div>
                                         <p class="card-category">Revenue</p>
-                                        <h3 class="card-title">34,245,000</h3>
+                                        <h3 class="card-title">$${total}</h3>
                                     </div>
                                     <div class="card-footer">
                                         <div class="stats">
@@ -146,7 +132,8 @@
                                         <div class="card-icon">
                                             <i class="material-icons">info_outline</i>
                                         </div>
-                                        <p class="card-category">Product checkout</p>                                        <h3 class="card-title">20</h3>
+                                        <p class="card-category">Product checkout</p>                                      
+                                        <h3 class="card-title">${checkout}</h3>
                                     </div>
                                     <div class="card-footer">
                                         <div class="stats">
@@ -239,24 +226,20 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Country</th>
+                                            <th>Phone Number</th>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>LamCuTo</td>
-                                                    <td>lalal@gmail.com</td>
-                                                    <td>Viet Nam</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>HuyCuBe</td>
-                                                    <td>đít hôi @gmail.com</td>
-                                                    <td>Viet Nam</td>
-                                                </tr>
+                                                <c:forEach items="${adminlist}" var="a"> 
+                                                    <tr>
+                                                        <td>${a.getID()}</td>
+                                                        <td>${a.getFullname()}</td>
+                                                        <td>${a.getEmail()}</td>
+                                                        <td>+84${a.getPhone()}</td>
+                                                    </tr>
+                                                </c:forEach>
                                             </tbody>
                                         </table>
-                                        <a href="addAdmin.jsp" class="btn btn-primary pull-right">Add Admin</a>
+                                        <a href="views/admin/addAdmin.jsp" class="btn btn-primary pull-right">Add Admin</a>
                                     </div>
                                 </div>
                             </div>

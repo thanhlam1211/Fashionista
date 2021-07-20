@@ -10,7 +10,7 @@
         <link rel="icon" type="image/png" href="../assets/img/favicon.png">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>
-            User Profile
+            Table List
         </title>
         <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
         <!--     Fonts and icons     -->
@@ -19,6 +19,9 @@
         <!-- CSS Files -->
         <link href="${path}/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
         <link rel="shortcut icon" type="image/x-icon" href="${path}/assets/images/logo2.png" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
 
     <body class="">
@@ -40,16 +43,22 @@
                                 <p>Dashboard</p>
                             </a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="user.jsp">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="views/admin/user.jsp">
                                 <i class="material-icons">person</i>
                                 <p>User Profile</p>
                             </a>
                         </li>
-                        <li class="nav-item ">
+                        <li class="nav-item">
                             <a class="nav-link" href="${path}/OrderList">
                                 <i class="material-icons">content_paste</i>
                                 <p>Table List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="views/admin/information.jsp">
+                                <i class="material-icons">content_paste</i>
+                                <p>Detail Information</p>
                             </a>
                         </li>
                     </ul>
@@ -70,29 +79,12 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-end">
                             <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">notifications</i>
-                                        <span class="notification">5</span>
-                                        <p class="d-lg-none d-md-block">
-                                            Some Actions
-                                        </p>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Em rau 2k5 giảm giá còn 100k</a>
-                                        <a class="dropdown-item" href="#">Em rau 2k5 giảm giá còn 200k</a>
-                                        <a class="dropdown-item" href="#">Em rau 2k5 giảm giá còn 300k</a>
-                                        <a class="dropdown-item" href="#">Em rau 2k5 giảm giá còn 400k</a>
-                                        <a class="dropdown-item" href="#">Em rau 2k5 giảm giá còn 500k</a>
-                                    </div>
-                                </li>
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">person</i>
-                                        <p class="d-lg-none d-md-block">
-                                            Account
-                                        </p>
                                     </a>
+
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                                         <c:if test="${not empty UI}"> 
                                             <a class="dropdown-item" href="${path}/">${UI.getFullname()}</a>
@@ -108,83 +100,108 @@
                 <div class="content">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-lg-12 col-md-12">
                                 <div class="card">
-                                    <div class="card-header card-header-primary">
-                                        <h4 class="card-title">Your Profile</h4>
-                                        <p class="card-category">View your profile</p>
+                                    <div class="card-header card-header-tabs card-header-primary">
+                                        <div class="nav-tabs-navigation">
+                                            <div class="nav-tabs-wrapper">
+                                                <span class="nav-tabs-title">List of table:</span>
+                                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link ${priority}" href="#pending" data-toggle="tab">
+                                                            <i class="material-icons">production_quantity_limits</i>Detail Information
+                                                            <div class="ripple-container"></div>
+                                                        </a>
+                                                    </li>                  
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="card-body">
-                                        <form>
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">Company</label>
-                                                        <input type="text" class="form-control" disabled value="HANGER">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">Username</label>
-                                                        <input type="text" class="form-control " disabled value="${UI.getUserAccount()}">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">Email address</label>
-                                                        <input type="email" class="form-control " disabled value="${UI.getEmail()}">
-                                                    </div>
-                                                </div>
+                                        <div class="tab-content">
+
+                                            <div class="tab-pane active" id="pending">
+                                                <c:choose>
+                                                    <c:when test="${not empty o}">
+                                                        <table class="table">
+                                                            <thead class=" text-primary">
+                                                            <th colspan="2"> Order ID: ${o.getId()}</th>
+
+                                                            <th colspan="4" style="text-align: center">Total  Cash: ${o.getTotalcash()}</th>
+                                                            </thead>
+                                                            <thead class=" text-primary">
+                                                            <th> Product ID </th>
+                                                            <th> Product Name</th>
+                                                            <th>Price</th>
+                                                            <th>Discount</th>
+                                                            <th>Quantity</th>
+                                                            <th>Total </th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <c:forEach items="${o.getDetails()}" var="d">
+                                                                    <tr>
+                                                                        <td>${d.getProID()}</td>
+                                                                        <td>${d.getProName()}</td>
+                                                                        <td>${d.getPrice()}</td>
+                                                                        <td>${d.getDiscount()}</td>
+                                                                        <td>${d.getQuantity()}</td>
+                                                                        <td>${d.getTotal()}</td>
+                                                                    </tr>
+                                                                </c:forEach>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </c:when>
+                                                    <c:when test="${not empty p}">
+                                                        <table class="table table-hover">
+                                                            <thead class="">
+                                                            <th>Product ID </th>
+                                                            <th>${p.getProID()}</th>
+
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td> Product Name</td>
+                                                                    <td> ${p.getProName()} </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td> Product Branch</td>
+                                                                    <td> ${p.getProBranch()} </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td> Product CategorieID</td>
+                                                                    <td> ${p.getProCategorieID()} </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td> Product ProSubCategorieID</td>
+                                                                    <td> ${p.getProSubCategorieID()} </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td> Product Supplier</td>
+                                                                    <td> ${p.getProSuppliers()} </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td> Product Description</td>
+                                                                    <td> ${p.getDes()} </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td> Product Price</td>
+                                                                    <td> $${p.getProPrice()} </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td> InStock</td>
+                                                                    <td> ${p.getStock()} </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <h1 style="text-align: center">No InFormation</h1>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">Full Name</label>
-                                                        <input type="text" class="form-control " required value="${UI.getFullname()}">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">Phone Number</label>
-                                                        <input type="text" class="form-control " required value="+84${UI.getPhone()}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">Password</label>
-                                                        <input type="password" class="form-control " required value="${UI.getPassword()}">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">Confirm Your Password</label>
-                                                        <input type="password" class="form-control " required value="${UI.getPassword()}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div style="text-align: center" class="col-md-12 mt-3 ">                                               
-                                                <button class="btn btn-primary btn-round">Update</button>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-profile">
-                                    <div class="card-avatar">
-                                        <a href="javascript:;">
-                                            <img class="img" src="${path}/assets/images/about/team/ThanhLam.jpg" />
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-category text-gray">SUPER ADMIN</h6>
-                                        <h4 class="card-title">${UI.getFullname()}</h4>
-                                        <h3 class="card-title">${UI.getID()}</h3>
-                                        <p class="card-description">FPT Student</p>
-                                        <a href="https://www.facebook.com/thanh.lam1211/" class="btn btn-primary btn-round">Follow</a>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -193,6 +210,7 @@
                 </div>
             </div>
         </div>
+
         <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
                 <a href="#" data-toggle="dropdown">
@@ -254,6 +272,9 @@
         <script src="${path}/assets/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="${path}/assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script>
             $(document).ready(function () {
                 $().ready(function () {
@@ -267,7 +288,7 @@
 
                     window_width = $(window).width();
 
-                    fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+                    fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').jsp();
 
                     if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
                         if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
@@ -424,6 +445,18 @@
                     });
                 });
             });
+
+        </script>
+
+        <script>
+            function myFunction(id) {
+                var x = document.getElementById(id);
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
         </script>
     </body>
 

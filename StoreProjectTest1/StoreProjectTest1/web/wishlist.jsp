@@ -39,7 +39,7 @@
     </head>
 
     <body>
-        
+
         <div class="main-wrapper">
 
             <!-- Begin Main Header Area -->
@@ -54,8 +54,9 @@
                         <div class="container">
                             <div class="row">
                                 <h1 style="text-align: center">Wish List</h1>
-                                 <h2 style="text-align: center;">${message}</h2>
-                                <div class="col-12">
+                                <h2 style="text-align: center;">${message}</h2>
+                            <div class="col-12">
+                                <c:if test="${not empty products}"> 
                                     <form action="javascript:void(0)">
                                         <div class="table-content table-responsive">
                                             <table class="table">
@@ -70,39 +71,40 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <c:forEach items="${products}" var="p">
-                                                    <tr>
-                                                        <td class="product_remove">
-                                                            <a href="wishlist?id=${p.getProID()}&from=${from}&status=del">
-                                                                <i class="pe-7s-close" data-tippy="Remove" data-tippy-inertia="true"
-                                                                   data-tippy-animation="shift-away" data-tippy-delay="50"
-                                                                   data-tippy-arrow="true" data-tippy-theme="sharpborder"></i>
-                                                            </a>
-                                                        </td>
-                                                        <td class="product-thumbnail">
-                                                            <a href="infor?id=${p.getProID()}">
-                                                                <img src="${path}/assets/images/product/small-size/1-1-112x124.png" alt="Wishlist Thumbnail">
-                                                            </a>
-                                                        </td>
-                                                        <td class="product-name"><a href="infor?id=${p.getProID()}">${p.getProName()}</a></td>
-                                                        <td class="product-price"><span class="amount">$${p.getProPrice()}</span></td>
-                                                        <c:choose>
-                                                            <c:when test="${p.getStock() > 0}">
-                                                                <td class="product-stock-status"><span class="in-stock">in stock</span></td>
-                                                            </c:when>
-                                                            <c:otherwise>
-                                                                <td class="product-stock-status"><span class="out-stock">out of stock</span></td>
-                                                            </c:otherwise>
-                                                        </c:choose>
-                                                        <td class="cart_btn"><a href="Cart?num=1&add=on&id=${p.getProID()}&from=${from}">add to cart</a></td>
-                                                    </tr>
-                                                </c:forEach>
+                                                    <c:forEach items="${products}" var="p">
+                                                        <tr>
+                                                            <td class="product_remove">
+                                                                <a href="wishlist?id=${p.getProID()}&from=${from}&status=del">
+                                                                    <i class="pe-7s-close" data-tippy="Remove" data-tippy-inertia="true"
+                                                                       data-tippy-animation="shift-away" data-tippy-delay="50"
+                                                                       data-tippy-arrow="true" data-tippy-theme="sharpborder"></i>
+                                                                </a>
+                                                            </td>
+                                                            <td class="product-thumbnail">
+                                                                <a href="infor?id=${p.getProID()}">
+                                                                    <img src="${path}/assets/images/product/small-size/1-1-112x124.png" alt="Wishlist Thumbnail">
+                                                                </a>
+                                                            </td>
+                                                            <td class="product-name"><a href="infor?id=${p.getProID()}">${p.getProName()}</a></td>
+                                                            <td class="product-price"><span class="amount">$${p.getProPrice()}</span></td>
+                                                            <c:choose>
+                                                                <c:when test="${p.getStock() > 0}">
+                                                                    <td class="product-stock-status"><span class="in-stock">in stock</span></td>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <td class="product-stock-status"><span class="out-stock">out of stock</span></td>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            <td class="cart_btn"><a href="Cart?num=1&add=on&id=${p.getProID()}&from=${from}">add to cart</a></td>
+                                                        </tr>
+                                                    </c:forEach>
 
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </form>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </form>
+                                </c:if>
                             </div>
                         </div>
                     </div>

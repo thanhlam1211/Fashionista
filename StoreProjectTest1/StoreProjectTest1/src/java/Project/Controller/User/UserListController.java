@@ -39,7 +39,7 @@ public class UserListController extends HttpServlet {
         List<User> ls = new ArrayList<>();
         
         //getting user information if the input valid
-        for (User user : dao.getUsers()) {
+        for (User user : dao.getUsers("")) {
             if(user.getFullname().contains(username)){
                 ls.add(user);
             }

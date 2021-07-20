@@ -19,6 +19,7 @@
         <url-pattern>/Administrator</url-pattern>
         <url-pattern>/OrderList</url-pattern>
         <url-pattern>/Detail</url-pattern>
+        <url-pattern>/comment</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>LoginController</servlet-name>
@@ -95,6 +96,14 @@
     <servlet>
         <servlet-name>HomeController</servlet-name>
         <servlet-class>Project.Controller.Product.HomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CommentController</servlet-name>
+        <servlet-class>Project.Controller.User.CommentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertProductController</servlet-name>
+        <servlet-class>Project.Controller.Product.InsertProductController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -176,6 +185,14 @@
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CommentController</servlet-name>
+        <url-pattern>/comment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertProductController</servlet-name>
+        <url-pattern>/Insert</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

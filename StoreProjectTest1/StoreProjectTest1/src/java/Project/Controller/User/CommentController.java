@@ -3,23 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Project.Controller.Product;
+package Project.Controller.User;
 
- 
-import Project.DAO.ProductDAO;
+import Project.DAO.UserDAO;
+import Project.Sample.Comment;
+import Project.Sample.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Project.Sample.Product;
 
 /**
  *
- * @author GHC
+ * @author TrungHuy
  */
-public class UpdateProduct extends HttpServlet {
+public class CommentController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,23 +33,18 @@ public class UpdateProduct extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ProductDAO dao = new ProductDAO();
-        String ProID = request.getParameter("ProID");
-        if(dao.getProduct(ProID)!=null){
-            String ProName = request.getParameter("ProName");
-            String ProBranch = request.getParameter("ProBranch");
-            String ProImage = request.getParameter("ProImage");
-            String ProCategorieID = request.getParameter("ProCategorieID");
-            String ProSubCategorieID = request.getParameter("ProSubCategorieID");
-            String ProSuppliers = request.getParameter("ProSuppliers");
-            double ProPrice = Double.parseDouble(request.getParameter("ProPrice"));
-            int Stock = Integer.parseInt(request.getParameter("Stock"));
-            Product p = new Product(ProID, ProName, ProBranch, ProImage, ProCategorieID, 
-                    ProSubCategorieID, ProSuppliers, ProPrice, Stock);
-            dao.Update(p);
-            response.sendRedirect("List.jsp");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            String proid = request.getParameter("proid");
+            String message = request.getParameter("Message");
+            User u = (User) request.getSession().getAttribute("UI");
+            UserDAO dao = new UserDAO();
+
+            dao.insertCmt(proid, u.getID(), message);
+            System.out.println("Comment Success");
+
+            response.sendRedirect(request.getParameter("from"));
         }
-        response.sendRedirect("List.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -354,10 +354,14 @@
                                                 <div class="col-12">
                                                     <div class="product-item">
                                                         <div class="product-img">
-                                                            <a href="infor?id=${p.getProID()}">
-                                                                <img style="width:270px; height: 300px;" class="primary-img" src="assets/images/product/medium-size/" alt="Product Images">
-                                                                <img style="width:270px; height: 300px;" class="secondary-img" src="assets/images/product/medium-size/" alt="Product Images">
-                                                            </a>
+                                                            <c:forEach items="${p.getImage()}" var="i"> 
+                                                                <c:if test="${i.getIndex() == '1'}"> 
+                                                                    <img style="width:270px; height: 300px;" class="primary-img" src="${i.getUrl()}" alt="Product Images">
+                                                                </c:if>
+                                                                <c:if test="${i.getIndex() == '2'}"> 
+                                                                    <img style="width:270px; height: 300px;"  class="secondary-img" src="${i.getUrl()}"  alt="Product Images">
+                                                                </c:if>
+                                                            </c:forEach>
                                                         </div>
                                                         <div class="product-content">
                                                             <a class="product-name" href="infor?id=${p.getProID()}">${p.getProName()}</a>
@@ -451,17 +455,7 @@
         <script src="${path}/assets/js/plugins/mailchimp-ajax.js"></script>
         <script src="${path}/assets/js/plugins/jquery.counterup.js"></script>
         <script src="~/Scripts/jquery-3.5.1.min.js"></script>
-        <script>
-                                                                            $(window).scroll(function () {
-                                                                                sessionStorage.scrollTop = $(this).scrollTop();
-                                                                            });
-                                                                            $(document).ready(function () {
-                                                                                if (sessionStorage.scrollTop != "undefined") {
-                                                                                    $(window).scrollTop(sessionStorage.scrollTop);
-
-                                                                                }
-                                                                            });
-        </script>
+    
 
         <!--Main JS (Common Activation Codes)-->
         <script src="${path}/assets/js/main.js"></script>

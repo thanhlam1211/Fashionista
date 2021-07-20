@@ -115,6 +115,27 @@ public class ProductDAO {
         }
         return images;
     }
+    public List<Image> getImageFull() {
+        List<Image> images = new ArrayList<>();
+        try {
+            con = DBConnection.open();
+            ps = con.prepareCall("SELECT * FROM [Shopping].[dbo].[Image] ");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Image i = new Image();
+                i.setProID(rs.getString("ProID"));
+                i.setId(rs.getString("ImageID"));
+                i.setUrl(rs.getString("Image"));
+                i.setIndex(rs.getString("position"));
+                images.add(i);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            DBConnection.close(con, ps, rs);
+        }
+        return images;
+    }
 
     public Product getProduct(String ProID) {
         for (Product product : getProducts("")) {
@@ -167,28 +188,45 @@ public class ProductDAO {
         }
         return ls;
     }
-    public void Insert(Product p) {
+    public void InsertProduct(Product p) {
         try {
             con = DBConnection.open();
-            ps = con.prepareCall("INSERT INTO Product VALUES(?,?,?,?,?,?,?,?,?)");
+            ps = con.prepareCall("INSERT INTO Product VALUES(?,?,?,?,?,?,?,?,?,GETDATE())");
 
             ps.setString(1, p.getProID());
             ps.setString(2, p.getProName());
             ps.setString(3, p.getProBranch());
-            ps.setString(4, p.getProCategorieID());
-            ps.setString(5, p.getProSubCategorieID());
+            ps.setString(4, "CATE01");
+            ps.setString(5, "CATE05");
             ps.setString(6, p.getProSuppliers());
-            ps.setDouble(7, p.getProPrice());
-            ps.setInt(8, p.getStock());
+            ps.setString(7, p.getDes());
+            ps.setDouble(8, p.getProPrice());
+            ps.setInt(9, p.getStock());
 
-            ps.execute();
+            ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             DBConnection.close(con, ps, rs);
         }
     }
-
+    public void InsertImage(Image p) {
+        try {
+            con = DBConnection.open();
+            ps = con.prepareCall("INSERT INTO [Shopping].[dbo].[Image] VALUES(?,?,?,?)");
+            ps.setString(1, p.getProID());
+            ps.setString(2, p.getId());
+            ps.setString(3, p.getUrl());
+            ps.setString(4, p.getIndex());
+           
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            DBConnection.close(con, ps, rs);
+        }
+    }
+    
     public void Delete(String ProID) {
         try {
             con = DBConnection.open();

@@ -57,6 +57,7 @@ public class AdministratorController extends HttpServlet {
                     totalcheckout += object.getQuantity();
                 }
             }
+            request.setAttribute("cmt", udao.getComments());
             request.setAttribute("checkout", totalcheckout);
             request.setAttribute("total", total);
             request.getRequestDispatcher("views/admin/admin.jsp").forward(request, response);

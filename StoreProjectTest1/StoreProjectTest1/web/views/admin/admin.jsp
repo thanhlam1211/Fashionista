@@ -72,9 +72,9 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                        <c:if test="${not empty UI}"> 
-                                            <a class="dropdown-item" href="${path}/">${UI.getFullname()}</a>
-                                        </c:if>
+
+                                        <a class="dropdown-item" href="${path}/Home">Home</a>
+
                                         <a class="dropdown-item" href="${path}/LogoutController">Log out</a>
                                     </div>
                                 </li>
@@ -177,30 +177,23 @@
                                             <div class="tab-pane active" id="messages">
                                                 <table class="table">
                                                     <tbody>
-                                                        <tr>
-                                                            <td>
-                                                            </td>
-                                                            <td class="td-actions text-right">
+                                                        <c:forEach items="${cmt}"  var="c"> 
+                                                            <tr>
+                                                                <td>
+                                                                </td>
+                                                                <td class="td-actions text-right">
 
-                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                                                                    <i class="material-icons">new_label</i>
-                                                                </button>
-                                                            </td>
-                                                            <td>Latest Comment
-                                                            </td>
+                                                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                                                        <i class="material-icons">new_label</i>
+                                                                    </button>
+                                                                </td>
+                                                                <td>${c.getText()} </td>
+                                                                <td>On <a href="Detail?pid=${c.getProid()}">  ${c.getProid()} </a></td>
+                                                                <td>${c.getDate()}</td>
 
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                            </td>
-                                                            <td class="td-actions text-right">
-                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                                                                    <i class="material-icons">new_label</i>
-                                                                </button>
-                                                            </td>
-                                                            <td>Comment</td>
+                                                            </tr>
+                                                        </c:forEach>
 
-                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -266,7 +259,7 @@
             </div>
         </div>
         <!--   Core JS Files   -->
-           <script src="${path}/assets/js/core/jquery.min.js"></script>
+        <script src="${path}/assets/js/core/jquery.min.js"></script>
         <script src="${path}/assets/js/core/popper.min.js"></script>
         <script src="${path}/assets/js/core/bootstrap-material-design.min.js"></script>
         <script src="${path}/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>

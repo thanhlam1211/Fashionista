@@ -35,24 +35,24 @@
                                     <p class="card-category">Fill the blank to complete</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form action="${path}/Insert">
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Product Name </label>
-                                                    <input type="text" class="form-control" >
+                                                    <input type="text" name="name" class="form-control" >
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Brand</label>
-                                                    <input type="text" class="form-control " >
+                                                    <input type="text" name="brand" class="form-control " >
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Unit Price</label>
-                                                    <input type="text" class="form-control " >
+                                                    <input type="text" name="price" class="form-control " >
                                                 </div>
                                             </div>
                                         </div>
@@ -60,13 +60,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Unit in Stock</label>
-                                                    <input type="text" class="form-control " >
+                                                    <input type="text" name="stock"class="form-control " >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Suppiler</label>
-                                                    <input type="text" class="form-control " >
+                                                    <input type="text" name="supplier" class="form-control " >
                                                 </div>
                                             </div>
                                         </div>
@@ -74,13 +74,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Images 1 (URL link)</label>
-                                                    <input type="text" class="form-control-file" id="exampleFormControlFile1">
+                                                    <input type="text" name="image1"class="form-control-file" id="exampleFormControlFile1">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                  <div class="form-group">
                                                     <label class="bmd-label-floating">Images 2 (URL link)</label>
-                                                    <input type="text" class="form-control-file" id="exampleFormControlFile1">
+                                                    <input type="text" name="image2" class="form-control-file" id="exampleFormControlFile1">
                                                 </div>
                                             </div>
                                         </div>
@@ -88,12 +88,12 @@
                                             <div class="col-md-12">
                                                 <label>Description</label>
                                                 <div class="form-group">
-                                                    <textarea class="form-control" rows="5"></textarea>
+                                                    <textarea name="des" class="form-control" rows="5"></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary pull-right">Add Product</button>
-                                        <a href="tables.jsp" class="btn btn-primary pull-right">Back to Table List</a>
+                                        <a href="OrderList" class="btn btn-primary pull-right">Back to Table List</a>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

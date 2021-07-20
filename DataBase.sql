@@ -96,10 +96,10 @@ DetailDate datetime,
 )
 
 create table Comment(--Bảng này để chứa feedback của người mua hàng về món hàng đó
-CommentID varchar(50) primary key,
+CommentID int identity(1,1) primary key,
 UserID int foreign key references [User](UserID),--Thông tin của người mua hàng
 ProID varchar(100) foreign key references Product(ProID),--Thông tin của món hàng
-[To] int foreign key references [User](UserID),
+[To] int,
 Comment ntext,
 CommentDate datetime,
 )

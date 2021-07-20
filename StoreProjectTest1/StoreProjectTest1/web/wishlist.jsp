@@ -56,7 +56,7 @@
                                 <h1 style="text-align: center">Wish List</h1>
                                 <h2 style="text-align: center;">${message}</h2>
                             <div class="col-12">
-                                <c:if test="${not empty products}"> 
+                                <c:if test="${not empty wishlistproduct}"> 
                                     <form action="javascript:void(0)">
                                         <div class="table-content table-responsive">
                                             <table class="table">
@@ -71,7 +71,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <c:forEach items="${products}" var="p">
+                                                    <c:forEach items="${wishlistproduct}" var="p">
                                                         <tr>
                                                             <td class="product_remove">
                                                                 <a href="wishlist?id=${p.getProID()}&from=${from}&status=del">

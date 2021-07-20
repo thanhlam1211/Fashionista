@@ -69,43 +69,30 @@
                                         <div class="widgets-item pt-0">
                                             <h2 class="widgets-title mb-4">Categories</h2>
                                             <ul class="widgets-category">
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-chevron-right"></i>
-                                                        All <span>(65)</span>
-                                                    </a>
-                                                </li>
+                                                <c:forEach items="${cate}" var="c">
+                                                    <c:if test="${c.getName != 'Accessories'}">
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="fa fa-chevron-right"></i>
+                                                                ${c.getName()}<span>(65)</span>
+                                                            </a>
+                                                            <ul>
+                                                                <c:forEach items="${c.getSubcate()}" var="s">
+                                                                    <li>
+                                                                        ${s.getName()}
+                                                                    </li>
+                                                                </c:forEach>
+                                                            </ul>
+                                                        </li>
+                                                    </c:if>
+                                                </c:forEach>
 
                                             </ul>
                                         </div>
                                         <div class="widgets-item">
                                             <h2 class="widgets-title mb-4">Accessories</h2>
                                             <ul class="widgets-category widgets-color">
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-chevron-right"></i>
-                                                        All <span>(65)</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-chevron-right"></i>
-                                                        Socks <span>(12)</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-chevron-right"></i>
 
-                                                        Mask <span>(22)</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-chevron-right"></i>
-                                                        Other <span>(13)</span>
-                                                    </a>
-                                                </li>
                                             </ul>
                                         </div>
                                         <div class="widgets-item widgets-filter">
@@ -213,9 +200,9 @@
                                                                             <i class="pe-7s-like"></i>
                                                                         </a>
                                                                     </li>
-                                                                    <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
+                                                                    <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#${p.getProID()}">
 
-                                                                        <div class="modal quick-view-modal fade" id="quickModal"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="quickModal" aria-hidden="true">
+                                                                        <div class="modal quick-view-modal fade" id="${p.getProID()}"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="quickModal" aria-hidden="true">
                                                                             <div class="modal-dialog modal-dialog-centered">
                                                                                 <div class="modal-content">
                                                                                     <div class="modal-header">
@@ -229,22 +216,22 @@
                                                                                                     <div class="swiper-container modal-slider">
                                                                                                         <div class="swiper-wrapper">
                                                                                                             <div class="swiper-slide">
-                                                                                                                <a href="#" class="single-img">
+                                                                                                                <a href="infor?id=${p.getProID()}" class="single-img">
                                                                                                                     <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                                 </a>
                                                                                                             </div>
                                                                                                             <div class="swiper-slide">
-                                                                                                                <a href="#" class="single-img">
+                                                                                                                <a href="infor?id=${p.getProID()}" class="single-img">
                                                                                                                     <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                                 </a>
                                                                                                             </div>
                                                                                                             <div class="swiper-slide">
-                                                                                                                <a href="#" class="single-img">
+                                                                                                                <a href="infor?id=${p.getProID()}" class="single-img">
                                                                                                                     <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                                 </a>
                                                                                                             </div>
                                                                                                             <div class="swiper-slide">
-                                                                                                                <a href="#" class="single-img">
+                                                                                                                <a href="infor?id=${p.getProID()}" class="single-img">
                                                                                                                     <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
                                                                                                                 </a>
                                                                                                             </div>
@@ -289,20 +276,16 @@
                                                                                                             <option value="small">Small Size With Poot</option>
                                                                                                         </select>
                                                                                                     </div>
-                                                                                                    <p class="short-desc">HIHI</p>
+                                                                                                    <p class="short-desc">${p.getDes()}</p>
                                                                                                     <ul class="quantity-with-btn">
-                                                                                                        <li class="quantity">
-                                                                                                            <div class="cart-plus-minus">
-                                                                                                                <input class="cart-plus-minus-box" value="1" type="text">
-                                                                                                            </div>
-                                                                                                        </li>
+
                                                                                                         <li class="add-to-cart">
-                                                                                                            <a class="btn btn-custom-size lg-size btn-pronia-primary" href="Cart?&add=on&num=1&id=${product.getProID()}">Add to
+                                                                                                            <a class="btn btn-custom-size lg-size btn-pronia-primary" href="Cart?num=1&add=on&id=${p.getProID()}&from=Shop">Add to
                                                                                                                 cart</a>
 
                                                                                                         </li>
                                                                                                         <li class="wishlist-btn-wrap">
-                                                                                                            <a class="custom-circle-btn" href="wishlist.jsp">
+                                                                                                            <a class="custom-circle-btn" href="mywishlist?uid=${UI.getID()}">
                                                                                                                 <i class="pe-7s-like"></i>
                                                                                                             </a>
                                                                                                         </li>
@@ -359,13 +342,7 @@
                                                                 <span class="new-price">$${p.getProPrice()}</span>
                                                             </div>
                                                             <div class="rating-box">
-                                                                <ul>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                </ul>
+                                                                InStock: ${product.getStock()}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -391,13 +368,7 @@
                                                                 <span class="new-price">$${p.getProPrice()}</span>
                                                             </div>
                                                             <div class="rating-box">
-                                                                <ul>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                </ul>
+                                                                InStock: ${product.getStock()}
                                                             </div>
                                                             <p class="short-desc mb-0">${p.getDes()}
                                                             </p>
@@ -414,7 +385,7 @@
                                                                         </a>
                                                                     </li>
                                                                     <li>
-                                                                        <a href="infor?id=${p.getProID()}" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                        <a href="Cart?num=1&add=on&id=${p.getProID()}&from=Shop" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                                                             <i class="pe-7s-cart"></i>
                                                                         </a>
                                                                     </li>

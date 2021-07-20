@@ -54,13 +54,13 @@ public class MyWishList extends HttpServlet {
                         for (WishList wishList : uwl) {
                             products.add(pdao.getProduct(wishList.getProID()));
                         }
-                        request.setAttribute("products", products);
+                        
+                        request.setAttribute("wishlistproduct", products);
                     } else {
                         session.setAttribute("message", "Your WishList Is Empty!");
                     }
                     request.getRequestDispatcher("wishlist.jsp").forward(request, response);
                 }
-
             } catch (NumberFormatException | NullPointerException e) {
                 request.setAttribute("message", "You can not access the page with this URL");
                 request.getRequestDispatcher("404.jsp").forward(request, response);

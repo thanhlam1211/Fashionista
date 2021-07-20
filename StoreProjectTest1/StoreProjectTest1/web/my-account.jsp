@@ -62,11 +62,9 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     <ul class="nav myaccount-tab-trigger" id="account-page-tab" role="tablist">
+
                                         <li class="nav-item">
-                                            <a class="nav-link active" id="account-dashboard-tab" data-bs-toggle="tab" href="#account-dashboard" role="tab" aria-controls="account-dashboard" aria-selected="true">Dashboard</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="account-orders-tab" data-bs-toggle="tab" href="#account-orders" role="tab" aria-controls="account-orders" aria-selected="false">Orders</a>
+                                            <a class="nav-link active" id="account-orders-tab" data-bs-toggle="tab" href="#account-orders" role="tab" aria-controls="account-orders" aria-selected="false">Orders</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" id="account-address-tab" data-bs-toggle="tab" href="#account-address" role="tab" aria-controls="account-address" aria-selected="false">Account Details</a>
@@ -80,41 +78,71 @@
                                     </ul>
                                 </div>
                                 <div class="col-lg-9">
-                                    <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
-                                        <div class="tab-pane fade show active" id="account-dashboard" role="tabpanel" aria-labelledby="account-dashboard-tab">
-                                            <div class="myaccount-dashboard">
-                                                <p>Hello <b>Hanger</b> (not Hanger? <a href="LogoutController">Sign
-                                                        out</a>)</p>
-                                                <p>From your account dashboard you can view your recent orders, manage your shipping and
-                                                    billing addresses and <a href="#">edit your password and account details</a>.</p>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="account-orders" role="tabpanel" aria-labelledby="account-orders-tab">
-                                            <div class="myaccount-orders">
-                                                <h4 class="small-title">MY ORDERS</h4>
-                                                <div class="table-responsive">
-                                                    <table class="table table-bordered table-hover">
-                                                        <tbody>
-                                                            <tr>
-                                                                <th>ORDER</th>
-                                                                <th>DATE</th>
-                                                                <th>STATUS</th>
-                                                                <th>TOTAL</th>
-                                                                <th></th>
-                                                            </tr>
-                                                        <c:forEach items="${order}" var="o"> 
-                                                            <tr>
-                                                                <td><a class="account-order-id" href="#">${o.getId()}</a></td>
-                                                                <td>${o.getDate()}</td>
-                                                                <td>${o.getStatus()}</td>
-                                                                <td>$${o.getTotalcash()}for 2 items</td>
-                                                                <td><a href="#" class="btn btn-dark"><span>View</span></a>
-                                                                </td>
-                                                            </tr>
-                                                        </c:forEach>
-                                                    </tbody>
+                                    <p style="text-align: center">Hello <b>${UI.getFullname()}</b> (not Hanger? <a href="LogoutController">Sign
+                                        out</a>)</p>
+                                <p>From your account dashboard you can view your recent orders, manage your shipping and
+                                    billing addresses and <a href="#">edit your password and account details</a>.</p>
+                                <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+
+                                    <div class="tab-pane fade active" id="account-orders" role="tabpanel" aria-labelledby="account-orders-tab">
+                                        <div class="myaccount-orders">
+                                            <h4 class="small-title">MY ORDERS<h5><a href="myaccount"> Get to your full order list</a></h5></h4>
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-hover">
+                                                    <c:choose>
+                                                        <c:when test="${status}">
+                                                            <table class="table">
+                                                                <thead>
+                                                                <th> Order ID: ${oid}</th>
+
+                                                                <th colspan="5" style="text-align: center">Total  Cash: ${total}</th>
+                                                                </thead>
+                                                                <thead >
+                                                                <th> Product ID </th>
+                                                                <th> Product Name</th>
+                                                                <th>Price</th>
+                                                                <th>Discount</th>
+                                                                <th>Quantity</th>
+                                                                <th>Total</th>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <c:forEach items="${orderdetail}" var="d">
+                                                                        <tr>
+                                                                            <td>${d.getProID()}</td>
+                                                                            <td>${d.getProName()}</td>
+                                                                            <td>${d.getPrice()}</td>
+                                                                            <td>${d.getDiscount()}</td>
+                                                                            <td>${d.getQuantity()}</td>
+                                                                            <td>${d.getTotal()}</td>
+                                                                        </tr>
+                                                                    </c:forEach>
+                                                                </tbody>
+                                                            </table>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th>ORDER</th>
+                                                                    <th>DATE</th>
+                                                                    <th>STATUS</th>
+                                                                    <th>TOTAL</th>
+
+                                                                </tr>
+                                                                <c:forEach items="${order}" var="o"> 
+                                                                    <tr>
+                                                                        <td><a class="account-order-id" href="myaccount?status=detail&oid=${o.getId()}" title="View Detail">${o.getId()}</a></td>
+                                                                        <td><a class="account-order-id" href="myaccount?status=detail&oid=${o.getId()}" title="View Detail">${o.getDate()}</a></td>
+                                                                        <td><a class="account-order-id" href="myaccount?status=detail&oid=${o.getId()}" title="View Detail">${o.getStatus()}</a></td>
+                                                                        <td><a class="account-order-id" href="myaccount?status=detail&oid=${o.getId()}" title="View Detail">$${o.getTotalcash()}</a></td>
+                                                                    </tr> 
+                                                                </c:forEach>
+                                                            </tbody>
+                                                        </c:otherwise>
+                                                    </c:choose>
+
                                                 </table>
                                             </div>
+
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="account-address" role="tabpanel" aria-labelledby="account-address-tab">

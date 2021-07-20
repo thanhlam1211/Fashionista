@@ -66,10 +66,6 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-end">
                             <ul class="navbar-nav">
-<<<<<<< HEAD
-
-=======
->>>>>>> 52f7bf4bd66b5a0bc41d2a61f68b0f80fd7122a8
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">person</i>
@@ -473,7 +469,6 @@
             $(document).ready(function () {
                 // Javascript method's body can be found in assets/js/demos.js
                 md.initDashboardPageCharts();
-
             });
         </script>
     </body>

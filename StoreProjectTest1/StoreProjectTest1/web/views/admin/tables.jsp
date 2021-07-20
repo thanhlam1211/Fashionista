@@ -72,27 +72,7 @@
                             <span class="navbar-toggler-icon icon-bar"></span>
                             <span class="navbar-toggler-icon icon-bar"></span>
                         </button>
-                        <div class="collapse navbar-collapse justify-content-end">
-<<<<<<< HEAD
-                            <ul class="navbar-nav">
-
-=======
-                            <ul class="navbar-nav">                             
->>>>>>> 52f7bf4bd66b5a0bc41d2a61f68b0f80fd7122a8
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">person</i>
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                        <c:if test="${not empty UI}"> 
-                                            <a class="dropdown-item" href="${path}/">${UI.getFullname()}</a>
-                                        </c:if>
-                                        <a class="dropdown-item" href="${path}/LogoutController">Log out</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+               
                     </div>
                 </nav>
                 <!-- End Navbar -->
@@ -133,7 +113,7 @@
                                         <div class="tab-content">
 
                                             <div class="tab-pane active" id="pending">
-<<<<<<< HEAD
+
                                                 <table class="table">
                                                     <thead class=" text-primary">
                                                     <th> Order ID </th>
@@ -152,15 +132,15 @@
                                                             <input type="hidden" name="id" value="${p.getId()}"/>
 
                                                             <tr>
-                                                                <td><a href="Detail?oid=${p.getId()}">${p.getId()}</a> </td>
-                                                                <td>${p.getDate()}</td>
+                                                                <td><a href="Detail?oid=${p.getId()}" title="View Detail">${p.getId()}</a> </td>
+                                                                <td><a href="Detail?oid=${p.getId()}" title="View Detail">${p.getDate()}</a></td>
                                                                 <c:forEach items="${userlist}" var="u">
                                                                     <c:if test="${p.getUserId() == u.getID()}"> 
-                                                                        <td>${u.getUserAccount()}</td>
+                                                                        <td><a href="Detail?oid=${p.getId()}" title="View Detail">${u.getUserAccount()}</a></td>
                                                                     </c:if>
                                                                 </c:forEach>
-                                                                <td>${p.getReciver()}</td>
-                                                                <td>+84${p.getPhone()}</td>
+                                                                        <td><a href="Detail?oid=${p.getId()}" title="View Detail">${p.getReciver()}</a></td>
+                                                                        <td><a href="Detail?oid=${p.getId()}" title="View Detail">+84${p.getPhone()}</a></td>
                                                                 <td>
                                                                     <div style="width: 100px" class="form-group">
                                                                         <select name="status" id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal">
@@ -172,10 +152,10 @@
                                                                         </select>
                                                                     </div>
                                                                 </td>
-                                                                <td class="text-primary">$${p.getTotalcash()}</td>
+                                                                <td class="text-primary"><a href="Detail?oid=${p.getId()}" title="View Detail">$${p.getTotalcash()}</a></td>
                                                                 <td>
-                                                                    <button rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                                                                        <i   class="material-icons">delete</i>
+                                                                      <button type="submit" rel="tooltip" title="Update" class="btn btn-danger btn-link btn-sm">
+                                                                        <i class="material-icons">update</i>
                                                                     </button>
                                                                 </td>
                                                             </tr>
@@ -184,94 +164,8 @@
                                                     </c:forEach>
                                                     </tbody>
                                                 </table>
-=======
-                                                <form method="POST" action="">
-                                                    <table class="table">
-                                                        <thead class=" text-primary">
-                                                        <th>
-                                                            User ID
-                                                        </th>
-                                                        <th>
-                                                            User Name
-                                                        </th>
-                                                        <th>
-                                                            Order ID
-                                                        </th>
-                                                        <th>
-                                                            Status
-                                                        </th>
-                                                        <th>
-                                                            Total
-                                                        </th>
-                                                        <th>
-                                                            Options
-                                                        </th>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    1
-                                                                </td>
-                                                                <td>
-                                                                    Thanh Lâm
-                                                                </td>
-                                                                <td>
-                                                                    01
-                                                                </td>
-                                                                <td>
-                                                                    <div style="width: 100px" class="form-group">
-                                                                        <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal">
-                                                                            <!-- options -->
-                                                                            <option>Pending</option>
-                                                                            <option>Approve</option>
-                                                                            <option>Shipping</option>
-                                                                            <option>Done</option> 
-                                                                        </select>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="text-primary">
-                                                                    $500
-                                                                </td>
-                                                                <td>
-                                                                    <button onclick="showSwal('success-message')" type="button" rel="tooltip" title="Update" class="btn btn-danger btn-link btn-sm">
-                                                                        <i   class="material-icons">update</i>
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    2
-                                                                </td>
-                                                                <td>
-                                                                    Trung Huy
-                                                                </td>
-                                                                <td>
-                                                                    02
-                                                                </td>
-                                                                <td>
-                                                                    <div style="width: 100px" class="form-group">
-                                                                        <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal">
-                                                                            <!-- options -->
-                                                                            <option>Pending</option>
-                                                                            <option>Approve</option>
-                                                                            <option>Shipping</option>
-                                                                            <option>Done</option> 
-                                                                        </select>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="text-primary">
-                                                                    $550
-                                                                </td>
-                                                                <td>
-                                                                    <button onclick="showSwal('success-message')"type="button" rel="tooltip" title="Update" class="btn btn-danger btn-link btn-sm">
-                                                                        <i  class="material-icons">update</i>
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </form>
->>>>>>> 52f7bf4bd66b5a0bc41d2a61f68b0f80fd7122a8
+
+                                    
                                             </div>
                                             <div class="tab-pane" id="quantityPro">
                                                 <table class="table table-hover">
@@ -365,360 +259,310 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script>
-<<<<<<< HEAD
-                                                                                $(document).ready(function () {
-                                                                                    $().ready(function () {
-                                                                                        $sidebar = $('.sidebar');
-
-                                                                                        $sidebar_img_container = $sidebar.find('.sidebar-background');
-
-                                                                                        $full_page = $('.full-page');
-
-                                                                                        $sidebar_responsive = $('body > .navbar-collapse');
-
-                                                                                        window_width = $(window).width();
-
-                                                                                        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').jsp();
-
-                                                                                        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
-                                                                                            if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
-                                                                                                $('.fixed-plugin .dropdown').addClass('open');
-                                                                                            }
-
-                                                                                        }
-
-                                                                                        $('.fixed-plugin a').click(function (event) {
-                                                                                            // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-                                                                                            if ($(this).hasClass('switch-trigger')) {
-                                                                                                if (event.stopPropagation) {
-                                                                                                    event.stopPropagation();
-                                                                                                } else if (window.event) {
-                                                                                                    window.event.cancelBubble = true;
-                                                                                                }
-                                                                                            }
-                                                                                        });
-
-                                                                                        $('.fixed-plugin .active-color span').click(function () {
-                                                                                            $full_page_background = $('.full-page-background');
-
-                                                                                            $(this).siblings().removeClass('active');
-                                                                                            $(this).addClass('active');
-
-                                                                                            var new_color = $(this).data('color');
-
-                                                                                            if ($sidebar.length != 0) {
-                                                                                                $sidebar.attr('data-color', new_color);
-                                                                                            }
-
-                                                                                            if ($full_page.length != 0) {
-                                                                                                $full_page.attr('filter-color', new_color);
-                                                                                            }
-
-                                                                                            if ($sidebar_responsive.length != 0) {
-                                                                                                $sidebar_responsive.attr('data-color', new_color);
-                                                                                            }
-                                                                                        });
-
-                                                                                        $('.fixed-plugin .background-color .badge').click(function () {
-                                                                                            $(this).siblings().removeClass('active');
-                                                                                            $(this).addClass('active');
-
-                                                                                            var new_color = $(this).data('background-color');
-
-                                                                                            if ($sidebar.length != 0) {
-                                                                                                $sidebar.attr('data-background-color', new_color);
-                                                                                            }
-                                                                                        });
-
-                                                                                        $('.fixed-plugin .img-holder').click(function () {
-                                                                                            $full_page_background = $('.full-page-background');
-
-                                                                                            $(this).parent('li').siblings().removeClass('active');
-                                                                                            $(this).parent('li').addClass('active');
-
-
-                                                                                            var new_image = $(this).find("img").attr('src');
-
-                                                                                            if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-                                                                                                $sidebar_img_container.fadeOut('fast', function () {
-                                                                                                    $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-                                                                                                    $sidebar_img_container.fadeIn('fast');
-                                                                                                });
-                                                                                            }
-
-                                                                                            if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-                                                                                                var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-                                                                                                $full_page_background.fadeOut('fast', function () {
-                                                                                                    $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-                                                                                                    $full_page_background.fadeIn('fast');
-                                                                                                });
-                                                                                            }
-
-                                                                                            if ($('.switch-sidebar-image input:checked').length == 0) {
-                                                                                                var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-                                                                                                var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-                                                                                                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-                                                                                                $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-                                                                                            }
-
-                                                                                            if ($sidebar_responsive.length != 0) {
-                                                                                                $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-                                                                                            }
-                                                                                        });
-
-                                                                                        $('.switch-sidebar-image input').change(function () {
-                                                                                            $full_page_background = $('.full-page-background');
-
-                                                                                            $input = $(this);
-
-                                                                                            if ($input.is(':checked')) {
-                                                                                                if ($sidebar_img_container.length != 0) {
-                                                                                                    $sidebar_img_container.fadeIn('fast');
-                                                                                                    $sidebar.attr('data-image', '#');
-                                                                                                }
-
-                                                                                                if ($full_page_background.length != 0) {
-                                                                                                    $full_page_background.fadeIn('fast');
-                                                                                                    $full_page.attr('data-image', '#');
-                                                                                                }
-
-                                                                                                background_image = true;
-                                                                                            } else {
-                                                                                                if ($sidebar_img_container.length != 0) {
-                                                                                                    $sidebar.removeAttr('data-image');
-                                                                                                    $sidebar_img_container.fadeOut('fast');
-                                                                                                }
-
-                                                                                                if ($full_page_background.length != 0) {
-                                                                                                    $full_page.removeAttr('data-image', '#');
-                                                                                                    $full_page_background.fadeOut('fast');
-                                                                                                }
-
-                                                                                                background_image = false;
-                                                                                            }
-                                                                                        });
-
-                                                                                        $('.switch-sidebar-mini input').change(function () {
-                                                                                            $body = $('body');
-
-                                                                                            $input = $(this);
-
-                                                                                            if (md.misc.sidebar_mini_active == true) {
-                                                                                                $('body').removeClass('sidebar-mini');
-                                                                                                md.misc.sidebar_mini_active = false;
-
-                                                                                                $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-                                                                                            } else {
-
-                                                                                                $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
-                                                                                                setTimeout(function () {
-                                                                                                    $('body').addClass('sidebar-mini');
-
-                                                                                                    md.misc.sidebar_mini_active = true;
-                                                                                                }, 300);
-                                                                                            }
-
-                                                                                            // we simulate the window Resize so the charts will get updated in realtime.
-                                                                                            var simulateWindowResize = setInterval(function () {
-                                                                                                window.dispatchEvent(new Event('resize'));
-                                                                                            }, 180);
-
-                                                                                            // we stop the simulation of Window Resize after the animations are completed
-                                                                                            setTimeout(function () {
-                                                                                                clearInterval(simulateWindowResize);
-                                                                                            }, 1000);
-
-                                                                                        });
-                                                                                    });
-                                                                                });
-=======
-                                                                        $(document).ready(function () {
-                                                                            $().ready(function () {
+                                                                                << << << < HEAD
+                            $(document).ready(function () {
+                                                                                        $().ready(function () {
                                                                                 $sidebar = $('.sidebar');
-
                                                                                 $sidebar_img_container = $sidebar.find('.sidebar-background');
-
                                                                                 $full_page = $('.full-page');
-
                                                                                 $sidebar_responsive = $('body > .navbar-collapse');
-
                                                                                 window_width = $(window).width();
-
                                                                                 fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').jsp();
-
                                                                                 if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
-                                                                                    if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
-                                                                                        $('.fixed-plugin .dropdown').addClass('open');
-                                                                                    }
-
-                                                                                }
-
-                                                                                $('.fixed-plugin a').click(function (event) {
-                                                                                    // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-                                                                                    if ($(this).hasClass('switch-trigger')) {
-                                                                                        if (event.stopPropagation) {
-                                                                                            event.stopPropagation();
-                                                                                        } else if (window.event) {
-                                                                                            window.event.cancelBubble = true;
-                                                                                        }
-                                                                                    }
-                                                                                });
-
-                                                                                $('.fixed-plugin .active-color span').click(function () {
-                                                                                    $full_page_background = $('.full-page-background');
-
-                                                                                    $(this).siblings().removeClass('active');
-                                                                                    $(this).addClass('active');
-
-                                                                                    var new_color = $(this).data('color');
-
-                                                                                    if ($sidebar.length != 0) {
-                                                                                        $sidebar.attr('data-color', new_color);
-                                                                                    }
-
-                                                                                    if ($full_page.length != 0) {
+                                                                                if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+                                                                                $('.fixed-plugin .dropdown').addClass('open');
+                            }
+                            
+            }
+                        
+            $('.fixed-plugin a').click(function (event) {
+                                                                                        // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+                                                                                        if ($(this).hasClass('switch-trigger')) {
+                                                                                if (event.stopPropagation) {
+                                                                                event.stopPropagation();
+            } else if (window.event) {
+                                                                                        window.event.cancelBubble = true;
+            }
+            }
+            });
+                                    
+            $('.fixed-plugin .active-color span').click(function () {
+                                                                                        $full_page_background = $('.full-page-background');
+                                                                                $(this).siblings().removeClass('active');
+                                                                                $(this).addClass('active');
+                                                                                var new_color = $(this).data('color');
+                                                                                if ($sidebar.length != 0) {
+                                                                                $sidebar.attr('data-color', new_color);
+            }
+                                                    
+            if ($full_page.length != 0) {
                                                                                         $full_page.attr('filter-color', new_color);
-                                                                                    }
-
-                                                                                    if ($sidebar_responsive.length != 0) {
+            }
+                                                            
+            if ($sidebar_responsive.length != 0) {
                                                                                         $sidebar_responsive.attr('data-color', new_color);
-                                                                                    }
-                                                                                });
-
-                                                                                $('.fixed-plugin .background-color .badge').click(function () {
-                                                                                    $(this).siblings().removeClass('active');
-                                                                                    $(this).addClass('active');
-
-                                                                                    var new_color = $(this).data('background-color');
-
-                                                                                    if ($sidebar.length != 0) {
-                                                                                        $sidebar.attr('data-background-color', new_color);
-                                                                                    }
-                                                                                });
-
-                                                                                $('.fixed-plugin .img-holder').click(function () {
-                                                                                    $full_page_background = $('.full-page-background');
-
-                                                                                    $(this).parent('li').siblings().removeClass('active');
-                                                                                    $(this).parent('li').addClass('active');
-
-
-                                                                                    var new_image = $(this).find("img").attr('src');
-
-                                                                                    if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-                                                                                        $sidebar_img_container.fadeOut('fast', function () {
-                                                                                            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-                                                                                            $sidebar_img_container.fadeIn('fast');
-                                                                                        });
-                                                                                    }
-
-                                                                                    if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            }
+            });
+                                                        
+            $('.fixed-plugin .background-color .badge').click(function () {
+                                                                                        $(this).siblings().removeClass('active');
+                                                                                $(this).addClass('active');
+                                                                                var new_color = $(this).data('background-color');
+                                                                                if ($sidebar.length != 0) {
+                                                                                $sidebar.attr('data-background-color', new_color);
+            }
+            });
+                                                    
+            $('.fixed-plugin .img-holder').click(function () {
+                                                                                        $full_page_background = $('.full-page-background');
+                                                                                $(this).parent('li').siblings().removeClass('active');
+                                                                                $(this).parent('li').addClass('active');
+                                                                                var new_image = $(this).find("img").attr('src');
+                                                                                if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                                                                                $sidebar_img_container.fadeOut('fast', function () {
+                                                                                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                                                                                $sidebar_img_container.fadeIn('fast');
+            });
+            }
+                                                                
+            if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
                                                                                         var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-                                                                                        $full_page_background.fadeOut('fast', function () {
-                                                                                            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-                                                                                            $full_page_background.fadeIn('fast');
-                                                                                        });
-                                                                                    }
-
-                                                                                    if ($('.switch-sidebar-image input:checked').length == 0) {
+                                                                                $full_page_background.fadeOut('fast', function () {
+                                                                                $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                                                                                $full_page_background.fadeIn('fast');
+            });
+            }
+                                                                            
+            if ($('.switch-sidebar-image input:checked').length == 0) {
                                                                                         var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-                                                                                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-                                                                                        $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-                                                                                        $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-                                                                                    }
-
-                                                                                    if ($sidebar_responsive.length != 0) {
+                                                                                var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+                                                                                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                                                                                $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+            }
+                                                                
+            if ($sidebar_responsive.length != 0) {
                                                                                         $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-                                                                                    }
-                                                                                });
-
-                                                                                $('.switch-sidebar-image input').change(function () {
-                                                                                    $full_page_background = $('.full-page-background');
-
-                                                                                    $input = $(this);
-
-                                                                                    if ($input.is(':checked')) {
+            }
+            });
+                                                                    
+            $('.switch-sidebar-image input').change(function () {
+                                                                                        $full_page_background = $('.full-page-background');
+                                                                                $input = $(this);
+                                                                                if ($input.is(':checked')) {
+                                                                                if ($sidebar_img_container.length != 0) {
+                                                                                $sidebar_img_container.fadeIn('fast');
+                                                                                $sidebar.attr('data-image', '#');
+            }
+                                                    
+            if ($full_page_background.length != 0) {
+                                                                                        $full_page_background.fadeIn('fast');
+                                                                                $full_page.attr('data-image', '#');
+            }
+                                                            
+            background_image = true;
+            } else {
                                                                                         if ($sidebar_img_container.length != 0) {
-                                                                                            $sidebar_img_container.fadeIn('fast');
-                                                                                            $sidebar.attr('data-image', '#');
-                                                                                        }
-
-                                                                                        if ($full_page_background.length != 0) {
-                                                                                            $full_page_background.fadeIn('fast');
-                                                                                            $full_page.attr('data-image', '#');
-                                                                                        }
-
-                                                                                        background_image = true;
-                                                                                    } else {
-                                                                                        if ($sidebar_img_container.length != 0) {
-                                                                                            $sidebar.removeAttr('data-image');
-                                                                                            $sidebar_img_container.fadeOut('fast');
-                                                                                        }
-
-                                                                                        if ($full_page_background.length != 0) {
-                                                                                            $full_page.removeAttr('data-image', '#');
-                                                                                            $full_page_background.fadeOut('fast');
-                                                                                        }
-
-                                                                                        background_image = false;
-                                                                                    }
-                                                                                });
-
-                                                                                $('.switch-sidebar-mini input').change(function () {
-                                                                                    $body = $('body');
-
-                                                                                    $input = $(this);
-
-                                                                                    if (md.misc.sidebar_mini_active == true) {
-                                                                                        $('body').removeClass('sidebar-mini');
-                                                                                        md.misc.sidebar_mini_active = false;
-
-                                                                                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-                                                                                    } else {
+                                                                                $sidebar.removeAttr('data-image');
+                                                                                $sidebar_img_container.fadeOut('fast');
+            }
+                                                    
+            if ($full_page_background.length != 0) {
+                                                                                        $full_page.removeAttr('data-image', '#');
+                                                                                $full_page_background.fadeOut('fast');
+            }
+                                                
+            background_image = false;
+            }
+            });
+                                                    
+            $('.switch-sidebar-mini input').change(function () {
+                                                                                        $body = $('body');
+                                                                                $input = $(this);
+                                                                                if (md.misc.sidebar_mini_active == true) {
+                                                                                $('body').removeClass('sidebar-mini');
+                                                                                md.misc.sidebar_mini_active = false;
+                                                                                $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+            } else {
 
                                                                                         $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
-                                                                                        setTimeout(function () {
-                                                                                            $('body').addClass('sidebar-mini');
-
-                                                                                            md.misc.sidebar_mini_active = true;
-                                                                                        }, 300);
-                                                                                    }
-
-                                                                                    // we simulate the window Resize so the charts will get updated in realtime.
-                                                                                    var simulateWindowResize = setInterval(function () {
-                                                                                        window.dispatchEvent(new Event('resize'));
-                                                                                    }, 180);
-
-                                                                                    // we stop the simulation of Window Resize after the animations are completed
-                                                                                    setTimeout(function () {
-                                                                                        clearInterval(simulateWindowResize);
-                                                                                    }, 1000);
-
-                                                                                });
-                                                                            });
-                                                                        });
->>>>>>> 52f7bf4bd66b5a0bc41d2a61f68b0f80fd7122a8
-
-        </script>
-
-        <script>
-            function myFunction(id) {
-                var x = document.getElementById(id);
-                if (x.type === "password") {
-                    x.type = "text";
-                } else {
-                    x.type = "password";
-                }
+                                                                                setTimeout(function () {
+                                                                                $('body').addClass('sidebar-mini');
+                                                                                md.misc.sidebar_mini_active = true;
+            }, 300);
             }
-        </script>
+                                                                
+            // we simulate the window Resize so the charts will get updated in realtime.
+            var simulateWindowResize = setInterval(function () {
+                                                                                        window.dispatchEvent(new Event('resize'));
+            }, 180);
+                                    
+            // we stop the simulation of Window Resize after the animations are completed
+            setTimeout(function () {
+                                                                                        clearInterval(simulateWindowResize);
+            }, 1000);
+        
+            });
+            });
+            });
+        =======
+            $(document).ready(function () {
+                                                                                        $().ready(function () {
+                                                                                $sidebar = $('.sidebar');
+                                                                                $sidebar_img_container = $sidebar.find('.sidebar-background');
+                                                                                $full_page = $('.full-page');
+                                                                                $sidebar_responsive = $('body > .navbar-collapse');
+                                                                                window_width = $(window).width();
+                                                                                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').jsp();
+                                                                                if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+                                                                                if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+                                                                                $('.fixed-plugin .dropdown').addClass('open');
+            }
+        
+            }
+        
+            $('.fixed-plugin a').click(function (event) {
+                                                                                        // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+                                                                                        if ($(this).hasClass('switch-trigger')) {
+                                                                                if (event.stopPropagation) {
+                                                                                event.stopPropagation();
+            } else if (window.event) {
+                                                                                        window.event.cancelBubble = true;
+            }
+            }
+            });
+        
+            $('.fixed-plugin .active-color span').click(function () {
+                                                                                        $full_page_background = $('.full-page-background');
+                                                                                $(this).siblings().removeClass('active');
+                                                                                $(this).addClass('active');
+                                                                                var new_color = $(this).data('color');
+                                                                                if ($sidebar.length != 0) {
+                                                                                $sidebar.attr('data-color', new_color);
+            }
+                                                                                
+            if ($full_page.length != 0) {
+                                                                                        $full_page.attr('filter-color', new_color);
+            }
+                                                                                
+            if ($sidebar_responsive.length != 0) {
+                                                                                        $sidebar_responsive.attr('data-color', new_color);
+            }
+            });
+                        
+            $('.fixed-plugin .background-color .badge').click(function () {
+                                                                                        $(this).siblings().removeClass('active');
+                                                                                $(this).addClass('active');
+                                                                                var new_color = $(this).data('background-color');
+                                                                                if ($sidebar.length != 0) {
+                                                                                $sidebar.attr('data-background-color', new_color);
+            }
+            });
+                                
+            $('.fixed-plugin .img-holder').click(function () {
+                                                                                        $full_page_background = $('.full-page-background');
+                                                                                $(this).parent('li').siblings().removeClass('active');
+                                                                                $(this).parent('li').addClass('active');
+                                                                                var new_image = $(this).find("img").attr('src');
+                                                                                if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                                                                                $sidebar_img_container.fadeOut('fast', function () {
+                                                                                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                                                                                $sidebar_img_container.fadeIn('fast');
+            });
+            }
+                                                            
+            if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                                                                                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+                                                                                $full_page_background.fadeOut('fast', function () {
+                                                                                $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                                                                                $full_page_background.fadeIn('fast');
+            });
+            }
+                                                                                
+            if ($('.switch-sidebar-image input:checked').length == 0) {
+                                                                                        var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+                                                                                var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+                                                                                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                                                                                $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+            }
+                                                                                
+            if ($sidebar_responsive.length != 0) {
+                                                                                        $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+            }
+            });
+                                                                                
+            $('.switch-sidebar-image input').change(function () {
+                                                                                        $full_page_background = $('.full-page-background');
+                                                                                $input = $(this);
+                                                                                if ($input.is(':checked')) {
+                                                                                if ($sidebar_img_container.length != 0) {
+                                                                                $sidebar_img_container.fadeIn('fast');
+                                                                                $sidebar.attr('data-image', '#');
+            }
+                                                                                
+            if ($full_page_background.length != 0) {
+                                                                                        $full_page_background.fadeIn('fast');
+                                                                                $full_page.attr('data-image', '#');
+            }
+                                                                                        
+            background_image = true;
+            } else {
+                                                                                        if ($sidebar_img_container.length != 0) {
+                                                                                $sidebar.removeAttr('data-image');
+                                                                                $sidebar_img_container.fadeOut('fast');
+            }
+                                                                
+            if ($full_page_background.length != 0) {
+                                                                                        $full_page.removeAttr('data-image', '#');
+                                                                                $full_page_background.fadeOut('fast');
+            }
+                                                                
+            background_image = false;
+            }
+            });
+                                                                                
+            $('.switch-sidebar-mini input').change(function () {
+                                                                                        $body = $('body');
+                                                                                $input = $(this);
+                                                                                if (md.misc.sidebar_mini_active == true) {
+                                                                                $('body').removeClass('sidebar-mini');
+                                                                                md.misc.sidebar_mini_active = false;
+                                                                                $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+            } else {
+
+                                                                                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+                                                                                setTimeout(function () {
+                                                                                $('body').addClass('sidebar-mini');
+                                                                                md.misc.sidebar_mini_active = true;
+            }, 300);
+            }
+                                                    
+            // we simulate the window Resize so the charts will get updated in realtime.
+            var simulateWindowResize = setInterval(function () {
+                                                                                        window.dispatchEvent(new Event('resize'));
+            }, 180);
+                                                    
+            // we stop the simulation of Window Resize after the animations are completed
+            setTimeout(function () {
+                                                                                        clearInterval(simulateWindowResize);
+            }, 1000);
+                                                                                
+            });
+            });
+            });
+                                                                                >>>>>>> 52f7bf4bd66b5a0bc41d2a61f68b0f80fd7122a8
+                                                                                
+                                                                        </script>
+
+                                                                                        <script>
+                                                                                        function myFunction(id) {
+                                                                                        var x = document.getElementById(id);
+                                                                                if (x.type === "password") {
+                                                                                x.type = "text";
+            } else {
+                                                                                        x.type = "password";
+                                                                }
+                                                                }
+                                                                </script>
     </body>
 
 </html>

@@ -6,8 +6,10 @@
 package Project.DAO;
 
 import Project.DBConnection.DBConnection;
+import Project.Sample.Cate;
 import Project.Sample.Image;
 import Project.Sample.Product;
+import Project.Sample.SubCate;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -122,7 +124,49 @@ public class ProductDAO {
         }
         return null;
     }
-
+    public List<Cate> getCate(){
+        List<Cate> ls = new ArrayList<>();
+         try {
+            con = DBConnection.open();
+            ps = con.prepareCall("SELECT * FROM [Shopping].[dbo].[Categories]" );
+            rs = ps.executeQuery();
+            while (rs.next()) {
+               Cate c = new Cate();
+               c.setId(rs.getString("CateID"));
+               c.setName(rs.getString("CateName"));
+               ls.add(c);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            DBConnection.close(con, ps, rs);
+        }
+        for (Cate l : ls) {
+            l.setSubcate(getSubCate(l.getId()));
+        }
+        return ls;
+    }
+     public List<SubCate> getSubCate(String id){
+        List<SubCate> ls = new ArrayList<>();
+         try {
+            con = DBConnection.open();
+            ps = con.prepareCall("SELECT * FROM [Shopping].[dbo].[SubCategorie] where CateID= '" +id+"'" );
+            rs = ps.executeQuery();
+            while (rs.next()) {
+              SubCate c = new SubCate();
+                c.setId(rs.getString("SubCateID"));
+                c.setCateId(id);
+                c.setName(rs.getString("SubCateName"));
+               
+               ls.add(c);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            DBConnection.close(con, ps, rs);
+        }
+        return ls;
+    }
     public void Insert(Product p) {
         try {
             con = DBConnection.open();
@@ -157,7 +201,7 @@ public class ProductDAO {
             DBConnection.close(con, ps, rs);
         }
     }
-
+    
     public void Update(Product p) {
         try {
             con = DBConnection.open();

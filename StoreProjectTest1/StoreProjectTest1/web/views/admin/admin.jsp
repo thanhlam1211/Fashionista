@@ -37,7 +37,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="views/admin/user.jsp">
+                            <a class="nav-link" href="user.jsp">
                                 <i class="material-icons">person</i>
                                 <p>User Profile</p>
                             </a>
@@ -233,7 +233,7 @@
                                                 </c:forEach>
                                             </tbody>
                                         </table>
-                                        <a href="views/admin/addAdmin.jsp" class="btn btn-primary pull-right">Add Admin</a>
+                                        <a href="addAdmin.jsp" class="btn btn-primary pull-right">Add Admin</a>
                                     </div>
                                 </div>
                             </div>

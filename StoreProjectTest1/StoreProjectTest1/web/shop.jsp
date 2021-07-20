@@ -70,58 +70,69 @@
                                             <h2 class="widgets-title mb-4">Categories</h2>
                                             <ul class="widgets-category">
                                                 <c:forEach items="${cate}" var="c">
-                                                    <c:if test="${c.getName != 'Accessories'}">
+                                                    <c:if test="${c.getName() != 'Accessories'}">
                                                         <li>
-                                                            <a href="#">
+                                                            <a href="Shop?cate=${c.getId()}">
                                                                 <i class="fa fa-chevron-right"></i>
-                                                                ${c.getName()}<span>(65)</span>
+                                                                ${c.getName()}  
                                                             </a>
-                                                            <ul>
+                                                            <ul style="padding-left: 20%">
                                                                 <c:forEach items="${c.getSubcate()}" var="s">
-                                                                    <li>
-                                                                        ${s.getName()}
-                                                                    </li>
+                                                                    <a href="Shop?subcate=${s.getId()}">
+                                                                        <li>
+                                                                            ${s.getName()}
+                                                                        </li>
+                                                                    </a>
                                                                 </c:forEach>
                                                             </ul>
                                                         </li>
                                                     </c:if>
                                                 </c:forEach>
-
                                             </ul>
                                         </div>
                                         <div class="widgets-item">
                                             <h2 class="widgets-title mb-4">Accessories</h2>
                                             <ul class="widgets-category widgets-color">
-
+                                                <c:forEach items="${cate}" var="c">
+                                                    <c:if test="${c.getName() == 'Accessories'}">
+                                                        <li>
+                                                            <a href="Shop?cate=${c.getId()}">
+                                                                <i class="fa fa-chevron-right"></i>
+                                                                ${c.getName()}  
+                                                            </a>
+                                                            <ul style="padding-left: 20%">
+                                                                <c:forEach items="${c.getSubcate()}" var="s">
+                                                                    <a href="Shop?subcate=${s.getId()}">
+                                                                        <li>
+                                                                            ${s.getName()}
+                                                                        </li>
+                                                                    </a>
+                                                                </c:forEach>
+                                                            </ul>
+                                                        </li>
+                                                    </c:if>
+                                                </c:forEach>
                                             </ul>
                                         </div>
-                                        <div class="widgets-item widgets-filter">
-                                            <h2 class="widgets-title mb-4">Price Filter</h2>
-                                            <div class="price-filter">
-                                                <input type="text" class="pronia-range-slider" name="pronia-range-slider" value="" data-type="double" data-min="16" data-from="16" data-to="300" data-max="350" data-grid="false" />
-                                            </div>
-                                        </div>
+
                                         <div class="widgets-item">
                                             <h2 class="widgets-title mb-4">Populer Tags</h2>
                                             <ul class="widgets-tag">
+                                                <c:forEach items="${cate}" var="c">
+
+                                                    <li>
+                                                        <a href="Shop?cate=${c.getId()}">
+
+                                                            ${c.getName()}  
+                                                        </a>
+
+                                                    </li>
+
+                                                </c:forEach>
                                                 <li>
                                                     <a href="#">Fashion</a>
                                                 </li>
-                                                <li>
-                                                    <a href="#">Sport</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Polo</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Summer</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Street</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">UnderWear</a>
-                                                </li>
+
                                             </ul>
                                         </div>
                                     </div>
@@ -247,13 +258,7 @@
                                                                                                     </div>
                                                                                                     <div class="rating-box-wrap">
                                                                                                         <div class="rating-box">
-                                                                                                            <ul>
-                                                                                                                <li><i class="fa fa-star"></i></li>
-                                                                                                                <li><i class="fa fa-star"></i></li>
-                                                                                                                <li><i class="fa fa-star"></i></li>
-                                                                                                                <li><i class="fa fa-star"></i></li>
-                                                                                                                <li><i class="fa fa-star"></i></li>
-                                                                                                            </ul>
+                                                                                                            InStock: ${p.getStock()}
                                                                                                         </div>
                                                                                                         <div class="review-status">
                                                                                                             <a href="#">( 1 Review )</a>
@@ -342,7 +347,7 @@
                                                                 <span class="new-price">$${p.getProPrice()}</span>
                                                             </div>
                                                             <div class="rating-box">
-                                                                InStock: ${product.getStock()}
+                                                                InStock: ${p.getStock()}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -402,10 +407,10 @@
                                     <nav aria-label="Page navigation example">
                                         <ul class="pagination justify-content-center">
                                             <c:forEach var="p" begin="1" end="${pages}" step="1">
-                                                <li class="page-item active"><a class="page-link" href="Shop?${search}${sort}&page=${p}">${p}</a></li>
+                                                <li class="page-item active"><a class="page-link" href="Shop?${search}${sort}${catecategorie}&page=${p}">${p}</a></li>
                                                 </c:forEach> 
                                             <li class="page-item">
-                                                <a class="page-link" href="Shop?${search}${sort}&page=${cp + 1}" aria-label="Next">&raquo;</a>
+                                                <a class="page-link" href="Shop?${search}${sort}${catecategorie}&page=${cp + 1}" aria-label="Next">&raquo;</a>
                                             </li>
                                         </ul>
                                     </nav>

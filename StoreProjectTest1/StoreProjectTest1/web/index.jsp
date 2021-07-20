@@ -205,1090 +205,176 @@
                                         Featured
                                     </a>
                                 </li>
-                                <li class="nav-item" role="presentation">
-                                    <a id="bestseller-tab" data-bs-toggle="tab" href="#bestseller" role="tab" aria-controls="bestseller" aria-selected="false">
-                                        Bestseller
-                                    </a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a id="latest-tab" data-bs-toggle="tab" href="#latest" role="tab" aria-controls="latest" aria-selected="false">
-                                        Latest
-                                    </a>
-                                </li>
+
                             </ul>
                             <!--Các tab content ở dưới sẽ dựa vào logic backend mà sort theo 3 yêu cầu: Featured, Bestseller, Latest-->
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="featured" role="tabpanel" aria-labelledby="featured-tab">
                                     <div class="product-item-wrap row">
                                         <!--product 1 dùng jstl để loop xuất sp ra màn hình, đây chỉ là demo-->
-                                        <div class="col-xl-3 col-md-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/2.jpg" alt="Product Images">
-                                                    </a>
-                                                    <!--small action per product-->
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                        <c:set var="from" value="Home"></c:set>
+                                        <c:forEach items="${fproducts}" var="p"> 
+                                            <div class="col-xl-3 col-md-4 col-sm-6">
+                                                <div class="product-item">
+                                                    <div class="product-img">
+                                                        <a href="infor?id=${p.getProID()}">
+                                                            <img class="primary-img" src="https://drive.google.com/uc?id=1lztoT0HNxJHoY3mZsYY3E_9lMmGqw7px" alt="Product Images">
+                                                            <img class="secondary-img" src="https://drive.google.com/uc?id=17_nb-VEf0-LkA3a4VnXVWnu-l14BdZdh" alt="Product Images">
+                                                        </a>
+                                                        <div class="product-add-action">
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="wishlist?id=${p.getProID()}&from=${from}&status=add" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                        <i class="pe-7s-like"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#${p.getProID()}">
+
+                                                                    <div class="modal quick-view-modal fade" id="${p.getProID()}"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="quickModal" aria-hidden="true">
+                                                                        <div class="modal-dialog modal-dialog-centered">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-tippy="Close" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="modal-wrap row">
+                                                                                        <div class="col-lg-6">
+                                                                                            <div class="modal-img">
+                                                                                                <div class="swiper-container modal-slider">
+                                                                                                    <div class="swiper-wrapper">
+                                                                                                        <div class="swiper-slide">
+                                                                                                            <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                                <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                        <div class="swiper-slide">
+                                                                                                            <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                                <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                        <div class="swiper-slide">
+                                                                                                            <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                                <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                        <div class="swiper-slide">
+                                                                                                            <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                                <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-lg-6 pt-5 pt-lg-0">
+                                                                                            <div class="single-product-content">
+                                                                                                <h2 class="title">${p.getProName()}</h2>
+                                                                                                <div class="price-box">
+                                                                                                    <span class="new-price">${p.getProPrice()}</span>
+                                                                                                </div>
+                                                                                                <div class="rating-box-wrap">
+                                                                                                    <div class="rating-box">
+                                                                                                        InStock: ${p.getStock()}
+                                                                                                    </div>
+                                                                                                    <div class="review-status">
+                                                                                                        <a href="#">( 1 Review )</a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="selector-wrap color-option">
+                                                                                                    <span class="selector-title border-bottom-0">Color</span>
+                                                                                                    <select class="nice-select wide border-bottom-0 rounded-0">
+                                                                                                        <option value="default">Black & White</option>
+                                                                                                        <option value="blue">Blue</option>
+                                                                                                        <option value="green">Green</option>
+                                                                                                        <option value="red">Red</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                                <div class="selector-wrap size-option">
+                                                                                                    <span class="selector-title">Size</span>
+                                                                                                    <select class="nice-select wide rounded-0">
+                                                                                                        <option value="medium">Medium Size & Poot</option>
+                                                                                                        <option value="large">Large Size With Poot</option>
+                                                                                                        <option value="small">Small Size With Poot</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                                <p class="short-desc">${p.getDes()}</p>
+                                                                                                <ul class="quantity-with-btn">
+
+                                                                                                    <li class="add-to-cart">
+                                                                                                        <a class="btn btn-custom-size lg-size btn-pronia-primary" href="Cart?num=1&add=on&id=${p.getProID()}&from=Shop">Add to
+                                                                                                            cart</a>
+
+                                                                                                    </li>
+                                                                                                    <li class="wishlist-btn-wrap">
+                                                                                                        <a class="custom-circle-btn" href="mywishlist?uid=${UI.getID()}">
+                                                                                                            <i class="pe-7s-like"></i>
+                                                                                                        </a>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                                <ul class="service-item-wrap pb-0">
+                                                                                                    <li class="service-item">
+                                                                                                        <div class="service-img">
+                                                                                                            <img src="${path}/assets/images/shipping/icon/car.png" alt="Shipping Icon">
+                                                                                                        </div>
+                                                                                                        <div class="service-content">
+                                                                                                            <span class="title">Free <br> Shipping</span>
+                                                                                                        </div>
+                                                                                                    </li>
+                                                                                                    <li class="service-item">
+                                                                                                        <div class="service-img">
+                                                                                                            <img src="${path}/assets/images/shipping/icon/card.png" alt="Shipping Icon">
+                                                                                                        </div>
+                                                                                                        <div class="service-content">
+                                                                                                            <span class="title">Safe <br> Payment</span>
+                                                                                                        </div>
+                                                                                                    </li>
+                                                                                                    <li class="service-item">
+                                                                                                        <div class="service-img">
+                                                                                                            <img src="${path}/assets/images/shipping/icon/service.png" alt="Shipping Icon">
+                                                                                                        </div>
+                                                                                                        <div class="service-content">
+                                                                                                            <span class="title">Safe <br> Payment</span>
+                                                                                                        </div>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                        <i class="pe-7s-look"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="add-to-cart">
+                                                                    <a href="Cart?num=1&add=on&id=${p.getProID()}&from=Shop" onclick="showSwal('success-message')" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                        <i class="pe-7s-cart"></i>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Bucu</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$23.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
+                                                    <div class="product-content">
+
+                                                        <a class="product-name" href="infor?id=${p.getProID()}">${p.getProName()}</a>
+                                                        <div class="price-box pb-1">
+                                                            <span class="new-price">$${p.getProPrice()}</span>
+                                                        </div>
+                                                        <div class="rating-box">
+                                                            InStock: ${p.getStock()}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </c:forEach>
                                         <!--product 2-->
-                                        <div class="col-xl-3 col-md-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/2.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/3.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Black Eyed Susan</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$25.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/3.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/4.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Bleeding Heart</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$30.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/4.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/5.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Bloody Cranesbill</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$45.00</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/5.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/6.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Butterfly Weed</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$50.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/6.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/7.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Common Yarrow</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$65.00</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/7.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/8.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Doublefile Viburnum</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$67.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/8.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/9.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Feather Reed Grass</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$20.00</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="bestseller" role="tabpanel" aria-labelledby="bestseller-tab">
-                                    <div class="product-item-wrap row">
-                                        <div class="col-xl-3 col-md-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-5-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-6-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Butterfly Weed</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$50.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-6-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-7-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Common Yarrow</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$65.00</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-7-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-8-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Doublefile Viburnum</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$67.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-8-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-1-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Feather Reed Grass</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$20.00</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-1-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-2-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">American Marigold</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$23.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-2-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-3-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Black Eyed Susan</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$25.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-3-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-4-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Bleeding Heart</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$30.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-4-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-5-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Bloody Cranesbill</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$45.00</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="latest" role="tabpanel" aria-labelledby="latest-tab">
-                                    <div class="product-item-wrap row">
-                                        <div class="col-xl-3 col-md-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-7-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-8-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Doublefile Viburnum</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$67.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-8-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-1-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Feather Reed Grass</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$20.00</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-1-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-2-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">American Marigold</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$23.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-2-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-3-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Black Eyed Susan</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$25.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-5-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-6-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Butterfly Weed</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$50.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-6-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-7-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Common Yarrow</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$65.00</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-3-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-4-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Bleeding Heart</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$30.45</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-4 col-sm-6 pt-4">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="Shop">
-                                                        <img class="primary-img" src="${path}/assets/images/product/medium-size/1-4-270x300.jpg" alt="Product Images">
-                                                        <img class="secondary-img" src="${path}/assets/images/product/medium-size/1-5-270x300.jpg" alt="Product Images">
-                                                    </a>
-                                                    <div class="product-add-action">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-like"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                                <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-look"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                    <i class="pe-7s-cart"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <a class="product-name" href="Shop">Bloody Cranesbill</a>
-                                                    <div class="price-box pb-1">
-                                                        <span class="new-price">$45.00</span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -1381,174 +467,162 @@
                             <div class="swiper-container product-slider">
                                 <div class="swiper-wrapper">
                                     <!--product 1, dùng jstl để hiển thị, đây chỉ demo 4 sp-->
-                                    <div class="swiper-slide product-item">
-                                        <div class="product-img">
-                                            <a href="Shop">
-                                                <img class="primary-img" src="${path}/assets/images/product/medium-size/1.jpg" alt="Product Images">
-                                                <img class="secondary-img" src="${path}/assets/images/product/medium-size/2.jpg" alt="Product Images">
-                                            </a>
-                                            <div class="product-add-action">
-                                                <ul>
-                                                    <li>
-                                                        <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                            <i class="pe-7s-like"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                        <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                            <i class="pe-7s-look"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                            <i class="pe-7s-cart"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                    <c:forEach items="${fproducts}" var="p">
+                                        <div class="swiper-slide product-item">
+                                            <div class="product-img">
+                                                <a href="infor?id=${p.getProID()}">
+                                                    <img class="primary-img" src="https://drive.google.com/uc?id=1lztoT0HNxJHoY3mZsYY3E_9lMmGqw7px" alt="Product Images">
+                                                    <img class="secondary-img" src="https://drive.google.com/uc?id=17_nb-VEf0-LkA3a4VnXVWnu-l14BdZdh" alt="Product Images">
+                                                </a>
+                                                <div class="product-add-action">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="wishlist?id=${p.getProID()}&from=${from}&status=add" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                <i class="pe-7s-like"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#${p.getProID()}">
+
+                                                            <div class="modal quick-view-modal fade" id="${p.getProID()}"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="quickModal" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-tippy="Close" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="modal-wrap row">
+                                                                                <div class="col-lg-6">
+                                                                                    <div class="modal-img">
+                                                                                        <div class="swiper-container modal-slider">
+                                                                                            <div class="swiper-wrapper">
+                                                                                                <div class="swiper-slide">
+                                                                                                    <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                        <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                                <div class="swiper-slide">
+                                                                                                    <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                        <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                                <div class="swiper-slide">
+                                                                                                    <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                        <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                                <div class="swiper-slide">
+                                                                                                    <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                        <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-6 pt-5 pt-lg-0">
+                                                                                    <div class="single-product-content">
+                                                                                        <h2 class="title">${p.getProName()}</h2>
+                                                                                        <div class="price-box">
+                                                                                            <span class="new-price">${p.getProPrice()}</span>
+                                                                                        </div>
+                                                                                        <div class="rating-box-wrap">
+                                                                                            <div class="rating-box">
+                                                                                                InStock: ${p.getStock()}
+                                                                                            </div>
+                                                                                            <div class="review-status">
+                                                                                                <a href="#">( 1 Review )</a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="selector-wrap color-option">
+                                                                                            <span class="selector-title border-bottom-0">Color</span>
+                                                                                            <select class="nice-select wide border-bottom-0 rounded-0">
+                                                                                                <option value="default">Black & White</option>
+                                                                                                <option value="blue">Blue</option>
+                                                                                                <option value="green">Green</option>
+                                                                                                <option value="red">Red</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="selector-wrap size-option">
+                                                                                            <span class="selector-title">Size</span>
+                                                                                            <select class="nice-select wide rounded-0">
+                                                                                                <option value="medium">Medium Size & Poot</option>
+                                                                                                <option value="large">Large Size With Poot</option>
+                                                                                                <option value="small">Small Size With Poot</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <p class="short-desc">${p.getDes()}</p>
+                                                                                        <ul class="quantity-with-btn">
+
+                                                                                            <li class="add-to-cart">
+                                                                                                <a class="btn btn-custom-size lg-size btn-pronia-primary" href="Cart?num=1&add=on&id=${p.getProID()}&from=Shop">Add to
+                                                                                                    cart</a>
+
+                                                                                            </li>
+                                                                                            <li class="wishlist-btn-wrap">
+                                                                                                <a class="custom-circle-btn" href="mywishlist?uid=${UI.getID()}">
+                                                                                                    <i class="pe-7s-like"></i>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                        <ul class="service-item-wrap pb-0">
+                                                                                            <li class="service-item">
+                                                                                                <div class="service-img">
+                                                                                                    <img src="${path}/assets/images/shipping/icon/car.png" alt="Shipping Icon">
+                                                                                                </div>
+                                                                                                <div class="service-content">
+                                                                                                    <span class="title">Free <br> Shipping</span>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                            <li class="service-item">
+                                                                                                <div class="service-img">
+                                                                                                    <img src="${path}/assets/images/shipping/icon/card.png" alt="Shipping Icon">
+                                                                                                </div>
+                                                                                                <div class="service-content">
+                                                                                                    <span class="title">Safe <br> Payment</span>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                            <li class="service-item">
+                                                                                                <div class="service-img">
+                                                                                                    <img src="${path}/assets/images/shipping/icon/service.png" alt="Shipping Icon">
+                                                                                                </div>
+                                                                                                <div class="service-content">
+                                                                                                    <span class="title">Safe <br> Payment</span>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                <i class="pe-7s-look"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="add-to-cart">
+                                                            <a href="Cart?num=1&add=on&id=${p.getProID()}&from=Shop" onclick="showSwal('success-message')" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                <i class="pe-7s-cart"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product-content">
+
+                                                <a class="product-name" href="infor?id=${p.getProID()}">${p.getProName()}</a>
+                                                <div class="price-box pb-1">
+                                                    <span class="new-price">$${p.getProPrice()}</span>
+                                                </div>
+                                                <div class="rating-box">
+                                                    InStock: ${p.getStock()}
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="product-content">
-                                            <a class="product-name" href="Shop">Bucu</a>
-                                            <div class="price-box pb-1">
-                                                <span class="new-price">$23.45</span>
-                                            </div>
-                                            <div class="rating-box">
-                                                <ul>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide product-item">
-                                        <div class="product-img">
-                                            <a href="Shop">
-                                                <img class="primary-img" src="${path}/assets/images/product/medium-size/2.jpg" alt="Product Images">
-                                                <img class="secondary-img" src="${path}/assets/images/product/medium-size/3.jpg" alt="Product Images">
-                                            </a>
-                                            <div class="product-add-action">
-                                                <ul>
-                                                    <li>
-                                                        <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                            <i class="pe-7s-like"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                        <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                            <i class="pe-7s-look"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                            <i class="pe-7s-cart"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <a class="product-name" href="Shop">Black Eyed Susan</a>
-                                            <div class="price-box pb-1">
-                                                <span class="new-price">$25.45</span>
-                                            </div>
-                                            <div class="rating-box">
-                                                <ul>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide product-item">
-                                        <div class="product-img">
-                                            <a href="Shop">
-                                                <img class="primary-img" src="${path}/assets/images/product/medium-size/3.jpg" alt="Product Images">
-                                                <img class="secondary-img" src="${path}/assets/images/product/medium-size/4.jpg" alt="Product Images">
-                                            </a>
-                                            <div class="product-add-action">
-                                                <ul>
-                                                    <li>
-                                                        <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                            <i class="pe-7s-like"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                        <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                            <i class="pe-7s-look"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                            <i class="pe-7s-cart"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <a class="product-name" href="Shop">Bleeding Heart</a>
-                                            <div class="price-box pb-1">
-                                                <span class="new-price">$30.45</span>
-                                            </div>
-                                            <div class="rating-box">
-                                                <ul>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide product-item">
-                                        <div class="product-img">
-                                            <a href="Shop">
-                                                <img class="primary-img" src="${path}/assets/images/product/medium-size/4.jpg" alt="Product Images">
-                                                <img class="secondary-img" src="${path}/assets/images/product/medium-size/5.jpg" alt="Product Images">
-                                            </a>
-                                            <div class="product-add-action">
-                                                <ul>
-                                                    <li>
-                                                        <a href="wishlist.jsp" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                            <i class="pe-7s-like"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                        <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                            <i class="pe-7s-look"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="cart.jsp" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                            <i class="pe-7s-cart"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <a class="product-name" href="Shop">Bloody Cranesbill</a>
-                                            <div class="price-box pb-1">
-                                                <span class="new-price">$45.00</span>
-                                            </div>
-                                            <div class="rating-box">
-                                                <ul>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
+
                                 </div>
                             </div>
                         </div>
@@ -1686,88 +760,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 pt-5 pt-lg-0">
-                                    <div class="single-product-content">
-                                        <h2 class="title">Bucu</h2>
-                                        <div class="price-box">
-                                            <span class="new-price">$23.45</span>
-                                        </div>
-                                        <div class="rating-box-wrap">
-                                            <div class="rating-box">
-                                                <ul>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="review-status">
-                                                <a href="#">( 1 Review )</a>
-                                            </div>
-                                        </div>
-                                        <div class="selector-wrap color-option">
-                                            <span class="selector-title border-bottom-0">Color</span>
-                                            <select class="nice-select wide border-bottom-0 rounded-0">
-                                                <option value="default">Black & White</option>
-                                                <option value="blue">Blue</option>
-                                                <option value="green">Green</option>
-                                                <option value="red">Red</option>
-                                            </select>
-                                        </div>
-                                        <div class="selector-wrap size-option">
-                                            <span class="selector-title">Size</span>
-                                            <select class="nice-select wide rounded-0">
-                                                <option value="medium">Medium Size & Poot</option>
-                                                <option value="large">Large Size With Poot</option>
-                                                <option value="small">Small Size With Poot</option>
-                                            </select>
-                                        </div>
-                                        <p class="short-desc">HIHI</p>
-                                        <ul class="quantity-with-btn">
-                                            <li class="quantity">
-                                                <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box" value="1" type="text">
-                                                </div>
-                                            </li>
-                                            <li class="add-to-cart">
-                                                <a class="btn btn-custom-size lg-size btn-pronia-primary" href="cart.jsp">Add to
-                                                    cart</a>
-                                            </li>
-                                            <li class="wishlist-btn-wrap">
-                                                <a class="custom-circle-btn" href="wishlist.jsp">
-                                                    <i class="pe-7s-like"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="service-item-wrap pb-0">
-                                            <li class="service-item">
-                                                <div class="service-img">
-                                                    <img src="${path}/assets/images/shipping/icon/car.png" alt="Shipping Icon">
-                                                </div>
-                                                <div class="service-content">
-                                                    <span class="title">Free <br> Shipping</span>
-                                                </div>
-                                            </li>
-                                            <li class="service-item">
-                                                <div class="service-img">
-                                                    <img src="${path}/assets/images/shipping/icon/card.png" alt="Shipping Icon">
-                                                </div>
-                                                <div class="service-content">
-                                                    <span class="title">Safe <br> Payment</span>
-                                                </div>
-                                            </li>
-                                            <li class="service-item">
-                                                <div class="service-img">
-                                                    <img src="${path}/assets/images/shipping/icon/service.png" alt="Shipping Icon">
-                                                </div>
-                                                <div class="service-content">
-                                                    <span class="title">Safe <br> Payment</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>

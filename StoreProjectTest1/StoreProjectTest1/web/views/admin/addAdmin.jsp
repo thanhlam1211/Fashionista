@@ -81,7 +81,7 @@
                                                     <input type="text" name="password" class="form-control " required >
                                                 </div>
                                             </div>
-                                             <div class="col-md-6">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Confirm Your Password</label>
                                                     <input type="text" name="cpassword" class="form-control " required >
@@ -89,8 +89,8 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                             
-                                             
+
+
 
                                         </div>
 
@@ -109,7 +109,7 @@
         </div>
 
         <!--   Core JS Files   -->
-            <script src="${path}/assets/js/core/jquery.min.js"></script>
+        <script src="${path}/assets/js/core/jquery.min.js"></script>
         <script src="${path}/assets/js/core/popper.min.js"></script>
         <script src="${path}/assets/js/core/bootstrap-material-design.min.js"></script>
         <script src="${path}/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>

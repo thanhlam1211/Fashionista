@@ -27,9 +27,35 @@ public class SendingMailController {
             ;
 
     // Those are the values that have the email information
-     public void Send(String ToMail,int id){
+     public void Send(String ToMail,int id,String name){
          String link = "http://localhost:8080/StoreProjectTest1/resetpassword.jsp";
-         String m_text = "click this link to reset your password!: " + "<a href=\""+ link +"?id="+id+"\">Link</a>";
+         String m_text = "<table style=\"width: 100% !important\" >\n" +
+"            <tbody>\n" +
+"                <tr>\n" +
+"                    <td>\n" +
+"                        <div>\n" +
+"                            <h2>Hello, "+name+"</h2>\n" +
+"                        </div>\n" +
+"                        <div>\n" +
+"                            You recently took steps to reset the password for your Hanger account. Click on the link below to reset your password.\n" +
+"                        </div>\n" +
+"                        <br>\n" +
+"                        <a href=\""+link+"id="+id+"\">Reset Password</a>\n" +
+"                        <br>\n" +
+"\n" +
+"                        <div>\n" +
+"                            This link will expire in 1 days after this email was sent.\n" +
+"                        </div>\n" +
+"\n" +
+"                        <br>\n" +
+"                        <div>\n" +
+"                            Sincerely,\n" +
+"                            <h4>The Hanger Team</h4>\n" +
+"                        </div>\n" +
+"                    </td>\n" +
+"                </tr>\n" +
+"            </tbody>\n" +
+"        </table>";
          send( d_email, d_host, d_port, ToMail, m_subject, m_text);
      }
     public void send(String from, String host, String port, String to, String subject, String text) {
@@ -55,7 +81,7 @@ public class SendingMailController {
             Message msg = new MimeMessage(session);
 
             msg.setContent(text,  "text/html");
-            //msg.setSubject(subject);
+            msg.setSubject("Reset Password");
             msg.setFrom(new InternetAddress(from));
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
             Transport.send(msg);

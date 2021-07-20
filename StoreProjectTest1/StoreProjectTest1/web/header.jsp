@@ -86,7 +86,7 @@
                         <nav class="main-nav">
                             <ul>
                                 <li class="drop-holder">
-                                    <a href="index.jsp">Home</a>                             
+                                    <a href="Home">Home</a>                             
                                 </li>
                                 <li class="megamenu-holder">
                                     <a href="Shop">Shop</a>

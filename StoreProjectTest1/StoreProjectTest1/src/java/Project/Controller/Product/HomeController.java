@@ -3,22 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Project.Controller.User;
+package Project.Controller.Product;
 
-import Project.DAO.UserDAO;
-import Project.Sample.User;
+import Project.DAO.ProductDAO;
+import Project.Sample.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author ditho
+ * @author TrungHuy
  */
-public class ForgottenController extends HttpServlet {
+public class HomeController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,24 +35,32 @@ public class ForgottenController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        //String reAcc = request.getParameter("account");
-        String email = request.getParameter("email");
-
-        UserDAO dao = new UserDAO();
-        SendingMailController send = new SendingMailController();
-
-        //if the email is existed in the DB then system will send a mail getting into update new password page of sending a CAPCHA
-        for (User user : dao.getUsers("")) {
-            if (user.getEmail().equals(email)) {
-                send.Send(email, user.getID(),user.getFullname());
-                break;
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            response.setIntHeader("Refresh", 60 * 60);
+            ProductDAO dao = new ProductDAO();
+            HttpSession session = request.getSession();
+            List<Product> ls = dao.getProducts("");
+            //fls = featured list
+            List<Product> fls = new ArrayList<>();
+            while(true){
+                Random r = new Random();
+                int index = r.nextInt(24);
+                if (ls.get(index).getStock() >= 50) {
+                    fls.add(ls.get(index));
+                    if(fls.size() == 8){
+                    break;
+                }
+                }
+                 
             }
-        }
+            session.setAttribute("fproducts", fls);
+            session.setAttribute("products", ls);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        } catch (NumberFormatException e) {
 
-        request.setAttribute("message", "Check Your Mail!");
-        //depend on what method we want to use
-        request.getRequestDispatcher("alert.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

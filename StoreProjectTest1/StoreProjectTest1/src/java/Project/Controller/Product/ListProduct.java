@@ -9,6 +9,7 @@ import Project.DAO.ProductDAO;
 import Project.Sample.Cate;
 import Project.Sample.Product;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -68,43 +69,75 @@ public class ListProduct extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-             response.setIntHeader("Refresh", 60*60);
+            response.setIntHeader("Refresh", 60 * 60);
             ProductDAO dao = new ProductDAO();
             HttpSession session = request.getSession();
+
             String search = request.getParameter("search");
             String sort = request.getParameter("sort");
             //cc = current condition
             String cc = new String();
             //check if search parameter is null (then set empty)or not inorder to reuse this condition 
             // for other pages
+
             if (search != null) {
-                session.setAttribute("keyword", search);
-                session.setAttribute("search", "&search=" + search);
-            } else {
+                request.setAttribute("keyword", search);
+                request.setAttribute("search", "&search=" + search);
+            }else {
                 //reusing for other page if
                 session.setAttribute("search", "");
             }
             //check if sort parameter is null (then set empty)or not inorder to reuse this condition 
             // for other pages
             if (sort != null) {
-                session.setAttribute("sort", "&sort=" + sort);
+                request.setAttribute("sort", "&sort=" + sort);
             } else {
                 session.setAttribute("sort", "");
             }
 
             cc = getKeyword(search) + getSortType(sort);
+            //getring prodcut by priority condition
             List<Product> ls = dao.getProducts(cc);
-            session.setAttribute("products", ls);
+            int size = 0;
+            //gettring categorie or subcategorie for product
+            String cate = request.getParameter("cate");
+            String subcate = request.getParameter("subcate");
+            //gettring new list with cate and subcate as identify condition
+            List<Product> ols = new ArrayList<>();
+            if (search == null) {
+                for (Product l : ls) {
+                    if (cate != null) {
+
+                        if (l.getProCategorieID().equals(cate)) {
+                            ols.add(l);
+                        }
+                    }
+                    if (subcate != null) {
+
+                        if (l.getProSubCategorieID().equals(subcate)) {
+                            ols.add(l);
+                        }
+                    }
+                }
+            }
+            //setattribute with 2 case
+            if (ols.isEmpty()) {
+                session.setAttribute("products", ls);
+                size = ls.size();
+            } else {
+                session.setAttribute("products", ols);
+                size = ols.size();
+            }
+            System.out.println(size);
             session.setAttribute("total", dao.getProducts("").size());
             int page, begin = 0, end = 8;
-            int size = ls.size();
 
             if (size % 9 != 0) {
                 page = size / 9 + 1;
             } else {
                 page = size / 9;
             }
-            
+
             //cpage = current page
             String cpage = request.getParameter("page");
             if (cpage != null) {

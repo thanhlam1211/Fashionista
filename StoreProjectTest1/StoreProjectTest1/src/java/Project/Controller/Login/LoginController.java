@@ -90,7 +90,7 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("logined", check);
                     session.setAttribute("UI", infor);
 
-                    if (infor.getRole().equals("customer")) {
+                    if (infor.getRole().equalsIgnoreCase("customer")) {
                         response.sendRedirect("Shop");
                     } else {
                         response.sendRedirect("Administrator");

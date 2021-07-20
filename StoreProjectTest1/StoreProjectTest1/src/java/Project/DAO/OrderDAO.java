@@ -51,7 +51,7 @@ public class OrderDAO {
                 o.setReciverEmail(rs.getString("OrderEmail"));
                 o.setStatus(rs.getString("OrderStatus"));
                 o.setCode(rs.getString("discountCode"));
-                o.setTotalcash(rs.getFloat("Total"));
+                o.setTotalcash(rs.getFloat("TotalCash"));
                 ls.add(o);
             }
         } catch (SQLException ex) {

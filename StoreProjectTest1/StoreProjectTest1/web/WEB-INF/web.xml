@@ -92,6 +92,10 @@
         <servlet-name>getDetailController</servlet-name>
         <servlet-class>Project.Controller.Admin.getDetailController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomeController</servlet-name>
+        <servlet-class>Project.Controller.Product.HomeController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -168,6 +172,10 @@
     <servlet-mapping>
         <servlet-name>getDetailController</servlet-name>
         <url-pattern>/Detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/Home</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

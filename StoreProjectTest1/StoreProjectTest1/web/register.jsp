@@ -48,7 +48,7 @@
                         <div class="col-lg-12 text-center">
                             <img src="${path}/assets/images/logo/logo.png" alt="Header Logo">
                             <h2 style="margin-top: 2%;padding-bottom: -2%">Create a Hanger account</h2>
-                            <a href="shop.jsp">Back To Shop</a>
+                            <a href="Shop">Back To Shop</a>
                         </div>
                     </div>
                 </div>
@@ -63,17 +63,17 @@
                                         <h3>${message}</h3>
                                         <div class="row">
                                             <div class="col-md-12">
-<<<<<<< HEAD
+
                                                 <label>First Name</label>
                                                 <input required type="text" placeholder="Example: Bùi Thanh Lâm" name="firstname">
                                             </div>
                                             <div class="col-md-12">
                                                 <label>Last Name</label>
                                                 <input required type="text" placeholder="Example: Bùi Thanh Lâm" name="lastname">
-=======
+
                                                 <label>Your Full Name</label>
                                                 <input required type="text" placeholder="Example: Sát Thủ Đa Tình" name="fullname">
->>>>>>> 52f7bf4bd66b5a0bc41d2a61f68b0f80fd7122a8
+
                                             </div>
                                             <div class="col-md-12">
                                                 <label>User Name</label>

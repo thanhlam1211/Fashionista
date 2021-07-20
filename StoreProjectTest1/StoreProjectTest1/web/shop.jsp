@@ -229,26 +229,15 @@
                                                                                                 <div class="modal-img">
                                                                                                     <div class="swiper-container modal-slider">
                                                                                                         <div class="swiper-wrapper">
-                                                                                                            <div class="swiper-slide">
-                                                                                                                <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
-                                                                                                                </a>
-                                                                                                            </div>
-                                                                                                            <div class="swiper-slide">
-                                                                                                                <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
-                                                                                                                </a>
-                                                                                                            </div>
-                                                                                                            <div class="swiper-slide">
-                                                                                                                <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
-                                                                                                                </a>
-                                                                                                            </div>
-                                                                                                            <div class="swiper-slide">
-                                                                                                                <a href="infor?id=${p.getProID()}" class="single-img">
-                                                                                                                    <img class="img-full" src="assets/images/product/medium-size/" alt="Product Image">
-                                                                                                                </a>
-                                                                                                            </div>
+                                                                                                            <c:forEach items="${p.getImage()}" var="i"> 
+                                                                                                                <div class="swiper-slide">
+                                                                                                                    <a href="infor?id=${p.getProID()}" class="single-img">
+                                                                                                                        <img class="img-full" src="${i.getUrl()}" alt="Product Image">
+                                                                                                                    </a>
+                                                                                                                </div>
+                                                                                                            </c:forEach>
+
+
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>

@@ -54,6 +54,8 @@ public class SingleProduct extends HttpServlet {
                         Random r = new Random();
                         rp1.add(rp.get(r.nextInt(rp.size())));
                     }
+                    
+                    request.setAttribute("cate", dao.getCate());
                     request.setAttribute("rp", rp1);
                     request.getRequestDispatcher("single-product.jsp").forward(request, response);
                 } else {

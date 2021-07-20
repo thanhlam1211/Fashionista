@@ -350,7 +350,7 @@ insert into [Image] values('A14','IMG_028','https://drive.google.com/uc?id=12633
 insert into [Image] values('A15','IMG_029','https://drive.google.com/uc?id=1RJzz5ZYDM4dcqOIuvf8pJ-hVbVDTXvz_','1')
 insert into [Image] values('A15','IMG_030','https://drive.google.com/uc?id=17dhPK9uP-me6xSLD7C7zUhvUeBmmsB6F','2')
 
-insert into [Image] values('A16','IMG_031','https://drive.google.com/uc?id=_nb-VEf0-LkA3a4VnXVWnu-l14BdZdh','1')
+insert into [Image] values('A16','IMG_031','https://drive.google.com/uc?id=17_nb-VEf0-LkA3a4VnXVWnu-l14BdZdh','1')
 insert into [Image] values('A16','IMG_032','https://drive.google.com/uc?id=1lztoT0HNxJHoY3mZsYY3E_9lMmGqw7px','2')
 
 insert into [Image] values('A17','IMG_033','https://drive.google.com/uc?id=1g0qDKw4FzKuYdTVzU5EUbnveUsD6SQcW','1')

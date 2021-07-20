@@ -131,7 +131,7 @@
                                                         </td>
                                                         <td class="product-thumbnail">
                                                             <a href="infor?id=${c.getKey().getProID()}">
-                                                                <img src="${path}/assets/images/product/medium-size/" alt="Cart Thumbnail">
+                                                                <img src="${c.getKey().getImage().get(i).getUrl()}" alt="Cart Thumbnail">
                                                             </a>
                                                         </td>
                                                         <td class="product-name"><a href="infor?id=${c.getKey().getProID()}">${c.getKey().getProName()}</a></td>

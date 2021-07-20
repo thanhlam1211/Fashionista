@@ -118,7 +118,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-6">
 
-                        <a href="index.jsp" class="header-logo">
+                        <a href="Home" class="header-logo">
                             <img src="${path}/assets/images/logo/logo.png" alt="Header Logo">
                         </a>
 
@@ -296,8 +296,8 @@
                                    data-tippy-arrow="true" data-tippy-theme="sharpborder">
                                 </i>
                             </a>
-                            <a href="single-product-variable.jsp" class="product-item_img">
-                                <img class="img-full" src="${path}/assets/images/product/small-size/2-1-70x78.png" alt="Product Image">
+                            <a href="infor?id=${c.getKey().getProID()}" class="product-item_img">                   
+                                <img class="img-full" src="${c.getKey().getImage().get(i).getUrl()}" alt="Product Image">
                             </a>
                             <div class="product-item_content">                                  
                                 <a class="product-item_title" href="single-product-variable.jsp">${c.getKey().getProName()}</a>

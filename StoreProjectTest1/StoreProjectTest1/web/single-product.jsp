@@ -177,23 +177,39 @@
                                     <div class="product-category">
                                         <span class="title">Categories :</span>
                                         <ul>
-                                            <li>
-                                                <a href="#">${product.getProCategorieID()},</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">${product.getProSubCategorieID()}</a>
-                                            </li>
+                                            <c:forEach items="${cate}" var="c"> 
+                                                <c:if test="${c.getId() == product.getProCategorieID()}">
+                                                    <li>
+                                                        <a href="Shop?cate=${product.getProCategorieID()}">${c.getName()},</a>
+                                                    </li>
+                                                </c:if>
+                                                <c:forEach items="${c.getSubcate()}" var="s">
+                                                    <c:if test="${s.getId() == product.getProSubCategorieID()}">
+                                                        <li>
+                                                            <a href="Shop?cate=${product.getProSubCategorieID()}">${s.getName()}</a>
+                                                        </li>
+                                                    </c:if>
+                                                </c:forEach>
+                                            </c:forEach>
                                         </ul>
                                     </div>
                                     <div class="product-category product-tags">
                                         <span class="title">Tags :</span>
                                         <ul>
-                                            <li>
-                                                <a href="#">${product.getProCategorieID()},</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">${product.getProSubCategorieID()}</a>
-                                            </li>
+                                            <c:forEach items="${cate}" var="c"> 
+                                                <c:if test="${c.getId() == product.getProCategorieID()}">
+                                                    <li>
+                                                        <a href="Shop?cate=${product.getProCategorieID()}">${c.getName()},</a>
+                                                    </li>
+                                                </c:if>
+                                                <c:forEach items="${c.getSubcate()}" var="s">
+                                                    <c:if test="${s.getId() == product.getProSubCategorieID()}">
+                                                        <li>
+                                                            <a href="Shop?cate=${product.getProSubCategorieID()}">${s.getName()}</a>
+                                                        </li>
+                                                    </c:if>
+                                                </c:forEach>
+                                            </c:forEach>
                                         </ul>
                                     </div>
                                 </div>
@@ -226,9 +242,9 @@
                                     <div class="tab-pane fade" id="information" role="tabpanel" aria-labelledby="information-tab">
                                         <div class="product-information-body">
                                             <h4 class="title">Shipping</h4>
-                                            <p class="short-desc mb-4">Các em hàng ngon nóng hổi vừa chơi vừa thổi.</p>
+                                            <p class="short-desc mb-4">Fast and Quality</p>
                                             <h4 class="title">About return request</h4>
-                                            <p class="short-desc mb-4">Contact us if you want play some or cuckhold.
+                                            <p class="short-desc mb-4">Contact us if you have issue about our product.
                                             </p>
                                             <h4 class="title">Guarantee</h4>
                                             <p class="short-desc mb-0">Feed back us after every game.

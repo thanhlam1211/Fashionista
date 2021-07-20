@@ -91,7 +91,7 @@ public class OrderDAO {
                 od.setPrice(rs.getFloat("Price"));
                 od.setDiscount(rs.getFloat("Discount"));
                 od.setQuantity(rs.getInt("Quantity"));
-                od.setTotal(rs.getFloat("Total"));
+                od.setTotal(rs.getFloat("TotalCash"));
                 od.setType(rs.getString("TypeOfPayment"));
                 od.setDate(rs.getString("DetailDate"));
 

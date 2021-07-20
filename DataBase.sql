@@ -50,7 +50,7 @@ create table [Image](
 ProID varchar(100) foreign key references Product(ProID),
 ImageID varchar(100) primary key,
 [Image] nvarchar(max),
-Size varchar(10),
+position varchar(10),
 )
 create table DiscountCode(
 discountCode varchar(50) primary key,
@@ -99,6 +99,7 @@ create table Comment(--Bảng này để chứa feedback của người mua hàn
 CommentID varchar(50) primary key,
 UserID int foreign key references [User](UserID),--Thông tin của người mua hàng
 ProID varchar(100) foreign key references Product(ProID),--Thông tin của món hàng
+[To] int foreign key references [User](UserID),
 Comment ntext,
 CommentDate datetime,
 )

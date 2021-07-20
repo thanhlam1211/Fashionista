@@ -68,13 +68,11 @@
                                         <div class="swiper-container single-product-slider">
                                             <div class="swiper-wrapper">
                                             <c:forEach items="#{product.getImage()}" var="i"> 
-                                                <c:if test="${i.getSize() == 'M'}"> 
-                                                    <div class="swiper-slide">
-                                                        <a href="assets/images/product/${i.getUrl()}" class="single-img gallery-popup">
-                                                            <img class="img-full" src="assets/images/product/${i.getUrl()}" alt="Product Image">
-                                                        </a>
-                                                    </div>
-                                                </c:if>
+                                                <div class="swiper-slide">
+                                                    <a href="${i.getUrl()}" class="single-img gallery-popup">
+                                                        <img class="img-full" src="${i.getUrl()}" alt="Product Image">
+                                                    </a>
+                                                </div>
                                             </c:forEach>
 
                                         </div>
@@ -83,11 +81,9 @@
                                         <div class="swiper-container single-product-thumbs">
                                             <div class="swiper-wrapper">
                                                 <c:forEach items="${product.getImage()}" var="i"> 
-                                                    <c:if test="${i.getSize() == 'L'}"> 
-                                                        <a href="#" class="swiper-slide">
-                                                            <img class="img-full" src="assets/images/product/${i.getUrl()}" alt="Product Thumnail">
-                                                        </a>
-                                                    </c:if>
+                                                    <a href="#" class="swiper-slide">
+                                                        <img class="img-full" src="${i.getUrl()}" alt="Product Thumnail">
+                                                    </a>
                                                 </c:forEach>
 
                                             </div>
@@ -339,9 +335,15 @@
                                         <c:forEach items="${rp}" var="p">
                                             <div class="swiper-slide product-item">
                                                 <div class="product-img">
-                                                    <a href="infor?id=${p.getProID()}">
-                                                        <img class="primary-img" src="https://drive.google.com/uc?id=1lztoT0HNxJHoY3mZsYY3E_9lMmGqw7px" alt="Product Images">
-                                                        <img class="secondary-img" src="https://drive.google.com/uc?id=17_nb-VEf0-LkA3a4VnXVWnu-l14BdZdh" alt="Product Images">
+                                                    <a href="infor?id=${p.getProID()}"> 
+                                                        <c:forEach items="${p.getImage()}" var="i"> 
+                                                            <c:if test="${i.getIndex() == '1'}"> 
+                                                                <img class="primary-img" src="${i.getUrl()}" alt="Product Images">
+                                                            </c:if>
+                                                            <c:if test="${i.getIndex() == '2'}"> 
+                                                                <img class="secondary-img" src="${i.getUrl()}"  alt="Product Images">
+                                                            </c:if>
+                                                        </c:forEach>
                                                     </a>
                                                     <div class="product-add-action">
                                                         <ul>

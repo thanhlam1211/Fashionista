@@ -31,7 +31,7 @@
                             <a href="tel://+84 963532296">+84 963532296</a>
                         </div>
 
-                        <a href="index.jsp" class="header-logo">
+                        <a href="Home" class="header-logo">
                             <img src="${path}/assets/images/logo/logo.png" alt="Header Logo">
                         </a>
 
@@ -128,7 +128,7 @@
                             <nav class="main-nav">
                                 <ul>
                                     <li class="drop-holder">
-                                        <a href="index.jsp">Home</a>  
+                                        <a href="Home">Home</a>  
                                     </li>
                                     <li class="megamenu-holder">
                                         <a href="Shop">Shop</a>

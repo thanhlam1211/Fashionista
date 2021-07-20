@@ -58,7 +58,7 @@
                     <div class="swiper-container main-slider-2 swiper-arrow with-bg_white">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide animation-style-02">
-                                <div class="slide-inner style-2" data-bg-image="${path}/assets/images/slider/bg/2-1.jpg">
+                                <div class="slide-inner style-2" data-bg-image="${path}/assets/images/slider/bg/1-1.jpg">
                                 <div class="slide-content text-black">
                                     <h2 class="title">Street<br>Cloths</h2>
                                     <p class="short-desc">Hanger, With 100% Passion, Quality and Services.</p>
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide animation-style-02">
-                            <div class="slide-inner style-2" data-bg-image="${path}/assets/images/slider/bg/2-1.jpg">
+                            <div class="slide-inner style-2" data-bg-image="${path}/assets/images/slider/bg/1-1.jpg">
                                 <div class="slide-content text-black">
                                     <h2 class="title">Polo <br> T-Shirt</h2>
                                     <p class="short-desc">Hanger, With 100% Passion, Quality and Services.</p>
@@ -98,7 +98,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide animation-style-02">
-                            <div class="slide-inner style-2" data-bg-image="${path}/assets/images/slider/bg/2-1.jpg">
+                            <div class="slide-inner style-2" data-bg-image="${path}/assets/images/slider/bg/1-1.jpg">
                                 <div class="slide-content text-black">
                                     <h2 class="title">Combo <br> Cloth set</h2>
                                     <p class="short-desc">Hanger, With 100% Passion, Quality and Services.</p>

@@ -18,9 +18,12 @@ import java.util.logging.Logger;
  * @author ditho
  */
 public class DBConnection {
-     public static Connection open() throws SQLException{
+
+    public static Connection open() throws SQLException {
+        //String host = "LENOVO-LEGION-Y";
         String host = "TRUNGHUY\\SQLEXPRESS";
         String user = "sa";
+      //String password = "1211";
         String password = "1234567";
         String database = "Shopping";
         try {
@@ -31,10 +34,10 @@ public class DBConnection {
         }
         return null;
     }
-    
-    public static void close(Connection con, Statement st, ResultSet rs){
+
+    public static void close(Connection con, Statement st, ResultSet rs) {
         try {
-            if(rs != null){
+            if (rs != null) {
                 rs.close();
             }
             if (st != null) {
@@ -46,6 +49,6 @@ public class DBConnection {
         } catch (SQLException ex) {
             Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 }

@@ -25,11 +25,6 @@
     <body class="">
         <div class="wrapper ">
             <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-                <!--
-                  Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-          
-                  Tip 2: you can also add an image using data-image tag
-                -->
                 <div class="logo"><a href="#" class="simple-text logo-normal">
                         HANGER CORPORATION
                     </a></div>
@@ -71,7 +66,10 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-end">
                             <ul class="navbar-nav">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 52f7bf4bd66b5a0bc41d2a61f68b0f80fd7122a8
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">person</i>
@@ -278,41 +276,25 @@
             </div>
         </div>
         <!--   Core JS Files   -->
-        <script src="${path}/assets/js/core/jquery.min.js"></script>
+           <script src="${path}/assets/js/core/jquery.min.js"></script>
         <script src="${path}/assets/js/core/popper.min.js"></script>
         <script src="${path}/assets/js/core/bootstrap-material-design.min.js"></script>
         <script src="${path}/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-        <!-- Plugin for the momentJs  -->
         <script src="${path}/assets/js/plugins/moment.min.js"></script>
-        <!--  Plugin for Sweet Alert -->
         <script src="${path}/assets/js/plugins/sweetalert2.js"></script>
-        <!-- Forms Validations Plugin -->
         <script src="${path}/assets/js/plugins/jquery.validate.min.js"></script>
-        <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
         <script src="${path}/assets/js/plugins/jquery.bootstrap-wizard.js"></script>
-        <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
         <script src="${path}/assets/js/plugins/bootstrap-selectpicker.js"></script>
-        <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
         <script src="${path}/assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-        <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
         <script src="${path}/assets/js/plugins/jquery.dataTables.min.js"></script>
-        <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
         <script src="${path}/assets/js/plugins/bootstrap-tagsinput.js"></script>
-        <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
         <script src="${path}/assets/js/plugins/jasny-bootstrap.min.js"></script>
-        <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
         <script src="${path}/assets/js/plugins/fullcalendar.min.js"></script>
-        <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-        <script src="../assets/js/plugins/jquery-jvectormap.js"></script>
-        <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+        <script src="${path}/assets/js/plugins/jquery-jvectormap.js"></script>
         <script src="${path}/assets/js/plugins/nouislider.min.js"></script>
-        <!-- Library for adding dinamically elements -->
         <script src="${path}/assets/js/plugins/arrive.min.js"></script>
-        <!--  Google Maps Plugin    -->
         <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-        <!-- Chartist JS -->
-        <script src="../assets/js/plugins/chartist.min.js"></script>
-        <!--  Notifications Plugin    -->
+        <script src="${path}/assets/js/plugins/chartist.min.js"></script>
         <script src="${path}/assets/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="${path}/assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>

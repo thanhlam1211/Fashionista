@@ -63,20 +63,25 @@
                                         <h3>${message}</h3>
                                         <div class="row">
                                             <div class="col-md-12">
+<<<<<<< HEAD
                                                 <label>First Name</label>
                                                 <input required type="text" placeholder="Example: Bùi Thanh Lâm" name="firstname">
                                             </div>
                                             <div class="col-md-12">
                                                 <label>Last Name</label>
                                                 <input required type="text" placeholder="Example: Bùi Thanh Lâm" name="lastname">
+=======
+                                                <label>Your Full Name</label>
+                                                <input required type="text" placeholder="Example: Sát Thủ Đa Tình" name="fullname">
+>>>>>>> 52f7bf4bd66b5a0bc41d2a61f68b0f80fd7122a8
                                             </div>
                                             <div class="col-md-12">
                                                 <label>User Name</label>
-                                                <input required type="text" placeholder="Example: Lâm_Vjp_Pr0" name="useraccount">
+                                                <input required type="text" placeholder="Example: SatThuDaTinh" name="useraccount">
                                             </div>
                                             <div class="col-md-12">
                                                 <label>Email Address*</label>
-                                                <input required type="email" placeholder="Example: bexuanmailto@gmail.com" name="email">
+                                                <input required type="email" placeholder="Example: satthudatinh@gmail.com" name="email">
                                             </div>
                                             <div class="col-md-12">
                                                 <label>Phone Number*</label>

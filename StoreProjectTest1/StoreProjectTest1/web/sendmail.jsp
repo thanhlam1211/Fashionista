@@ -80,7 +80,7 @@
                                             <h3 style="text-align: center">${message}</h3>
                                             <div class="col-lg-12">
 
-                                                <label>Your Email*</label>
+                                                <label>Enter your Email to receive the reset code*</label>
                                                 <input required type="email" name="email">
                                             </div>
                                             <div style="text-align: center" class="col-md-12 mt-3 ">                                               

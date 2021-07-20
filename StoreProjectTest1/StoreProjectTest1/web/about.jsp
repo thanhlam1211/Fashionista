@@ -142,8 +142,8 @@
                     </div>
                     <div class="counter-area">
                         <div class="container">
-                            <h2 class="counter-title">  Video <br> for
-                                <span>Grand Escape</span> wibuneverdie.
+                            <h2 class="counter-title">  Our <br> team's
+                                <span>Achievement</span> over 2 years.
                             </h2>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 col-6">

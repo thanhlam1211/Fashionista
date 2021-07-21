@@ -49,10 +49,11 @@ public class LoginController extends HttpServlet {
             if (cookies != null) {
                 for (Cookie cooky : cookies) {
                     if (cooky.getName().equals("password")) {
+                        System.out.println(pass);
                         //if password input equal to decode "password cookie" then beak
-                        if (decode.Dec(cooky.getValue()).equals(pass)) {
-                            break;
-                        }
+                       pass = decode.Dec(pass);
+                       break;
+                        
                     }
 
                 }

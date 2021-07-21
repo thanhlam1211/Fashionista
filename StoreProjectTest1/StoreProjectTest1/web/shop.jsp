@@ -177,7 +177,7 @@
                                                     Sort By Order
                                                 </a>
                                                 <ul style="text-align: center;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item" href="Shop?${search}&sort=3">Sort By Popularity</a></li>
+                                                    <li><a class="dropdown-item" href="Shop?${search}&sort=3">Sort By Default</a></li>
                                                     <li><a class="dropdown-item" href="Shop?${search}&sort=4">Sort by Latest</a></li>
                                                     <li><a class="dropdown-item" href="Shop?${search}&sort=5">Sort by High Price</a></li>
                                                     <li><a class="dropdown-item" href="Shop?${search}&sort=6">Sort by Low Price</a></li>

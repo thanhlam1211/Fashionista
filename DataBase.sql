@@ -69,37 +69,36 @@ UserDate datetime,
 )
 
 create table [Order](--Bảng về hóa đơn của khách hàng (chuẩn bị thanh toán)
-OrderID varchar(50) not null primary key,--Để tìm hóa đơn nhanh
+OrderID varchar(500) not null primary key,--Để tìm hóa đơn nhanh
 UserID int foreign key references [User](UserID),--Kiểm tra hóa đơn thuộc về khách hàng nào
 OrderDate datetime,
 CityID varchar(50),
 DisID varchar(50),
 SubDisID varchar(50),
 Reciver nvarchar(100),
+OrderEmail nvarchar(200),
 ShipAddress varchar(100),
 ShipPhone varchar(20),
-OrderEmail nvarchar(200),
 OrderStatus nvarchar(50),
 discountCode varchar(50) foreign key references DiscountCode(discountCode),
-Total float--Thông tin về tổng giá tiền mỗi đơn hàng
+TotalCash float,
 )
 
 create table [Order_detail](--Bảng này chứa thông tin của hóa đơn và thông tin món hàng thanh toán
-OrderID varchar(50) foreign key references [Order](OrderID),--Thông tin về tờ hóa đơn 
-ProID varchar(100) foreign key references Product(ProID),
-Price float,
-Discount float,
-Quantity int check(Quantity > 0),
-TotalCash float,
+OrderID varchar(500) foreign key references [Order](OrderID),--Thông tin về tờ hóa đơn
+ProID varchar(100) foreign key references Product(ProID),--Thông tin về món hàng trong hóa đơn
+UserID int foreign key references [User](UserID),
+DetailPrice float,
+DetailDiscount float,
+DetailQuantity int check(DetailQuantity > 0),
 TypeOfPayment varchar(50),
 DetailDate datetime,
 )
 
 create table Comment(--Bảng này để chứa feedback của người mua hàng về món hàng đó
-CommentID int identity(1,1) primary key,
+CommentID varchar(50) primary key,
 UserID int foreign key references [User](UserID),--Thông tin của người mua hàng
 ProID varchar(100) foreign key references Product(ProID),--Thông tin của món hàng
-[To] int,
 Comment ntext,
 CommentDate datetime,
 )

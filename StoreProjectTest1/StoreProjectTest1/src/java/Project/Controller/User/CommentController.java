@@ -36,7 +36,7 @@ public class CommentController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String proid = request.getParameter("proid");
-            String message = request.getParameter("Message");
+            String message = request.getParameter("message");
             User u = (User) request.getSession().getAttribute("UI");
             UserDAO dao = new UserDAO();
 

@@ -261,10 +261,11 @@
                                         <div class="product-review-body">
                                             <div class="blog-comment mt-0">
                                                 <h4 class="heading">Comments (${cmt.size()})</h4>
-                                                <div class="blog-comment-item">
-                                                    <c:forEach items="${cmt}" var="c"> 
+
+                                                <c:forEach items="${cmt}" var="c"> 
+                                                    <div class="blog-comment-item">
                                                         <div class="blog-comment-img">
-                                                            <img src="${path}/assets/images/blog/avatar/1-1-120x120.png" alt="User Image">
+                                                            <img src="${path}/assets/images/ava.jfif" alt="User Image">
                                                         </div>
                                                         <div class="blog-comment-content">
                                                             <div class="user-meta">
@@ -278,8 +279,10 @@
                                                             <p class="user-comment">${c.getText()}
                                                             </p>
                                                         </div>
-                                                    </c:forEach>
-                                                </div>
+                                                    </div>
+                                                    </br>
+                                                </c:forEach>
+
 
                                             </div>
                                             <div class="feedback-area">

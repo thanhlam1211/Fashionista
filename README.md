@@ -1,5 +1,6 @@
 # StoreProject
 Project PRJ301 in Summer 2021 Semester
+Using Servlet, MVC model, JSP for view, scss to style and MS SQL for database
 
 ## Installation
 Install [apache tomcat](http://tomcat.apache.org/) to run the project
